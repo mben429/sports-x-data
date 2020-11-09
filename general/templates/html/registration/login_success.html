@@ -1,0 +1,356 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="overall-container" id="overall-container-id">
+
+  <!-- Header Strip container-->
+  <div class="header-strip-container" id="header-strip-container-id">
+     <div class="header-strip-img-container">
+       <img class="header-strip-img" src="{% static 'general/images/field_header_stadium_v2.PNG' %}">
+     </div>
+     <div class="header-bar" id="header-bar-id">
+       <div class="header-bar-btn" id="season-summary-btn-id">
+         <a href="#">Season Overview |</a>
+       </div>
+       <div class="header-bar-btn" id="recent-game-btn-id">
+         <a href="#">Match Center |</a>
+       </div>
+       <div class="header-bar-btn" id="current-standings-btn-id">
+         <a href="#">Season Tracking |</a>
+       </div>
+       <div class="header-bar-btn" id="team-info-btn-id">
+         <a href="#">Team Info |</a>
+       </div>
+     </div>
+     <div class="logo-container-circle" id="logo-container-circle-id">
+       <img class="logo-img-small" style="width: 100%;" src="{% static 'general/images/rsz_massey_logo-small.png' %}">
+     </div>
+     <div class="team-title" id="team-title-id">Massey HS 1st XV | 2020 Season</div>
+
+   </div>
+
+   <!-- First Section => Season Overview-->
+   <div class="section-1" id="section-1-id">
+     <div class="section-1-header" id="section-1-header-id" data-aos="fade-right">
+        <text class="ac-header-txt" id="ac-header-text-id">Season <text style="color: var(--massey-yellow);">Overview</text></text>
+     </div>
+     <div class="s1-panels-container" id="s1-panels-container-id" data-aos="fade-right">
+       <div class="s1-panel" id="s1-p1-id">
+         <div class="panel-title" id="standings-title-id">
+           Standings
+         </div>
+         <div class="standings-container" id="standings-container-id">
+           <!-- STANDINGS TABLE -->
+           <table class="standings-table">
+             <thead>
+               <tr>
+                 <th>Team</th>
+                 <th>P</th>
+                 <th>W</th>
+                 <th>L</th>
+                 <th>D</th>
+                 <th>BP</th>
+                 <th>PF</th>
+                 <th>PA</th>
+                 <th>Pts</th>
+               </tr>
+             </thead>
+             <tbody>
+               <tr>
+                 <th>Westlake BHS</th>
+                 <th>6</th>
+                 <th>6</th>
+                 <th>0</th>
+                 <th>0</th>
+                 <th>6</th>
+                 <th>189</th>
+                 <th>52</th>
+                 <th>30</th>
+               </tr>
+             </tbody>
+             <tbody>
+               <tr>
+                 <th>Rosmini College</th>
+                 <th>6</th>
+                 <th>5</th>
+                 <th>1</th>
+                 <th>0</th>
+                 <th>5</th>
+                 <th>214</th>
+                 <th>44</th>
+                 <th>25</th>
+               </tr>
+             </tbody>
+             <tbody>
+               <tr>
+                 <th>Manurewa HS</th>
+                 <th>6</th>
+                 <th>5</th>
+                 <th>1</th>
+                 <th>0</th>
+                 <th>4</th>
+                 <th>168</th>
+                 <th>54</th>
+                 <th>24</th>
+               </tr>
+             </tbody>
+             <tbody>
+               <tr style="color: var(--massey-yellow);">
+                 <th style="color: var(--massey-yellow);">Massey HS</th>
+                 <th style="color: var(--massey-yellow);">6</th>
+                 <th style="color: var(--massey-yellow);">4</th>
+                 <th style="color: var(--massey-yellow);">2</th>
+                 <th style="color: var(--massey-yellow);">0</th>
+                 <th style="color: var(--massey-yellow);">2</th>
+                 <th style="color: var(--massey-yellow);">102</th>
+                 <th style="color: var(--massey-yellow);">74</th>
+                 <th style="color: var(--massey-yellow);">18</th>
+               </tr>
+             </tbody>
+             <tbody>
+               <tr>
+                 <th>Whangarei BHS</th>
+                 <th>6</th>
+                 <th>3</th>
+                 <th>3</th>
+                 <th>0</th>
+                 <th>1</th>
+                 <th>132</th>
+                 <th>145</th>
+                 <th>13</th>
+               </tr>
+             </tbody>
+             <tbody>
+               <tr>
+                 <th>Rangitoto College</th>
+                 <th>6</th>
+                 <th>2</th>
+                 <th>4</th>
+                 <th>0</th>
+                 <th>4</th>
+                 <th>111</th>
+                 <th>123</th>
+                 <th>12</th>
+               </tr>
+             </tbody>
+             <tbody>
+               <tr>
+                 <th>Takapuna Grammar</th>
+                 <th>6</th>
+                 <th>2</th>
+                 <th>4</th>
+                 <th>0</th>
+                 <th>2</th>
+                 <th>101</th>
+                 <th>102</th>
+                 <th>10</th>
+               </tr>
+             </tbody>
+             <tbody>
+               <tr>
+                 <th>Mahurangi College</th>
+                 <th>6</th>
+                 <th>2</th>
+                 <th>4</th>
+                 <th>0</th>
+                 <th>1</th>
+                 <th>86</th>
+                 <th>169</th>
+                 <th>9</th>
+               </tr>
+             </tbody>
+             <tbody>
+               <tr>
+                 <th>Orewa College</th>
+                 <th>6</th>
+                 <th>1</th>
+                 <th>5</th>
+                 <th>0</th>
+                 <th>1</th>
+                 <th>139</th>
+                 <th>158</th>
+                 <th>5</th>
+               </tr>
+             </tbody>
+           </table>
+         </div>
+       </div>
+       <div class="s1-panel" id="s1-p2-id">
+         <div class="panel-title" id="recent-results-title-id">
+           Recent Matches
+         </div>
+         <div class="recent-results-container" id="recent-results-container-id">
+           <div class="result" id="result-1-id">
+             <text style="color: var(--green-win);">W</text>
+             vs Rangitoto
+           </div>
+           <div class="score" id="score-1-id">
+             | 23-14
+           </div>
+           <div class="result" id="result-2-id">
+             <text style="color: var(--green-win);">W</text>
+             vs Rosmini College
+           </div>
+           <div class="score" id="score-2-id">
+              | 22 - 19
+           </div>
+           <div class="result" id="result-3-id">
+             <text style="color: var(--red-lose);">L</text>
+             vs Westlake BHS
+           </div>
+           <div class="score" id="score-3-id">
+             | 14 - 30
+           </div>
+           <div class="result" id="result-4-id">
+             <text style="color: var(--green-win);">W</text>
+             vs Takapuna Grammar
+           </div>
+           <div class="score" id="score-4-id">
+              | 29-0
+           </div>
+           <div class="result" id="result-5-id">
+             <text style="color: var(--green-win);">W</text>
+             vs Orewa College
+           </div>
+           <div class="score" id="score-5-id">
+              | 54 - 7
+           </div>
+         </div>
+       </div>
+       <div class="s1-panel" id="s1-p3-id">
+         <div class="panel-title" id="team-averages-header-id">
+           Team Averages
+         </div>
+         <div class="team-average-name" id="team-average-name1-id">
+           Avg Points per Game
+         </div>
+         <div class="team-average-score" id="team-average-score-1-id">
+           | 22.5
+         </div>
+         <div class="team-average-name" id="team-average-name2-id">
+           Avg Tackles success % per Game
+         </div>
+         <div class="team-average-score" id="team-average-score-2-id">
+           | 80%
+         </div>
+         <div class="team-average-name" id="team-average-name3-id">
+           Avg Posession % per Game
+         </div>
+         <div class="team-average-score" id="team-average-score-3-id">
+           | 48%
+         </div>
+         <div class="team-average-name" id="team-average-name4-id">
+           Avg Territory % per Game
+         </div>
+         <div class="team-average-score" id="team-average-score-4-id">
+           | 52%
+         </div>
+         <div class="team-average-name" id="team-average-name5-id">
+           Avg Tries per Game
+         </div>
+         <div class="team-average-score" id="team-average-score-5-id">
+           | 3.0
+         </div>
+         <div class="team-average-name" id="team-average-name6-id">
+           Avg Line Breaks per Game
+         </div>
+         <div class="team-average-score" id="team-average-score-6-id">
+           | 8.25
+         </div>
+         <div class="team-average-name" id="team-average-name7-id">
+           Avg Handling Errors per Game
+         </div>
+         <div class="team-average-score" id="team-average-score-7-id">
+           | 10.33
+         </div>
+       </div>
+     </div>
+   </div>
+   <div class="section-2" id="section-2-id">
+     <div class="section-1-header" id="section-1-header-id" data-aos="fade-right">
+        <text class="ac-header-txt" id="ac-header-text-id">Match Center | Game <text style="color: var(--massey-yellow);">vs</text> Rosmini | 24/10/2020</text>
+     </div>
+     <div class="section-2-subheader" id="section-2-subheader-id" data-aos="fade-right">
+        <text class="ac-subheader-txt" id="ac-subheader-text-id">Match <text style="color: var(--massey-yellow);">Overview</text></text>
+     </div>
+     <div class="section-2-row-1-container" id="section-2-row-1-container-id" data-aos="fade-right">
+       <div class="s1-panel" id="s2-p1-id">
+         <div class="big-result-letter" id="big-result-letter-id">W</div>
+         <div class="game-score" id="game-score-id">| 23 - 14</div>
+         <div class="game-stats-content" id="game-stats-content-id">
+           <text style="color: var(--massey-yellow);">Tries:</text> Jack Johnson, Philip Maketu<br><text style="color: var(--massey-yellow);">Cons:</text> Jack Johnson (2/2)<br><text style="color: var(--massey-yellow);">Pens:</text> Jack Johnson (3/4)
+         </div>
+       </div>
+       <div class="s1-panel" id="s2-p2-id">
+         <div class="top-match-performers-header" id="top-match-performers-id">
+           Top Performers
+         </div>
+
+         <div class="top-tackler" id="top-tackler-id">
+           <div class="stat-title">
+             Top Tackler | #7 | Peter Franklin
+           </div>
+           <div class="stat">
+             17 tackles | 94% Success rate
+           </div>
+         </div>
+         <div class="top-ruck-commits" id="top-ruck-commits-id">
+           <div class="stat-title">
+             Most Ruck Commits |  #6 | Liam Colingwood
+           </div>
+           <div class="stat">
+             22 | 73% of all rucks
+           </div>
+         </div>
+         <div class="top-ruck-steals" id="top-ruck-steals-id">
+           <div class="stat-title">
+             Most Ruck Steals | #8 | Johnny Kamu
+           </div>
+           <div class="stat">
+             6
+           </div>
+         </div>
+         <div class="top-playmaker" id="top-playmaker-id">
+           <div class="stat-title">
+             Top Playmaker | #10 | Jack Johnson
+           </div>
+           <div class="stat">
+             7 Passess leading to line Breaks |
+             1 Pass leading to Try |
+             0 Dropped passes
+           </div>
+         </div>
+         <div class="top-linebreaks" id="top-linebreaks-id">
+           <div class="stat-title">
+             Most Linebreaks | #13 | Sam Tamou
+           </div>
+           <div class="stat">
+             5 Clean linebreaks
+           </div>
+         </div>
+         <div class="top-broken-tackles" id="top-broken-tackles-id">
+           <div class="stat-title">
+             Most Defenders Beaten | #8 | Johnny Kamu
+           </div>
+           <div class="stat">
+             10
+           </div>
+         </div>
+         <div class="top-ball-carries" id="top-ball-carries-id">
+           <div class="stat-title">
+             Most Ball Carries | #8 | Johnny Kamu
+           </div>
+           <div class="stat">
+             16
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+   <div class="section-3" id="section-3-id">
+   </div>
+</div>
+
+
+{% endblock %}

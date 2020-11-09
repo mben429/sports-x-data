@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="login-grid-container">
+    <div class="login-page-header">
+        Login to Athlete Center.
+    </div>
+
+    <div class="form-login" data-aos="fade-right">
+        <form class="form-center" method="post">
+
+            {% csrf_token %}
+            {{ form.as_p }}
+            <br>
+            <button type="submit" class="login-page-button">Access Athlete Center</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

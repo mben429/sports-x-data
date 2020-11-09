@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="contact-grid-container">
+    <div class="contact-page-header" data-aos="fade-right">
+        Get in Contact.
+    </div>
+
+    <div class="form" data-aos="fade-right">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="submit-btn">Send</button>
+        </form>
+    </div>
+
+    <div class="contact-info-header">
+        Contact Info
+    </div>
+
+    <div class="contact-info-text" data-aos="fade-right">
+        Email: michael@sportsxdatanz.com
+        <br>
+        <br>
+        Ph: 022 694 3048
+    </div>
+</div>
+{% endblock %}

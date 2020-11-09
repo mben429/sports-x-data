@@ -1,0 +1,226 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="stats-grid-container">
+
+    <div class="header-strip-container" id="header-strip-container-id">
+      <div class="header-strip-img-container">
+        <img class="header-strip-img" src="{% static 'general/images/field_header_stadium_v2.PNG' %}">
+      </div>
+      <div class="header-bar" id="header-bar-id">
+        <div class="header-bar-btn" id="season-summary-btn-id">
+          <a href="#">Season Overview |</a>
+        </div>
+        <div class="header-bar-btn" id="recent-game-btn-id">
+          <a href="#">Match Center |</a>
+        </div>
+        <div class="header-bar-btn" id="current-standings-btn-id">
+          <a href="#">Standings |</a>
+        </div>
+        <div class="header-bar-btn" id="team-info-btn-id">
+          <a href="#">Team Info |</a>
+        </div>
+      </div>
+      <div class="logo-container-circle" id="logo-container-circle-id">
+        <img class="logo-img-small" style="width: 100%;" src="{% static 'general/images/rsz_massey_logo-small.png' %}">
+      </div>
+      <div class="team-title" id="team-title-id">Massey HS 1st XV | 2020 Season</div>
+    </div>
+
+    <!-- Statistics Panels begin -->
+    <div class="team-insights-container">
+        <!-- Panel 1-1 -->
+        <div class="panel" id="panel-1-1" data-aos="fade-up">
+            <div class="panel-header" id="panel-1-1-header">2021 Season</div>
+            <div class="panel-wins" id="panel-1-1-wins">W: 5</div>
+            <div class="panel-losses" id="panel-1-1-losses">L: 1</div>
+            <div class="panel-draws" id="panel-1-1-draws">D: 1</div>
+            <a href="#" class="panel-btn" id="panel-1-1-btn">View Full Standings</a>
+            <div class="panel-pf" id="panel-1-1-pf">Points For/Game:
+              <text style="color: var(--green-win);">25</text>
+            </div>
+            <div class="panel-pa" id="panel-1-1-pa">Points Against/Game:
+              <text style="color: var(--red-lose);">13</text>
+            </div>
+            <div class="panel-pdiff" id="panel-1-1-pdiff">Points Diff/Game:
+              <text style="color: white;">12</text>
+            </div>
+        </div>
+        <!-- Panel 1-2 -->
+        <div class="panel" id="panel-1-2" data-aos="fade-up">
+            <div class="panel-1-2-header" id="panel-1-1-header">North Harbor 1A 1st XV Competition</div>
+            <div class="panel-placement" id="panel-1-2-placement">2nd</div>
+            <div class="panel-sub-header" id="panel-1-2-subheader">Last 3 Games:</div>
+            <div class="panel-game-1" id="panel-1-2-game-1">
+              <text style="color: var(--green-win);">W</text>
+              vs Westlake BHS
+            </div>
+            <div class="panel-game-2" id="panel-1-2-game-2">
+              <text style="color: var(--red-lose);">L</text>
+              vs Rosmini
+            </div>
+            <div class="panel-game-3" id="panel-1-2-game-3">
+              <text style="color: var(--green-win)">W</text>
+              vs TGS
+            </div>
+            <a href="#" class="panel-btn" id="panel-1-1-btn">View All Results</a>
+        </div>
+
+        <!-- Panel 1-3 -->
+        <div class="panel" id="panel-1-3" data-aos="fade-up">
+            <div class="panel-header" id="panel-1-1-header">Key Insights</div>
+            <div class="panel-insights-1" id="panel-1-3-insight-1">
+              <text style="color: var(--green-win);">12% decrease</text>
+              in
+              <text style="color: var(--massey-yellow);">% Tackles Missed</text>
+              over last 5 games.
+            </div>
+            <div class="panel-insights-2" id="panel-1-3-insight-2">
+              <text style="color: var(--green-win);">9% decrease</text>
+              in
+              <text style="color: var(--massey-yellow);">Handling Errors Commited</text>
+              over last 5 games.
+            </div>
+            <div class="panel-insights-3" id="panel-1-3-insight-3">
+              <text style="color: var(--red-lose);">15% slower</text>
+              <text style="color: var(--massey-yellow);">Average Ruck Speed</text>
+                than opponent in last 5 games.
+            </div>
+        </div>
+
+        <!-- Panel 2-1 -->
+        <div class="panel" id="panel-2-1" data-aos="fade-up">
+          <div class="panel-1-2-header" id="panel-1-1-header">Team Tackle Success %</div>
+          <div id="tackles_improv"><canvas id="tackles_improvement_lc"></canvas></div>
+          <script>team_tackle_line_graph();</script>
+        </div>
+
+        <!-- Panel 2-2 -->
+        <div class="panel" id="panel-2-2" data-aos="fade-up">
+          <div class="panel-1-2-header" id="panel-1-1-header">Total Handling Errors Per game</div>
+          <div id="tackles_improv"><canvas id="handling-errors-pg"></canvas></div>
+          <script>total_handling_errors_pg();</script>
+        </div>
+
+        <!-- Panel 2-3 -->
+        <div class="panel" id="panel-2-3" data-aos="fade-up">
+          <div class="panel-1-2-header" id="panel-1-1-header">Posession % Per Game</div>
+          <div id="tackles_improv"><canvas id="overall_posession_pg"></canvas></div>
+          <script>overall_posession_pg();</script>
+        </div>
+
+        <!-- Current Game title -->
+        <div class="current-game-wrapper" data-aos="fade-right">
+            <div class="team-against-header" id="team-against-header-pos">Match Center.</div>
+            <div class="team-against-sub-header" id="team-against-sub-header-pos">Most Recent Game | Sat 10th March vs Westlake BHS 1st XV</div>
+            <br>
+        </div>
+
+
+        <!-- Contains all current game analysis -->
+        <div class="game-analysis-container">
+          <!-- Results Panel -->
+          <div class="game-analysis-panel" id="result-panel-id" data-aos="fade-right">
+            <div class="big-result" id="big-result-id">W</div>
+            <div class="big-score" id="big-score-id">30 - 20</div>
+            <div class="big-posession" id="big-posession-id">Posession</div>
+
+            <div class="big-posession-content" id="big-posession-content-id">58%</div>
+            <div class="big-posession" id="big-territory-id">Territory</div>
+            <div class="big-posession-content" id="big-territory-content-id">61%</div>
+            <div class="big-posession" id="big-tackles-id">Tackle Success %</div>
+            <div class="big-posession-content" id="big-tackles-content-id">75%</div>
+          </div>
+
+          <!-- Top Performers Panel -->
+          <div class="game-analysis-panel" id="top-performers-id" data-aos="fade-right" data-aos-delay="150">
+            <div class="top-performers-title" id="top-performers-title-id">Top Performers</div>
+
+            <!-- Top tackler -->
+            <div class="top-tackler-title" id="top-tackler-title-id">Most Tackles</div>
+            <div class="top-tackler-name" id="top-tackler-name-id">#6 - Jack Johnson</div>
+            <div class="top-tackler-content" id="top-tackler-content-id">Total: 15</div>
+
+            <!-- Most Rucks Commited -->
+            <div class="top-tackler-title" id="top-rucks-commited-title-id">Most Rucks Committed To</div>
+            <div class="top-tackler-name" id="top-rucks-commited-id">#7 - Sam Williams</div>
+            <div class="top-tackler-content" id="top-rucks-content-id">Total: 23</div>
+
+            <!-- Most Line Breaks -->
+            <div class="top-tackler-title" id="top-line-breaks-title-id">Most Line Breaks</div>
+            <div class="top-tackler-name" id="top-line-breaks-id">#13 - Donald Lima</div>
+            <div class="top-tackler-content" id="top-line-breaks-content-id">Total: 6</div>
+
+            <!-- Most successfull in-game passes -->
+            <div class="top-tackler-title" id="top-in-game-passes-title-id">Best Passer</div>
+            <div class="top-tackler-name" id="top-in-game-passes-name-id">#10 - Sam Tu'u</div>
+            <div class="top-tackler-content" id="top-in-game-passes-content-id">Total: 8</div>
+
+            <!-- Main Statistics -->
+            <div class="game-stats-title" id="game-stats-title-id">Game Stats</div>
+            <div class="game-stats-tries" id="game-stats-tries-id">
+              <text style="color: var(--massey-yellow);">Tries:</text>
+              Donald Lima (2), Isaiah Johns, Sam Tu'u
+            </div>
+            <div class="game-stats-tries" id="game-stats-cons-id">
+              <text style="color: var(--massey-yellow);">Cons:</text>
+                Sam Tu'u (2/4)
+            </div>
+            <div class="game-stats-tries" id="game-stats-pens-id">
+              <text style="color: var(--massey-yellow);">Pens:</text>
+                Sam Tu'u (2/2)
+            </div>
+          </div>
+
+          <!-- Lineup Panel -->
+          <div class="game-analysis-panel" id="starting-lineup-id" data-aos="fade-right" data-aos-delay="450">
+            <div class="starting-lineup-title" id="top-performers-title-id">Starting Lineup</div>
+
+            <div class="lineup-container" id="lineup-container-id">
+              <div id="num-15"><text class="num-lineup">15.     </text>Simon Franklin</div>
+              <div id="num-14"><text class="num-lineup">14.     </text>John Simons</div>
+              <div id="num-13"><text class="num-lineup">13.     </text>Donald Lima</div>
+              <div id="num-12"><text class="num-lineup">12.     </text>Isaiah Johns</div>
+              <div id="num-11"><text class="num-lineup">11.     </text>Freddy Kavau</div>
+              <div id="num-10"><text class="num-lineup">10.     </text>Sam Tu'u</div>
+              <div id="num-9"><text class="num-lineup">9.     </text>Duncan Robinson</div>
+              <div id="num-8"><text class="num-lineup">8.     </text>Stevie Linklater</div>
+              <div id="num-7"><text class="num-lineup">7.     </text>Sam Williams</div>
+              <div id="num-6"><text class="num-lineup">6.     </text>Johnny Samu</div>
+              <div id="num-5"><text class="num-lineup">5.     </text>Jacob Fredericks</div>
+              <div id="num-4"><text class="num-lineup">4.     </text>Philip Manu</div>
+              <div id="num-3"><text class="num-lineup">3.     </text>Tui Tealata</div>
+              <div id="num-2"><text class="num-lineup">2.     </text>Kevin Palu</div>
+              <div id="num-1"><text class="num-lineup">1.     </text>Liam Smiley</div>
+            </div>
+          </div>
+
+          <!-- Row 2 of Panels -->
+          <div class="row2-graphs-container" id="row2-graphs-container-id">
+              <div class="game-analysis-panel" id="ruck-speed-graph-id" data-aos="fade-up">
+                <div class="graphs-title" id="graphs-title-id">Rucks at Differing Speeds %</div>
+                <div id="ruck-speed-canv-container"><canvas id="ruck_speed_canvas"></canvas></div>
+                <script>ruck_speed_pie();</script>
+              </div>
+              <div class="game-analysis-panel" id="lineout-success-graph-id" data-aos="fade-up">
+                <div class="graphs-title" id="graphs-title-id">Lineout Success %</div>
+                <div id="ruck-speed-canv-container"><canvas id="lineout_success_canvas"></canvas></div>
+                <script>lineout_success_pie();</script>
+              </div>
+              <div class="game-analysis-panel" id="scrum-success-graph-id" data-aos="fade-up">
+                <div class="graphs-title" id="graphs-title-id">Scrum Success %</div>
+                <div id="ruck-speed-canv-container"><canvas id="scrum_success_canvas"></canvas></div>
+                <script>scrum_success_pie();</script>
+              </div>
+              <div class="game-analysis-panel" id="passing-success-graph-id" data-aos="fade-up">
+                <div class="graphs-title" id="graphs-title-id">Passing Success %</div>
+                <div id="ruck-speed-canv-container"><canvas id="passing_success_canvas"></canvas></div>
+                <script>passing_success_pie();</script>
+              </div>
+          </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

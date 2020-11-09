@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="athlete-centre-grid-container">
+    Yo
+
+</div>
+{% endblock %}

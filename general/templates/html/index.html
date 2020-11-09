@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="content-grid-container">
+
+    <div class="homepage-title-1" data-aos="fade-right">
+        Analyze<text style="color: var(--massey-yellow);">.</text> Improve<text style="color: var(--massey-yellow);">.</text>  Advance<text style="color: var(--massey-yellow);">.</text>
+    </div>
+
+    <div class="homepage-subtitle-1" data-aos="fade-right">
+        Sign up with us to get access to <text style="color: var(--massey-yellow);">in-depth and advanced analysis</text> of your game footage.
+        <br>
+        <br>
+        <a class="btn-learn-more" href="/about-us">Learn More</a>
+    </div>
+
+    <div class="homepage-img-container" data-aos="fade-right">
+      <img class="hom-img-centre" src="{% static 'general/images/graphic_homepage_larger.PNG' %}">
+    </div>
+
+    <div class="three-steps-header" id="three-steps-header-id" data-aos="fade-right">
+      Easy <text style="color: var(--massey-yellow);">3 Step</text> Process.
+    </div>
+    <!-- Three steps container-->
+    <div class="three-steps-container" id="three-steps-container-id" data-aos="fade-right">
+      <div class="step" id="film-games-step-id">
+        <img class="img-step" src="{% static 'general/images/send.PNG' %}">
+        <div class="step-title" id="step-title-id"><text style="color: var(--massey-yellow);">YOU upload</text> your Game Footage</div>
+        <div class="step-sub" id="step-sub-id">
+          Assign someone in your squad or team community to send us footage each week.
+        </div>
+      </div>
+      <div class="step" id="send-footage-step-id">
+        <img class="img-step" src="{% static 'general/images/statistics.PNG' %}">
+        <div class="step-title" id="step-title-id"><text style="color: var(--massey-yellow);">WE Extract and gather</text> insights</div>
+        <div class="step-sub" id="step-sub-id">
+          We gather <text style="color: var(--massey-yellow);">advanced, focused, and in-depth</text> insights from your footage.
+        </div>
+      </div>
+      <div class="step" id="receive-insights-step-id">
+        <img class="img-step" src="{% static 'general/images/dboard.PNG' %}">
+        <div class="step-title" id="step-title-id"><text style="color: var(--massey-yellow);">YOU Login and Access</text> these insights</div>
+        <div class="step-sub" id="step-sub-id">
+          Login to your team's <text style="color: var(--massey-yellow);">"Athlete Centre"</text> to access your compiled reports. No Sweat.
+        </div>
+      </div>
+    </div>
+
+    <!--What you'll get Container-->
+    <div class="three-steps-header" id="what-youll-get-header-id" data-aos="fade-right">
+      What <text style="color: var(--massey-yellow);">you'll get</text>.
+    </div>
+
+    <div class="what-youll-get-container" id="what-youll-get-container-id" data-aos="fade-right">
+
+
+      <div class="hp-panel" id="season-overview-panel-id">
+        <div class="hp-panel-img" id="hp-panel-season-overview-img-id">
+          <!-- Image here -->
+          <img class="hp-panel-img-center" src="{% static 'general/images/report.PNG' %}">
+        </div>
+        <div class="hp-panel-title" id="hp-panel-season-overview-id">Season Overview</div>
+        <div class="hp-panel-subtitle" id="hp-panel-season-overview-subtitle-id">
+          We look at your season as a whole: League Standings,
+          <text style="color: var(--massey-yellow);">Season Averages, Recent Results, Fixtures</text>, and more. This is updated every week.
+        </div>
+      </div>
+
+
+      <div class="hp-panel" id="match-overview-panel-id">
+        <div class="hp-panel-img" id="hp-panel-match-overview-img-id">
+          <!-- Imagre -->
+          <img class="hp-panel-img-center" src="{% static 'general/images/analytics.PNG' %}">
+        </div>
+        <div class="hp-panel-title" id="hp-match-overview-id">Match Report</div>
+        <div class="hp-panel-subtitle" id="hp-match-overview-subtitle-id">
+          After every match you play, a <text style="color: var(--massey-yellow);">full Match Analysis</text> will be conducted and displayed in your Athlete Center within a few days.
+        </div>
+      </div>
+
+
+      <div class="hp-panel" id="season-long-tracking-panel-id">
+        <div class="hp-panel-img" id="hp-panel-season-long-tracking-img-id">
+          <!-- Image here -->
+          <img class="hp-panel-img-center" src="{% static 'general/images/tracking.PNG' %}">
+        </div>
+        <div class="hp-panel-title" id="hp-panel-season-long-tracking-id">Season-Long Tracking</div>
+        <div class="hp-panel-subtitle" id="hp-panel-season-long-tracking-subtitle-id">
+          Each week we revisit this section to update how your team is <text style="color: var(--massey-yellow);">progressing throughout the season.</text>
+        </div>
+      </div>
+
+
+      <div class="hp-panel" id="player-performance-tracking-panel-id">
+        <div class="hp-panel-img" id="hp-panel-player-performance-tracking-img-id">
+          <!-- Image here -->
+          <img class="hp-panel-img-center" src="{% static 'general/images/player.PNG' %}">
+        </div>
+        <div class="hp-panel-title" id="hp-player-performance-tracking-overview-id">Player Performance Tracking</div>
+        <div class="hp-panel-subtitle" id="hp-player-performance-tracking-subtitle-id">
+          For all you players out there looking to make sure your skills are known, sign up for our <text style="color: var(--massey-yellow);">Player Performance Package.</text>
+           We take a good look at your games throughout the season, and focus <text style="color: var(--massey-yellow);">SOLELY on YOU.</text>
+        </div>
+      </div>
+
+    </div>
+</div>
+
+
+{% endblock %}
