@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '6n*vusj^#4a+-mfnvr78*0$ifqvrcd0&z$xkphk&jy$p_5(rh1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['.herokuapp.com','sportsxdatanzapp.herokuapp.com',]
 
