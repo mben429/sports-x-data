@@ -25,9 +25,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '6n*vusj^#4a+-mfnvr78*0$ifqvrcd0&z$xkphk&jy$p_5(rh1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['.herokuapp.com','sportsxdatanzapp.herokuapp.com',]
+ALLOWED_HOSTS = ['sportsxdatanz.com','sportsxdatanzapp.herokuapp.com',]
 
 
 # Application definition
@@ -142,3 +142,4 @@ EMAIL_HOST_PASSWORD = "Sportsxdataformvp13"
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 django_heroku.settings(locals())
+
