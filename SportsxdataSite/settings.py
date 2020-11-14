@@ -29,7 +29,6 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['sportsxdatanz.com','sportsxdatanzapp.herokuapp.com',]
 
-
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -158,6 +157,7 @@ LOGGING = {
         }
     }
 }
+DEBUG_PROPAGATE_EXCEPTIONS = True
 
 
 
