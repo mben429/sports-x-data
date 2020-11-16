@@ -10,12 +10,26 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
+import json
 import os
 import django_heroku
 import dj_database_url
+from django.core.exceptions import ImproperlyConfigured
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+
+# Getting secret info
+with open(os.path.join(BASE_DIR, 'secrets.json')) as secrets_file:
+    secrets = json.load(secrets_file)
+
+def get_secret(setting, secrets=secrets):
+    try:
+        return secrets[setting]
+    except KeyError:
+        raise ImproperlyConfigured("Set the {} setting".format(setting))
 
 
 # Quick-start development settings - unsuitable for production
@@ -83,10 +97,10 @@ WSGI_APPLICATION = 'SportsxdataSite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dbtest',
-        'USER': 'postgres',
-        'PASSWORD': 'Postgresqlformvp13',
-        'HOST': '127.0.0.1',
+        'NAME': 'd189cmmjtbv37i',
+        'USER': 'rmqrecbfyzyvwn',
+        'PASSWORD': get_secret("DB_PASSWORD"),
+        'HOST': 'ec2-54-157-88-70.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
@@ -125,6 +139,8 @@ USE_L10N = True
 
 USE_TZ = True
 
+#For more detail in the LOGS!!
+DEBUG_PROPAGATE_EXCEPTIONS = True
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -157,7 +173,7 @@ LOGGING = {
         }
     }
 }
-DEBUG_PROPAGATE_EXCEPTIONS = True
+
 
 
 
@@ -176,7 +192,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = "michael@sportsxdatanz.com"
-EMAIL_HOST_PASSWORD = "Sportsxdataformvp13"
+EMAIL_HOST_PASSWORD = get_secret("EMAIL_PASSWORD")
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 django_heroku.settings(locals())
