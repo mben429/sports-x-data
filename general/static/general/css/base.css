@@ -280,8 +280,8 @@ body {
 #three-steps-header-id {
   grid-column-start: 1;
   grid-column-end: 7;
-  grid-row-start: 6;
-  grid-row-end: 7;
+  grid-row-start: 7;
+  grid-row-end: 8;
 }
 
 .three-steps-container{
@@ -291,8 +291,8 @@ body {
 }
 
 #three-steps-container-id {
-  grid-row-start: 7;
-  grid-row-end: 13;
+  grid-row-start: 8;
+  grid-row-end: 14;
   grid-column-start: 1;
   grid-column-end: 7;
 }
@@ -367,8 +367,8 @@ body {
 #what-youll-get-header-id {
     grid-column-start: 1;
     grid-column-end: 7;
-    grid-row-start: 14;
-    grid-row-end: 15;
+    grid-row-start: 15;
+    grid-row-end: 16;
 }
 
 /*What you'll get*/
@@ -381,8 +381,8 @@ body {
 #what-youll-get-container-id {
   grid-column-start: 1;
   grid-column-end: 7;
-  grid-row-start: 15;
-  grid-row-end: 20;
+  grid-row-start: 16;
+  grid-row-end: 21;
 }
 
 .hp-panel {
