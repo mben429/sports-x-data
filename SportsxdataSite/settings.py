@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Getting secret info
-with open(os.path.join(BASE_DIR, 'secrets.json')) as secrets_file:
+with open('secrets.json') as secrets_file:
     secrets = json.load(secrets_file)
 
 def get_secret(setting, secrets=secrets):
