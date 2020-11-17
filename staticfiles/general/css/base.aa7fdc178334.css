@@ -2347,22 +2347,5 @@ td, th {
   text-decoration: none;
   color: black;
   text-align: center;
-  margin: 30px;
-  font-size: 20px;
-  font-style: bold;
-
-}
-
-.btn-contact-us:hover {
-  background-color: black;
-  border-color: var(--massey-yellow);
-  border-width: 1.5px;
-  border-style: solid;
-  border-radius: 10px;
-  text-decoration: none;
-  color: var(--massey-yellow);
-  text-align: center;
-  margin: 30px;
-  font-size: 20px;
-  font-style: bold;
+  margin: 15px;
 }

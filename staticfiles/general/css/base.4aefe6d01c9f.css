@@ -229,6 +229,15 @@ body {
   font-style: bold;
 }
 
+#btn-learn-more-id {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-start: 22;
+  grid-row-end: 23;
+
+  text-align: center;
+}
+
 .btn-learn-more:hover{
   color: var(--massey-yellow);
   background-color: black;
@@ -2327,42 +2336,4 @@ td, th {
   grid-column-end: 11;
   grid-row-start: 9;
   grid-row-end: 11;
-}
-
-#btn-contact-us-id {
-  grid-column-start: 3;
-  grid-column-end: 5;
-  grid-row-start: 22;
-  grid-row-end: 23;
-
-  text-align: center;
-}
-
-.btn-contact-us {
-  background-color: var(--massey-yellow);
-  border-color: black;
-  border-width: 1.5px;
-  border-style: solid;
-  border-radius: 10px;
-  text-decoration: none;
-  color: black;
-  text-align: center;
-  margin: 30px;
-  font-size: 20px;
-  font-style: bold;
-
-}
-
-.btn-contact-us:hover {
-  background-color: black;
-  border-color: var(--massey-yellow);
-  border-width: 1.5px;
-  border-style: solid;
-  border-radius: 10px;
-  text-decoration: none;
-  color: var(--massey-yellow);
-  text-align: center;
-  margin: 30px;
-  font-size: 20px;
-  font-style: bold;
 }

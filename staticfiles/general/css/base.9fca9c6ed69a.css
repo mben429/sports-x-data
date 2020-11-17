@@ -2347,9 +2347,7 @@ td, th {
   text-decoration: none;
   color: black;
   text-align: center;
-  margin: 30px;
-  font-size: 20px;
-  font-style: bold;
+  margin: 25px;
 
 }
 
@@ -2362,7 +2360,5 @@ td, th {
   text-decoration: none;
   color: var(--massey-yellow);
   text-align: center;
-  margin: 30px;
-  font-size: 20px;
-  font-style: bold;
+  margin: 15px;
 }
