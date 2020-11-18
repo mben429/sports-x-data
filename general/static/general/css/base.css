@@ -555,9 +555,11 @@ body {
 }
 
 .submit-btn:hover {
+    cursor: pointer;
     color: var(--massey-yellow);
     background-color: black;
     border-color: var(--massey-yellow);
+    border-width: 1px;
 }
 
 .form {

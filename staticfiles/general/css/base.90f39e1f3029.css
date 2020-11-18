@@ -559,7 +559,6 @@ body {
     color: var(--massey-yellow);
     background-color: black;
     border-color: var(--massey-yellow);
-    border-width: 1px;
 }
 
 .form {
