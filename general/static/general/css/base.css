@@ -655,13 +655,29 @@ body {
   padding-bottom: 5px;
   color: black;
   border-style: solid;
-  border-width: 3px;
+  border-width: 1px;
   border-color: black;
   background-color: var(--massey-yellow);
   text-decoration: none;
   font-size: 20px;
   margin-left: 20px;
+}
 
+.login-page-button:hover {
+  cursor: pointer;
+  border-radius: 10px;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: var(--massey-yellow);
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--massey-yellow);
+  background-color: black;
+  text-decoration: none;
+  font-size: 20px;
+  margin-left: 20px;
 }
 
 /*Athlete-centre page*/
