@@ -14,7 +14,6 @@ import json
 import os
 import django_heroku
 import dj_database_url
-from django.core.exceptions import ImproperlyConfigured
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -87,7 +86,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'd189cmmjtbv37i',
         'USER': 'rmqrecbfyzyvwn',
-        'PASSWORD': os.environ['DB_PASSWORD'],
+        'PASSWORD': os.environ["DB_PASSWORD"],
         'HOST': 'ec2-54-157-88-70.compute-1.amazonaws.com',
         'PORT': '5432',
     }
