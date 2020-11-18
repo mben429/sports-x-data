@@ -20,18 +20,6 @@ from django.core.exceptions import ImproperlyConfigured
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
-# Getting secret info
-with open('SportsxdataSite/secrets.json') as secrets_file:
-    secrets = json.load(secrets_file)
-
-def get_secret(setting, secrets=secrets):
-    try:
-        return secrets[setting]
-    except KeyError:
-        raise ImproperlyConfigured("Set the {} setting".format(setting))
-
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
@@ -99,7 +87,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'd189cmmjtbv37i',
         'USER': 'rmqrecbfyzyvwn',
-        'PASSWORD': get_secret("DB_PASSWORD"),
+        'PASSWORD': os.environ("DB_PASSWORD"),
         'HOST': 'ec2-54-157-88-70.compute-1.amazonaws.com',
         'PORT': '5432',
     }
@@ -192,7 +180,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = "michael@sportsxdatanz.com"
-EMAIL_HOST_PASSWORD = get_secret("EMAIL_PASSWORD")
+EMAIL_HOST_PASSWORD = os.environ("EMAIL_PASSWORD")
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 django_heroku.settings(locals())
