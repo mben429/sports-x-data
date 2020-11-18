@@ -30,6 +30,10 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['sportsxdatanz.com','sportsxdatanzapp.herokuapp.com',]
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend'
+]
+
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
