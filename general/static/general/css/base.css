@@ -2348,7 +2348,7 @@ td, th {
   color: black;
   text-align: center;
   margin: 30px;
-  font-size: 20px;
+  font-size: 22px;
   font-style: bold;
 
 }
@@ -2363,6 +2363,6 @@ td, th {
   color: var(--massey-yellow);
   text-align: center;
   margin: 30px;
-  font-size: 20px;
+  font-size: 22px;
   font-style: bold;
 }
