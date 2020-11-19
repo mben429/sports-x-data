@@ -1,5 +1,5 @@
 # contactform/views.py
-from django.core.mail import send_mail, BadHeaderError, get_connection
+from django.core.mail import send_mail, BadHeaderError, get_connection, EmailMultiAlternatives
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from .forms import ContactForm
@@ -11,7 +11,7 @@ def contactView(request):
     else:
         form = ContactForm(request.POST)
         if form.is_valid():
-            con = get_connection('django.core.mail.backends.console.EmailBackend')
+            #con = get_connection('django.core.mail.backends.console.EmailBackend')
 
             user_org = form.cleaned_data['user_org']
             user_email = form.cleaned_data['user_email']
@@ -19,8 +19,11 @@ def contactView(request):
             user_name = form.cleaned_data['user_name']
             user_subject = form.cleaned_data["user_subject"]
 
-            recipient = ["michael@sportsxdatanz.com"]
-            send_mail(user_subject, user_message, user_email, recipient, connection=con)
+            recipient = ["mtbennett9010@gmail.com"]
+            #send_mail(user_subject, user_message, user_email, recipient, connection=con)
+
+            message = EmailMultiAlternatives(user_subject, user_message, user_email, recipient)
+            message.send()
             return redirect('success')
 
     return render(request, "contact.html", {'form': form})
