@@ -689,7 +689,7 @@
 
   .header-bar-btn a:hover {
     color: var(--massey-yellow);
-    font-size: 15.5px;
+    font-size: 14.5px;
   }
 
   #season-summary-btn-id {
@@ -708,8 +708,8 @@
   }
 
   #team-info-btn-id {
-    grid-column-start: 13;
-    grid-column-end: 15;
+    grid-column-start: 14;
+    grid-column-end: 16;
   }
 
 
@@ -727,9 +727,9 @@
 
   .logo-container-circle {
     background-color: black;
-    border-width: 1px;
+    border-width: 2px;
     border-style: solid;
-    border-color: var(--dark-blue-outline);
+    border-color: var(--massey-yellow);
     border-radius: 50%;
     margin-top: 5px;
     margin-bottom: 5px;
@@ -791,7 +791,7 @@
   }
 
   .ac-header-txt {
-    font-size: 50px;
+    font-size: 55px;
     color: white;
     padding-left: 20px;
   }
@@ -1126,7 +1126,7 @@
   }
 
   .section-2-subheader {
-    font-size: 25px;
+    font-size: 40px;
     background-color: var(--massey-black);
     border-color: var(--medium-grey-diff);
     border-width: 1px;
@@ -1142,7 +1142,7 @@
     grid-row-end: 13;
   }
 
-  .section-2-row-1-container {
+  .section-2-row-container {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     grid-template-rows: repeat(3, 1fr);
@@ -1207,13 +1207,47 @@
     grid-row-end: 9;
   }
 
+  .game-stats-content-header {
+    font-size: 21px;
+    padding-left: 20px;
+  }
+
+  #game-stats-content-header-id {
+    grid-column-start: 1;
+    grid-column-end: 6;
+    grid-row-start: 6;
+    grid-row-end: 7;
+  }
+
   .game-stats-content {
-    font-size: 19px;
+    font-size: 17px;
     padding-left: 20px;
   }
 
   #game-stats-content-id {
     grid-column-start: 1;
+    grid-column-end: 6;
+    grid-row-start: 7;
+    grid-row-end: 9;
+  }
+
+  .game-stats-improvements-header {
+    font-size: 21px;
+  }
+
+  #game-stats-improvements-header-id {
+    grid-column-start: 7;
+    grid-column-end: 11;
+    grid-row-start: 6;
+    grid-row-end: 7;
+  }
+
+  .game-stats-improvements-content {
+    font-size: 15px;
+  }
+
+  #game-stats-improvements-content-id {
+    grid-column-start: 7;
     grid-column-end: 11;
     grid-row-start: 7;
     grid-row-end: 9;
@@ -1337,7 +1371,33 @@
     font-style: bold;
   }
 
+  #section-2-subheader-2-id {
+    grid-column-start: 1;
+    grid-column-end: 10;
+    grid-row-start: 14;
+    grid-row-end: 15;
+  }
 
+  #section-2-row-2-container-id {
+    grid-column-start: 1;
+    grid-column-end: 10;
+    grid-row-start: 15;
+    grid-row-end: 24;
+  }
+
+  #s2-p3-id {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 4;
+  }
+
+  #s2-p4-id {
+    grid-column-start: 4;
+    grid-column-end: 11;
+    grid-row-start: 1;
+    grid-row-end: 4;
+  }
 }
 
 @media (max-width: 1239px) {
@@ -1469,7 +1529,7 @@
   }
 
 
-  /* homepage css */
+  /*Homepage css*/
   .content-grid-container {
     display: grid;
     background-color: black;
@@ -1977,7 +2037,7 @@
 
   .header-bar-btn a:hover {
     color: var(--massey-yellow);
-    font-size: 15.5px;
+    font-size: 14.5px;
   }
 
   #season-summary-btn-id {
@@ -1996,8 +2056,8 @@
   }
 
   #team-info-btn-id {
-    grid-column-start: 13;
-    grid-column-end: 15;
+    grid-column-start: 14;
+    grid-column-end: 16;
   }
 
 
@@ -2414,7 +2474,6 @@
   }
 
   .section-2-subheader {
-    font-size: 25px;
     background-color: var(--massey-black);
     border-color: var(--medium-grey-diff);
     border-width: 1px;
@@ -2430,7 +2489,7 @@
     grid-row-end: 13;
   }
 
-  .section-2-row-1-container {
+  .section-2-row-container {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     grid-template-rows: repeat(3, 1fr);
@@ -2625,6 +2684,7 @@
     font-style: bold;
   }
 }
+
 
 /*
 @media (max-width: 900px) {

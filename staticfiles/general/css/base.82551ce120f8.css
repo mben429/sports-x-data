@@ -791,7 +791,7 @@
   }
 
   .ac-header-txt {
-    font-size: 55px;
+    font-size: 50px;
     color: white;
     padding-left: 20px;
   }
@@ -1126,7 +1126,7 @@
   }
 
   .section-2-subheader {
-    font-size: 40px;
+    font-size: 25px;
     background-color: var(--massey-black);
     border-color: var(--medium-grey-diff);
     border-width: 1px;
@@ -1142,7 +1142,7 @@
     grid-row-end: 13;
   }
 
-  .section-2-row-container {
+  .section-2-row-1-container {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     grid-template-rows: repeat(3, 1fr);
@@ -1378,26 +1378,7 @@
     grid-row-end: 15;
   }
 
-  #section-2-row-2-container-id {
-    grid-column-start: 1;
-    grid-column-end: 10;
-    grid-row-start: 15;
-    grid-row-end: 24;
-  }
 
-  #s2-p3-id {
-    grid-column-start: 1;
-    grid-column-end: 4;
-    grid-row-start: 1;
-    grid-row-end: 4;
-  }
-
-  #s2-p4-id {
-    grid-column-start: 4;
-    grid-column-end: 11;
-    grid-row-start: 1;
-    grid-row-end: 4;
-  }
 }
 
 @media (max-width: 1239px) {
@@ -2474,6 +2455,7 @@
   }
 
   .section-2-subheader {
+    font-size: 40px;
     background-color: var(--massey-black);
     border-color: var(--medium-grey-diff);
     border-width: 1px;
@@ -2489,7 +2471,7 @@
     grid-row-end: 13;
   }
 
-  .section-2-row-container {
+  .section-2-row-1-container {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     grid-template-rows: repeat(3, 1fr);
