@@ -152,8 +152,8 @@ function tackles_pi_graph(){
         ],
         borderWidth: 5,
         borderColor: [
-          "rgb(15,14,16)",
-          "rgb(15,14,16)"        
+          "rgb(255,255,255)",
+          "rgb(255,255,255)"        
         ],
         
           hoverBorderWidth: 1,

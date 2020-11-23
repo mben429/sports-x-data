@@ -1,7 +1,3 @@
-let green_win = "rgb(80,118,35)";
-let red_win = "rgb(154,46,46)";
-
-
 function team_tackle_line_graph(){
   var ctx = document.getElementById('tackles_improvement_lc').getContext('2d');
   var newLineChart = new Chart(ctx, {
@@ -147,18 +143,17 @@ function tackles_pi_graph(){
       datasets: [{
         data: [55, 45],
         backgroundColor: [
-          green_win,
-          red_win
+          "rgb(255,205,86)",
+          "rgb(197,199,198)"
         ],
         borderWidth: 5,
         borderColor: [
           "rgb(15,14,16)",
-          "rgb(15,14,16)"        
-        ],
+          "rgb(15,14,16)"        ],
         
           hoverBorderWidth: 1,
       }],
-      labels: ["Tackle Made %", "Tackles Missed %"]
+      labels: ["Tackle Success %", "Tackles Missed %"]
     },
     options: {
       responsive: true,

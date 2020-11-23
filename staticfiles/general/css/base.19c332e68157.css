@@ -1402,27 +1402,6 @@
   #tackles-graph-container-id {
     grid-column-start: 1;
     grid-column-end: 11;
-    grid-row-start: 3;
-    grid-row-end: 11;
-  }
-
-  #tackles-graph-header-id {
-    grid-column-start: 1;
-    grid-column-end: 11;
-    grid-row-start: 1;
-    grid-row-end: 3;
-  }
-
-  .tackles-graph-header {
-    text-align: center;
-    font-size: 22px;
-    color: white; 
-    margin: 10px;
-  }
-
-  #rugby-field-container-id {
-    grid-column-start: 2;
-    grid-column-end: 11;
     grid-row-start: 1;
     grid-row-end: 11;
   }

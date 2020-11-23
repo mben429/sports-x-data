@@ -281,7 +281,7 @@
      <div class="section-2-row-container" id="section-2-row-1-container-id" data-aos="fade-right">
        <div class="s1-panel" id="s2-p1-id">
          <div class="big-result-letter" id="big-result-letter-id">W</div>
-         <div class="game-score" id="game-score-id">| 23 - 14</div>
+         <div class="game-score" id="game-score-id">| 23 <text style="color: var(--massey-yellow);">-</text> 14</div>
          <div class="game-stats-content-header" id="game-stats-content-header-id">Game Events</div>
          <div class="game-stats-content" id="game-stats-content-id">
            <text style="color: var(--massey-yellow);">Tries:</text> Jack Johnson, Philip Maketu
@@ -367,10 +367,16 @@
    </div>
      <div class="section-2-row-container" id="section-2-row-2-container-id" data-aos="fade-right">
        <div class="s1-panel" id="s2-p3-id">
-          Pie Graph here.
+         <div class="tackles-graph-header" id="tackles-graph-header-id">Tackle Success</div>
+          <div class="medium-graph-container" id="tackles-graph-container-id">
+            <canvas id="tackle-pie-graph"></canvas>
+            <script>tackles_pi_graph();</script>
+          </div>
        </div>
        <div class="s1-panel" id="s2-p4-id">
-         Rugby Field here.
+         <div class="rugby-field-container" id="rugby-field-container-id">
+          <img src="{% static 'general/images/rugby-union-pitch.png' %}">
+         </div>
        </div>
      </div>
      

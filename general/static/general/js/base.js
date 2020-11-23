@@ -1,3 +1,7 @@
+let green_win = "rgb(80,118,35)";
+let red_win = "rgb(154,46,46)";
+
+
 function team_tackle_line_graph(){
   var ctx = document.getElementById('tackles_improvement_lc').getContext('2d');
   var newLineChart = new Chart(ctx, {
@@ -134,28 +138,27 @@ function ruck_speed_bar(){
   });
 }
 
-function ruck_speed_pie(){
-  var ctx = document.getElementById('ruck_speed_canvas').getContext('2d');
+function tackles_pi_graph(){
+  var ctx = document.getElementById('tackle-pie-graph').getContext('2d');
   var newPie = new Chart(ctx,
   {
     type: 'doughnut',
     data: {
       datasets: [{
-        data: [36.76, 27.94, 35.29],
+        data: [55, 45],
         backgroundColor: [
-          "rgb(255,205,86)",
-          "rgb(197,199,198)",
-          "rgb(50,50,50)"
+          green_win,
+          red_win
         ],
         borderWidth: 5,
         borderColor: [
           "rgb(15,14,16)",
-          "rgb(15,14,16)",
-          "rgb(15,14,16)"
+          "rgb(15,14,16)"        
         ],
-        hoverBorderWidth: 1,
+        
+          hoverBorderWidth: 1,
       }],
-      labels: ["6+ Seconds", "3-6 Seconds", "0-3 Seconds"]
+      labels: ["Tackle Made %", "Tackles Missed %"]
     },
     options: {
       responsive: true,
