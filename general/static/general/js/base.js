@@ -3,8 +3,8 @@ let red_win = "rgb(154,46,46)";
 
 
 function team_tackle_line_graph(){
-  var ctx = document.getElementById('tackles_improvement_lc').getContext('2d');
-  var newLineChart = new Chart(ctx, {
+  let ctx = document.getElementById('tackles_improvement_lc').getContext('2d');
+  let newLineChart = new Chart(ctx, {
     type: 'line',
     data: {
       labels: ['Game 1', 'Game 2', 'Game 3', "Game 4"],
@@ -38,8 +38,8 @@ function team_tackle_line_graph(){
 }
 
 function total_handling_errors_pg(){
-  var ctx = document.getElementById('handling-errors-pg').getContext('2d');
-  var newLineChart = new Chart(ctx, {
+  let ctx = document.getElementById('handling-errors-pg').getContext('2d');
+  let newLineChart = new Chart(ctx, {
     type: 'line',
     data: {
       labels: ['Game 1', 'Game 2', 'Game 3', "Game 4"],
@@ -73,8 +73,8 @@ function total_handling_errors_pg(){
 }
 
 function overall_posession_pg(){
-  var ctx = document.getElementById('overall_posession_pg').getContext('2d');
-  var newLineChart = new Chart(ctx, {
+  let ctx = document.getElementById('overall_posession_pg').getContext('2d');
+  let newLineChart = new Chart(ctx, {
     type: 'line',
     data: {
       labels: ['Game 1', 'Game 2', 'Game 3', "Game 4"],
@@ -108,9 +108,9 @@ function overall_posession_pg(){
 }
 
 function ruck_speed_bar(){
-  var ctx = document.getElementById('ruck_speed_canvas').getContext('2d');
+  let ctx = document.getElementById('ruck_speed_canvas').getContext('2d');
 
-  var newHorizontalBar = new Chart(ctx,
+  let newHorizontalBar = new Chart(ctx,
   {
     type: 'horizontalBar',
     data: {
@@ -139,13 +139,13 @@ function ruck_speed_bar(){
 }
 
 function tackles_pi_graph(){
-  var ctx = document.getElementById('tackle-pie-graph').getContext('2d');
-  var newPie = new Chart(ctx,
+  let ctx = document.getElementById('tackle-pie-graph').getContext('2d');
+  let newPie = new Chart(ctx,
   {
     type: 'doughnut',
     data: {
       datasets: [{
-        data: [55, 45],
+        data: [80, 20],
         backgroundColor: [
           green_win,
           red_win
@@ -174,8 +174,8 @@ function tackles_pi_graph(){
 }
 
 function lineout_success_pie(){
-  var ctx = document.getElementById('lineout_success_canvas').getContext('2d');
-  var newPie = new Chart(ctx,
+  let ctx = document.getElementById('lineout_success_canvas').getContext('2d');
+  let newPie = new Chart(ctx,
   {
     type: 'doughnut',
     data: {
@@ -208,8 +208,8 @@ function lineout_success_pie(){
 }
 
 function scrum_success_pie(){
-  var ctx = document.getElementById('scrum_success_canvas').getContext('2d');
-  var newPie = new Chart(ctx,
+  let ctx = document.getElementById('scrum_success_canvas').getContext('2d');
+  let newPie = new Chart(ctx,
   {
     type: 'doughnut',
     data: {
@@ -242,8 +242,8 @@ function scrum_success_pie(){
 }
 
 function passing_success_pie(){
-  var ctx = document.getElementById('passing_success_canvas').getContext('2d');
-  var newPie = new Chart(ctx,
+  let ctx = document.getElementById('passing_success_canvas').getContext('2d');
+  let newPie = new Chart(ctx,
   {
     type: 'doughnut',
     data: {
