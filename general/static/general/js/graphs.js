@@ -8,7 +8,7 @@ function tackles_pi_graph(){
     type: 'doughnut',
     data: {
       datasets: [{
-        data: [80, 20],
+        data: [83.333, 16.666],
         backgroundColor: [
           green_win,
           red_win

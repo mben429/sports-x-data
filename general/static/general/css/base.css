@@ -1635,6 +1635,152 @@
     grid-row-end: 7;
   }
 
+  #s2-p4-id {
+    grid-column-start: 9;
+    grid-column-end: 11;
+    grid-row-start: 1;
+    grid-row-end: 4;
+
+    margin-left: 15px;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+  }
+
+  .defense-more-header {
+    font-size: 16px;
+    text-align: center;
+    margin-top: 15px;
+  }
+
+  #defense-more-header-id {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 5;
+  }
+
+  .defense-more-info {
+    font-size: 13px;
+    color: white;
+    margin-left: 10px;
+  }
+
+  .defense-more-value {
+    color: var(--massey-yellow);
+    font-size: 13px;
+    margin-left: 15px;
+  }
+
+  #defense-more-info-1-id {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+
+  
+  #defense-more-info-2-id {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 4;
+  }
+
+  
+  #defense-more-info-3-id {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 4;
+    grid-row-end: 5;
+  }
+
+  
+  #defense-more-info-4-id {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 5;
+    grid-row-end: 6;
+  }
+
+  
+  #defense-more-info-5-id {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 6;
+    grid-row-end: 7;
+  }
+
+  
+  #defense-more-info-6-id {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 7;
+    grid-row-end: 8;
+  }
+
+  #defense-more-info-7-id {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 8;
+    grid-row-end: 9;
+  }
+
+  #defense-more-value-1-id {
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+
+  #defense-more-value-2-id {
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 3;
+    grid-row-end: 4;
+  }
+
+  #defense-more-value-3-id {
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 4;
+    grid-row-end: 5;
+  }  
+
+  
+  #defense-more-value-4-id {
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 5;
+    grid-row-end: 6;
+  }
+
+  
+  #defense-more-value-5-id {
+   grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 6;
+    grid-row-end: 7;
+  }
+
+  
+  #defense-more-value-6-id {
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 7;
+    grid-row-end: 8;
+  }
+
+  
+  #defense-more-value-7-id {
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 8;
+    grid-row-end: 9;
+  }
+
+
   .continuation-text {
     font-size: 25px;
     font-style: italic;
@@ -1644,7 +1790,6 @@
     grid-row-start: 25;
     grid-row-end: 26;
   }
-
 }
 
 @media (max-width: 1239px) {

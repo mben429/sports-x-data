@@ -11,10 +11,10 @@
      </div>
      <div class="header-bar" id="header-bar-id">
        <div class="header-bar-btn" id="season-summary-btn-id">
-         <a href="#">Season Overview |</a>
+         <a href="#section-1-id">Season Overview |</a>
        </div>
        <div class="header-bar-btn" id="recent-game-btn-id">
-         <a href="#">Match Centre |</a>
+         <a href="#section-2-id">Match Centre |</a>
        </div>
        <div class="header-bar-btn" id="current-standings-btn-id">
          <a href="#">Season Tracking |</a>
@@ -271,7 +271,7 @@
    <!-- Start of Section 2-->
    <div class="section-2" id="section-2-id">
      <div class="section-1-header" id="section-1-header-id" data-aos="fade-right">
-        <text class="ac-header-txt" id="ac-header-text-id">Match Centre <text style="color: var(--massey-yellow);">|</text> Game <text style="color: var(--massey-yellow);">vs</text> Rosmini <text style="color: var(--massey-yellow);">|</text> 24/10/2020</text>
+        <text class="ac-header-txt" id="ac-header-text-id">Match Centre <text style="color: var(--massey-yellow);">|</text> vs Rosmini <text style="color: var(--massey-yellow);">|</text> 24/10/2020</text>
      </div>
 
      <div class="section-2-subheader" id="section-2-subheader-id" data-aos="fade-right">
@@ -279,6 +279,8 @@
      </div>
      
      <div class="section-2-row-container" id="section-2-row-1-container-id" data-aos="fade-right">
+
+        <!--Basic Results panel-->
        <div class="s1-panel" id="s2-p1-id">
          <div class="big-result-letter" id="big-result-letter-id">W</div>
          <div class="game-score" id="game-score-id">| 23 <text style="color: var(--massey-yellow);">-</text> 14</div>
@@ -298,6 +300,7 @@
          </div>
         </div>
 
+      <!--Top Performers Panel-->
        <div class="s1-panel" id="s2-p2-id">
          <div class="top-match-performers-header" id="top-match-performers-id">
            Top Performers
@@ -362,6 +365,7 @@
          </div>
        </div>
      </div>
+     <!-- Beginning of section-2-->
      <div class="section-2-subheader" id="section-2-subheader-2-id" data-aos="fade-right">
       <text class="ac-subheader-txt" id="ac-subheader-text-id">Defense<text style="color: var(--massey-yellow);">.</text></text>
      </div>
@@ -380,7 +384,7 @@
         </div>
         <div class="rugby-field-container" id="rugby-field-container-id">
         
-          <!-- Tackles Made -->
+          <!-- Tackles Made datapoints -->
           <img class="rugby-field-img" src="{% static 'general/images/rugby-union-pitch-v2.png' %}">
           <img class="green-dot pointer-element" id="tackle-1-id" src="{% static 'general/images/circle-16.png' %}" onmouseover="mouseover_tackle_datapoint(this);" onmouseout="mouseout_tackle_datapoint(this);">
           <img class="green-dot pointer-element" id="tackle-2-id" src="{% static 'general/images/circle-16.png' %}" onmouseover="mouseover_tackle_datapoint(this);" onmouseout="mouseout_tackle_datapoint(this);">
@@ -419,6 +423,28 @@
               $(".red-cross").show();
             });
           </script>
+
+
+
+        </div>
+        <div class="s1-panel" id="s2-p4-id">
+          <div class="defense-more-header" id="defense-more-header-id">Other Defensive Insights</div>
+
+          <div class="defense-more-info" id="defense-more-info-1-id">Tackle % Below Waist</div>
+          <div class="defense-more-info" id="defense-more-info-2-id">1-1 Tackle Success %</div>
+          <div class="defense-more-info" id="defense-more-info-3-id">Linebreaks Allowed (Backs)</div>
+          <div class="defense-more-info" id="defense-more-info-4-id">Linebreaks Allowed (Forwards)</div>
+          <div class="defense-more-info" id="defense-more-info-5-id">Tackles Leading to Errors</div>
+          <div class="defense-more-info" id="defense-more-info-6-id">Total Tackles Made</div>
+          <div class="defense-more-info" id="defense-more-info-7-id">Total Tackles Missed</div>
+
+          <div class="defense-more-value" id="defense-more-value-1-id">| 45%</div>
+          <div class="defense-more-value" id="defense-more-value-2-id">| 75%</div>
+          <div class="defense-more-value" id="defense-more-value-3-id">| 7</div>
+          <div class="defense-more-value" id="defense-more-value-4-id">| 4</div>
+          <div class="defense-more-value" id="defense-more-value-5-id">| 6</div>
+          <div class="defense-more-value" id="defense-more-value-6-id">| 100</div>
+          <div class="defense-more-value" id="defense-more-value-7-id">| 20</div>
         </div>
      </div>
 
