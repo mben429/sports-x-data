@@ -189,7 +189,22 @@
     text-decoration: none;
     font-style: bold;
     font-size: 20px
+  }
 
+  .btn-login:hover {
+    border-radius: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: var(--massey-yellow);
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--massey-yellow);
+    background-color: black;
+    text-decoration: none;
+    font-style: bold;
+    font-size: 20px
   }
 
   .homepage-title-1 {
@@ -630,6 +645,15 @@
     font-size: 20px;
     margin-left: 20px;
   }
+
+  #login-again-id {
+    grid-column-start: 3;
+    grid-column-end: 5;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    text-align: center;
+  }
+  
 
   /*NEW ATHLETE CENTER*/
 
@@ -1519,121 +1543,17 @@
     grid-row-end: 4;
   }
 
-  #tackle-1-id {
-    grid-column-start: 5;
-    grid-column-end: 6;
-    grid-row-start: 2;
-    grid-row-end: 3;
+  .blue-dp:hover {
+  transform:scale(1.5);
+  cursor: pointer;
+  
   }
 
-  #tackle-2-id {
-    grid-column-start: 8;
-    grid-column-end: 9;
-    grid-row-start: 6;
-    grid-row-end: 7;
-  }
-  #tackle-3-id {
-    grid-column-start: 12;
-    grid-column-end: 13;
-    grid-row-start: 7;
-    grid-row-end: 8;
-  }
-  #tackle-4-id {
-    grid-column-start: 16;
-    grid-column-end: 17;
-    grid-row-start: 3;
-    grid-row-end: 4;
-  }
-  #tackle-5-id {
-    grid-column-start: 23;
-    grid-column-end: 24;
-    grid-row-start: 11;
-    grid-row-end: 12;
-  }
-  #tackle-6-id {
-    grid-column-start: 21;
-    grid-column-end: 22;
-    grid-row-start: 6;
-    grid-row-end: 7;
-  }
-  #tackle-7-id {
-    grid-column-start: 10;
-    grid-column-end: 11;
-    grid-row-start: 8;
-    grid-row-end: 9;
-  }
-
-  #tackle-8-id {
-    grid-column-start: 11;
-    grid-column-end: 12;
-    grid-row-start: 4;
-    grid-row-end: 5;
-  }
-
-  #tackle-9-id {
-    grid-column-start: 19;
-    grid-column-end: 20;
-    grid-row-start: 8;
-    grid-row-end: 9;
-  }
-
-  #tackle-10-id {
-    grid-column-start: 18;
-    grid-column-end: 19;
-    grid-row-start: 3;
-    grid-row-end: 4;
-  }
-
-  #tackle-11-id {
-    grid-column-start: 19;
-    grid-column-end: 20;
-    grid-row-start: 5;
-    grid-row-end: 6;
-  }
-  #tackle-12-id {
-    grid-column-start: 7;
-    grid-column-end: 8;
-    grid-row-start: 2;
-    grid-row-end: 3;
-  }
-  #tackle-13-id {
-    grid-column-start: 26;
-    grid-column-end: 27;
-    grid-row-start: 10;
-    grid-row-end: 11;
-  }
-  #tackle-14-id {
-    grid-column-start: 26;
-    grid-column-end: 27;
-    grid-row-start: 3;
-    grid-row-end: 4;
-  }
-  #tackle-15-id {
-    grid-column-start: 18;
-    grid-column-end: 19;
-    grid-row-start: 5;
-    grid-row-end: 6;
-  }
-  #tackle-16-id {
-    grid-column-start: 7;
-    grid-column-end: 8;
-    grid-row-start: 10;
-    grid-row-end: 11;
-  }
-
-  #tackle-17-id {
-    grid-column-start: 20;
-    grid-column-end: 21;
-    grid-row-start: 3;
-    grid-row-end: 4;
-  }
-
-  #tackle-18-id {
-    grid-column-start: 14;
-    grid-column-end: 15;
-    grid-row-start: 6;
-    grid-row-end: 7;
-  }
+  .red-cross:hover {
+    transform:scale(1.5);
+    cursor: pointer;
+    
+    }
 
   #s2-p4-id {
     grid-column-start: 9;

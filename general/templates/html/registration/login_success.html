@@ -383,48 +383,9 @@
           </div>
         </div>
         <div class="rugby-field-container" id="rugby-field-container-id">
-        
+          
           <!-- Tackles Made datapoints -->
-          <img class="rugby-field-img" src="{% static 'general/images/rugby-union-pitch-v2.png' %}">
-          <img class="green-dot pointer-element" id="tackle-1-id" src="{% static 'general/images/circle-16.png' %}" onmouseover="mouseover_tackle_datapoint(this);" onmouseout="mouseout_tackle_datapoint(this);">
-          <img class="green-dot pointer-element" id="tackle-2-id" src="{% static 'general/images/circle-16.png' %}" onmouseover="mouseover_tackle_datapoint(this);" onmouseout="mouseout_tackle_datapoint(this);">
-          <img class="green-dot pointer-element" id="tackle-3-id" src="{% static 'general/images/circle-16.png' %}" onmouseover="mouseover_tackle_datapoint(this);" onmouseout="mouseout_tackle_datapoint(this);">
-          <img class="green-dot pointer-element" id="tackle-4-id" src="{% static 'general/images/circle-16.png' %}" onmouseover="mouseover_tackle_datapoint(this);" onmouseout="mouseout_tackle_datapoint(this);">
-          <img class="green-dot pointer-element" id="tackle-5-id" src="{% static 'general/images/circle-16.png' %}" onmouseover="mouseover_tackle_datapoint(this);" onmouseout="mouseout_tackle_datapoint(this);">
-          <img class="green-dot pointer-element" id="tackle-6-id" src="{% static 'general/images/circle-16.png' %}" onmouseover="mouseover_tackle_datapoint(this);" onmouseout="mouseout_tackle_datapoint(this);">
-          <img class="green-dot pointer-element" id="tackle-7-id" src="{% static 'general/images/circle-16.png' %}" onmouseover="mouseover_tackle_datapoint(this);" onmouseout="mouseout_tackle_datapoint(this);">
-          <img class="green-dot pointer-element" id="tackle-8-id" src="{% static 'general/images/circle-16.png' %}" onmouseover="mouseover_tackle_datapoint(this);" onmouseout="mouseout_tackle_datapoint(this);">
-          <img class="green-dot pointer-element" id="tackle-9-id" src="{% static 'general/images/circle-16.png' %}" onmouseover="mouseover_tackle_datapoint(this);" onmouseout="mouseout_tackle_datapoint(this);">
-
-          <!-- Tackles Missed -->
-          <img class="red-cross pointer-element" id="tackle-10-id" src="{% static 'general/images/x-mark-16.png' %}" onmouseover="mouseover_missed_datapoint(this);" onmouseout="mouseout_missed_datapoint(this);">
-          <img class="red-cross pointer-element" id="tackle-11-id" src="{% static 'general/images/x-mark-16.png' %}" onmouseover="mouseover_missed_datapoint(this);" onmouseout="mouseout_missed_datapoint(this);">
-          <img class="red-cross pointer-element" id="tackle-12-id" src="{% static 'general/images/x-mark-16.png' %}" onmouseover="mouseover_missed_datapoint(this);" onmouseout="mouseout_missed_datapoint(this);">
-          <img class="red-cross pointer-element" id="tackle-13-id" src="{% static 'general/images/x-mark-16.png' %}" onmouseover="mouseover_missed_datapoint(this);" onmouseout="mouseout_missed_datapoint(this);">
-          <img class="red-cross pointer-element" id="tackle-14-id" src="{% static 'general/images/x-mark-16.png' %}" onmouseover="mouseover_missed_datapoint(this);" onmouseout="mouseout_missed_datapoint(this);">
-          <img class="red-cross pointer-element" id="tackle-15-id" src="{% static 'general/images/x-mark-16.png' %}" onmouseover="mouseover_missed_datapoint(this);" onmouseout="mouseout_missed_datapoint(this);">
-          <img class="red-cross pointer-element" id="tackle-16-id" src="{% static 'general/images/x-mark-16.png' %}" onmouseover="mouseover_missed_datapoint(this);" onmouseout="mouseout_missed_datapoint(this);">
-          <img class="red-cross pointer-element" id="tackle-17-id" src="{% static 'general/images/x-mark-16.png' %}" onmouseover="mouseover_missed_datapoint(this);" onmouseout="mouseout_missed_datapoint(this);">
-          <img class="red-cross pointer-element" id="tackle-18-id" src="{% static 'general/images/x-mark-16.png' %}" onmouseover="mouseover_missed_datapoint(this);" onmouseout="mouseout_missed_datapoint(this);">
-        
-          <script>
-            $("#tackles-failed-btn-id").click(function(){
-              $(".green-dot").hide();
-              $(".red-cross").show();
-            });
-
-            $("#tackles-success-btn-id").click(function(){
-              $(".green-dot").show();
-              $(".red-cross").hide();
-            });
-
-            $("#tackles-percentage-btn-id").click(function(){
-              $(".green-dot").show();
-              $(".red-cross").show();
-            });
-          </script>
-
-
+          <img class="rugby-field-img" src="{% static 'general/images/rugby-union-pitch-v2.png' %}"> 
 
         </div>
         <div class="s1-panel" id="s2-p4-id">
@@ -453,6 +414,5 @@
     </div>
    
 </div>
-
 
 {% endblock %}
