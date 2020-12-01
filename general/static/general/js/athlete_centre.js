@@ -21,7 +21,7 @@ function coords_creation_tackles(num_tackles){
     
     for (i = 0; i < num_tackles; i++){
         let row = Math.floor((Math.random() * 11) + 2);
-        let col = Math.floor((Math.random() * 20) + 6);
+        let col = Math.floor((Math.random() * 18) + 6);
         coords_array.push([row, row+1, col, col+1]);
     }
     return coords_array;

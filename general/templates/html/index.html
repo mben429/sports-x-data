@@ -25,21 +25,30 @@
     <!-- Three steps container-->
     <div class="three-steps-container" id="three-steps-container-id" data-aos="fade-right">
       <div class="step" id="film-games-step-id">
-        <img class="img-step" src="{% static 'general/images/send.png' %}">
-        <div class="step-title" id="step-title-id"><text style="color: var(--massey-yellow);">YOU upload</text> your Game Footage</div>
+        <picture class="img-step">
+          <source media="(max-width: 800px)" srcset="{% static 'general/images/send_small.png' %}">
+          <img src="{% static 'general/images/send.png' %}">
+        </picture>
+          <div class="step-title" id="step-title-id"><text style="color: var(--massey-yellow);">YOU upload</text> your Game Footage</div>
         <div class="step-sub" id="step-sub-id">
           Assign someone in your squad or team community to send us footage each week.
         </div>
       </div>
       <div class="step" id="send-footage-step-id">
-        <img class="img-step" src="{% static 'general/images/statistics.png' %}">
+        <picture class="img-step">
+          <source media="(max-width: 800px)" srcset="{% static 'general/images/statistics_small.png' %}">
+          <img src="{% static 'general/images/statistics.png' %}">
+        </picture>
         <div class="step-title" id="step-title-id"><text style="color: var(--massey-yellow);">WE Extract and gather</text> insights</div>
         <div class="step-sub" id="step-sub-id">
           We gather <text style="color: var(--massey-yellow);">advanced, focused, and in-depth</text> insights from your footage.
         </div>
       </div>
       <div class="step" id="receive-insights-step-id">
-        <img class="img-step" src="{% static 'general/images/dboard.png' %}">
+        <picture class="img-step">
+          <source media="(max-width: 800px)" srcset="{% static 'general/images/d_board_small.png' %}">
+          <img src="{% static 'general/images/dboard.png' %}">
+        </picture>
         <div class="step-title" id="step-title-id"><text style="color: var(--massey-yellow);">YOU Login and Access</text> these insights</div>
         <div class="step-sub" id="step-sub-id">
           Login to your team's <text style="color: var(--massey-yellow);">"Athlete Centre"</text> to access your compiled reports. No Sweat.
