@@ -1,6 +1,6 @@
 /*CSS for small screens (Phones etc.) 300 to 800 */
 
-@media (max-width: 800px) {
+@media (max-width: 700px) {
     body {
         background-color: black;
         color: white;
@@ -222,6 +222,9 @@
       .img-step {
         padding-top: 10px;
         grid-area: 1 / 1 / 5 / 9;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
       }
     
       .step-title {
@@ -342,44 +345,49 @@
           display: grid;
           background-color: black;
           grid-template-columns: repeat(6, 1fr);
-          grid-template-rows: repeat(8, 100px);
+          grid-template-rows: repeat(8,50px);
       }
     
       .contact-page-header {
-          grid-column-start: 1;
-          grid-column-end: 3;
+          grid-area: 1 / 1 / 2 / 4;
           text-align: left;
-          font-size: 40px;
-          padding-top: 50px;
-          padding-left: 45px;
+          font-size: 1.5em;
+          padding-left: 15px;
+          padding-top: 15px;
       }
     
       .submit-btn{
-        grid-column-start: 1;
-        grid-column-end: 2;
-        grid-row-start: 7;
-        grid-row-end: 8;
-            border-radius: 10px;
-        padding-right: 20px;
-        padding-left: 20px;
-        padding-top: 5px;
-        padding-bottom: 5px;
+        grid-area: 7 / 1 / 8 / 2;
+        border-radius:4.5px;
+        
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 2.5px;
+        padding-bottom: 2.5px;
         color: black;
         border-style: solid;
-        border-width: 3px;
+        border-width: 1px;
         border-color: black;
         background-color: var(--massey-yellow);
         text-decoration: none;
-        font-size: 20px;
-        margin-left: 20px;
+        font-size: 1.3em;
       }
     
       .submit-btn:hover {
-          cursor: pointer;
-          color: var(--massey-yellow);
-          background-color: black;
-          border-color: var(--massey-yellow);
-          border-width: 1px;
+        grid-area: 7 / 1 / 8 / 2;
+        border-radius: 4.5px;
+        
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 2.5px;
+        padding-bottom: 2.5px;
+        color: var(--massey-yellow);
+        border-style: solid;
+        border-width: 1px;
+        border-color: var(--massey-yellow);
+        background-color: black;
+        text-decoration: none;
+        font-size: 1.3em;
       }
     
       .form {
@@ -387,8 +395,9 @@
           grid-column-end: 4;
           grid-row-start: 2;
           grid-row-end: 8;
-          padding-left: 30px;
-          padding-top: 20px;
+
+          grid-area: 2 / 1 / 6 / 5;
+          padding-left: 15px;
       }
     
       .form-field {
@@ -398,11 +407,10 @@
           border-color: var(--massey-yellow);
           color: white;
           border-width: thin;
-          margin-left: 20px;
-          font-size: 16px;
+          font-size: 0.9em;
           font-family: "Noto Sans", "Sans-Serif";
-          padding: 10px;
-          width: 400px;
+          padding: 5px;
+          width: 15em;
       }
     
       .success-page-header {
@@ -418,25 +426,16 @@
       }
     
       .contact-info-header {
-          grid-column-start: 4;
-          grid-column-end: 6;
-          grid-row-start: 1;
-          grid-row-end: 2;
-    
-          font-size: 25px;
-          color: white;
-          padding-top: 70px;
+          grid-area: 1 / 4 / 2 / 6;
+          font-size: 1.5em;
+          padding-top: 15px;
       }
     
       .contact-info-text {
-          grid-column-start: 4;
-          grid-column-end: 6;
-          grid-row-start: 2;
-          grid-row-end: 3;
-    
-          text-align: left;
           color: white;
-          font-size: 20px;
+          grid-area: 2 / 4 / 3 / 6;
+          text-align: left;
+          font-size: 1.1em;
       }
     
       /*Login page styles*/

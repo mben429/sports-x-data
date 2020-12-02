@@ -26,12 +26,12 @@
     --blue-outline: #7399BF;
     --dark-blue-outline: #1B2733;
 
-    font-size: calc(1vw + 1vh + .5vmin);
+    font-size: calc(1vw + 0.75vh + .5vmin);
 }
 
 /*Base css covers 1300 to 1700*/
 
-@media (min-width: 1200px) {
+@media (min-width: 1100px) {
 
   body {
     background-color: black;
