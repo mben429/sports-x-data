@@ -429,13 +429,15 @@
           grid-area: 1 / 4 / 2 / 6;
           font-size: 1.5em;
           padding-top: 15px;
+          padding-left: 10px;
       }
     
       .contact-info-text {
           color: white;
           grid-area: 2 / 4 / 3 / 6;
           text-align: left;
-          font-size: 1.1em;
+          font-size: 0.9em;
+          padding-left: 10px;
       }
     
       /*Login page styles*/
