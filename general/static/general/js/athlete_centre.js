@@ -14,6 +14,7 @@ $("#tackles-percentage-btn-id").click(function(){
     $(".red-cross").show();
 });
 
+
 //Temporary function to insert tackle success datapoints onto field quicker
 function coords_creation_tackles(num_tackles){
     let coords_array = [];
@@ -30,7 +31,13 @@ function coords_creation_tackles(num_tackles){
 function create_tackles_made_points(coordinates_array){
     var j = 0;
     var grid = document.getElementsByClassName('rugby-field-container')[0];
-    var file_loc_str = "/static/general/images/full-moon.png";
+    
+    // check what the screen size is, then choose correct image size
+    var file_loc_str = "/static/general/images/full-moon.png"
+    var small_screen_check = window.matchMedia("(max-width: 700px)");
+    if (small_screen_check.matches){
+        file_loc_str = "/static/general/images/full-moon-small.png";
+    }
 
     // Loop through coordinates, and create <img> element that goes into grid
     for(j = 0; j < coordinates_array.length; j++){
@@ -54,7 +61,13 @@ function create_tackles_made_points(coordinates_array){
 function create_tackles_missed_points(coordinates_array){
     var j = 0;
     var grid = document.getElementsByClassName('rugby-field-container')[0];
-    var file_loc_str = "/static/general/images/x-mark-16.png";
+
+     // check what the screen size is, then choose correct image size
+     var file_loc_str = "/static/general/images/x-mark-16.png"
+     var small_screen_check = window.matchMedia("(max-width: 700px)");
+     if (small_screen_check.matches){
+         file_loc_str = "/static/general/images/x-mark-small.png";
+     }
 
     // Loop through coordinates, and create <img> element that goes into grid
     for(j = 0; j < coordinates_array.length; j++){

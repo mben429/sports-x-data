@@ -21,9 +21,17 @@ function tackles_pi_graph(){
         
           hoverBorderWidth: 1,
       }],
-      labels: ["Tackle Made %", "Tackles Missed %"]
+      labels: ["Tackles Made %", "Tackles Missed %"]
     },
     options: {
+      layout: {
+        padding: {
+          left: 0,
+          right: 0,
+          top: 0,
+          bottom: 0
+        }
+      },
       responsive: true,
       legend: {
         position: 'top',

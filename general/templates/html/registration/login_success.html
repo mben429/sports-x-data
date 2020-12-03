@@ -16,7 +16,7 @@
        <div class="header-bar-btn" id="recent-game-btn-id">
          <a href="#section-2-id">Match Centre |</a>
        </div>
-       <div class="header-bar-btn" id="current-standings-btn-id">
+       <div class="header-bar-btn" id="season-tracking-btn-id">
          <a href="#">Season Tracking |</a>
        </div>
        <div class="header-bar-btn" id="team-info-btn-id">
@@ -271,7 +271,7 @@
    <!-- Start of Section 2-->
    <div class="section-2" id="section-2-id">
      <div class="section-1-header" id="section-1-header-id" data-aos="fade-right">
-        <text class="ac-header-txt" id="ac-header-text-id">Match Centre <text style="color: var(--massey-yellow);">|</text> vs Rosmini <text style="color: var(--massey-yellow);">|</text> 24/10/2020</text>
+        <text class="ac-header-txt" id="ac-header-text-id">Match Centre <text style="color: var(--massey-yellow);">|</text> vs Rosmini<text style="color: var(--massey-yellow);">|</text> 24/10/2020</text>
      </div>
 
      <div class="section-2-subheader" id="section-2-subheader-id" data-aos="fade-right">
@@ -371,11 +371,13 @@
      </div>
      <div class="section-2-row-container" id="section-2-row-2-container-id" data-aos="fade-right">
        <div class="s1-panel" id="s2-p3-id">
-         <div class="tackles-graph-header" id="tackles-graph-header-id">Tackle Success</div>
+          <div class="tackles-graph-header" id="tackles-graph-header-id">Tackle Success</div>
+          
           <div class="medium-graph-container" id="tackles-graph-container-id">
             <canvas id="tackle-pie-graph"></canvas>
             <script>tackles_pi_graph();</script>
           </div>
+          
           <div class="btns-field-container" id="btns-field-container-id">
             <a class="btn-field-interaction" id="tackles-success-btn-id">Show Made Tackles</a>
             <a class="btn-field-interaction" id="tackles-failed-btn-id">Show Missed Tackles</a>
