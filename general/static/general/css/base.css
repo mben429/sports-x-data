@@ -1691,4 +1691,8 @@
     grid-row-start: 25;
     grid-row-end: 26;
   }
+
+  .copyright-text {
+    font-size: 0.6em;
+  }
 }
