@@ -505,13 +505,23 @@
         text-align: center;
       }
       
-    
       /*NEW ATHLETE CENTER*/
+      .overall-container {
+        background-color: black;
+      }
     
       #overall-container-id {
         display: grid;
         grid-template-columns: repeat(20, 1fr);
-        grid-template-rows: repeat(100, 65px);
+        grid-template-rows: repeat(61, 5em);
+
+      }
+
+      #overall-container-2-id {
+        display: grid;
+        grid-template-columns: repeat(20, 1fr);
+        grid-template-rows: repeat(33, 5em);
+
       }
     
       #header-strip-container-id {
@@ -519,14 +529,19 @@
         grid-column-end: 21;
         grid-row-start: 1;
         grid-row-end: 8;
+
+        grid-area: 1 / 1 / 3 / 21; 
     
         display: grid;
         grid-template-columns: repeat(19, 1fr);
-        grid-template-rows: repeat(15, 1fr);
+        grid-template-rows: repeat(9, 1fr);
       }
     
       .header-strip-img-container {
-        grid-area: 1 / 1 / 10 / 20;
+        grid-column-start: 1;
+        grid-column-end: 20;
+        grid-row-start: 1;
+        grid-row-end: 10;
       }
     
       .header-strip-img {
@@ -536,7 +551,7 @@
     
       .header-bar {
         background-color: var(--massey-black);
-        grid-area: 4 / 1 / 5 / 20;
+        grid-area: 9 / 1 / 10 / 20;
       }
     
       #header-bar-id {
@@ -546,39 +561,44 @@
         grid-template-rows: repeat(1, 1fr);
       }
     
+      .header-bar-btn {
+        font-size: 0.5em;
+        display: flex;
+        align-items: center;
+      }
+    
       .header-bar-btn a{
         color: white;
-        font-size: 0.6em;
         text-decoration: none;
       }
     
       .header-bar-btn a:hover {
         color: var(--massey-yellow);
-        font-size: 0.6em;
-        text-decoration: none;
       }
     
       #season-summary-btn-id {
-        grid-area: 1 / 5 / 2 / 9;
+        grid-column-start: 5;
+        grid-column-end: 8;
       }
     
       #recent-game-btn-id {
         grid-column-start: 8;
         grid-column-end: 11;
-
-        grid-area: 1 / 9 / 2 / 13;
       }
-
+    
       #season-tracking-btn-id {
-          grid-area: 1 / 13 / 2 / 17;
+        grid-column-start: 11;
+        grid-column-end: 14;
       }
     
       #team-info-btn-id {
-        grid-area: 1 / 17 / 2 / 22;
+        grid-column-start: 14;
+        grid-column-end: 16;
       }
     
+    
       #logo-container-circle-id {
-        grid-area: 3 / 1 / 5 / 4; 
+        grid-area: 8 / 2 / 10 / 4;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -586,21 +606,17 @@
     
       .logo-container-circle {
         background-color: black;
-        border-width: 0.25px;
+        border-width: 2px;
         border-style: solid;
         border-color: var(--massey-yellow);
         border-radius: 50%;
-        margin-top: 5px;
-        margin-bottom: 5px;
-        margin-left: 8px;
-        margin-right: 8px;
       }
     
       .logo-img-small {
         margin: auto;
         margin-left: auto;
         margin-right: auto;
-        max-width: 40%;
+        max-width: 50%;
       }
     
       .team-title {
@@ -609,21 +625,28 @@
       }
     
       #team-title-id {
-        grid-area: 3 / 4 / 4 / 17;
+        grid-column-start: 4;
+        grid-column-end: 15;
+        grid-row-start: 7;
+        grid-row-end: 8;
+
+        grid-area: 8 / 4 / 9 / 15;
+        padding-left: 10px;
+        padding-top: 10px;
       }
     
       .section-1 {
         background-color: black;
       }
     
-      #section-1-id {
-        grid-area: 3 / 1 / 7 / 21; 
+      #section-1-overview-id {
+        grid-area: 3 / 1 / 8 / 21;
         display: grid;
         grid-template-columns: repeat(9, 1fr);
         grid-template-rows: repeat(4, 1fr);
       }
     
-      .section-1-header {
+      .section-header {
         background-color: var(--massey-black);
         border-color: var(--medium-grey-diff);
         border-width: 1px;
@@ -634,17 +657,33 @@
       #section-1-header-id {
         grid-area: 1 / 1 / 2 / 10;
         display: flex;
+        justify-content: center;
         align-items: center;
+      }
+
+      #match-overview-header-id {
+        grid-area: 3 / 1 / 4 / 10;
+      }
+
+      #defense-header-id {
+        grid-area: 10 / 1 / 12 / 10;
       }
     
       .ac-header-txt {
-        font-size: 1.5em;
+        font-size: 1.1em;
         color: white;
-        padding-left: 10px;
+        padding-left: 15px;
       }
 
+      .section-header-text {
+        font-size: 1.5em;
+      }
+    
       #s1-panels-container-id {
-          grid-area: 2 / 1 / 6 / 10;
+          grid-column-start: 1;
+          grid-column-end: 10;
+          grid-row-start: 2;
+          grid-row-end: 6;
       }
     
       .s1-panels-container {
@@ -658,10 +697,10 @@
         border-width: 1px;
         border-style: solid;
         border-color: var(--medium-grey-diff);
-        border-radius: 3.5px;
-        margin-right: 5px;
-        margin-top: 5px;
-        margin-bottom: 5px;
+        border-radius: 5px;
+        margin-right: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
     
         display: grid;
         grid-template-columns: repeat(10, 1fr);
@@ -669,22 +708,31 @@
       }
     
       #s1-p1-id {
-        grid-area: 1 / 1 / 4 / 4;
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-row-start: 1;
+        grid-row-end: 4;
       }
     
       #s1-p2-id {
-        grid-area: 1 / 4 / 4 / 7;
+        grid-column-start: 4;
+        grid-column-end: 7;
+        grid-row-start: 1;
+        grid-row-end: 4;
       }
     
       #s1-p3-id {
-        grid-area: 1 / 7 / 4 / 10;
+        grid-column-start: 7;
+        grid-column-end: 10;
+        grid-row-start: 1;
+        grid-row-end: 4;
       }
     
       .panel-title {
-        font-size: 1em;
+        font-size: 1.1em;
         text-align: center;
-        margin-top: 5px;
-        margin-bottom: 5px;
+        margin-top: 10px;
+        margin-bottom: 10px;
       }
     
       #standings-title-id {
@@ -704,20 +752,25 @@
         font-style: normal;
         border-width: 0.05px;
         border-style: solid;
-        border-radius:0.5px;
+        border-radius: 2px;
         border-color: var(--medium-grey-diff);
-        font-size:0.38em;
-        font-family: "Noto Sans", "Sans-Serif";
-        padding: 0.5px;
+        font-size: 0.4em;
+        padding: 0.05px;
       }
     
       #recent-results-title-id {
-        grid-area: 1 / 1 / 2 / 11;
+        grid-column-start: 1;
+        grid-column-end: 11;
+        grid-row-start: 1;
+        grid-row-end: 2;
       }
     
     
       #recent-results-container-id {
-        grid-area: 2 / 1 / 11 / 11;
+        grid-column-start: 1;
+        grid-column-end: 11;
+        grid-row-start: 2;
+        grid-row-end: 11;
       }
     
       .recent-results-container {
@@ -727,33 +780,49 @@
       }
     
       .result {
-        padding-left: 5px;
+        padding-left:2px;
         font-size: 0.55em;
       }
     
       #result-1-id {
-        grid-area: 1 / 1 / 2 / 2;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        grid-column-start: 1;
+        grid-column-end: 2;
       }
     
       #result-1-id {
-        grid-area: 2 / 1 / 3 / 2;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        grid-column-start: 1;
+        grid-column-end: 2;
       }
     
       #result-1-id {
-        grid-area: 3 / 1 / 4 / 2;
+        grid-row-start: 3;
+        grid-row-end: 4;
+        grid-column-start: 1;
+        grid-column-end: 2;
       }
     
       #result-1-id {
-        grid-area: 4 / 1 / 5 / 2;
+        grid-row-start: 4;
+        grid-row-end: 5;
+        grid-column-start: 1;
+        grid-column-end: 2;
       }
     
       #result-1-id {
-        grid-area: 5 / 1 / 6 / 2;
+        grid-row-start: 5;
+        grid-row-end: 6;
+        grid-column-start: 1;
+        grid-column-end: 2;
       }
     
       .score {
         text-align: center;
         color: var(--massey-yellow);
+        font-size: 0.65em;
       }
     
       #score-1-id {
@@ -845,7 +914,7 @@
       }
     
       .team-average-name {
-        font-size: 0.45em;
+        font-size: 0.55em;
         color: white;
         text-align: left;
         padding-left: 10px;
@@ -902,13 +971,13 @@
     
       .team-average-score {
         color: var(--massey-yellow);
-        font-size: 0.7em;
+        font-size: 0.65em;
       }
     
       /*Section 2 Start*/
     
-      #section-2-id {
-        grid-area: 8 / 1 / 48 / 21;
+      #section-2-defense-id {
+        grid-area: 9 / 1 / 49 / 21;
       }
     
       .section-2 {
@@ -917,29 +986,49 @@
         grid-template-rows: repeat(50, 1fr);
       }
     
-      #section-2-subheader-id {
-        grid-area: 2 / 1 / 3 / 21;
-      }
-    
-      .section-2-subheader {
+      .section-subheader {
         font-size: 1.5em;
         background-color: var(--massey-black);
         border-color: var(--medium-grey-diff);
         border-width: 1px;
         border-style: solid;
         border-radius: 2px;
-        padding-left: 10px;
-        margin-top: 5px;
-        margin-bottom: 5px;
         display: flex;
         align-items: center;
+        justify-content: center;
+        grid-area: 3 / 1 / 4 / 10;
+
+      }
+
+      .jump-to-bar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      .jump-to-bar a {
+        text-decoration: none;
+        margin: 1em;
+        font-size: 0.65em;
+        color: white;
+      }
+
+      .jump-to-bar a:hover {
+        color: var(--massey-yellow);
+        cursor: pointer;
+      }
+
+      #match-overview-jumptobar-id {
+        grid-area: 2 / 1 / 3 / 10;
       }
     
       #section-2-row-1-container-id {
-        grid-area: 3 / 1 / 9 / 10;
+        grid-area: 4 / 1 / 10 / 10;
       }
     
-      .section-2-row-container {
+      .section-row-container {
         display: grid;
         grid-template-columns: repeat(10, 1fr);
         grid-template-rows: repeat(3, 1fr);
@@ -947,41 +1036,58 @@
     
       #s2-p1-id {
         grid-area: 1 / 1 / 4 / 6;
-    
         display: grid;
         grid-template-columns: repeat(10, 1fr);
         grid-template-rows: repeat(10, 1fr);
       }
     
       #s2-p2-id {
-        grid-area: 1 / 6 / 4 / 11;
+        grid-column-start: 6;
+        grid-column-end: 11;
+        grid-row-start: 1;
+        grid-row-end: 4;
+    
         display: grid;
         grid-template-columns: repeat(10, 1fr);
         grid-template-rows: repeat(10, 1fr);
       }
     
       .big-result-letter {
-        font-size: 7em;
+        font-size: 6em;
         color: var(--green-win);
       }
     
       #big-result-letter-id {
-        grid-area: 1 / 2 / 6 / 6;
+        grid-area: 1 / 2 / 3 / 6;
       }
     
       .game-score {
-        font-size: 1.6em;
-        padding-left: 15px;
+        font-size:1.9em;
+        padding-left: 5px;
         text-align: center;
+        
       }
     
       #game-score-id {
-        grid-area: 2 / 5 / 5 / 11;
+        display: flex;
+        grid-area: 2 / 6 / 3 / 11;
+      }
+    
+      .game-stats-header {
+        font-size: 1.2em;
+        padding-left: 5px;
+      }
+    
+      #game-stats-header-id {
+        grid-column-start: 1;
+        grid-column-end: 5;
+        grid-row-start: 7;
+        grid-row-end: 9;
       }
     
       .game-stats-content-header {
-        font-size: 1em;
-        padding-left: 10px;
+        font-size: 0.9em;
+        padding-left: 5px;
       }
     
       #game-stats-content-header-id {
@@ -990,15 +1096,15 @@
     
       .game-stats-content {
         font-size: 0.8em;
-        padding-left: 10px;
+        padding-left: 5px;
       }
     
       #game-stats-content-id {
-        grid-area: 5 / 1 / 7 / 6;
+        grid-area: 5 / 1 / 9 / 6
       }
     
       .game-stats-improvements-header {
-        font-size: 1em;
+        font-size: 0.9em;
       }
     
       #game-stats-improvements-header-id {
@@ -1010,63 +1116,96 @@
       }
     
       #game-stats-improvements-content-id {
-        grid-area: 5 / 7 / 7 / 11;
+        grid-area: 5 / 7 / 9 / 11;
       }
     
-      .top-match-performers-header {
-        font-size: 1.3em;
+      .large-panel-header {
+        font-size: 1.5em;
         text-align: center;
-        padding-top: 15px;
+        padding-top: 5px;
       }
     
       #top-match-performers-id {
-        grid-area: 1 / 1 / 2 / 11;
+        grid-column-start: 1;
+        grid-column-end: 11;
+        grid-row-start: 1;
+        grid-row-end: 2;
       }
     
       .stat-title {
         color: var(--massey-yellow);
-        font-size: 0.6em;
+        font-size: 0.7em;
         text-align: left;
-        padding-left: 10px;
+        padding-left: 5px;
       }
     
       .stat {
         color: white;
         font-size: 0.7em;
         text-align: left;
-        padding-left: 10px;
+        padding-left: 5px;
       }
     
       #top-tackler-id {
-        grid-area: 3 / 1 / 4 / 6;
+        grid-column-start: 1;
+        grid-column-end: 6;
+        grid-row-start: 2;
+        grid-row-end: 4;
       }
     
     
       #top-ruck-commits-id {
-        grid-area: 5 / 1 / 6 / 6;
+        grid-column-start: 1;
+        grid-column-end: 6;
+        grid-row-start: 4;
+        grid-row-end: 6;
       }
     
     
       #top-ruck-steals-id {
-        grid-area: 7 / 1 / 8 / 6;
+        grid-column-start: 1;
+        grid-column-end: 6;
+        grid-row-start: 6;
+        grid-row-end: 8;
       }
     
     
       #top-playmaker-id {
-        grid-area: 9 / 1 / 10 / 6;
+        grid-column-start: 1;
+        grid-column-end: 6;
+        grid-row-start: 8;
+        grid-row-end: 10;
       }
     
     
       #top-linebreaks-id {
-        grid-area: 3 / 6 / 4 / 11;
+        grid-column-start: 6;
+        grid-column-end: 11;
+        grid-row-start: 2;
+        grid-row-end: 4;
       }
     
       #top-broken-tackles-id {
-        grid-area: 5 / 6 / 6 / 11;
+        grid-column-start: 6;
+        grid-column-end: 11;
+        grid-row-start: 4;
+        grid-row-end: 6;
       }
     
       #top-ball-carries-id {
-        grid-area: 7 / 6 / 8 / 11;
+        grid-column-start: 6;
+        grid-column-end: 11;
+        grid-row-start: 6;
+        grid-row-end: 8;
+      }
+    
+      #btn-contact-us-id {
+        grid-column-start: 3;
+        grid-column-end: 5;
+        grid-row-start: 22;
+        grid-row-end: 23;
+    
+        text-align: center;
       }
     
       .btn-contact-us {
@@ -1074,13 +1213,14 @@
         border-color: black;
         border-width: 1.5px;
         border-style: solid;
-        border-radius: 5px;
+        border-radius: 10px;
         text-decoration: none;
         color: black;
         text-align: center;
-        margin: 25px;
-        font-size: 0.8em;
+        margin: 30px;
+        font-size: 22px;
         font-style: bold;
+    
       }
     
       .btn-contact-us:hover {
@@ -1088,140 +1228,65 @@
         border-color: var(--massey-yellow);
         border-width: 1.5px;
         border-style: solid;
-        border-radius: 5px;
+        border-radius: 10px;
         text-decoration: none;
         color: var(--massey-yellow);
         text-align: center;
-        margin: 25px;
-        font-size: 0.8em;
+        margin: 30px;
+        font-size: 22px;
         font-style: bold;
       }
     
       #section-2-subheader-2-id {
-        grid-area: 9 / 1 / 10 / 10;
+        grid-column-start: 1;
+        grid-column-end: 10;
+        grid-row-start: 14;
+        grid-row-end: 15;
       }
     
       #section-2-row-2-container-id {
-        grid-area: 10 / 1 / 30 / 10; 
-        grid-template-columns: repeat(10, 1fr);
-        grid-template-rows: repeat(20, 1fr);
+        grid-column-start: 1;
+        grid-column-end: 10;
+        grid-row-start: 12;
+        grid-row-end: 17;
       }
     
       #s2-p3-id {
-        grid-area: 1 / 1 / 2 / 11;
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-row-start: 1;
+        grid-row-end: 4;
+      }
+    
+      #s2-p4-id {
+        grid-column-start: 4;
+        grid-column-end: 9;
+        grid-row-start: 1;
+        grid-row-end: 4;
       }
     
       #tackles-graph-container-id {
-        grid-area: 2 / 1 / 8 / 11;
-        height: 100%;
-        width: 100%;
+        grid-column-start: 1;
+        grid-column-end: 11;
+        grid-row-start: 2;
+        grid-row-end: 11;
       }
     
       #tackles-graph-header-id {
-        grid-area: 1 / 1 / 3 / 11;
+        grid-column-start: 1;
+        grid-column-end: 11;
+        grid-row-start: 1;
+        grid-row-end: 2;
       }
     
       .tackles-graph-header {
         text-align: center;
-        font-size: 1.2em;
+        font-size: 1.5em;
         color: white; 
-        margin: 5px;
-      }
-    
-      #rugby-field-container-id {
-        grid-area: 3 / 1 / 9 / 11;
-      }
-
-      #s2-p4-id {
-        grid-area: 10 / 1 / 20 / 11;
         margin: 10px;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(8, 1fr);
-      }
-    
-    
-      .rugby-field-container {
-        margin-top: 6px;
-        display: grid;
-        grid-template-columns: repeat(30, 1fr);
-        grid-template-rows: repeat(15, 1fr);
-      }
-    
-      .rugby-field-img {
-        border-width: 0.5px;
-        border-style: solid;
-        border-color: black;
-        border-radius: 5px;
-        max-width:100%;
-        max-height: auto;
-    
-        grid-column-start: 1;
-        grid-column-end: 31;
-        grid-row-start: 1;
-        grid-row-end: 16;
-      }
-    
-      .btn-field-interaction {
-        font-size: 1em;
-        text-decoration: none;
-        border-color: black;
-        border-style: solid;
-        border-width: 0.5px;
-        padding:3.5px;
-        border-radius: 5px;
-        background-color: var(--massey-yellow);
-        text-align: center;
-        color: black;
-        font-style: bold;
-        margin: 5px;
-      }
-    
-      .btn-field-interaction:hover{
-        font-size: 1em;
-        text-decoration: none;
-        border-color: var(--massey-yellow);
-        border-style: solid;
-        border-width: 0.5px;
-        padding:3.5px;
-        border-radius: 5px;
-        background-color: black;
-        text-align: center;
-        color: var(--massey-yellow);
-        font-style: bold;
-        margin: 5px;
-      }
-    
-      #btns-field-container-id {
-        grid-column-start: 1;
-        grid-column-end: 11;
-        grid-row-start: 8;
-        grid-row-end: 11;
-      }
-    
-      .btns-field-container {
-        display: grid;
-        grid-template-rows: repeat(4, 1fr);
-        grid-template-columns: repeat(9, 1fr);
-        margin-left: 10px;
-        margin-right: 10px;
-      }
-    
-      #tackles-success-btn-id {
-        grid-column-start: 1;
-        grid-column-end: 4;
-        grid-row-start: 2;
-        grid-row-end: 4;
       }
     
       
-      #tackles-failed-btn-id {
-        grid-column-start: 4;
-        grid-column-end: 7;
-        grid-row-start: 2;
-        grid-row-end: 4;
-      }
-    
       .pointer-element:hover {
         cursor: pointer;
       }
@@ -1233,22 +1298,23 @@
         grid-row-end: 4;
       }
     
-      .blue-dp:hover {
-      transform:scale(1.5);
-      cursor: pointer;
-      
+      #s2-p4-id {
+        grid-column-start: 4;
+        grid-column-end: 11;
+        grid-row-start: 1;
+        grid-row-end: 4;
+    
+        margin-left: 15px;
+    
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(8, 1fr);
       }
     
-      .red-cross:hover {
-        transform:scale(1.5);
-        cursor: pointer;
-      }
-    
-    
-      .defense-more-header {
-        font-size: 1.3em;
+      .medium-panel-header {
+        font-size: 1em;
         text-align: center;
-        margin-top: 5px;
+        margin-top: 7px;
       }
     
       #defense-more-header-id {
@@ -1258,16 +1324,15 @@
         grid-column-end: 5;
       }
     
-      .defense-more-info {
-        font-size: 0.65em;
+      .insights-info {
+        font-size: 0.55em;
         color: white;
         margin-left: 10px;
       }
     
-      .defense-more-value {
+      .insights-value {
         color: var(--massey-yellow);
-        font-size: 0.7em;
-        margin-left: 15px;
+        font-size:0.55em;
       }
     
       #defense-more-info-1-id {
@@ -1325,64 +1390,567 @@
       }
     
       #defense-more-value-1-id {
-        grid-column-start: 4;
-        grid-column-end: 5;
+        grid-column-start: 3;
+        grid-column-end: 4;
         grid-row-start: 2;
         grid-row-end: 3;
       }
     
       #defense-more-value-2-id {
-        grid-column-start: 4;
-        grid-column-end: 5;
+        grid-column-start: 3;
+        grid-column-end: 4;
         grid-row-start: 3;
         grid-row-end: 4;
       }
     
       #defense-more-value-3-id {
-        grid-column-start: 4;
-        grid-column-end: 5;
+        grid-column-start: 3;
+        grid-column-end: 4;
         grid-row-start: 4;
         grid-row-end: 5;
       }  
     
       
       #defense-more-value-4-id {
-        grid-column-start: 4;
-        grid-column-end: 5;
+        grid-column-start: 3;
+        grid-column-end: 4;
         grid-row-start: 5;
         grid-row-end: 6;
       }
     
       
       #defense-more-value-5-id {
-       grid-column-start: 4;
-        grid-column-end: 5;
+        grid-column-start: 3;
+        grid-column-end: 4;
         grid-row-start: 6;
         grid-row-end: 7;
       }
     
       
       #defense-more-value-6-id {
-        grid-column-start: 4;
-        grid-column-end: 5;
+        grid-column-start: 3;
+        grid-column-end: 4;
         grid-row-start: 7;
         grid-row-end: 8;
       }
     
       
       #defense-more-value-7-id {
-        grid-column-start: 4;
-        grid-column-end: 5;
+        grid-column-start: 3;
+        grid-column-end: 4;
         grid-row-start: 8;
         grid-row-end: 9;
       }
     
+      #defense-comp-val-1-id {
+        grid-area: 2 / 4 / 3 / 5;
+      }
     
+      #defense-comp-val-2-id {
+        grid-area: 3 / 4 / 4 / 5;
+      }
+    
+      #defense-comp-val-3-id {
+        grid-area: 4 / 4 / 5 / 5;
+      }
+    
+      #defense-comp-val-4-id {
+        grid-area: 5 / 4 / 6 / 5;
+      }
+    
+      #defense-comp-val-5-id {
+        grid-area: 6 / 4 / 7 / 5;
+      }
+    
+      #defense-comp-val-6-id {
+        grid-area: 7 / 4 / 8 / 5;
+      }
+    
+      #defense-comp-val-7-id {
+        grid-area: 8 / 4 / 9 / 5;
+      }  
+    
+      #section-2-row-3-container-id {
+        grid-area: 17 / 1 / 25 / 10;
+      }
+      #defense-rating-header-id {
+        grid-area: 1 / 1 / 2 / 6;
+      }
+    
+      .insights-comp-val {
+        text-align: left;
+        font-size: 0.55em;
+      } 
+    
+      #in-depth-container-id{     
+        grid-area: 1 / 1 / 4 / 11;
+         display: grid;
+         grid-template-columns: repeat(12, 1fr);
+         grid-template-rows: repeat(12, 1fr);
+      }
+    
+      #in-depth-header-id {
+        grid-area: 1 / 1 / 2 / 13;
+        text-align: center;
+      }
+    
+      .graph-panel {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+      }
+    
+      #ts-22-graph-container-id {
+        grid-area: 2 / 2 / 7 / 6;
+      }
+    
+      #ts-5-graph-container-id {
+        grid-area: 2 / 8 / 7 / 12;
+      }
+    
+      #linespeed-graph-container-id {
+        grid-area: 7 / 2 / 12 / 6;
+      }
+    
+      #opp-pts-22-graph-container-id {
+        grid-area: 7 / 8 / 12 / 12;
+      }
+    
+      .small-title-graphs {
+        font-size: 0.7em;
+        grid-area: 1 /  1 / 3 / 6;
+        text-align: center;
+      }
+    
+      .small-graph-container {
+        grid-area: 2 / 1 / 6 / 6;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+      }
+
+      #tackle-22-pie-graph-canv {
+          grid-area: 1 / 1 / 5 / 5;
+          width: 100%;
+          height: 100%;
+      }
+
+      #tackle-5-pie-graph-canv {
+        grid-area: 1 / 1 / 5 / 5;
+        width: 100%;
+        height: 100%;
+    }
+
+    #line-speed-graph-canv {
+        grid-area: 1 / 1 / 5 / 5;
+        width: 100%;
+        height: 100%;
+    }
+
+    #opp-pts-22-graph-canv {
+        grid-area: 1 / 1 / 5 / 5;
+        width: 100%;
+        height: 100%;
+    }
+    
+      /*Section 3 Start: Attack*/
+      #section-3-attack-id {
+        grid-area: 29 / 1 / 46 / 21;
+      }
+    
+      .section-3 {
+        display: grid;
+        grid-template-columns: repeat(9, 1fr);
+        grid-template-rows: repeat(17, 1fr);
+      }
+    
+      #section-3-subheader-id {
+        grid-area: 1 / 1 / 2 / 10;
+        display: flex;
+        align-items: center;
+      }
+    
+      #section-3-row-1-container-id {
+        grid-area: 2 / 1 / 7 / 10;
+      }
+    
+      #attack-pie-graph-panel-id {
+        grid-area: 1 / 1 / 4 / 4;
+      }
+    
+      #attack-insights-panel-id {
+        grid-area: 1 / 4 / 4 / 11;
+      }
+    
+      #section-3-row-2-container-id {
+        grid-area: 7 / 1 / 12 / 10;
+      }
+    
+      #attack-in-depth-panel-id {
+        grid-area: 1 / 1 / 4 / 11; 
+      }
+    
+      #posessions-gain-graph-header-id {
+        grid-area: 1 / 1 / 2 / 11;
+        text-align: center;  
+        font-size: 0.8em;
+      }
+    
+      #attack-insights-indepth-header-id {
+        grid-area: 1 / 1 / 2 / 11;
+        text-align: center;
+      }
+    
+      #attacking-insights-indepth-header-id {
+        grid-area: 1 / 1 / 2 / 11;
+        text-align: center;
+      }
+    
+      #posession-gain-graph-id {
+        grid-area: 2 / 1 / 9 / 11;
+        display: flex;
+        align-items: center;
+      }
+    
+      #attacking-insights-info-1 {
+        grid-area: 2 / 1 / 3 / 4;
+      }
+    
+      
+      #attacking-insights-info-2 {
+        grid-area: 3 / 1 / 4 / 4;
+      }
+    
+      
+      #attacking-insights-info-3 {
+        grid-area: 4 / 1 / 5 / 4;
+      }
+    
+      
+      #attacking-insights-info-4 {
+        grid-area: 5 / 1 / 6 / 4;
+      }
+    
+      
+      #attacking-insights-info-5 {
+        grid-area: 6 / 1 / 7 / 4;
+      }
+    
+      #attacking-insights-info-6 {
+        grid-area: 7 / 1 / 8 / 4;
+      }
+    
+      #attacking-insights-info-7 {
+        grid-area: 8 / 1 / 9 / 4;
+      }
+    
+      #attacking-insights-info-8 {
+        grid-area: 9 / 1 / 10 / 4;
+      }
+    
+      
+      #attacking-insights-val-1 {
+        grid-area: 2 / 5 / 3 / 7;
+      }
+    
+      
+      #attacking-insights-val-2 {
+        grid-area: 3 / 5 / 4 / 7;
+      }
+    
+      
+      #attacking-insights-val-3 {
+        grid-area: 4 / 5 / 5 / 7;
+      }
+    
+      
+      #attacking-insights-val-4 {
+        grid-area: 5 / 5 / 6 / 7;
+      }
+    
+      
+      #attacking-insights-val-5 {
+        grid-area: 6 / 5 / 7 / 7;
+      }
+    
+      #attacking-insights-val-6 {
+        grid-area: 7 / 5 / 8 / 7;
+      }
+    
+      #attacking-insights-val-7 {
+        grid-area: 8 / 5 / 9 / 7;
+      }
+    
+      #attacking-insights-val-8 {
+        grid-area: 9 / 5 / 10 / 7;
+      }
+    
+      #attacking-insights-comp-val-1 {
+        grid-area: 2 / 8 / 3 / 11;
+      }
+    
+      
+      #attacking-insights-comp-val-2 {
+        grid-area: 3 / 8 / 4 / 11;
+      }
+    
+      
+      #attacking-insights-comp-val-3 {
+        grid-area: 4 / 8 / 5 / 11;
+      }
+    
+      
+      #attacking-insights-comp-val-4 {
+        grid-area: 5 / 8 / 6 / 11;
+      }
+    
+      
+      #attacking-insights-comp-val-5 {
+        grid-area: 6 / 8 / 7 / 11;
+      }
+    
+      #attacking-insights-comp-val-6 {
+        grid-area: 7 / 8 / 8 / 11;
+      }
+    
+      #attacking-insights-comp-val-7 {
+        grid-area: 8 / 8 / 9 / 11;
+      }
+    
+      #attacking-insights-comp-val-8 {
+        grid-area: 9 / 8 / 10 / 11;
+      }
+    
+      #attack-in-depth-panel-id {
+        grid-template-columns: repeat(9, 1fr);
+        grid-template-rows: repeat(9, 1fr);
+      }
+    
+      #running-onto-ball-pie-panel-id {
+        grid-area: 2 / 1 / 9 / 4;
+      }
+    
+      #points-per-visit-22-bar-panel-id {
+        grid-area: 2 / 4 / 9 / 7;
+      }
+    
+      #posessions-lead-gain-panel-id {
+        grid-area: 2 / 7 / 9 / 10;
+      }
+    
+      .graph-container {
+        grid-area: 4 / 1 / 11 / 11;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    
+      .graph-header {
+        grid-area: 1 / 1 / 2 / 11;
+        text-align: center;
+        font-size: 0.8em;
+        margin-top: 10px;
+      }
+      #running-on-ball-graph-canv{
+        grid-area: 1 / 1 / 5 / 5;
+        width: 100%;
+        height: 100%;
+      }
+      #points-per-visit-bar-canv{
+        grid-area: 1 / 1 / 5 / 5;
+        width: 100%;
+        height: 100%;
+      }
+      #meter-gain-success-canv{
+        grid-area: 1 / 1 / 5 / 5;
+        width: 100%;
+        height: 100%;
+      }
+
+      /*Start of Section 4 - Kicking Game*/
+      .section-4 {
+          display: grid;
+          grid-template-columns: repeat(17, 1fr);
+          grid-template-rows: repeat(9, 1fr);
+      }
+
+      #section-4-kicking-game-id {
+        grid-area: 41 / 1 / 51/ 21;
+      }
+
+      #section-4-subheader-id {
+        display: flex;
+        align-items: center;
+        grid-area: 1 / 1 / 2 / 18;
+      }
+
+      #section-5-subheader-id{
+        display: flex;
+        align-items: center;
+        grid-area: 1 / 1 / 2 / 18;
+      }
+
+      #section-6-subheader-id{
+        display: flex;
+        align-items: center;
+        grid-area: 1 / 1 / 2 / 18;
+      }
+
+      #section-7-subheader-id{
+        display: flex;
+        align-items: center;
+        grid-area: 1 / 1 / 2 / 18;
+      }
+      #section-8-subheader-id{
+        display: flex;
+        align-items: center;
+        grid-area: 1 / 1 / 2 / 18;
+      }
+
+      #posessions-kicked-panel-id {
+        grid-area: 2 / 1 / 5 / 5;
+      }
+
+      #kicks-out-onfull-panel-id {
+        grid-area: 2 / 5 / 5 / 10;
+      }
+
+      #kick-regathers-panel-id {
+        grid-area: 2 / 10 / 5 / 18;
+      }
+
+      #kick-meters-gain-panel-id {
+        grid-area: 5 / 1 / 9 / 9;
+      }
+
+      #goal-kick-panel-id {
+        grid-area: 5 / 9 / 9 / 18;
+      }
+
+       /*Start of Section 5 - Ball Handling*/
+      .section-5 {
+        display: grid;
+        grid-template-columns: repeat(17, 1fr);
+        grid-template-rows: repeat(9, 1fr);
+      }
+
+      #section-5-ball-handling-id {
+        grid-area: 51 / 1 /  61 / 21;
+      }
+
+      #passes-successful-panel-id {
+        grid-area: 2 / 1 / 5 / 4; 
+      }
+
+      #passes-successfulbypass-panel-id {
+        grid-area: 2 / 4 / 5 / 18; 
+      }
+
+      #linebreak-bypass-id {
+        grid-area: 5 / 1 / 10 / 9; 
+      }
+
+      #ball-handling-insights-panel-id {
+        grid-area: 5 / 9 / 10 / 18; 
+      }
+
+
+      /*Start of section 6 - Rucks*/
+      .section-6 {
+        display: grid;
+        grid-template-columns: repeat(17, 1fr);
+        grid-template-rows: repeat(9, 1fr);
+      }
+
+      #section-6-rucks-id {
+        grid-area: 2 / 1 / 12 / 21;
+      }
+
+      #total-ruck-success-panel-id {
+        grid-area: 2 / 1 / 5 / 6;
+      }
+
+      #ruck-speed-panel-id {
+        grid-area: 5 / 1 / 10 / 8;
+      }
+
+      #ruck-insights-panel-id {
+        grid-area: 5 / 8 / 10 / 18;
+      }
+
+      #ruck-success-partsoffield-panel-id {
+        grid-area: 2 / 6 / 5 / 18;
+      }
+
+      /*Start of Section 7 - Set Piece*/
+      .section-7 {
+        display: grid;
+        grid-template-columns: repeat(17, 1fr);
+        grid-template-rows: repeat(9, 1fr);
+      }
+
+      #section-7-setpiece-id {
+        grid-area: 13 / 1 / 23 / 21;
+      }
+
+      #set-piece-success-panel-id{
+        grid-area: 2 / 1 / 6 / 10;
+      }
+
+      #set-piece-success-dif-field-id {
+        grid-area: 2 / 10 / 6 / 18;
+      }
+
+      #action-taken-set-piece-panel-id{
+        grid-area: 6 / 1 / 10 / 6;
+      }
+
+      #outcome-from-set-piece-panel-id {
+        grid-area: 6 / 6 / 10 / 12;
+      }
+
+      #set-piece-insights-panel-id {
+        grid-area: 6 / 12 / 10 / 18;
+      }
+
+      /*Start of Section 8 - Discipline*/
+      .section-8{
+        display: grid;
+        grid-template-columns: repeat(17, 1fr);
+        grid-template-rows: repeat(9, 1fr);
+      }
+
+      #section-8-discipline-id {
+        grid-area: 23 / 1 / 33 / 21;
+      }
+
+      #types-penalties-conceded-panel-id{
+        grid-area: 2 / 1 / 6 / 9;
+      }
+
+      #penalties-diff-field-panel-id {
+        grid-area: 2 / 9 / 6 / 18;
+      }
+
+      #outcome-of-penalty-in-own22-panel-id {
+        grid-area: 6 / 1 / 10 / 6;
+      }
+
+      #penalties-insights-panel-id{
+        grid-area: 6 / 6 / 10 / 18;
+      }
+
+      /*End of the page, to be continued note*/
+      .copyright-text {
+        font-size: 0.6em;
+      }
+
       .continuation-text {
-        font-size: 2em;
+        font-size: 1.5em;
         font-style: italic;
         text-align: center;
-        grid-area: 30 / 1 / 31 / 10;
+        grid-area: 33 / 1 / 34 / 10;
       }
       .copyright-text {
         font-size: 0.6em;
