@@ -641,7 +641,13 @@
   #overall-container-id {
     display: grid;
     grid-template-columns: repeat(20, 1fr);
-    grid-template-rows: repeat(100, 65px);
+    grid-template-rows: repeat(100, 3em);
+  }
+
+  #overall-container-2-id {
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(58, 3em);
   }
 
   #header-strip-container-id {
@@ -669,10 +675,7 @@
 
   .header-bar {
     background-color: var(--massey-black);
-    grid-column-start: 1;
-    grid-column-end: 20;
-    grid-row-start: 8;
-    grid-row-end: 9;
+    grid-area: 9 / 1 / 10 / 20;
   }
 
   #header-bar-id {
@@ -683,7 +686,7 @@
   }
 
   .header-bar-btn {
-    font-size: 0.75em;
+    font-size: 0.65em;
     display: flex;
     align-items: center;
   }
@@ -719,14 +722,9 @@
 
 
   #logo-container-circle-id {
-    grid-column-start: 2;
-    grid-column-end: 4;
-    grid-row-start: 7;
-    grid-row-end: 9;
-
+    grid-area: 8 / 2 / 10 / 4;
     display: flex;
     justify-content: center;
-
     align-items: center;
   }
 
@@ -742,11 +740,11 @@
     margin: auto;
     margin-left: auto;
     margin-right: auto;
-    max-width: 40%;
+    max-width: 30%;
   }
 
   .team-title {
-    font-size: 30px;
+    font-size: 1.5em;
     color: white;
   }
 
@@ -755,6 +753,10 @@
     grid-column-end: 15;
     grid-row-start: 7;
     grid-row-end: 8;
+
+    grid-area: 8 / 4 / 9 / 15;
+    padding-left: 10px;
+    padding-top: 10px;
   }
 
   .section-1 {
@@ -781,14 +783,18 @@
   }
 
   #section-1-header-id {
-    grid-column-start: 1;
-    grid-column-end: 10;
-    grid-row-start: 1;
-    grid-row-end: 2;
+    grid-area: 1 / 1 / 2 / 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+  #match-overview-header-id {
+    grid-area: 3 / 1 / 4 / 10;
+  }
+
+  #defense-header-id {
+    grid-area: 13 / 1 / 15 / 10;
   }
 
   .ac-header-txt {
@@ -797,11 +803,8 @@
     padding-left: 15px;
   }
 
-  #ac-header-text-id {
-    grid-column-start: 1;
-    grid-column-end: 3;
-    grid-row-start: 2;
-    grid-row-end: 4;
+  .section-header-text {
+    font-size: 2em;
   }
 
   #s1-panels-container-id {
@@ -913,7 +916,7 @@
 
   .result {
     padding-left: 10px;
-    font-size: 0.8em;
+    font-size: 0.65em;
   }
 
   #result-1-id {
@@ -1120,28 +1123,47 @@
     grid-template-rows: repeat(50, 1fr);
   }
 
-  #section-2-subheader-id {
-    grid-column-start: 1;
-    grid-column-end: 10;
-    grid-row-start: 3;
-    grid-row-end: 4;
-  }
-
   .section-subheader {
-    font-size: 2.3em;
+    font-size: 2em;
     background-color: var(--massey-black);
     border-color: var(--medium-grey-diff);
     border-width: 1px;
     border-style: solid;
     border-radius: 2px;
     padding-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-area: 3 / 1 / 4 / 10;
+
+  }
+
+  .jump-to-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .jump-to-bar a {
+    text-decoration: none;
+    margin: 1em;
+    font-size: 0.65em;
+    color: white;
+  }
+
+  .jump-to-bar a:hover {
+    color: var(--massey-yellow);
+    cursor: pointer;
+  }
+
+  #match-overview-jumptobar-id {
+    grid-area: 2 / 1 / 3 / 10;
   }
 
   #section-2-row-1-container-id {
-    grid-column-start: 1;
-    grid-column-end: 10;
-    grid-row-start: 4;
-    grid-row-end: 13;
+    grid-area: 4 / 1 / 13 / 10;
   }
 
   .section-row-container {
@@ -1151,11 +1173,7 @@
   }
 
   #s2-p1-id {
-    grid-column-start: 1;
-    grid-column-end: 6;
-    grid-row-start: 1;
-    grid-row-end: 4;
-
+    grid-area: 1 / 1 / 4 / 6;
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     grid-template-rows: repeat(10, 1fr);
@@ -1531,14 +1549,14 @@
   }
 
   .insights-info {
-    font-size: 0.65em;
+    font-size: 0.55em;
     color: white;
     margin-left: 10px;
   }
 
   .insights-value {
     color: var(--massey-yellow);
-    font-size:0.75em;
+    font-size:0.55em;
   }
 
   #defense-more-info-1-id {
@@ -1685,7 +1703,7 @@
 
   .insights-comp-val {
     text-align: left;
-    font-size: 0.75em;
+    font-size: 0.55em;
   } 
 
   #in-depth-container-id{     
@@ -1729,10 +1747,35 @@
   }
 
   .small-graph-container {
-    grid-area: 2 / 1 / 5 / 6;
-    max-width: 100%;
-    height: auto;
+    grid-area: 2 / 1 / 6 / 6;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
   }
+
+  #tackle-22-pie-graph-canv {
+      grid-area: 1 / 1 / 5 / 5;
+      width: 100%;
+      height: 100%;
+  }
+
+  #tackle-5-pie-graph-canv {
+    grid-area: 1 / 1 / 5 / 5;
+    width: 100%;
+    height: 100%;
+}
+
+#line-speed-graph-canv {
+    grid-area: 1 / 1 / 5 / 5;
+    width: 100%;
+    height: 100%;
+}
+
+#opp-pts-22-graph-canv {
+    grid-area: 1 / 1 / 5 / 5;
+    width: 100%;
+    height: 100%;
+}
 
   /*Section 3 Start: Attack*/
   #section-3-attack-id {
@@ -1966,6 +2009,29 @@
     grid-area: 1 / 1 / 2 / 18;
   }
 
+  #section-5-subheader-id{
+    display: flex;
+    align-items: center;
+    grid-area: 1 / 1 / 2 / 18;
+  }
+
+  #section-6-subheader-id{
+    display: flex;
+    align-items: center;
+    grid-area: 1 / 1 / 2 / 18;
+  }
+
+  #section-7-subheader-id{
+    display: flex;
+    align-items: center;
+    grid-area: 1 / 1 / 2 / 18;
+  }
+  #section-8-subheader-id{
+    display: flex;
+    align-items: center;
+    grid-area: 1 / 1 / 2 / 18;
+  }
+
   #posessions-kicked-panel-id {
     grid-area: 2 / 1 / 5 / 5;
   }
@@ -1994,28 +2060,25 @@
   }
 
   #section-5-ball-handling-id {
-    grid-area: 85 / 1 /  103 / 21;
+    grid-area: 85 / 1 /  101 / 21;
   }
 
   #passes-successful-panel-id {
-    grid-area: 2 / 1 / 5 /  4; 
+    grid-area: 2 / 1 / 5 / 4; 
   }
 
   #passes-successfulbypass-panel-id {
-    grid-area: 2 / 4 / 5 /  11; 
+    grid-area: 2 / 4 / 5 / 18; 
   }
 
-  #line-breaks-bypass-panel-id {
-    grid-area: 2 / 11 / 5 /  18; 
+  #linebreak-bypass-id {
+    grid-area: 5 / 1 / 10 / 9; 
   }
 
   #ball-handling-insights-panel-id {
-    grid-area: 5 / 1 / 10 /  9; 
+    grid-area: 5 / 9 / 10 / 18; 
   }
 
-  #meters-gained-bypass-id {
-    grid-area: 5 / 9 / 10 /  18; 
-  }
 
   /*Start of section 6 - Rucks*/
   .section-6 {
@@ -2033,15 +2096,15 @@
   }
 
   #ruck-speed-panel-id {
-    grid-area: 2 / 6 / 5 / 18;
-  }
-
-  #ruck-insights-panel-id {
     grid-area: 5 / 1 / 10 / 8;
   }
 
-  #ruck-success-partsoffield-panel-id {
+  #ruck-insights-panel-id {
     grid-area: 5 / 8 / 10 / 18;
+  }
+
+  #ruck-success-partsoffield-panel-id {
+    grid-area: 2 / 6 / 5 / 18;
   }
 
   /*Start of Section 7 - Set Piece*/
@@ -2059,15 +2122,15 @@
     grid-area: 2 / 1 / 6 / 10;
   }
 
-  #meters-gain-from-set-piece-panel-id {
+  #set-piece-success-dif-field-id {
     grid-area: 2 / 10 / 6 / 18;
   }
 
-  #outcome-from-set-piece-panel-id {
+  #action-taken-set-piece-panel-id{
     grid-area: 6 / 1 / 10 / 6;
   }
 
-  #success-off-set-piece-diff-field-panel-id {
+  #outcome-from-set-piece-panel-id {
     grid-area: 6 / 6 / 10 / 12;
   }
 
@@ -2086,7 +2149,7 @@
     grid-area: 40 / 1 / 58 / 21;
   }
 
-  #types-penalties-panel-id{
+  #types-penalties-conceded-panel-id{
     grid-area: 2 / 1 / 6 / 9;
   }
 
@@ -2094,12 +2157,12 @@
     grid-area: 2 / 9 / 6 / 18;
   }
 
-  #discipline-insights-panel-id {
-    grid-area: 6 / 1 / 10 / 9;
+  #outcome-of-penalty-in-own22-panel-id {
+    grid-area: 6 / 1 / 10 / 6;
   }
 
-  #types-penalties-chosen-panel-id {
-    grid-area: 6 / 9 / 10 / 18;
+  #penalties-insights-panel-id{
+    grid-area: 6 / 6 / 10 / 18;
   }
 
   /*End of the page, to be continued note*/
