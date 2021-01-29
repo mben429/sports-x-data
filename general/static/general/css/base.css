@@ -28,6 +28,15 @@
     --blue-outline: #7399BF;
     --dark-blue-outline: #1B2733;
 
+    --rosmini-blue: rgb(37,74,163);
+    --rosmini-red: rgb(235,28,36);
+    --crusaders-red: rgb(232,47,51);
+    --crusaders-black: rgb(34,29,32);
+    --canes-yellow: rgb(232,197,11);
+    --canes-black: rgb(39,37,40);
+    --toulon-red: rgb(208,43,34);
+    --toulon-black: rgb(15,17,15);
+
     font-size: calc(1vw + 0.75vh + .5vmin);
 }
 
@@ -634,6 +643,11 @@
 
   /*NEW ATHLETE CENTER*/
 
+  #container {
+    display: grid;
+    grid-template-rows: repeat()
+  }
+
   .overall-container {
     background-color: black;
   }
@@ -870,15 +884,22 @@
     grid-row-end: 2;
   }
 
+  .standings-container {
+    display: flex;
+    align-items: center;
+  }
+
   #standings-container-id {
-    grid-column-start: 1;
-    grid-column-end: 11;
+    grid-column-start: 2;
+    grid-column-end: 10;
     grid-row-start: 2;
     grid-row-end: 11;
   }
 
   .standings-table {
-    padding-left: 25px;
+    border-collapse: collapse;
+    font-size: 0.6em;
+    width: 100%;
   }
 
   td, th {
@@ -886,10 +907,9 @@
     font-style: normal;
     border-width: 0.05px;
     border-style: solid;
-    border-radius: 2px;
+    border-radius: 2px; 
     border-color: var(--medium-grey-diff);
-    font-size: 11px;
-    padding: 8px;
+    padding: 0.4em;
   }
 
   #recent-results-title-id {
@@ -2164,6 +2184,21 @@
   #penalties-insights-panel-id{
     grid-area: 6 / 6 / 10 / 18;
   }
+
+  .jump-to-btn-container a {
+    padding-left: 3em;
+    color: white;
+    font-size: 0.35em;
+    text-decoration: none;
+    text-align: right;
+  }
+  
+  .jump-to-btn-container a:hover {
+    color: var(--massey-yellow);
+    font-size: 0.35em;
+    padding-left: 3em;
+  }
+
 
   /*End of the page, to be continued note*/
   .copyright-text {

@@ -740,11 +740,17 @@
       }
     
       #standings-container-id {
-        grid-area: 2 / 1 / 11 / 11;
+        grid-column-start: 2;
+        grid-column-end: 10;
+        grid-row-start: 2;
+        grid-row-end: 11;
       }
     
       .standings-table {
-        padding-left: 5px;
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.4em;
+        width: 100%;
       }
     
       td, th {
@@ -754,7 +760,6 @@
         border-style: solid;
         border-radius: 2px;
         border-color: var(--medium-grey-diff);
-        font-size: 0.4em;
         padding: 0.05px;
       }
     
@@ -1940,6 +1945,20 @@
       #penalties-insights-panel-id{
         grid-area: 6 / 6 / 10 / 18;
       }
+
+      .section-subheader a {
+        padding-left: 0.6em;
+        color: white;
+        font-size: 0.55em;
+        text-decoration: none;
+      }
+
+      .section-subheader a:hover {
+        color: var(--massey-yellow);
+        font-size: 0.55em;
+        padding-left: 0.6em;
+      }
+
 
       /*End of the page, to be continued note*/
       .copyright-text {

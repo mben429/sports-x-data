@@ -17,46 +17,44 @@ let yellow_1 =  "rgb(255,167,60)";
 /*Viewport sizes*/
 let WINDOW_HEIGHT = $(window).height();
 let WINDOW_WIDTH = $(window).width();
-console.log(WINDOW_HEIGHT);
-console.log(WINDOW_WIDTH);
-
 
 // Responsible for ensuring all charts are responsive to different screen sizes
 function make_responsive(curr_chart){
   if (WINDOW_WIDTH <= 700) {
     curr_chart.options.legend.labels.fontSize = 4;
-    curr_chart.options.scales.xAxes[0].ticks.fontSize = 4;
-    curr_chart.options.scales.yAxes[0].ticks.fontSize = 4;
+  
 
     if (curr_chart.config.type == "bar" || curr_chart.config.type == 'horizontalBar'){
       set_bar_thickness(curr_chart, 10);
+      curr_chart.options.scales.xAxes[0].ticks.fontSize = 4;
+      curr_chart.options.scales.yAxes[0].ticks.fontSize = 4;
     }
   }
   else if (WINDOW_WIDTH > 700 && WINDOW_WIDTH < 1100){
     curr_chart.options.legend.labels.fontSize = 9;
-    curr_chart.options.scales.xAxes[0].ticks.fontSize = 9;
-    curr_chart.options.scales.yAxes[0].ticks.fontSize = 9;
 
     if (curr_chart.config.type == "bar" || curr_chart.config.type == 'horizontalBar'){
       set_bar_thickness(curr_chart, 15);
+      curr_chart.options.scales.xAxes[0].ticks.fontSize = 9;
+      curr_chart.options.scales.yAxes[0].ticks.fontSize = 9;
     }
   }
   else if (WINDOW_WIDTH >= 1100 && WINDOW_WIDTH < 1600){
-    curr_chart.options.legend.labels.fontSize = 11  
-    curr_chart.options.scales.xAxes[0].ticks.fontSize = 11;
-    curr_chart.options.scales.yAxes[0].ticks.fontSize = 11;  
+    curr_chart.options.legend.labels.fontSize = 11   
 
     if (curr_chart.config.type == "bar" || curr_chart.config.type == 'horizontalBar'){
       set_bar_thickness(curr_chart, 20);
+      curr_chart.options.scales.xAxes[0].ticks.fontSize = 11;
+      curr_chart.options.scales.yAxes[0].ticks.fontSize = 11; 
     }
   }
   else if (WINDOW_WIDTH > 1600){
     curr_chart.options.legend.labels.fontSize = 12;
-    curr_chart.options.scales.xAxes[0].ticks.fontSize = 12;
-    curr_chart.options.scales.yAxes[0].ticks.fontSize = 12;  
     
     if (curr_chart.config.type == "bar" || curr_chart.config.type == 'horizontalBar'){
-      set_bar_thickness(curr_chart, 30);  
+      set_bar_thickness(curr_chart, 30); 
+      curr_chart.options.scales.xAxes[0].ticks.fontSize = 12;
+      curr_chart.options.scales.yAxes[0].ticks.fontSize = 12;  
     }
   }
 }

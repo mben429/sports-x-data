@@ -46,7 +46,7 @@
         <div class="standings-container" id="standings-container-id">
           <!-- STANDINGS TABLE -->
           <table class="standings-table">
-            <thead>
+            <thead id="standings-header">
               <tr>
                 <th>Team</th>
                 <th>P</th>
@@ -59,123 +59,7 @@
                 <th>Pts</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <th>Westlake BHS</th>
-                <th>6</th>
-                <th>6</th>
-                <th>0</th>
-                <th>0</th>
-                <th>6</th>
-                <th>189</th>
-                <th>52</th>
-                <th>30</th>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <th>Rosmini College</th>
-                <th>6</th>
-                <th>5</th>
-                <th>1</th>
-                <th>0</th>
-                <th>5</th>
-                <th>214</th>
-                <th>44</th>
-                <th>25</th>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <th>Manurewa HS</th>
-                <th>6</th>
-                <th>5</th>
-                <th>1</th>
-                <th>0</th>
-                <th>4</th>
-                <th>168</th>
-                <th>54</th>
-                <th>24</th>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr style="color: var(--massey-yellow);">
-                <th style="color: var(--massey-yellow);">Massey HS</th>
-                <th style="color: var(--massey-yellow);">6</th>
-                <th style="color: var(--massey-yellow);">4</th>
-                <th style="color: var(--massey-yellow);">2</th>
-                <th style="color: var(--massey-yellow);">0</th>
-                <th style="color: var(--massey-yellow);">2</th>
-                <th style="color: var(--massey-yellow);">102</th>
-                <th style="color: var(--massey-yellow);">74</th>
-                <th style="color: var(--massey-yellow);">18</th>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <th>Whangarei BHS</th>
-                <th>6</th>
-                <th>3</th>
-                <th>3</th>
-                <th>0</th>
-                <th>1</th>
-                <th>132</th>
-                <th>145</th>
-                <th>13</th>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <th>Rangitoto College</th>
-                <th>6</th>
-                <th>2</th>
-                <th>4</th>
-                <th>0</th>
-                <th>4</th>
-                <th>111</th>
-                <th>123</th>
-                <th>12</th>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <th>Takapuna Grammar</th>
-                <th>6</th>
-                <th>2</th>
-                <th>4</th>
-                <th>0</th>
-                <th>2</th>
-                <th>101</th>
-                <th>102</th>
-                <th>10</th>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <th>Mahurangi College</th>
-                <th>6</th>
-                <th>2</th>
-                <th>4</th>
-                <th>0</th>
-                <th>1</th>
-                <th>86</th>
-                <th>169</th>
-                <th>9</th>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <th>Orewa College</th>
-                <th>6</th>
-                <th>1</th>
-                <th>5</th>
-                <th>0</th>
-                <th>1</th>
-                <th>139</th>
-                <th>158</th>
-                <th>5</th>
-              </tr>
-            </tbody>
+            <tbody id="standings-table-content"></tbody>
           </table>
         </div>
       </div>
@@ -384,7 +268,7 @@
 
     <!--s2-Row3-Defense-Subheader-->
     <div class="section-subheader" id="defense-header-id" data-aos="fade-right">
-    <text class="ac-header-txt" id="ac-subheader-text-id">Defense<text style="color: var(--massey-yellow);">.</text></text>
+      <text class="ac-header-txt" id="ac-subheader-text-id">Defense<text style="color: var(--massey-yellow);">.</text></text>
     </div>
     <!-- s2-Row3-Defense-Main-->
     <div class="section-row-container" id="section-2-row-2-container-id" data-aos="fade-right">
@@ -842,5 +726,10 @@
   <div class="section-9" id="season-long-tracking-id"></div>
  
 </div>
+
+<script>
+  var data = JSON.parse("{{ data|escapejs }}");
+  displayAC(data["team_user_name"]);
+</script>
 
 {% endblock %}

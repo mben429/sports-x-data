@@ -1,0 +1,28 @@
+{
+  "name": "sports-x-data",
+  "version": "1.0.0",
+  "description": "Source for Sports x Data Website.",
+  "main": "index.js",
+  "dependencies": {
+    "aos": "^2.3.4",
+    "babel-cli": "^6.26.0",
+    "babel-preset-react-app": "^3.1.2",
+    "chart.js": "^2.9.3",
+    "fitty": "^2.3.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mben429/sports-x-data.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mben429/sports-x-data/issues"
+  },
+  "homepage": "https://github.com/mben429/sports-x-data#readme"
+}
