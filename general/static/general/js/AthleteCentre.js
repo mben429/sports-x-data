@@ -19,6 +19,7 @@ const teamLogos = {
 
 function setColor(id, property, team){
   $(id).css(property, teamMainColors[team]);
+  console.log("hello");
 }
 
 function setLogo(id, team){
