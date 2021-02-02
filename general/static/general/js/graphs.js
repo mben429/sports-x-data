@@ -1,18 +1,4 @@
 
-// Colors
-let green_win = "rgb(80,118,35)";
-let red_lose = "rgb(154,46,46)";
-let massey_yellow = "rgb(248,189,65)";
-let massey_black = "rgb(15, 14, 16)";
-let alternate_green = "rgb(80, 118, 40)";
-let alternate_red = "rgb(154,46,60)";
-let middle_orange = "rgb(251,176,59)";
-let blue_1 = "rgb(46,61,124)";
-let black_1 = "rgb(40,37,40)";
-let red_1 = "rgb(186,41,46)";
-let orange_1 = "rgb(225,93,58)";
-let yellow_1 =  "rgb(255,167,60)";
-
 
 /*Viewport sizes*/
 let WINDOW_HEIGHT = $(window).height();
@@ -59,6 +45,10 @@ function make_responsive(curr_chart){
   }
 }
 
+//Change colors of charts to represent Team logged in.
+function setGraphTheme(curr_chart){
+  console.log("setting theme for graph..."); 
+}
 
 // Set Bar thickness of all datasets in graph
 function set_bar_thickness(curr_chart, new_thickness){
@@ -73,7 +63,7 @@ function set_bar_thickness(curr_chart, new_thickness){
 
 /*ALL CHARTS START HERE*/
 
-function tackles_pi_graph(){
+function tackles_pi_graph(team){
   let ctx = document.getElementById('tackle-pie-graph').getContext('2d');
   let newChart = new Chart(ctx,
   {
@@ -117,9 +107,10 @@ function tackles_pi_graph(){
   });
 
   make_responsive(newChart);
+  setGraphTheme(newChart);
 }
 
-function tackles_22_pie_graph() {
+function tackles_22_pie_graph(team) {
   let ctx = document.getElementById('tackle-22-pie-graph-canv').getContext('2d');
   let newChart = new Chart(ctx, 
     {
@@ -153,9 +144,10 @@ function tackles_22_pie_graph() {
       }
   });
   make_responsive(newChart);
+  setGraphTheme(newChart);
 }
 
-function tackles_5_pie_graph() {
+function tackles_5_pie_graph(team) {
   let ctx = document.getElementById('tackle-5-pie-graph-canv').getContext('2d');
   let newChart = new Chart(ctx, 
     {
@@ -189,9 +181,10 @@ function tackles_5_pie_graph() {
       }
   });
   make_responsive(newChart);
+  setGraphTheme(newChart);
 }
 
-function linespeed_barchart() {
+function linespeed_barchart(team) {
   let ctx = document.getElementById('line-speed-graph-canv').getContext('2d');
   let newChart = new Chart(ctx, 
     {
@@ -207,8 +200,8 @@ function linespeed_barchart() {
           ],
           borderWidth: 2,
           borderColor: [
-            massey_yellow,
-            massey_yellow
+            teamMainColorsGraphs[team],
+            teamMainColorsGraphs[team]
           ],
           hoverBorderWidth: 5,
           barThickness: 30
@@ -241,9 +234,10 @@ function linespeed_barchart() {
       }
     });
   make_responsive(newChart);
+  setGraphTheme(newChart);
 }
 
-function opp_pts_22_barchart() {
+function opp_pts_22_barchart(team) {
   let ctx = document.getElementById('opp-pts-22-graph-canv').getContext('2d');
   let newChart = new Chart(ctx, 
     {
@@ -259,8 +253,8 @@ function opp_pts_22_barchart() {
           ],
           borderWidth: 2,
           borderColor: [
-            massey_yellow,
-            massey_yellow
+            teamMainColorsGraphs[team],
+            teamMainColorsGraphs[team],
           ],
           hoverBorderWidth: 5,
           barThickness: 30
@@ -293,9 +287,10 @@ function opp_pts_22_barchart() {
       }
     });
   make_responsive(newChart);
+  setGraphTheme(newChart);
 }
 
-function posessions_gain_meters() {
+function posessions_gain_meters(team) {
   let ctx = document.getElementById('posession-gain-canv').getContext('2d');
   let newChart = new Chart(ctx, 
     {
@@ -329,9 +324,10 @@ function posessions_gain_meters() {
       }
   });
   make_responsive(newChart);
+  setGraphTheme(newChart);
 }
 
-function running_on_ball_pie() {
+function running_on_ball_pie(team) {
   let ctx = document.getElementById('running-on-ball-graph-canv').getContext('2d');
   let newChart = new Chart(ctx, 
     {
@@ -365,9 +361,10 @@ function running_on_ball_pie() {
       }
   });
   make_responsive(newChart);
+  setGraphTheme(newChart);
 }
 
-function points_per_visit_22() {
+function points_per_visit_22(team) {
   let ctx = document.getElementById('points-per-visit-bar-canv').getContext('2d');
   let newChart = new Chart(ctx, 
     {
@@ -383,8 +380,8 @@ function points_per_visit_22() {
           ],
           borderWidth: 2,
           borderColor: [
-            massey_yellow,
-            massey_yellow
+            teamMainColorsGraphs[team],
+            teamMainColorsGraphs[team],
           ],
           hoverBorderWidth: 5,
           barThickness: 30
@@ -417,10 +414,11 @@ function points_per_visit_22() {
       }
     });
   make_responsive(newChart);
+  setGraphTheme(newChart);
 }
 
 
-function meters_gain_success(){
+function meters_gain_success(team){
   let ctx = document.getElementById('meter-gain-success-canv').getContext('2d');
   let newChart = new Chart(ctx, 
     {
@@ -435,8 +433,8 @@ function meters_gain_success(){
           ],
           borderWidth: 2,
           borderColor: [
-            massey_yellow,
-            massey_yellow
+            teamMainColorsGraphs[team],
+            teamMainColorsGraphs[team],
           ],
           hoverBorderWidth: 5,
           barThickness: 30
@@ -469,9 +467,10 @@ function meters_gain_success(){
       }
     });
   make_responsive(newChart);
+  setGraphTheme(newChart);
 }
 
-function posessions_kicked_pie(){
+function posessions_kicked_pie(team){
   let ctx = document.getElementById('posessions-kicked-pie-canv').getContext('2d');
   let newChart = new Chart(ctx, 
     {
@@ -506,9 +505,10 @@ function posessions_kicked_pie(){
       }
   });
   make_responsive(newChart);
+  setGraphTheme(newChart);
 }
 
-function kicks_out_on_full_bar(){
+function kicks_out_on_full_bar(team){
   let ctx = document.getElementById('kicks-out-on-full-canv').getContext('2d');
   let newChart = new Chart(ctx, 
     {
@@ -523,8 +523,8 @@ function kicks_out_on_full_bar(){
           ],
           borderWidth: 2,
           borderColor: [
-            massey_yellow,
-            massey_yellow
+            teamMainColorsGraphs[team],
+            teamMainColorsGraphs[team],
           ],
           hoverBorderWidth: 5,
           barThickness: 30
@@ -557,9 +557,10 @@ function kicks_out_on_full_bar(){
       }
     });
   make_responsive(newChart);
+  setGraphTheme(newChart);
 }
 
-function kick_regathers_bar(){
+function kick_regathers_bar(team){
   let ctx = document.getElementById('kick-regathers-canv').getContext('2d');
   let newChart = new Chart(ctx, 
     {
@@ -617,9 +618,10 @@ function kick_regathers_bar(){
       }
     });
   make_responsive(newChart);
+  setGraphTheme(newChart);
 }
 
-function kick_for_touch_bar(){
+function kick_for_touch_bar(team){
   let ctx = document.getElementById('kick-for-touch-success-canv').getContext('2d');
   let newChart = new Chart(ctx, 
     {
@@ -630,7 +632,7 @@ function kick_for_touch_bar(){
           data: [15.4, 7.7, 30.8, 38.5, 7.7],
           backgroundColor: massey_black,
           borderWidth: 3,
-          borderColor: massey_yellow,
+          borderColor: teamMainColorsGraphs[team],
           hoverBorderWidth: 10,
           },
         ],
@@ -664,9 +666,10 @@ function kick_for_touch_bar(){
       }
     });
     make_responsive(newChart);  
+    setGraphTheme(newChart);
 }
 
-function pass_success_pie(){
+function pass_success_pie(team){
   let ctx = document.getElementById('pass-success-canv').getContext('2d');
   let newChart = new Chart(ctx, 
     {
@@ -700,9 +703,10 @@ function pass_success_pie(){
       }
   });
   make_responsive(newChart);
+  setGraphTheme(newChart);
 }
 
-function pass_success_by_type_bar() {
+function pass_success_by_type_bar(team) {
   let ctx = document.getElementById('pass-success-by-type-canv').getContext('2d');
   let newChart = new Chart(ctx, 
     {
@@ -762,9 +766,10 @@ function pass_success_by_type_bar() {
       }
     });
     make_responsive(newChart);
+    setGraphTheme(newChart);
 }
 
-function handling_errors_bar(){
+function handling_errors_bar(team){
   let ctx = document.getElementById('handling-errors-canv').getContext('2d');
   let newChart = new Chart(ctx, 
     {
@@ -776,7 +781,7 @@ function handling_errors_bar(){
           data: [4, 2, 1, 2, 1, 5],
           backgroundColor: massey_black,
           borderWidth: 3,
-          borderColor: massey_yellow,
+          borderColor: teamMainColorsGraphs[team],
           hoverBorderWidth: 6,
           barThickness: 60
           },
@@ -813,9 +818,10 @@ function handling_errors_bar(){
       }
     });
     make_responsive(newChart);
+    setGraphTheme(newChart);
 }
 
-function ruck_success_pie(){
+function ruck_success_pie(team){
   let ctx = document.getElementById('ruck-success-canv').getContext('2d');
   let newChart = new Chart(ctx, 
     {
@@ -849,9 +855,10 @@ function ruck_success_pie(){
       }
   });
   make_responsive(newChart);
+  setGraphTheme(newChart);
 }
 
-function ruck_speed_bar(){
+function ruck_speed_bar(team){
   let ctx = document.getElementById('ruck-speed-canv').getContext('2d');
   let newChart = new Chart(ctx, 
     {
@@ -897,9 +904,10 @@ function ruck_speed_bar(){
       }
     });
     make_responsive(newChart);
+    setGraphTheme(newChart);
 }
 
-function ruck_success_diff_fields_bar(){
+function ruck_success_diff_fields_bar(team){
   let ctx = document.getElementById('ruck-success-diff-fields-canv').getContext('2d');
   let newChart = new Chart(ctx, 
     {
@@ -955,9 +963,10 @@ function ruck_success_diff_fields_bar(){
       }
     });
     make_responsive(newChart);
+    setGraphTheme(newChart);
 }
 
-function set_piece_success_bar(){
+function set_piece_success_bar(team){
   let ctx = document.getElementById('set-piece-success-canv').getContext('2d');
   let newChart = new Chart(ctx, 
     {
@@ -1016,9 +1025,10 @@ function set_piece_success_bar(){
       }
     });
     make_responsive(newChart);
+    setGraphTheme(newChart);
 }
 
-function set_piece_diff_field(){
+function set_piece_diff_field(team){
   let ctx = document.getElementById('set-piece-success-dif-field-canv').getContext('2d');
   let newChart = new Chart(ctx, 
     {
@@ -1032,7 +1042,7 @@ function set_piece_diff_field(){
             data: [80, 82, 90],
             backgroundColor: massey_black,
             borderWidth: 3,
-            borderColor: massey_yellow,
+            borderColor: teamMainColorsGraphs[team],
             hoverBorderWidth: 8,
             barThickness: 50
           },
@@ -1042,7 +1052,7 @@ function set_piece_diff_field(){
             data: [66.66, 75, 80],
             backgroundColor: massey_black,
             borderWidth: 3,
-            borderColor: massey_yellow,
+            borderColor: teamMainColorsGraphs[team],
             hoverBorderWidth: 8,
             barThickness: 50
           },
@@ -1076,9 +1086,10 @@ function set_piece_diff_field(){
       }
     });
     make_responsive(newChart);
+    setGraphTheme(newChart);
 }
 
-function action_taken_set_piece_pie(){
+function action_taken_set_piece_pie(team){
   let ctx = document.getElementById('action-taken-set-piece-canv').getContext('2d');
   let newChart = new Chart(ctx, 
     {
@@ -1118,9 +1129,10 @@ function action_taken_set_piece_pie(){
       }
   });
   make_responsive(newChart);
+  setGraphTheme(newChart);
 }
 
-function outcome_from_set_piece(){
+function outcome_from_set_piece(team){
   let ctx = document.getElementById('outcome-from-set-piece-canv').getContext('2d');
   let newChart = new Chart(ctx, 
     {
@@ -1159,9 +1171,10 @@ function outcome_from_set_piece(){
       }
   });
   make_responsive(newChart);
+  setGraphTheme(newChart);
 }
 
-function penalties_conceded_bar(){
+function penalties_conceded_bar(team){
   let ctx = document.getElementById('types-of-penalties-conceded-canv').getContext('2d');
   let newChart = new Chart(ctx, 
     {
@@ -1175,7 +1188,7 @@ function penalties_conceded_bar(){
             data: [35, 20, 25, 5, 15],
             backgroundColor: massey_black,
             borderWidth: 3,
-            borderColor: massey_yellow,
+            borderColor: teamMainColorsGraphs[team],
             hoverBorderWidth: 8,
             barThickness: 50
           },
@@ -1211,9 +1224,10 @@ function penalties_conceded_bar(){
       }
     });
     make_responsive(newChart);
+    setGraphTheme(newChart);
 }
 
-function penalties_conceded_diff_field_bar(){
+function penalties_conceded_diff_field_bar(team){
   let ctx = document.getElementById('penalties-diff-field-canv').getContext('2d');
   let newChart = new Chart(ctx, 
     {
@@ -1301,9 +1315,10 @@ function penalties_conceded_diff_field_bar(){
       }
     });
     make_responsive(newChart);
+    setGraphTheme(newChart);
 }
 
-function outcome_of_penalties_pie(){
+function outcome_of_penalties_pie(team){
   let ctx = document.getElementById('outcome-of-penalties-conceded-canv').getContext('2d');
   let newChart = new Chart(ctx, 
     {
@@ -1340,6 +1355,7 @@ function outcome_of_penalties_pie(){
       }
   });
   make_responsive(newChart);
+  setGraphTheme(newChart);
 }
 
 

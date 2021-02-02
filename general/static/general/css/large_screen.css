@@ -895,28 +895,28 @@
         grid-column-end: 2;
       }
     
-      #result-1-id {
+      #result-2-id {
         grid-row-start: 2;
         grid-row-end: 3;
         grid-column-start: 1;
         grid-column-end: 2;
       }
     
-      #result-1-id {
+      #result-3-id {
         grid-row-start: 3;
         grid-row-end: 4;
         grid-column-start: 1;
         grid-column-end: 2;
       }
     
-      #result-1-id {
+      #result-4-id {
         grid-row-start: 4;
         grid-row-end: 5;
         grid-column-start: 1;
         grid-column-end: 2;
       }
     
-      #result-1-id {
+      #result-5-id {
         grid-row-start: 5;
         grid-row-end: 6;
         grid-column-start: 1;
@@ -2147,6 +2147,79 @@
         font-size: 0.55em;
         padding-left: 0.6em;
       }
+
+      .alt-text {
+        color: var(--massey-yellow);
+      }
+
+      .alt-bg {
+    
+      }
+    
+      .select-game-container {
+        grid-area: 17 / 6 / 18 / 16;
+        z-index: 1;
+        font-size: 0.8em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    
+      }
+    
+    
+      ul {
+        list-style: none;
+        margin: 0;
+        padding-left: 0;
+      }
+      
+      li {
+        color: #fff;
+        background: var(--rosmini-blue);
+        display: block;
+        float: center;
+        padding: 0.55em 5em 0.55em;
+        position: relative;
+        text-decoration: none;
+        transition-duration: 0.5s;
+        text-align: center;
+      }
+        
+      li a {
+        color: #fff;
+        text-decoration: none;
+      }
+    
+      li:hover {
+        background-color: var(--light-dark-blue);
+        cursor: pointer;
+      }
+    
+      ul li ul {
+        visibility: hidden;
+        opacity: 0;
+        min-width: 5rem;
+        position: absolute;
+        transition: all 0.5s ease;
+        left: 0;
+        display: none;
+        font-size: 0.65em;
+        
+      }
+    
+      ul li:hover > ul,
+      ul li ul:hover {
+        visibility: visible;
+        opacity: 1;
+        display: block;
+      }
+    
+      ul li ul li {
+        clear: both;
+        width: 100%;
+      }
+    
+    
 
       /*End of the page, to be continued note*/
       .copyright-text {
