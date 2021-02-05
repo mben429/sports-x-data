@@ -7,6 +7,10 @@ class team_table(models.Model):
     team_name = models.TextField(max_length=50)
     teamid = models.IntegerField()
 
+    def __str__(self):
+        return self.team_name
+
+
 class season_table(models.Model):
     seasonid = models.IntegerField()
     year = models.TextField(max_length=5)
@@ -14,6 +18,9 @@ class season_table(models.Model):
         team_table,
         on_delete=models.CASCADE
     )
+
+    def __str__(self):
+        return self.year + " Season"
 
 class games_table(models.Model):
     gamesid = models.IntegerField()
@@ -23,6 +30,7 @@ class games_table(models.Model):
     top_stat4_name = models.TextField(max_length=50)
     top_stat5_name = models.TextField(max_length=50)
     top_stat6_name = models.TextField(max_length=50)
+    date = models.DateField(default=None)
     teamid = models.ForeignKey(
         team_table, 
         on_delete=models.CASCADE
@@ -31,6 +39,9 @@ class games_table(models.Model):
         season_table,
         on_delete=models.CASCADE
     )
+
+    def __str__(self):
+        return "Game " + str(self.gamesid)
 
 class stats_table(models.Model):
     statname = models.TextField(max_length=100)
@@ -47,7 +58,12 @@ class stats_table(models.Model):
         games_table,
         on_delete=models.CASCADE
     )
+
+    def __str__(self):
+        return "Stat " + str(self.statname)
     
+
+
 
 
 

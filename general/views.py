@@ -1,6 +1,5 @@
 # Views for general site
 
-
 from django.http import HttpResponse
 from django.shortcuts import render
 
