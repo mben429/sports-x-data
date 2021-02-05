@@ -45,6 +45,9 @@ def loginView(request):
                 #login(request, user)
 
                 # Dump data into JSON for communication with JS
+                if team_user_name == "TeamTestName":
+                    team_user_name = "canesrugby"
+                print(team_user_name)
                 data_dict = {
                     'team_user_name' : team_user_name,
                     'organization': "test_obj",
