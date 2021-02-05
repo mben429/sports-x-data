@@ -3,27 +3,33 @@ from django.db import models
 Database setup
 """
 
-class team_table(models.Model):
+class Team(models.Model):
     team_name = models.TextField(max_length=50)
-    teamid = models.IntegerField()
 
     def __str__(self):
+        return str(self.team_name)
+
+    def get_team_name(self):
         return self.team_name
 
+    def set_team_name(self, new_name):
+        self.team_name = new_name
 
-class season_table(models.Model):
-    seasonid = models.IntegerField()
-    year = models.TextField(max_length=5)
-    teamid = models.ForeignKey(
-        team_table,
+
+class Season(models.Model):
+    season_name = models.TextField(max_length=50)
+    year = models.IntegerField()
+    team_name = models.ForeignKey(
+        Team,
         on_delete=models.CASCADE
     )
 
     def __str__(self):
-        return self.year + " Season"
+        return str(self.season_name)
 
-class games_table(models.Model):
-    gamesid = models.IntegerField()
+
+class Game(models.Model):
+    game_name = models.TextField()
     top_stat1_name = models.TextField(max_length=50)
     top_stat2_name = models.TextField(max_length=50)
     top_stat3_name = models.TextField(max_length=50)
@@ -31,31 +37,31 @@ class games_table(models.Model):
     top_stat5_name = models.TextField(max_length=50)
     top_stat6_name = models.TextField(max_length=50)
     date = models.DateField(default=None)
-    teamid = models.ForeignKey(
-        team_table, 
+    team_name = models.ForeignKey(
+        Team, 
         on_delete=models.CASCADE
     )
-    seasonid = models.ForeignKey(
-        season_table,
+    season_name = models.ForeignKey(
+        Season,
         on_delete=models.CASCADE
     )
 
     def __str__(self):
-        return "Game " + str(self.gamesid)
+        return "Game " + str(self.game_name)
 
-class stats_table(models.Model):
+class Stat(models.Model):
     statname = models.TextField(max_length=100)
     statval = models.IntegerField()
-    teamid = models.ForeignKey(
-        team_table,
+    team_name = models.ForeignKey(
+        Team,
         on_delete=models.CASCADE
     )
-    seasonid = models.ForeignKey(
-        season_table,
+    season_name = models.ForeignKey(
+        Season,
         on_delete=models.CASCADE
     )
-    gamesid = models.ForeignKey(
-        games_table,
+    game_name = models.ForeignKey(
+        Game,
         on_delete=models.CASCADE
     )
 

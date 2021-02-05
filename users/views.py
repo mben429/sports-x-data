@@ -10,7 +10,6 @@ def loginView(request):
     
     # Just for testing and display purposes
     list_of_user_names = [
-        "mben429", 
         "TeamTestName", 
         "massey1stxv", 
         "rosmini1stxv",
@@ -20,7 +19,6 @@ def loginView(request):
     ]
 
     list_of_team_keys = [
-        "Djangoformvp13", 
         "Testformvp13", 
         "mhs_59234", 
         "rc_55211",
