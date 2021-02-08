@@ -1,4 +1,5 @@
 from django.db import models
+import datetime
 """
 Database setup
 """
@@ -29,14 +30,11 @@ class Season(models.Model):
 
 
 class Game(models.Model):
-    game_name = models.TextField()
-    top_stat1_name = models.TextField(max_length=50)
-    top_stat2_name = models.TextField(max_length=50)
-    top_stat3_name = models.TextField(max_length=50)
-    top_stat4_name = models.TextField(max_length=50)
-    top_stat5_name = models.TextField(max_length=50)
-    top_stat6_name = models.TextField(max_length=50)
+    team_against = models.TextField(max_length=50)
+    score_for = models.IntegerField()
+    score_against = models.IntegerField()
     date = models.DateField(default=None)
+    result = models.TextField(default=None, max_length=5)
     team_name = models.ForeignKey(
         Team, 
         on_delete=models.CASCADE
@@ -47,7 +45,7 @@ class Game(models.Model):
     )
 
     def __str__(self):
-        return "Game " + str(self.game_name)
+        return str(self.team_name) + "vs" + str(self.team_against)
 
 class Stat(models.Model):
     statname = models.TextField(max_length=100)
