@@ -22,10 +22,10 @@ const teamMainColors = {
 
 const teamSecondColors = {
     "massey1stxv": "black", 
-    "rosmini1stxv": "black",
-    "crusadersrugby": "black",
+    "rosmini1stxv": "white",
+    "crusadersrugby": "white",
     "canesrugby": "black",
-    "toulonrugby": "black;",
+    "toulonrugby": "white",
 }
 
 const teamMainColorsGraphs = {

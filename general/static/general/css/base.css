@@ -2202,7 +2202,6 @@
   }
 
   .alt-text {
-    color: var(--massey-yellow);
   }
 
   .alt-bg {
@@ -2228,8 +2227,6 @@
   }
   
   li {
-    color: #fff;
-    background: var(--rosmini-blue);
     display: block;
     float: center;
     padding: 0.55em 5em 0.55em;
@@ -2240,7 +2237,6 @@
   }
     
   li a {
-    color: #fff;
     text-decoration: none;
   }
 

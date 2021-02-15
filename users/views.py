@@ -4,6 +4,8 @@ from .forms import LoginForm
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from json import dumps, loads
+from general.models import Team, Season, Game, Stat
+from general.retrieval import *
 
 
 def loginView(request):
@@ -41,19 +43,29 @@ def loginView(request):
             user = authenticate(request, username=team_user_name, password=team_user_key)
             '''
             
-            if team_user_name in list_of_user_names and team_user_key in list_of_team_keys:
+            if team_user_name in list_of_user_names and team_user_key in list_of_team_keys and list_of_user_names.index(team_user_name) == list_of_team_keys.index(team_user_key):
                 #login(request, user)
 
-                # Dump data into JSON for communication with JS
+                # Redirect TeamTestName Login
                 if team_user_name == "TeamTestName":
                     team_user_name = "canesrugby"
-                print(team_user_name)
+
+                # Get Data from DB
+                team_table_data = get_team_table_data(team_user_name)
+                team_season_data = get_team_season_table_data(team_user_name)
+                team_game_data = get_team_game_data(team_user_name)
+                team_stat_data = get_team_stat_data(team_user_name)
+                
+                # Dump data into JSON for communication with JS
                 data_dict = {
                     'team_user_name' : team_user_name,
                     'organization': "test_obj",
+                    'team_table_data': team_table_data,
+                    'team_season_data': team_season_data,
+                    'team_game_data': team_game_data,
+                    'team_stat_data': team_stat_data
                 }
-                dataJSON = dumps(data_dict)
-                print(dataJSON)
+                dataJSON = dumps(data_dict, default=str)
 
                 return render(request, "registration/login_success.html", {'data' : dataJSON})
 

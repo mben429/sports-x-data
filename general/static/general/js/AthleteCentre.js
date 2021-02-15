@@ -59,17 +59,21 @@ function setRecentMatches(curr_team){
   createRecentMatches(curr_team);
 }
 
-function setTeamAverages(curr_team){
+function setTeamAverages(curr_team, team_stat_data){
   console.log("Updating Team Averages");
 }
 
 function setTheme(curr_team){
+
+  //Set Alternative Text color
   $(".alt-text").each(function(){
     $(this).css("color", teamMainColors[curr_team]);
   });
 
-  setColor(".s1-panel", "background-color", teamSecondColors[curr_team]);
+  //Set all panel backgrounds to black
+  setColor(".s1-panel", "background-color", "black");
 
+  //Set header buttons hover to correct color
   $(".header-bar-btn a").hover(
     function(){
     $(this).css("color", teamMainColors[curr_team]);
@@ -79,6 +83,7 @@ function setTheme(curr_team){
     }
   );
 
+  // Set jump-to-bar hover to correct colors
   $(".jump-to-bar a").hover(
     function(){
       $(this).css("color", teamMainColors[curr_team]);
@@ -88,23 +93,231 @@ function setTheme(curr_team){
     }
   );
   
-
+  //set background of dropdown menus to correct color
   $(".alt-bg").each(function(){
     $(this).css("background-color", teamMainColors[curr_team]);
   });
 
-  $("li").hover(
+
+  $(".sec-col-drp").css("color", teamSecondColors[curr_team]);
+  $(".sec-col").css("color", teamSecondColors[curr_team]);
+
+}
+
+function setDropDowns(curr_team, team_season_data, team_game_data){
+
+  let all_teams_against = [];
+
+  // BIG NOTE: WHEN TEAMS ARE SIGNED UP FOR MULTIPLE SEASONS THIS NEEDS TO CHANGE!!
+  for(let i = 0; i < team_game_data.length; i++){
+    all_teams_against.push(team_game_data[i][1]);
+  }
+
+  console.log("Teams against", all_teams_against);
+  let len_all_teams_against = all_teams_against.length;
+
+  for(let i = 0; i < len_all_teams_against; i++){
+    //Access DB to get correct game data
+    let str_1 = "<li class='alt-bg drp-option'><a href='#dropdown-container-id-1'>vs ";
+    let str_2 = all_teams_against[i].toString();
+    let str_3 = " | Week ";
+    let str_4 = (len_all_teams_against - i).toString();
+    let str_5 = "</a></li>";
+
+    let final_str = str_1.concat(str_2, str_3, str_4, str_5);
+    $("#select-match-dropdown").append(final_str);
+  }
+
+  $(".drp-option").css("background-color", teamMainColors[curr_team]);
+  $(".drp-option a").css("color", teamSecondColors[curr_team]);
+
+  $(".drp-option a").hover(
     function(){
-      $(this).css("background-color", "black");
+      $(this).css({
+        "background-color": teamSecondColors[curr_team],
+        "color": teamMainColors[curr_team]
+      });
     },
     function(){
-      $(this).css("background-color", teamMainColors[curr_team]);
+      $(this).css({
+        "background-color": teamMainColors[curr_team],
+        "color": teamSecondColors[curr_team]
+      });
+    }
+  );
+}
+
+function realign_game_data(team_game_data){
+  let len_data = team_game_data.length;
+  for(let i = 0; i < team_game_data.length; i++){
+    team_game_data[i][0] = len_data-i;
+  }
+  console.log("New Data", team_game_data);
+  return team_game_data;
+}
+
+
+function get_week_no(txt){
+  let strings_arr = txt.split(" ");
+  let week_no = parseInt(strings_arr[strings_arr.length-1]);
+  console.log("week no", week_no);
+  return week_no;   
+}
+
+function get_team_name(txt){
+  let strings_arr = txt.split(" ");
+  return strings_arr[1];
+}
+
+
+function get_date(team_game_data, week_no){
+  let date = "";
+  for (let i = 0; i < team_game_data.length; i++){
+    if (team_game_data[i][0] == week_no) {
+      date = team_game_data[i][4];
+    }
+  }
+  console.log("date", date);
+  return date;
+}
+
+function get_result(team_game_data, week_no){
+  let result = "";
+  for (let i = 0; i < team_game_data.length; i++){
+    if (team_game_data[i][0] == week_no) {
+      result = team_game_data[i][5];
+    }
+  }
+  console.log("result", result);
+  return result;
+}
+
+function get_score(team_game_data, week_no){
+  let score_for, score_against;
+  for (let i = 0; i < team_game_data.length; i++){
+    if (team_game_data[i][0] == week_no) {
+      score_for = team_game_data[i][2];
+      score_against = team_game_data[i][3];
+    }
+  }
+
+  let str_1 = "| ";
+  let str_2 = score_for.toString();
+  let str_3 = " <text class='alt-text'> - </text>";
+  let str_4 = score_against.toString();
+  let str_5 = "</div>"
+
+  let final_html_str = str_1.concat(str_2, str_3, str_4, str_5);
+
+  return final_html_str;
+}
+
+function construct_overview_header_string(curr_team_against, date){
+  let str_1 = "Match Centre <text class='alt-text'>|</text> vs ";
+  let str_2 = curr_team_against.toString(); 
+  let str_3 = "<text class='alt-text'>| </text>";
+  let str_4 = date.toString();
+  let str_5 = "</text>";
+
+  let final_html_str = str_1.concat(str_2, str_3, str_4, str_5);
+  return final_html_str;
+}
+
+function setMatchOverview(element, curr_team, team_game_data){
+
+    let curr_team_against, html_str, week_no, date, result, score, realigned_team_game_data;
+
+    if (element=="default"){
+
+      //Default is the latest game!
+      curr_team_against = team_game_data[0][1];
+      date = team_game_data[0][4];
+      realigned_team_game_data = realign_game_data(team_game_data);
+      html_str = construct_overview_header_string(curr_team_against, date);
+
+      $(".def-header").html(html_str);
+      $(".alt-text").css("color", teamMainColors[curr_team]);
+
+      //Set result
+      result = team_game_data[0][5];
+      if (result == "Win"){
+        $("#big-result-letter-id").html("W");
+        $("#big-result-letter-id").css("color", "var(--green-win)");
+      }
+      else if (result == "Loss"){
+        $("#big-result-letter-id").html("L");
+        $("#big-result-letter-id").css("color", "var(--red-lose)");
+      }
+      else if (result == "Draw"){
+        $("#big-result-letter-id").html("D");
+        $("#big-result-letter-id").css("color", "var(--massey-yellow)");
+      }
+
+      //Set Score
+      let latest_game_index = realigned_team_game_data.length;
+      score = get_score(realigned_team_game_data, latest_game_index);
+      $("#game-score-id").html(score);
+      $(".alt-text").css("color", teamMainColors[curr_team]);
+    }
+
+    else {
+      //Set match overview header and date
+      let team_against_string = $(element).text().toString();
+      curr_team_against = get_team_name(team_against_string);
+      console.log("Current Team Against", curr_team_against);
+
+      realigned_team_game_data = realign_game_data(team_game_data);
+      week_no = get_week_no(team_against_string);
+      date =  get_date(realigned_team_game_data, week_no);
+
+      html_str = construct_overview_header_string(curr_team_against, date);  
+      $(".def-header").html(html_str);
+      $(".alt-text").css("color", teamMainColors[curr_team]);
+
+
+      //Set result
+      result = get_result(realigned_team_game_data, week_no);
+      if (result == "Win"){
+        $("#big-result-letter-id").html("W");
+        $("#big-result-letter-id").css("color", "var(--green-win)");
+      }
+      else if (result == "Loss"){
+        $("#big-result-letter-id").html("L");
+        $("#big-result-letter-id").css("color", "var(--red-lose)");
+      }
+
+      else if (result == "Draw"){
+        $("#big-result-letter-id").html("D");
+        $("#big-result-letter-id").css("color", "var(--massey-yellow)");
+      }
+
+      //Set Score
+      score = get_score(team_game_data, week_no);
+      $("#game-score-id").html(score);
+      $(".alt-text").css("color", teamMainColors[curr_team]);
+
+      //Set Game Events
+    }
+}
+
+function showGameData(curr_team, team_game_data){
+  
+  setMatchOverview("default", curr_team, team_game_data);
+  //What happens when we click on a team in the dropdown menu
+  $(".drp-option a").click(function(){
+
+    //Set match overview header, result, score etc.,
+    setMatchOverview(this, curr_team, team_game_data);
+    
     }
   );
 }
 
 //Simply draw all the graphs.
 function drawGraphs(team){
+  console.log("Drawing Graphs")
+
+
   linespeed_barchart(team);
   tackles_22_pie_graph(team);
   tackles_5_pie_graph(team);
@@ -135,8 +348,7 @@ function drawGraphs(team){
 
 
 // THis is thea "main" function essentially. Runs all the necessary functions to display the correct AC.
-function displayAC(team){
-  console.log("Showing Athlete Centre for", team);  
+function displayAC(team, team_table_data, team_season_data, team_game_data, team_stat_data){
 
   //Change theme of site to match team logged in.
   setTheme(team);
@@ -145,12 +357,16 @@ function displayAC(team){
   setHeader(team);
   setStandings(team);
   setRecentMatches(team);
+  setDropDowns(team, team_season_data, team_game_data);
 
-  //Now, this is where we are accessing DB for indepth stats. Still in progress.
-  setTeamAverages(team);
+  //Now, from now on this is where we are accessing DB
+  setTeamAverages(team, team_stat_data);
   
   //Draw Graphs
   drawGraphs(team);
+
+  //Update Match Overview
+  showGameData(team, team_game_data);
 
 }
 

@@ -1,5 +1,6 @@
 from django.db import models
 import datetime
+from django.db import connection
 """
 Database setup
 """
@@ -47,6 +48,7 @@ class Game(models.Model):
     def __str__(self):
         return str(self.team_name) + "vs" + str(self.team_against)
 
+
 class Stat(models.Model):
     statname = models.TextField(max_length=100)
     statval = models.IntegerField()
@@ -60,14 +62,14 @@ class Stat(models.Model):
     )
     game_name = models.ForeignKey(
         Game,
+        blank=True,
+        null=True,
         on_delete=models.CASCADE
     )
 
     def __str__(self):
         return "Stat " + str(self.statname)
     
-
-
 
 
 

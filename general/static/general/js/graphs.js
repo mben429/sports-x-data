@@ -45,10 +45,6 @@ function make_responsive(curr_chart){
   }
 }
 
-//Change colors of charts to represent Team logged in.
-function setGraphTheme(curr_chart){
-  console.log("setting theme for graph..."); 
-}
 
 // Set Bar thickness of all datasets in graph
 function set_bar_thickness(curr_chart, new_thickness){
@@ -107,7 +103,7 @@ function tackles_pi_graph(team){
   });
 
   make_responsive(newChart);
-  setGraphTheme(newChart);
+  
 }
 
 function tackles_22_pie_graph(team) {
@@ -144,7 +140,7 @@ function tackles_22_pie_graph(team) {
       }
   });
   make_responsive(newChart);
-  setGraphTheme(newChart);
+  
 }
 
 function tackles_5_pie_graph(team) {
@@ -181,7 +177,7 @@ function tackles_5_pie_graph(team) {
       }
   });
   make_responsive(newChart);
-  setGraphTheme(newChart);
+  
 }
 
 function linespeed_barchart(team) {
@@ -234,7 +230,7 @@ function linespeed_barchart(team) {
       }
     });
   make_responsive(newChart);
-  setGraphTheme(newChart);
+  
 }
 
 function opp_pts_22_barchart(team) {
@@ -287,7 +283,7 @@ function opp_pts_22_barchart(team) {
       }
     });
   make_responsive(newChart);
-  setGraphTheme(newChart);
+  
 }
 
 function posessions_gain_meters(team) {
@@ -324,7 +320,7 @@ function posessions_gain_meters(team) {
       }
   });
   make_responsive(newChart);
-  setGraphTheme(newChart);
+  
 }
 
 function running_on_ball_pie(team) {
@@ -361,7 +357,7 @@ function running_on_ball_pie(team) {
       }
   });
   make_responsive(newChart);
-  setGraphTheme(newChart);
+  
 }
 
 function points_per_visit_22(team) {
@@ -414,7 +410,7 @@ function points_per_visit_22(team) {
       }
     });
   make_responsive(newChart);
-  setGraphTheme(newChart);
+  
 }
 
 
@@ -467,7 +463,7 @@ function meters_gain_success(team){
       }
     });
   make_responsive(newChart);
-  setGraphTheme(newChart);
+  
 }
 
 function posessions_kicked_pie(team){
@@ -505,7 +501,7 @@ function posessions_kicked_pie(team){
       }
   });
   make_responsive(newChart);
-  setGraphTheme(newChart);
+  
 }
 
 function kicks_out_on_full_bar(team){
@@ -557,7 +553,7 @@ function kicks_out_on_full_bar(team){
       }
     });
   make_responsive(newChart);
-  setGraphTheme(newChart);
+  
 }
 
 function kick_regathers_bar(team){
@@ -618,7 +614,7 @@ function kick_regathers_bar(team){
       }
     });
   make_responsive(newChart);
-  setGraphTheme(newChart);
+  
 }
 
 function kick_for_touch_bar(team){
@@ -666,7 +662,7 @@ function kick_for_touch_bar(team){
       }
     });
     make_responsive(newChart);  
-    setGraphTheme(newChart);
+    
 }
 
 function pass_success_pie(team){
@@ -703,7 +699,7 @@ function pass_success_pie(team){
       }
   });
   make_responsive(newChart);
-  setGraphTheme(newChart);
+  
 }
 
 function pass_success_by_type_bar(team) {
@@ -766,7 +762,7 @@ function pass_success_by_type_bar(team) {
       }
     });
     make_responsive(newChart);
-    setGraphTheme(newChart);
+    
 }
 
 function handling_errors_bar(team){
@@ -818,7 +814,7 @@ function handling_errors_bar(team){
       }
     });
     make_responsive(newChart);
-    setGraphTheme(newChart);
+    
 }
 
 function ruck_success_pie(team){
@@ -855,7 +851,7 @@ function ruck_success_pie(team){
       }
   });
   make_responsive(newChart);
-  setGraphTheme(newChart);
+  
 }
 
 function ruck_speed_bar(team){
@@ -904,7 +900,7 @@ function ruck_speed_bar(team){
       }
     });
     make_responsive(newChart);
-    setGraphTheme(newChart);
+    
 }
 
 function ruck_success_diff_fields_bar(team){
@@ -963,7 +959,7 @@ function ruck_success_diff_fields_bar(team){
       }
     });
     make_responsive(newChart);
-    setGraphTheme(newChart);
+    
 }
 
 function set_piece_success_bar(team){
@@ -1025,7 +1021,7 @@ function set_piece_success_bar(team){
       }
     });
     make_responsive(newChart);
-    setGraphTheme(newChart);
+    
 }
 
 function set_piece_diff_field(team){
@@ -1086,7 +1082,7 @@ function set_piece_diff_field(team){
       }
     });
     make_responsive(newChart);
-    setGraphTheme(newChart);
+    
 }
 
 function action_taken_set_piece_pie(team){
@@ -1129,7 +1125,7 @@ function action_taken_set_piece_pie(team){
       }
   });
   make_responsive(newChart);
-  setGraphTheme(newChart);
+  
 }
 
 function outcome_from_set_piece(team){
@@ -1171,7 +1167,7 @@ function outcome_from_set_piece(team){
       }
   });
   make_responsive(newChart);
-  setGraphTheme(newChart);
+  
 }
 
 function penalties_conceded_bar(team){
@@ -1224,7 +1220,7 @@ function penalties_conceded_bar(team){
       }
     });
     make_responsive(newChart);
-    setGraphTheme(newChart);
+    
 }
 
 function penalties_conceded_diff_field_bar(team){
@@ -1315,7 +1311,7 @@ function penalties_conceded_diff_field_bar(team){
       }
     });
     make_responsive(newChart);
-    setGraphTheme(newChart);
+    
 }
 
 function outcome_of_penalties_pie(team){
@@ -1355,7 +1351,7 @@ function outcome_of_penalties_pie(team){
       }
   });
   make_responsive(newChart);
-  setGraphTheme(newChart);
+  
 }
 
 
