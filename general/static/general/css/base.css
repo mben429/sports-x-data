@@ -796,6 +796,7 @@
     border-radius: 2px;
   }
 
+
   #section-1-header-id {
     grid-area: 1 / 1 / 2 / 10;
     display: flex;

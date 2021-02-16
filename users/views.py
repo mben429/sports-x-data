@@ -48,13 +48,14 @@ def loginView(request):
 
                 # Redirect TeamTestName Login
                 if team_user_name == "TeamTestName":
-                    team_user_name = "canesrugby"
+                    team_user_name = "rosmini1stxv"
 
                 # Get Data from DB
                 team_table_data = get_team_table_data(team_user_name)
                 team_season_data = get_team_season_table_data(team_user_name)
                 team_game_data = get_team_game_data(team_user_name)
                 team_stat_data = get_team_stat_data(team_user_name)
+                team_game_event_data = get_team_game_event_data(team_user_name)
                 
                 # Dump data into JSON for communication with JS
                 data_dict = {
@@ -63,7 +64,8 @@ def loginView(request):
                     'team_table_data': team_table_data,
                     'team_season_data': team_season_data,
                     'team_game_data': team_game_data,
-                    'team_stat_data': team_stat_data
+                    'team_stat_data': team_stat_data,
+                    'team_game_event_data': team_game_event_data
                 }
                 dataJSON = dumps(data_dict, default=str)
 

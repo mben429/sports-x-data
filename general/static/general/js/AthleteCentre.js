@@ -223,9 +223,40 @@ function construct_overview_header_string(curr_team_against, date){
   return final_html_str;
 }
 
-function setMatchOverview(element, curr_team, team_game_data){
+function get_try_scorers_txt(team_game_event_data, week_no){
+  let html_str = "";
+  for (let i = 0; i < team_game_event_data.length; i++){
+    if(team_game_event_data[i][7] == week_no){
+      html_str = team_game_event_data[i][6];
+    } 
+  }
+  return html_str.toString();
+}
 
-    let curr_team_against, html_str, week_no, date, result, score, realigned_team_game_data;
+function get_con_scorers_txt(team_game_event_data, week_no){
+  let html_str = "";
+  for (let i = 0; i < team_game_event_data.length; i++){
+    if(team_game_event_data[i][7] == week_no){
+      html_str = team_game_event_data[i][4];
+    } 
+  }
+  return html_str.toString();
+}
+
+function get_pen_scorers_txt(team_game_event_data, week_no){
+  let html_str = "";
+  for (let i = 0; i < team_game_event_data.length; i++){
+    if(team_game_event_data[i][7] == week_no){
+      html_str = team_game_event_data[i][5];
+    } 
+  }
+  return html_str.toString();
+}
+
+
+function setMatchOverview(element, curr_team, team_game_data, team_game_event_data){
+
+    let curr_team_against, html_str, week_no, date, result, score, realigned_team_game_data, scorer_text;
 
     if (element=="default"){
 
@@ -258,6 +289,17 @@ function setMatchOverview(element, curr_team, team_game_data){
       score = get_score(realigned_team_game_data, latest_game_index);
       $("#game-score-id").html(score);
       $(".alt-text").css("color", teamMainColors[curr_team]);
+
+
+      //Set Game Events
+      console.log(team_game_event_data);
+      scorer_text = get_try_scorers_txt(team_game_event_data, latest_game_index);
+      con_text = get_con_scorers_txt(team_game_event_data, latest_game_index);
+      pen_text = get_pen_scorers_txt(team_game_event_data, latest_game_index);
+      $("#try-scorers").html(scorer_text);
+      $("#con-scorers").html(con_text);
+      $("#pen-scorers").html(pen_text);
+      
     }
 
     else {
@@ -297,19 +339,26 @@ function setMatchOverview(element, curr_team, team_game_data){
       $(".alt-text").css("color", teamMainColors[curr_team]);
 
       //Set Game Events
+      console.log(team_game_data);
+      console.log(team_game_event_data);
+      scorer_text = get_try_scorers_txt(team_game_event_data, week_no);
+      con_text = get_con_scorers_txt(team_game_event_data, week_no);
+      pen_text = get_pen_scorers_txt(team_game_event_data, week_no);
+      $("#try-scorers").html(scorer_text);
+      $("#con-scorers").html(con_text);
+      $("#pen-scorers").html(pen_text);
     }
 }
 
-function showGameData(curr_team, team_game_data){
+function showGameData(curr_team, team_game_data, team_game_event_data){
   
-  setMatchOverview("default", curr_team, team_game_data);
+  setMatchOverview("default", curr_team, team_game_data, team_game_event_data);
   //What happens when we click on a team in the dropdown menu
   $(".drp-option a").click(function(){
 
     //Set match overview header, result, score etc.,
-    setMatchOverview(this, curr_team, team_game_data);
-    
-    }
+    setMatchOverview(this, curr_team, team_game_data, team_game_event_data);    
+  }
   );
 }
 
@@ -348,8 +397,7 @@ function drawGraphs(team){
 
 
 // THis is thea "main" function essentially. Runs all the necessary functions to display the correct AC.
-function displayAC(team, team_table_data, team_season_data, team_game_data, team_stat_data){
-
+function displayAC(team, team_table_data, team_season_data, team_game_data, team_stat_data, team_game_event_data){
   //Change theme of site to match team logged in.
   setTheme(team);
 
@@ -366,7 +414,7 @@ function displayAC(team, team_table_data, team_season_data, team_game_data, team
   drawGraphs(team);
 
   //Update Match Overview
-  showGameData(team, team_game_data);
+  showGameData(team, team_game_data, team_game_event_data);
 
 }
 

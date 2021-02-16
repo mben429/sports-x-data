@@ -69,7 +69,27 @@ class Stat(models.Model):
 
     def __str__(self):
         return "Stat " + str(self.statname)
-    
+
+
+class Game_Event(models.Model):
+    try_scorers_txt = models.TextField(max_length=255)
+    con_scorers_txt = models.TextField(max_length=255)
+    pen_scorers_txt = models.TextField(max_length=255)
+    week_no = models.IntegerField()
+    team_name = models.ForeignKey(
+        Team, 
+        on_delete=models.CASCADE
+    )
+    season_name = models.ForeignKey(
+        Season,
+        on_delete=models.CASCADE
+    )
+    game_name = models.ForeignKey(
+        Game,
+        blank=True,
+        null=True,
+        on_delete=models.CASCADE
+    )
 
 
 
