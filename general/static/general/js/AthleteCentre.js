@@ -11,7 +11,6 @@ const teamLogos = {
 
 function setColor(id, property, team){
   $(id).css(property, teamMainColors[team]);
-  console.log("hello");
 }
 
 function setLogo(id, team){
@@ -19,7 +18,6 @@ function setLogo(id, team){
 }
 
 function setHeader(curr_team){
-  console.log("Updating Header for...", curr_team);
 
   setColor(".logo-container-circle", "border-color", curr_team);
   setLogo(".logo-img-small", curr_team);
@@ -49,18 +47,68 @@ function setHeader(curr_team){
 
 
 function setStandings(curr_team, teamList){
-  console.log("Updating Standings for", curr_team);
   setColor("#standings-header", "background-color", curr_team);
   createStandings(curr_team, teamList);
 }
 
 function setRecentMatches(curr_team){
-  console.log("Updating Recent Matches for...", curr_team);
   createRecentMatches(curr_team);
 }
 
-function setTeamAverages(curr_team, team_stat_data){
+function getAvgPoints(team_game_data){
+  let avg_pnts;
+  let sum = 0;
+
+  for(let i = 0; i < team_game_data.length; i++){
+    sum += team_game_data[i][2];
+  }
+
+  avg_pnts = sum / team_game_data.length;
+  return Math.round((avg_pnts + Number.EPSILON) * 100) / 100;
+}
+
+function getAgainstAvgPoints(team_game_data){
+  let avg_pnts;
+  let sum = 0;
+
+  for(let i = 0; i < team_game_data.length; i++){
+    sum += team_game_data[i][3];
+  }
+
+  avg_pnts = sum / team_game_data.length;
+  return Math.round((avg_pnts + Number.EPSILON) * 100) / 100;
+}
+
+function setForPoints(avg_pnts){
+  let html_str = "| ".concat(avg_pnts.toString());
+  console.log("Html str", html_str);
+  $("#team-average-score-1-id").html(html_str);
+}
+
+function setAgainstPoints(avg_against_pnts){
+  let html_str = "| ".concat(avg_against_pnts.toString());
+  console.log("Html str", html_str);
+  $("#team-average-score-2-id").html(html_str);
+}
+
+
+function setTeamAverages(curr_team, team_game_data, team_stat_data){
+  
+  let avg_pnts;
+  
   console.log("Updating Team Averages");
+  console.log("Team stat data", team_stat_data);
+  console.log("Team game data", team_game_data);
+  
+  avg_pnts = getAvgPoints(team_game_data);
+  avg_against_pnts = getAgainstAvgPoints(team_game_data);
+  console.log("Average Points", avg_pnts);
+  console.log("Against Average Points", avg_against_pnts);
+
+  setForPoints(avg_pnts);
+  setAgainstPoints(avg_against_pnts);
+
+
 }
 
 function setTheme(curr_team){
@@ -160,7 +208,6 @@ function realign_game_data(team_game_data){
 function get_week_no(txt){
   let strings_arr = txt.split(" ");
   let week_no = parseInt(strings_arr[strings_arr.length-1]);
-  console.log("week no", week_no);
   return week_no;   
 }
 
@@ -177,7 +224,6 @@ function get_date(team_game_data, week_no){
       date = team_game_data[i][4];
     }
   }
-  console.log("date", date);
   return date;
 }
 
@@ -188,7 +234,6 @@ function get_result(team_game_data, week_no){
       result = team_game_data[i][5];
     }
   }
-  console.log("result", result);
   return result;
 }
 
@@ -364,9 +409,6 @@ function showGameData(curr_team, team_game_data, team_game_event_data){
 
 //Simply draw all the graphs.
 function drawGraphs(team){
-  console.log("Drawing Graphs")
-
-
   linespeed_barchart(team);
   tackles_22_pie_graph(team);
   tackles_5_pie_graph(team);
@@ -408,7 +450,7 @@ function displayAC(team, team_table_data, team_season_data, team_game_data, team
   setDropDowns(team, team_season_data, team_game_data);
 
   //Now, from now on this is where we are accessing DB
-  setTeamAverages(team, team_stat_data);
+  setTeamAverages(team, team_game_data, team_stat_data);
   
   //Draw Graphs
   drawGraphs(team);
