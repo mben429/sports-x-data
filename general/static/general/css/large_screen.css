@@ -1160,7 +1160,7 @@
       }
     
       .big-result-letter {
-        font-size: 150px;
+        font-size: 8em;
         color: var(--green-win);
       }
     
@@ -1172,9 +1172,9 @@
       }
     
       .game-score {
-        font-size: 80px;
-        padding-left: 20px;
+        font-size: 3.5em;
         text-align: left;
+        padding-top: 0.5em;
       }
     
       #game-score-id {
@@ -1197,49 +1197,49 @@
       }
     
       .game-stats-content-header {
-        font-size: 21px;
+        font-size: 1.2em;
         padding-left: 20px;
       }
     
       #game-stats-content-header-id {
         grid-column-start: 1;
         grid-column-end: 6;
-        grid-row-start: 6;
-        grid-row-end: 7;
+        grid-row-start: 7;
+        grid-row-end: 8;
       }
     
       .game-stats-content {
-        font-size: 17px;
+        font-size: 0.65em;
         padding-left: 20px;
       }
     
       #game-stats-content-id {
         grid-column-start: 1;
         grid-column-end: 6;
-        grid-row-start: 7;
-        grid-row-end: 9;
+        grid-row-start: 9;
+        grid-row-end: 10;
       }
     
       .game-stats-improvements-header {
-        font-size: 21px;
+        font-size: 1.1em;
       }
     
       #game-stats-improvements-header-id {
         grid-column-start: 7;
         grid-column-end: 11;
-        grid-row-start: 6;
-        grid-row-end: 7;
+        grid-row-start: 7;
+        grid-row-end: 8;
       }
     
       .game-stats-improvements-content {
-        font-size: 15px;
+        font-size: 0.55em;
       }
     
       #game-stats-improvements-content-id {
         grid-column-start: 7;
         grid-column-end: 11;
-        grid-row-start: 7;
-        grid-row-end: 9;
+        grid-row-start: 9;
+        grid-row-end: 10;
       }
     
       .large-panel-header {

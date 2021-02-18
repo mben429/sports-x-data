@@ -743,24 +743,24 @@
         grid-column-start: 2;
         grid-column-end: 10;
         grid-row-start: 2;
-        grid-row-end: 11;
+        grid-row-end: 10;
       }
     
       .standings-table {
         border-collapse: collapse;
         font-size: 0.4em;
         width: 100%;
+        height: 100%;
       }
     
       td, th {
         color: white;
         font-style: normal;
-        border-width: 0.05px;
+        border-width: 0.01px;
         border-style: solid;
-        border-radius: 2px;
+        border-radius: 1px;
         border-color: var(--medium-grey-diff);
-        font-size: 0.4em;
-        padding: 0.05px;
+        font-size: 0.5em;
       }
     
       #recent-results-title-id {
@@ -919,10 +919,10 @@
       }
     
       .team-average-name {
-        font-size: 0.55em;
+        font-size: 0.45em;
         color: white;
         text-align: left;
-        padding-left: 10px;
+        padding-left: 5px;
       }
     
       #team-average-score-1-id {
@@ -1091,37 +1091,37 @@
       }
     
       .game-stats-content-header {
-        font-size: 0.9em;
+        font-size: 0.75em;
         padding-left: 5px;
       }
     
       #game-stats-content-header-id {
-        grid-area: 4 / 1 / 5 / 6;
+        grid-area: 5 / 1 / 6 / 6;
       }
     
       .game-stats-content {
-        font-size: 0.8em;
+        font-size: 0.65em;
         padding-left: 5px;
       }
     
       #game-stats-content-id {
-        grid-area: 5 / 1 / 9 / 6
+        grid-area: 7 / 1 / 9 / 6
       }
     
       .game-stats-improvements-header {
-        font-size: 0.9em;
+        font-size: 0.7em;
       }
     
       #game-stats-improvements-header-id {
-        grid-area: 4 / 7 / 5 / 11;
+        grid-area: 5 / 7 / 6 / 11;
       }
     
       .game-stats-improvements-content {
-        font-size: 0.8em;
+        font-size: 0.6em;
       }
     
       #game-stats-improvements-content-id {
-        grid-area: 5 / 7 / 9 / 11;
+        grid-area: 7 / 7 / 9 / 11;
       }
     
       .large-panel-header {
@@ -1963,10 +1963,6 @@
         color: var(--massey-yellow);
       }
 
-      .alt-bg {
-    
-      }
-    
       .select-game-container {
         grid-area: 17 / 6 / 18 / 16;
         z-index: 1;
@@ -1985,16 +1981,14 @@
       }
       
       li {
-        color: #fff;
-        background: var(--rosmini-blue);
         display: block;
-        float: center;
+          float: center;
         padding: 0.55em 5em 0.55em;
         position: relative;
         text-decoration: none;
         transition-duration: 0.5s;
         text-align: center;
-      }
+          }
         
       li a {
         color: #fff;
@@ -2029,8 +2023,20 @@
         clear: both;
         width: 100%;
       }
+      .dropdown-container {
+        z-index: 1;
+        font-size: 0.6em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      } 
+
+    
+    #dropdown-container-id-1 {
+      grid-area: 8 / 8 / 9 / 14;
+    }
       #dropdown-container-id-2 {
-        grid-area: 13 / 7 / 15 / 9;
+        grid-area: 10 / 8 / 12 / 9;
       }
     
       #dropdown-container-id-3 {
@@ -2038,23 +2044,23 @@
       }
     
       #dropdown-container-id-4 {
-        grid-area: 1 / 12 / 2 / 16;
+        grid-area: 1 / 14 / 2 / 16;
       }
     
       #dropdown-container-id-5 {
-        grid-area: 1 / 12 / 2 / 16;
+        grid-area: 1 / 14 / 2 / 16;
       }
     
       #dropdown-container-id-6 {
-        grid-area: 1 / 12 / 2 / 16;
+        grid-area: 1 / 14 / 2 / 16;
       }
     
       #dropdown-container-id-7 {
-        grid-area: 1 / 12 / 2 / 16;
+        grid-area: 1 / 14 / 2 / 16;
       }
       
       #dropdown-container-id-8 {
-        grid-area: 1 / 12 / 2 / 16;
+        grid-area: 1 / 14 / 2 / 16;
       }
     
     
