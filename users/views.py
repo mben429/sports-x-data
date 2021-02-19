@@ -9,41 +9,17 @@ from general.retrieval import *
 
 
 def loginView(request):
-    
-    # Just for testing and display purposes
-    list_of_user_names = [
-        "TeamTestName", 
-        "massey1stxv", 
-        "rosmini1stxv",
-        "crusadersrugby",
-        "canesrugby",
-        "toulonrugby",
-    ]
-
-    list_of_team_keys = [
-        "Testformvp13", 
-        "mhs_59234", 
-        "rc_55211",
-        "cru_44322",
-        "canes_99811",
-        "tou_76522",
-    ]
-
     if request.method == "GET":
         form = LoginForm()
     else:
-
         form = LoginForm(request.POST)
-
         if form.is_valid():
             team_user_name = form.cleaned_data['team_user_name']
             team_user_key = form.cleaned_data['team_user_key']
 
-            '''
             user = authenticate(request, username=team_user_name, password=team_user_key)
-            '''
             
-            if team_user_name in list_of_user_names and team_user_key in list_of_team_keys and list_of_user_names.index(team_user_name) == list_of_team_keys.index(team_user_key):
+            if user is not None:
                 #login(request, user)
 
                 # Redirect TeamTestName Login

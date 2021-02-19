@@ -92,4 +92,17 @@ class Game_Event(models.Model):
     )
 
 
+class Season_Averages(models.Model):
+    stat_name = models.TextField(max_length=255)
+    stat_val = models.IntegerField()
+    team_name = models.ForeignKey(
+        Team,
+        on_delete=models.CASCADE
+    )
+    season_name = models.ForeignKey(
+        Season,
+        on_delete=models.CASCADE
+    )
+
+
 
