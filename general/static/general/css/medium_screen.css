@@ -37,6 +37,12 @@
         padding-top: 10px;
         grid-area: 1 / 4 / 2 / 5; 
       }
+
+      .navbar-btn {
+        display: flex;
+        align-items: center;
+        font-size:0.75em
+      }
     
       .contact-sect {
         padding-top: 10px;
@@ -89,33 +95,49 @@
       }
     
       .btn-login {
-        border-radius: 4px;
+        border-radius: 5px;
+        padding-right: 10px;
+        padding-left: 10px;
+        padding-top: 2.5px;
+        padding-bottom: 2.5px;
         color: black;
         border-style: solid;
         border-width: 1px;
         border-color: black;
-        padding-left: 3px;
-        padding-right: 3px;
-        
         background-color: var(--massey-yellow);
         text-decoration: none;
         font-style: bold;
-        font-size: 0.9em;
       }
     
       .btn-login:hover {
-        border-radius: 2.5px;
+        border-radius: 5px;
+        padding-right: 10px;
+        padding-left: 10px;
+        padding-top: 2.5px;
+        padding-bottom: 2.5px;
         color: var(--massey-yellow);
         border-style: solid;
         border-width: 1px;
         border-color: var(--massey-yellow);
-        padding-left: 2px;
-        padding-right: 2px;
-        
         background-color: black;
         text-decoration: none;
         font-style: bold;
-        font-size: 0.9em;
+      }
+    
+      .btn-logout {
+        border-radius: 5px;
+        padding-right: 10px;
+        padding-left: 10px;
+        margin-left: 10px;
+        padding-top: 2.5px;
+        padding-bottom: 2.5px;
+        color: black;
+        border-style: solid;
+        border-width: 1px;
+        border-color: black;
+        background-color: var(--massey-yellow);
+        text-decoration: none;
+        font-style: bold;
       }
     
       .homepage-title-1 {
