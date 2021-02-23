@@ -5,6 +5,9 @@ from django.shortcuts import render
 from general.models import Team, Season, Game, Stat
 
 def index(request):
+    print(request.user)
+    if request.user.is_authenticated:
+        print("Current team is Logged in: ", request.user)
     return render(request, "index.html")
 
 def plans(request):

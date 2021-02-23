@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from .forms import LoginForm
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -20,8 +20,9 @@ def loginView(request):
             user = authenticate(request, username=team_user_name, password=team_user_key)
             
             if user is not None:
-                #login(request, user)
-
+                login(request, user)
+                print("Current team username is: ", request.user.username)
+                
                 # Redirect TeamTestName Login
                 if team_user_name == "TeamTestName":
                     team_user_name = "rosmini1stxv"
@@ -53,3 +54,35 @@ def loginView(request):
                 return render(request, "registration/login_failure.html")
 
     return render(request, "registration/login.html", {'form': form})
+
+
+def loggedinView(request):
+    team_user_name = request.user.username
+    print("Current Team that is already logged in: ", team_user_name)
+
+    # Redirect TeamTestName Login
+    if team_user_name == "TeamTestName":
+        team_user_name = "rosmini1stxv"
+
+    # Get Data from DB
+    team_table_data = get_team_table_data(team_user_name)
+    team_season_data = get_team_season_table_data(team_user_name)
+    team_game_data = get_team_game_data(team_user_name)
+    team_stat_data = get_team_stat_data(team_user_name)
+    team_game_event_data = get_team_game_event_data(team_user_name)
+    
+    # Dump data into JSON for communication with JS
+    data_dict = {
+        'team_user_name' : team_user_name,
+        'organization': "test_obj",
+        'team_table_data': team_table_data,
+        'team_season_data': team_season_data,
+        'team_game_data': team_game_data,
+        'team_stat_data': team_stat_data,
+        'team_game_event_data': team_game_event_data
+    }
+    dataJSON = dumps(data_dict, default=str)
+
+    return render(request, "registration/login_success.html", {'data' : dataJSON})
+
+    

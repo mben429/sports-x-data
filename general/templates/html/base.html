@@ -50,8 +50,13 @@
         <a href="/contact" class="btn-nav">Contact Us |</a>
       </div>
       <div class="user-sect navbar-btn">
-        <a href="/login" class="btn-login">Athlete Centre Log In</a>
-      </div>
+
+        {% if user.is_authenticated %}
+          <a href="/loggedin" class="btn-login">Athlete Centre</a>
+        {% else %}
+          <a href="/login" class="btn-login">Athlete Centre Log In</a>
+        {% endif %}
+        </div>
     </div>
 
     {% block content %}
