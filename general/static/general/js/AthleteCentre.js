@@ -1,6 +1,18 @@
 
 //Essentially a Main File. Ensures Athlete Centre shows the correct data.
 
+const LeagueEnabled = {
+  "true": [
+    "rosmini1stxv",
+    "massey1stxv"
+  ],
+  "false": [
+    "crusadersrugby",
+    "canesrugby",
+    "toulonrugby",
+  ],
+}
+
 const teamLogos = {
   "massey1stxv": "/static/general/images/rsz_massey_logo-small.png", 
   "rosmini1stxv": "/static/general/images/rsz_rosmini_logo_org.png",
@@ -395,14 +407,37 @@ function setMatchOverview(element, curr_team, team_game_data, team_game_event_da
     }
 }
 
+//Set League Overview elements.
+function setLeagueOverview(curr_team){
+  createStandingsTries(curr_team);
+  createStandingsPoints(curr_team);
+  createStandingsTackles(curr_team);
+}
+
+function check_league_enabled(curr_team){
+  let res;
+  if (LeagueEnabled["true"].indexOf(curr_team) != -1){
+     res = true;
+  }
+  else {
+    res = false;
+  }
+  return res;
+}
+
 function showGameData(curr_team, team_game_data, team_game_event_data){
   
   setMatchOverview("default", curr_team, team_game_data, team_game_event_data);
+
+  if (check_league_enabled(curr_team)){
+    console.log("Gellow");
+    setLeagueOverview(curr_team);
+  }
+
   //What happens when we click on a team in the dropdown menu
   $(".drp-option a").click(function(){
-
     //Set match overview header, result, score etc.,
-    setMatchOverview(this, curr_team, team_game_data, team_game_event_data);    
+    setMatchOverview(this, curr_team, team_game_data, team_game_event_data);
   }
   );
 }
@@ -455,8 +490,9 @@ function displayAC(team, team_table_data, team_season_data, team_game_data, team
   //Draw Graphs
   drawGraphs(team);
 
-  //Update Match Overview
+  //Show Match Overview and League Overview
   showGameData(team, team_game_data, team_game_event_data);
+
 
 }
 

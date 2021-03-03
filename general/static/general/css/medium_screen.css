@@ -771,7 +771,7 @@
       .standings-table {
         border-collapse: collapse;
         margin: 25px 0;
-        font-size: 0.4em;
+        font-size: 0.55em;
         width: 100%;
       }
     
@@ -780,9 +780,9 @@
         font-style: normal;
         border-width: 0.05px;
         border-style: solid;
-        border-radius: 2px;
+        border-radius: 1.5px;
         border-color: var(--medium-grey-diff);
-        padding: 0.05px;
+        padding: 0.15px;
       }
     
       #recent-results-title-id {
@@ -1985,7 +1985,7 @@
       }
     
       .alt-bg {
-    
+        
       }
     
       .select-game-container {
@@ -1998,6 +1998,13 @@
     
       }
     
+      .dropdown-container {
+        z-index: 1;
+        font-size: 0.8em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      } 
     
       ul {
         list-style: none;
@@ -2050,33 +2057,45 @@
         clear: both;
         width: 100%;
       }
+
+      #dropdown-container-id-1 {
+        grid-area: 8 / 6 / 9 / 16;
+        
+      }
     
       #dropdown-container-id-2 {
-        grid-area: 13 / 7 / 15 / 9;
+        grid-area: 10 / 7 / 12 / 9;
+        font-size: 0.5em;
       }
     
       #dropdown-container-id-3 {
         grid-area: 1 / 7 / 2 / 9;
+        font-size: 0.5em;
       }
     
       #dropdown-container-id-4 {
         grid-area: 1 / 12 / 2 / 16;
+        font-size: 0.5em;
       }
     
       #dropdown-container-id-5 {
         grid-area: 1 / 12 / 2 / 16;
+        font-size: 0.5em;
       }
     
       #dropdown-container-id-6 {
         grid-area: 1 / 12 / 2 / 16;
+        font-size: 0.5em;
       }
     
       #dropdown-container-id-7 {
         grid-area: 1 / 12 / 2 / 16;
+        font-size: 0.5em;
       }
       
       #dropdown-container-id-8 {
         grid-area: 1 / 12 / 2 / 16;
+        font-size: 0.5em;
       }
     
     

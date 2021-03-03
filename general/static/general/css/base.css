@@ -682,6 +682,12 @@
     grid-template-rows: repeat(58, 3em);
   }
 
+  #overall-container-3-id {
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(58, 3em);
+  }
+
   #header-strip-container-id {
     grid-column-start: 1;
     grid-column-end: 21;
@@ -917,7 +923,7 @@
 
   .standings-table {
     border-collapse: collapse;
-    font-size: 0.6em;
+    font-size: 0.5em;
     width: 100%;
   }
 
@@ -1588,20 +1594,20 @@
   }
 
   .insights-info {
-    font-size: 0.7em;
+    font-size: 0.6em;
     color: white;
     margin-left: 10px;
   }
 
   .insights-value {
     color: var(--massey-yellow);
-    font-size:0.75em;
+    font-size:0.7em;
   }
 
   
   .insights-comp-val {
     text-align: left;
-    font-size: 0.75em;
+    font-size: 0.6em;
   } 
 
   #defense-more-info-1-id {
@@ -2316,17 +2322,21 @@
     grid-area: 1 / 12 / 2 / 16;
   }
 
+  #league-overview-header-id {
+    grid-area: 1 / 1 / 3 / 21;
+  }
 
+  #top-10-tries-panel-id {
+    grid-area: 4 / 1 / 11 / 7;
+  }
 
+  #top-10-points-panel-id {
+    grid-area: 4 / 7 / 11 / 14;
+  }
 
-  
-
-
-
-
-
-
-
+  #top-10-tackles-panel-id {
+    grid-area: 4 / 14 / 11 / 21;
+  }
 
   /*End of the page, to be continued note*/
   .copyright-text {

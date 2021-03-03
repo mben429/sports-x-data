@@ -26,7 +26,6 @@ oauthlib==3.1.0
 opt-einsum==3.1.0
 pipenv==2020.11.4
 protobuf==3.11.2
-psycopg2==2.8.5
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
 pyrsistent==0.15.3

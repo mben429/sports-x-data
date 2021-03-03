@@ -8,6 +8,14 @@ from general.models import Team, Season, Game, Stat
 from general.retrieval import *
 
 
+def check_league_enabled(team):
+    teams_enabled = ["massey1stxv", "rosmini1stxv"]
+    if team in teams_enabled:
+        return True
+    else:
+        return False
+
+
 def loginView(request):
     if request.method == "GET":
         form = LoginForm()
@@ -45,9 +53,10 @@ def loginView(request):
                     'team_game_event_data': team_game_event_data
                 }
                 dataJSON = dumps(data_dict, default=str)
-
-                return render(request, "registration/login_success.html", {'data' : dataJSON})
-
+                if check_league_enabled(team_user_name):
+                    return render(request, "registration/login_success_league.html", {'data' : dataJSON})
+                else:
+                    return render(request, "registration/login_success.html", {'data' : dataJSON})
                 # Simply testing
                 #return render(request, "registration/test_new_ac.html", {"team_user_name": team_user_name})
             else:
@@ -83,7 +92,11 @@ def loggedinView(request):
     }
     dataJSON = dumps(data_dict, default=str)
 
-    return render(request, "registration/login_success.html", {'data' : dataJSON})
+    
+    if check_league_enabled(team_user_name):
+        return render(request, "registration/login_success_league.html", {'data' : dataJSON})
+    else:
+        return render(request, "registration/login_success.html", {'data' : dataJSON})
 
     
 def logoutView(request):
@@ -125,8 +138,10 @@ def logoutView(request):
                 }
                 dataJSON = dumps(data_dict, default=str)
 
-                return render(request, "registration/login_success.html", {'data' : dataJSON})
-
+                if check_league_enabled(team_user_name):
+                    return render(request, "registration/login_success_league.html", {'data' : dataJSON})   
+                else:
+                    return render(request, "registration/login_success.html", {'data' : dataJSON})
                 # Simply testing
                 #return render(request, "registration/test_new_ac.html", {"team_user_name": team_user_name})
             else:

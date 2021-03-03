@@ -629,6 +629,12 @@
         grid-template-columns: repeat(20, 1fr);
         grid-template-rows: repeat(58, 3em);
       }
+
+      #overall-container-3-id {
+        display: grid;
+        grid-template-columns: repeat(20, 1fr);
+        grid-template-rows: repeat(58, 3em);
+      }
     
       #header-strip-container-id {
         grid-column-start: 1;
