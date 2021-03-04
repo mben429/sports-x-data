@@ -57,8 +57,7 @@ def loginView(request):
                     return render(request, "registration/login_success_league.html", {'data' : dataJSON})
                 else:
                     return render(request, "registration/login_success.html", {'data' : dataJSON})
-                # Simply testing
-                #return render(request, "registration/test_new_ac.html", {"team_user_name": team_user_name})
+               
             else:
                 return render(request, "registration/login_failure.html")
 

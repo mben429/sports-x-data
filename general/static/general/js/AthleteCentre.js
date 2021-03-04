@@ -412,6 +412,9 @@ function setLeagueOverview(curr_team){
   createStandingsTries(curr_team);
   createStandingsPoints(curr_team);
   createStandingsTackles(curr_team);
+  createStandingsTeamTries(curr_team);
+  createStandingsTeamTackles(curr_team);
+  createStandingsTeamLineBreaks(curr_team);
 }
 
 function check_league_enabled(curr_team){

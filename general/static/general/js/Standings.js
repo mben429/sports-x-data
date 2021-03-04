@@ -109,6 +109,36 @@ const LeagueInfoTackles = {
     ],
 }
 
+const LeagueInfoTriesTeam = {
+    "harbour1stxv_league": [
+       ["1.", "Westlake BHS", "40%", "60%", "20"],
+       ["2.", "Massey HS", "33%", "66%", "18"],
+       ["3.", "Rosmini College", "60%", "40%", "16"],
+       ["4.", "Manurewa HS", "50%", "50%", "10"],
+       ["5.", "Rangitoto College", "60%", "40%", "8"],
+    ],
+}
+
+const LeagueInfoTacklesTeam = {
+    "harbour1stxv_league": [
+       ["1.", "Massey HS", "85%", "620"],
+       ["2.", "Rosmini College", "86%", "615"],
+       ["3.", "Westlake BHS", "91%", "590"],
+       ["4.", "Manurewa College", "79%", "580"],
+       ["5.", "Rangitoto College", "75%", "550"],
+    ],
+}
+
+const LeagueInfoLineBreaksTeam = {
+    "harbour1stxv_league": [
+        ["1.", "Westlake BHS", "8.5", "51"],
+        ["2.", "Rosmini Colllege", "7.6", "49"],
+        ["3.", "Massey HS", "7.5", "47"],
+        ["4.", "Rangitoto College", "6.5", "37"],
+        ["5.", "Manurewa College", "6.1", "34"],
+     ],
+}
+
 //Change standings size if number of teams exceeds a certain point
 function alterStandingsSize(team){
     if (teamInfo[team].length > 11){
@@ -201,6 +231,59 @@ function createStandingsTackles(team){
     }
     alterStandingsSize(team);
 }
+
+function createStandingsTeamTries(team){
+    setColor("#standings-header-tries-team", "background-color", team);
+    let league = getLeague(team);
+    //2d Array here containing all standings info for a team
+    let standingsInfo = LeagueInfoTriesTeam[league];
+    for(var i = 0; i < standingsInfo.length; i++){
+        let curr_row = standingsInfo[i];
+        // Create string to append to <tr>
+        let curr_row_str = '';
+        for(var j = 0; j < curr_row.length; j++){
+            curr_row_str += '<th>' + curr_row[j] + '</th>';
+        }
+        $("#top-10-team-tries-standings-id").append('<tr>' + curr_row_str + '</tr>');
+    }
+    alterStandingsSize(team);
+
+}
+
+function createStandingsTeamTackles(team){
+    setColor("#standings-header-tackles-team", "background-color", team);
+    let league = getLeague(team);
+    //2d Array here containing all standings info for a team
+    let standingsInfo = LeagueInfoTacklesTeam[league];
+    for(var i = 0; i < standingsInfo.length; i++){
+        let curr_row = standingsInfo[i];
+        // Create string to append to <tr>
+        let curr_row_str = '';
+        for(var j = 0; j < curr_row.length; j++){
+            curr_row_str += '<th>' + curr_row[j] + '</th>';
+        }
+        $("#top-10-team-tackles-standings-id").append('<tr>' + curr_row_str + '</tr>');
+    }
+    alterStandingsSize(team);
+}
+
+function createStandingsTeamLineBreaks(team){
+    setColor("#standings-header-linebreaks-team", "background-color", team);
+    let league = getLeague(team);
+    //2d Array here containing all standings info for a team
+    let standingsInfo = LeagueInfoLineBreaksTeam[league];
+    for(var i = 0; i < standingsInfo.length; i++){
+        let curr_row = standingsInfo[i];
+        // Create string to append to <tr>
+        let curr_row_str = '';
+        for(var j = 0; j < curr_row.length; j++){
+            curr_row_str += '<th>' + curr_row[j] + '</th>';
+        }
+        $("#top-10-team-linebreaks-standings-id").append('<tr>' + curr_row_str + '</tr>');
+    }
+    alterStandingsSize(team);
+}
+
 
 
 

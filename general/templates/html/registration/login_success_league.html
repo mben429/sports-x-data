@@ -17,14 +17,9 @@
        <div class="header-bar-btn" id="recent-game-btn-id">
          <a href="#dropdown-container-id-1">Match Centre |</a>
        </div>
-       <!--
-       <div class="header-bar-btn" id="season-tracking-btn-id">
-         <a href="#">Season Tracking |</a>
-       </div>
-       <div class="header-bar-btn" id="team-info-btn-id">
-         <a href="#">Team Info |</a>
-       </div>
-       -->
+       <div class="header-bar-btn" id="league-overview-btn-id">
+        <a href="#league-overview-header-id">League Overview |</a>
+      </div>
      </div>
      <div class="logo-container-circle" id="logo-container-circle-id">
        <img class="logo-img-small" style="width: 100%;" src="{% static 'general/images/rsz_massey_logo-small.png' %}">
@@ -818,11 +813,11 @@
 
 <!-- League Overview Section-->
 <div class="overall-container" id="overall-container-3-id">
-    <div class="section-subheader" id="league-overview-header-id" data-aos="fade-right">
+    <div class="section-subheader" id="league-overview-header-id" data-aos="fade-right" data-aos="fade-right">
       <text class="ac-header-txt" id="ac-header-text-id">League<text class="alt-text"> Overview</text>.</text>
     </div>
-    <div class="s1-panel" id="top-10-tries-panel-id">
-      <div class="graph-header">Top 5 <text class="alt-text">Tries</text></div>
+    <div class="s1-panel" id="top-10-tries-panel-id" data-aos="fade-right">
+      <div class="graph-header">Player | Top 5 <text class="alt-text">Tries Scored</text></div>
       <div class="standings-container" id="standings-container-id">
         <!-- STANDINGS TABLE -->
         <table class="standings-table">
@@ -839,8 +834,8 @@
         </table>
       </div>
     </div>
-    <div class="s1-panel" id="top-10-points-panel-id">
-      <div class="graph-header">Top 5 <text class="alt-text">Points</text></div>
+    <div class="s1-panel" id="top-10-points-panel-id" data-aos="fade-right">
+      <div class="graph-header">Player | Top 5 <text class="alt-text">Points Scored</text></div>
       <div class="standings-container" id="standings-container-id">
         <!-- STANDINGS TABLE -->
         <table class="standings-table">
@@ -857,8 +852,8 @@
         </table>
       </div>
     </div>
-    <div class="s1-panel" id="top-10-tackles-panel-id">
-      <div class="graph-header">Top 5 <text class="alt-text">Tackles</text></div>
+    <div class="s1-panel" id="top-10-tackles-panel-id" data-aos="fade-right">
+      <div class="graph-header">Player | Top 5 <text class="alt-text">Tackles Made</text></div>
       <div class="standings-container" id="standings-container-id">
         <!-- STANDINGS TABLE -->
         <table class="standings-table">
@@ -875,8 +870,59 @@
         </table>
       </div>
     </div>
-      
+    <div class="s1-panel" id="top-10-tries-team-panel-id" data-aos="fade-right">
+      <div class="graph-header">Team | Top 5 <text class="alt-text">Tries Scored</text></div>
+      <div class="standings-container" id="standings-container-id">
+        <!-- STANDINGS TABLE -->
+        <table class="standings-table">
+          <thead id="standings-header-tries-team">
+            <tr>
+              <th class="sec-col">No.</th>
+              <th class="sec-col">Team</th>
+              <th class="sec-col">% Tries from Forwards</th>
+              <th class="sec-col">% Tries from Backs</th>
+              <th class="sec-col">No. of Tries</th>
+            </tr>
+          </thead>
+          <tbody id="top-10-team-tries-standings-id"></tbody>
+        </table>
+      </div>
     </div>
+    <div class="s1-panel" id="top-10-tackles-team-panel-id" data-aos="fade-right">
+      <div class="graph-header">Team | Top 5 <text class="alt-text">Tackles Made</text></div>
+      <div class="standings-container" id="standings-container-id">
+        <!-- STANDINGS TABLE -->
+        <table class="standings-table">
+          <thead id="standings-header-tackles-team">
+            <tr>
+              <th class="sec-col">No.</th>
+              <th class="sec-col">Team</th>
+              <th class="sec-col">% Tackles Made</th>
+              <th class="sec-col">No. of Tackles</th>
+            </tr>
+          </thead>
+          <tbody id="top-10-team-tackles-standings-id"></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="s1-panel" id="top-10-linebreaks-team-panel-id" data-aos="fade-right">
+      <div class="graph-header">Team | Top 5 <text class="alt-text">Line Breaks Made</text></div>
+      <div class="standings-container" id="standings-container-id">
+        <!-- STANDINGS TABLE -->
+        <table class="standings-table">
+          <thead id="standings-header-linebreaks-team">
+            <tr>
+              <th class="sec-col">No.</th>
+              <th class="sec-col">Team</th>
+              <th class="sec-col">Line Breaks / Game</th>
+              <th class="sec-col">Line Breaks</th>
+            </tr>
+          </thead>
+          <tbody id="top-10-team-linebreaks-standings-id"></tbody>
+        </table>
+      </div>
+    </div>
+    
   </div>
 
 <script>
