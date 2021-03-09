@@ -14,6 +14,11 @@ import json
 import os
 import django_heroku
 import dj_database_url
+import environ
+
+# Initialize environ
+env = environ.Env()
+environ.Env.read_env()
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -88,11 +93,11 @@ WSGI_APPLICATION = 'SportsxdataSite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd8hab65rnic16u',
-        'USER': 'ubu4nf46vlgeec',
-        'PASSWORD': os.environ["NEW_DB_PASSWORD"],
-        'HOST': 'ec2-3-83-200-57.compute-1.amazonaws.com',
-        'PORT': '5432',
+        'NAME': env('DATABASE_NAME'),
+        'USER': env('DATABASE_USER'),
+        'PASSWORD': env('DATABASE_PASSWORD'),
+        'HOST': env('DATABASE_HOST'),
+        'PORT': 5432,
     }
 }
 

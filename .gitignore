@@ -10,6 +10,10 @@ media/
 db.sqlite3
 # Editor directories and files
 .idea
+
+# Environment file for credentials
+.env
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
