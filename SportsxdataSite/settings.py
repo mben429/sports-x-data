@@ -93,10 +93,10 @@ WSGI_APPLICATION = 'SportsxdataSite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': env('DATABASE_NAME'),
-        'USER': env('DATABASE_USER'),
-        'PASSWORD': env('DATABASE_PASSWORD'),
-        'HOST': env('DATABASE_HOST'),
+        'NAME': 'DATABASE_NAME',
+        'USER': 'DATABASE_USER',
+        'PASSWORD': 'DATABASE_PASSWORD',
+        'HOST': 'DATABASE_HOST',
         'PORT': 5432,
     }
 }
