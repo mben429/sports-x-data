@@ -19,6 +19,7 @@ import environ
 # Initialize environ
 env = environ.Env()
 environ.Env.read_env()
+SECRET_KEY = env('SECRET_KEY')
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
