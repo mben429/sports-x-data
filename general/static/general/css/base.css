@@ -2236,7 +2236,7 @@
 
   .dropdown-container {
     z-index: 1;
-    font-size: 0.8em;
+    font-size: 0.5em;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2370,6 +2370,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  #dropdown-container-id-9 {
+    grid-area: 1 / 16 / 3 / 19;
+    font-size: 0.5em;
   }
 
 
