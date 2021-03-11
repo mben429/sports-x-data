@@ -693,7 +693,7 @@
       }
 
       #defense-header-id {
-        grid-area: 10 / 1 / 12 / 10;
+        grid-area: 11 / 1 / 12 / 10;
       }
     
       .ac-header-txt {
@@ -2052,7 +2052,7 @@
       }
       .dropdown-container {
         z-index: 1;
-        font-size: 0.6em;
+        font-size: 0.45em;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -2063,7 +2063,7 @@
       grid-area: 8 / 8 / 9 / 14;
     }
       #dropdown-container-id-2 {
-        grid-area: 10 / 8 / 12 / 9;
+        grid-area: 11 / 7 / 12 / 9;
       }
     
       #dropdown-container-id-3 {
@@ -2071,23 +2071,24 @@
       }
     
       #dropdown-container-id-4 {
-        grid-area: 1 / 14 / 2 / 16;
+        grid-area: 1 / 13 / 2 / 17;
+        
       }
     
       #dropdown-container-id-5 {
-        grid-area: 1 / 14 / 2 / 16;
+        grid-area: 1 / 13 / 2 / 17;
       }
     
       #dropdown-container-id-6 {
-        grid-area: 1 / 14 / 2 / 16;
+        grid-area: 1 / 13 / 2 / 17;
       }
     
       #dropdown-container-id-7 {
-        grid-area: 1 / 14 / 2 / 16;
+        grid-area: 1 / 13 / 2 / 17;
       }
       
       #dropdown-container-id-8 {
-        grid-area: 1 / 14 / 2 / 16;
+        grid-area: 1 / 13 / 2 / 17;
       }
 
       #league-overview-header-id {
@@ -2141,6 +2142,11 @@
         display: flex;
         align-items: center;
         justify-content: center;
+      }
+
+      #dropdown-container-id-9 {
+        grid-area: 1 / 16 / 3 / 21;
+        font-size: 0.45em;
       }
     
     
