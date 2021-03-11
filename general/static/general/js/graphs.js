@@ -9,11 +9,13 @@ function make_responsive(curr_chart){
   if (WINDOW_WIDTH <= 700) {
     curr_chart.options.legend.labels.fontSize = 4;
   
-
     if (curr_chart.config.type == "bar" || curr_chart.config.type == 'horizontalBar'){
       set_bar_thickness(curr_chart, 10);
       curr_chart.options.scales.xAxes[0].ticks.fontSize = 4;
       curr_chart.options.scales.yAxes[0].ticks.fontSize = 4;
+    }
+    else if (curr_chart.config.type == "radar") {
+      curr_chart.options.scale.pointLabels.fontSize = 4;
     }
   }
   else if (WINDOW_WIDTH > 700 && WINDOW_WIDTH < 1100){
@@ -24,6 +26,9 @@ function make_responsive(curr_chart){
       curr_chart.options.scales.xAxes[0].ticks.fontSize = 9;
       curr_chart.options.scales.yAxes[0].ticks.fontSize = 9;
     }
+    else if (curr_chart.config.type == "radar") {
+      curr_chart.options.scale.pointLabels.fontSize = 9;
+    }
   }
   else if (WINDOW_WIDTH >= 1100 && WINDOW_WIDTH < 1600){
     curr_chart.options.legend.labels.fontSize = 11   
@@ -33,6 +38,9 @@ function make_responsive(curr_chart){
       curr_chart.options.scales.xAxes[0].ticks.fontSize = 11;
       curr_chart.options.scales.yAxes[0].ticks.fontSize = 11; 
     }
+    else if (curr_chart.config.type == "radar") {
+      curr_chart.options.scale.pointLabels.fontSize = 11;
+    }
   }
   else if (WINDOW_WIDTH > 1600){
     curr_chart.options.legend.labels.fontSize = 12;
@@ -41,6 +49,9 @@ function make_responsive(curr_chart){
       set_bar_thickness(curr_chart, 30); 
       curr_chart.options.scales.xAxes[0].ticks.fontSize = 12;
       curr_chart.options.scales.yAxes[0].ticks.fontSize = 12;  
+    }
+    else if (curr_chart.config.type == "radar") {
+      curr_chart.options.scale.pointLabels.fontSize = 12;
     }
   }
 }
@@ -1354,4 +1365,62 @@ function outcome_of_penalties_pie(team){
   
 }
 
+//Seven Aspects of game are: Defense, Attack, Ball Handling, Kicking Game, Set Piece, Rucks, Discipline
+function radar_chart_1(team){
+
+  let inputData = {
+    labels: [
+      'Tackle Success %', 
+      '% of Posessions leading to linebreak',
+      'Pass Success %', 
+      '% Kicks 30+ Meteres Gained',
+      'Own Ruck Retained Success %',
+      '% Own Lineout Success',
+      '% Own Scrum Success'
+    ],
+    datasets: [
+      {"label": "Rosmini College", "data": [85, 87, 75, 89, 76, 79, 81], "fill": true, "backgroundColor": teamMainColorsGraphsTransparent["rosmini1stxv"]},
+      {"label": "Massey HS", "data": [82, 70, 72, 81, 88, 85, 76], "fill": true, "backgroundColor": teamMainColorsGraphsTransparent["massey1stxv"]},
+      {"label": "Westlake BHS", "data": [79, 83, 89, 88, 72, 75, 80], "fill": true, "backgroundColor": teamMainColorsGraphsTransparent["westlake1stxv"]},
+      {"label": "Rangitoto College", "data": [76, 73, 71, 84, 90, 77, 85], "fill": true, "backgroundColor": teamMainColorsGraphsTransparent["rangitoto1stxv"]},
+      {"label": "Manurewa HS", "data": [72, 89, 78, 86, 80, 82, 74], "fill": true, "backgroundColor": teamMainColorsGraphsTransparent["manurewa1stxv"]},
+      {"label": "Orewa College", "data": [79, 80, 75, 88, 85, 81, 70], "fill": true, "backgroundColor": teamMainColorsGraphsTransparent["orewa1stxv"]},
+      {"label": "Whangarei BHS", "data": [81, 80, 73, 79, 88, 74, 83], "fill": true, "backgroundColor": teamMainColorsGraphsTransparent["whangarei1stxv"]},
+      {"label": "Takapuna Grammar", "data": [90, 70, 86, 82, 81, 84, 89], "fill": true, "backgroundColor": teamMainColorsGraphsTransparent["takapuna1stxv"]},
+      {"label": "Mahurangi College", "data": [80, 75, 70, 84, 82, 89, 87], "fill": true, "backgroundColor": teamMainColorsGraphsTransparent["mahurangi1stxv"]},
+    ],
+  };
+
+  let inputOptions = {
+    scale: {
+        angleLines: {
+          display: true
+        },
+        ticks: {
+            suggestedMin: 50,
+            suggestedMax: 100,
+        },
+        pointLabels: {
+          fontSize: 13
+        }
+    },
+    legend: {
+      display: true,
+      labels: {
+        fontSize: 13
+      }
+    }
+    
+  }; 
+
+  let ctx = document.getElementById('radar-chart-1-canv').getContext('2d');
+  let newChart = new Chart(ctx, 
+    {
+      type: 'radar',
+      data: inputData,
+      options: inputOptions  
+    });
+
+  make_responsive(newChart)
+}
 

@@ -2131,6 +2131,24 @@
       #top-10-linebreaks-team-panel-id {
         grid-area: 12 / 14 / 19 / 21; 
       }
+      #radar-chart-1-id {
+        grid-area: 20 / 3 /  32 / 18;
+      }
+
+      .radar-chart-container {
+        grid-area: 2 / 1 / 9 / 11;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    
+    
+      #radar-chart-1-canv{
+        grid-area: 1 / 1 / 5 / 5;
+        width: 100%;
+        height: 100%;
+      }
     
       /*End of the page, to be continued note*/
       .copyright-text {

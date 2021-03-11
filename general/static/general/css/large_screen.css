@@ -27,7 +27,7 @@
     
       .logo-image {
         width: auto;
-        height: 50px;
+        height: 100%;
         padding-top: 15px;
         padding-left: 25px;
         float:left;
@@ -44,7 +44,7 @@
       .navbar-btn {
         display: flex;
         align-items: center;
-        font-size:0.65em
+        font-size:0.55em
       }
     
     
@@ -2316,6 +2316,27 @@
       #top-10-linebreaks-team-panel-id {
         grid-area: 12 / 14 / 19 / 21; 
       }
+
+      #radar-chart-1-id {
+        grid-area: 20 / 3 /  32 / 18;
+      }
+    
+    
+      #radar-chart-1-canv{
+        grid-area: 1 / 1 / 5 / 5;
+        width: 100%;
+        height: 100%;
+      }
+
+      .radar-chart-container {
+        grid-area: 4 / 1 / 11 / 11;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      
     
     
     

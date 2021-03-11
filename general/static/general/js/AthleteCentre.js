@@ -472,6 +472,8 @@ function drawGraphs(team){
   penalties_conceded_bar(team);
   penalties_conceded_diff_field_bar(team);
   outcome_of_penalties_pie(team);
+  radar_chart_1(team);
+  
 
 }
 

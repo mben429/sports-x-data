@@ -34,4 +34,26 @@ const teamMainColorsGraphs = {
     "crusadersrugby": "rgb(232,47,51)",
     "canesrugby": "rgb(232,197,11)",
     "toulonrugby": "rgb(208,43,34)",
+    "westlake1stxv": "rgb(5,74,50)",
+    "rangitoto1stxv": "rgb(1,76,142)",
+    "manurewa1stxv": "rgb(253,181,19)",
+    "orewa1stxv": "rgb(36,89,69)",
+    "whangarei": "rgb(243,170,1)",
+    "takapuna1stxv": "rgb(49,63,111)",
+    "mahurangi1stxv": "rgb(32,42,58)",
+}
+
+const teamMainColorsGraphsTransparent = {
+    "massey1stxv": "rgba(248,189,65, 0.6)", 
+    "rosmini1stxv": "rgba(37,74,163, 0.6)",
+    "crusadersrugby": "rgba(232,47,51, 0.6)",
+    "canesrugby": "rgba(232,197,11, 0.6)",
+    "toulonrugby": "rgba(208,43,34, 0.6)",
+    "westlake1stxv": "rgba(5,74,50, 0.6)",
+    "rangitoto1stxv": "rgba(1,76,142, 0.6)",
+    "manurewa1stxv": "rgba(253,181,19, 0.6)",
+    "orewa1stxv": "rgba(36,89,69, 0.6)",
+    "whangarei": "rgba(243,170,1, 0.6)",
+    "takapuna1stxv": "rgba(49,63,111, 0.6)",
+    "mahurangi1stxv": "rgba(32,42,58, 0.6)",
 }
