@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="login-grid-container">
+    <div class="login-page-header" data-aos="fade-right">
+        Upload your footage<text class="alt-text">.</text>
+    </div>
+
+    <div class="form-login" data-aos="fade-right">
+        <form class="form-center" method="post" enctype="multipart/form-data">
+
+            {% csrf_token %}
+            {{ form.as_p }}
+            <br>
+            <button type="submit" class="login-page-button">Upload Footage</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

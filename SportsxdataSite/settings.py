@@ -27,8 +27,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '6n*vusj^#4a+-mfnvr78*0$ifqvrcd0&z$xkphk&jy$p_5(rh1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -50,6 +48,7 @@ INSTALLED_APPS = [
     'general',
     'contactform',
     'users',
+    'file_upload'
 
 ]
 
