@@ -8,7 +8,3 @@ urlpatterns = [
     path('upload/', uploadFile, name="upload"),
     path('upload_success/', uploadSuccess, name="uploadSuccess"),
 ]
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-    

@@ -9,10 +9,12 @@
     </div>
 
     <div class="form-login" data-aos="fade-right">
-        <form class="form-center" method="post" enctype="multipart/form-data">
+        <form class="form-center" method="POST" enctype="multipart/form-data">
 
             {% csrf_token %}
-            {{ form.as_p }}
+            {{ form.teamFor }}
+            {{ form.teamAgainst }}
+            {{ form.file }}
             <br>
             <button type="submit" class="login-page-button">Upload Footage</button>
         </form>

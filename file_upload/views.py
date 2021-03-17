@@ -1,19 +1,25 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from .forms import UploadFileForm
-from django.core.files.storage import FileSystemStorage
+from django.forms import formset_factory
+
 
 def uploadFile(request):
+    print("Hello In uploadFile Now")
+    
+    form = UploadFileForm()
     if request.method == 'POST':
 
         form = UploadFileForm(request.POST, request.FILES)
+        print(form.errors)
         if form.is_valid():
-            uploaded_file = request.FILES["file"]
-            fs = FileSystemStorage()
-            fs.save(uploaded_file.name, uploaded_file)
+            
+            print("Hello there, form is valid!")
+            uploaded_file = form.save()
             return render(request, 'upload_success.html')
-    else:
-        form = UploadFileForm()
+        else:
+            print("Form is Invalid")
+    
     return render(request, 'upload.html', {'form': form})
 
 def uploadSuccess(request):

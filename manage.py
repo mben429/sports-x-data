@@ -5,7 +5,6 @@ import sys
 
 
 def main():
-    print("hello")
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'SportsxdataSite.settings')
     try:
         from django.core.management import execute_from_command_line
