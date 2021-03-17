@@ -15,11 +15,15 @@ import os
 import django_heroku
 import dj_database_url
 import environ
+from dotenv import load_dotenv
+
+load_dotenv()
+
 
 # Initialize environ
 env = environ.Env()
 env.read_env()
-SECRET_KEY = 'SECRET_KEY'
+SECRET_KEY = env('SECRET_KEY')
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -195,9 +199,9 @@ EMAIL_HOST_USER = os.environ.get('MAILGUN_SMTP_LOGIN', '')
 EMAIL_HOST_PASSWORD = os.environ.get('MAILGUN_SMTP_PASSWORD', '')
 
 # AWS Setup
-AWS_ACCESS_KEY_ID = str(os.environ.get('AWS_ACCESS_KEY_ID'))
-AWS_SECRET_ACCESS_KEY = str(os.environ.get('AWS_SECRET_ACCESS_KEY'))
-AWS_STORAGE_BUCKET_NAME = str(os.environ.get('AWS_STORAGE_BUCKET_NAME'))
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
 
 
 AWS_S3_FILE_OVERWRITE = False
