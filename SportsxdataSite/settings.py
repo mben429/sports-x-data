@@ -16,7 +16,6 @@ import django_heroku
 import dj_database_url
 import environ
 from dotenv import load_dotenv
-from boto.s3.connection import S3Connection
 
 load_dotenv()
 
