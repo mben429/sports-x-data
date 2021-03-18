@@ -130,6 +130,16 @@ function setTheme(curr_team){
     $(this).css("color", teamMainColors[curr_team]);
   });
 
+  //Set btn hover functionality
+  $(".upload-btn").hover(
+    function(){
+      $(this).css({"background-color": "black"});
+    },
+    function(){
+      $(this).css({"background-color": teamMainColors[curr_team]});
+    }
+  )
+
   //Set all panel backgrounds to black
   setColor(".s1-panel", "background-color", "black");
 

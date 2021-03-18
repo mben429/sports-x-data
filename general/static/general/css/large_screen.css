@@ -713,6 +713,34 @@
         grid-column-start: 14;
         grid-column-end: 16;
       }
+
+      .upload-btn {
+        border-radius: 5px;
+        padding-right: 10px;
+        padding-left: 10px;
+        padding-top: 2.5px;
+        padding-bottom: 2.5px;
+        color: black;
+        border-style: solid;
+        border-width: 1px;
+        border-color: black;
+        background-color: var(--massey-yellow);
+        text-decoration: none;
+        font-style: bold;
+        font-size:0.65em;
+      }
+
+      .upload-btn a {
+        text-decoration: none;
+        text-align: center;
+        color: white;
+        
+      }
+
+      #upload-btn-id {
+        grid-column-start: 17;
+        grid-column-end: 19;
+      }
     
     
       #logo-container-circle-id {

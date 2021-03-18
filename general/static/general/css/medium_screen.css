@@ -597,7 +597,29 @@
       .header-bar-btn a:hover {
         color: var(--massey-yellow);
       }
+
+      .upload-btn {
+        border-radius: 5px;
+        padding-right: 10px;
+        padding-left: 10px;
+        padding-top: 2.5px;
+        padding-bottom: 2.5px;
+        color: black;
+        border-style: solid;
+        border-width: 1px;
+        border-color: black;
+        background-color: var(--massey-yellow);
+        text-decoration: none;
+        font-style: bold;
+        font-size:0.65em;
+      }
     
+      .upload-btn a {
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        color: white;
+      }
       #season-summary-btn-id {
         grid-column-start: 5;
         grid-column-end: 8;
