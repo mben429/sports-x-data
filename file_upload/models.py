@@ -1,3 +1,7 @@
+"""
+
+Disable for now, save for later...
+
 from django.db import models
 from django.forms import ModelForm
 
@@ -10,3 +14,4 @@ class Footage(models.Model):
     file = models.FileField()
     date_created = models.DateTimeField(auto_now_add=True, null=True)
 
+"""

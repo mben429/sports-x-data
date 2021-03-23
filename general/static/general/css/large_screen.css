@@ -84,22 +84,27 @@
       }
     
       .home-sect a:hover {
+        text-decoration: none;
         color: var(--massey-yellow);
       }
     
       .plans-sect a:hover {
+        text-decoration: none;
         color: var(--massey-yellow);
       }
     
       .expect-sect a:hover {
+        text-decoration: none;
         color: var(--massey-yellow);
       }
     
       .contact-sect a:hover {
+        text-decoration: none;
         color: var(--massey-yellow);
       }
     
       .user-sect a:hover {
+        text-decoration: none;
         color: var(--massey-yellow);
         background-color: black;
         border-color: var(--massey-yellow);
@@ -204,6 +209,7 @@
       .btn-learn-more:hover{
         color: var(--massey-yellow);
         background-color: black;
+        text-decoration: none;
         border-color: var(--massey-yellow);
         border-width: 1px;
       }
@@ -466,7 +472,6 @@
         border-radius: 10px;
         padding-right: 20px;
         padding-left: 20px;
-        padding-top: 5px;
         padding-bottom: 5px;
         color: black;
         border-style: solid;
@@ -474,7 +479,7 @@
         border-color: black;
         background-color: var(--massey-yellow);
         text-decoration: none;
-        font-size: 20px;
+        font-size:0.55em;
         margin-left: 20px;
       }
     
@@ -725,16 +730,18 @@
         border-width: 1px;
         border-color: black;
         background-color: var(--massey-yellow);
-        text-decoration: none;
         font-style: bold;
-        font-size:0.65em;
+        display: inline-block;
+        text-align: center;
       }
 
       .upload-btn a {
-        text-decoration: none;
-        text-align: center;
         color: white;
-        
+        font-size: 0.55em;
+        display: block;
+        text-align: center;
+        align-items: center;
+        text-decoration: none;
       }
 
       #upload-btn-id {
@@ -2369,15 +2376,56 @@
         font-size: 0.5em;
       }
 
-      
-    
-    
-    
-    
+
+      .not-visible {
+        display: none;
+      }
+
+      .spacing {
+        height: 1.2em;
+      }
+
+      #progress-box {
+        grid-area: 6 / 2 / 7 / 6;
+      }
+
+      #cancel-box {
+        grid-area: 6 / 6 / 7 / 7;
+        padding-left: 1em;
+      }
+
+      #cancel-btn {
+        font-size: 0.55em;
+        padding-left: 1em;
+      }
+
+      #alert-box {
+        grid-area:  6 / 2 / 7 / 6;
+        font-size: 0.55em;
+        display: block;
+        align-items: center;
+      }
+
+      .percent-text {
+        font-size: 0.6em;
+      }
+
+      #transferNowForm {
+        grid-area: 2 / 2 / 8 / 6;
+      }
+
+      #upload-page-header {
+        grid-area: 1 / 2 / 2 / 6;
+        text-align: center;
+        font-size: 1.1em;
+      }
+
 
       /*End of the page, to be continued note*/
       .copyright-text {
-        font-size: 0.6em;
+        font-size: 0.3em;
+        
+
       }
     
       .continuation-text {

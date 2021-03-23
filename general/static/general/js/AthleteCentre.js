@@ -507,8 +507,6 @@ function displayAC(team, team_table_data, team_season_data, team_game_data, team
 
   //Show Match Overview and League Overview
   showGameData(team, team_game_data, team_game_event_data);
-
-
 }
 
 

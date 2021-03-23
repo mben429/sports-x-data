@@ -60,22 +60,27 @@
       }
     
       .home-sect a:hover {
+        text-decoration: none;
         color: var(--massey-yellow);
       }
     
       .plans-sect a:hover {
+        text-decoration: none;
         color: var(--massey-yellow);
       }
     
       .expect-sect a:hover {
+        text-decoration: none;
         color: var(--massey-yellow);
       }
     
       .contact-sect a:hover {
+        text-decoration: none;
         color: var(--massey-yellow);
       }
     
       .user-sect a:hover {
+        text-decoration: none;
         color: var(--massey-yellow);
         background-color: black;
         border-color: var(--massey-yellow);
@@ -609,16 +614,18 @@
         border-width: 1px;
         border-color: black;
         background-color: var(--massey-yellow);
-        text-decoration: none;
         font-style: bold;
-        font-size:0.65em;
+        display: inline-block;
+        text-align: center;
       }
     
       .upload-btn a {
-        text-decoration: none;
-        display: flex;
-        align-items: center;
         color: white;
+        font-size: 0.55em;
+        display: block;
+        text-align: center;
+        align-items: center;
+        text-decoration: none;
       }
       #season-summary-btn-id {
         grid-column-start: 5;
@@ -2190,12 +2197,20 @@
         grid-area: 1 / 16 / 3 / 21;
         font-size: 0.45em;
       }
+
+
+      #upload-page-header {
+        grid-area: 1 / 2 / 2 / 6;
+        text-align: center;
+        padding-bottom: 1em;
+        font-size: 1.5em;
+      }
     
 
 
       /*End of the page, to be continued note*/
       .copyright-text {
-        font-size: 0.6em;
+        font-size: 0.3em;
       }
 
       .continuation-text {
