@@ -52,7 +52,8 @@ INSTALLED_APPS = [
     'contactform',
     'users',
     'file_upload',
-    'storages'
+    'storages',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -205,6 +206,13 @@ AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
+#Webpack loader for React integration
+WEBPACK_LOADER = {
+    'DEFAULT': {
+            'BUNDLE_DIR_NAME': '',
+            'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.json'),
+        }
+}
 
 
 django_heroku.settings(locals())

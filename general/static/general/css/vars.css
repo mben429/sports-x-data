@@ -1,0 +1,58 @@
+:root {
+    --sxd-yellow: #f8bd41;
+    --sxd-grey: #0b0b0b;
+    --sxd-green: #4E8F00;
+    --sxd-red: #9B0000;
+    --rosmini-blue: #225fb3;
+    --med-header-txt: 1em;
+    --med-std-txt: 0.5em;
+    --lg-header-txt: 1.5em;
+    --lger-header-txt: 1.75em;
+    --sm-std-txt: 0.25em;
+}
+
+.med-header-txt {
+    font-size: var(--med-header-txt);
+}
+
+.med-std-txt {
+    font-size: var(--med-std-txt);
+}
+
+.lg-header-txt {
+    font-size: var(--lg-header-txt);
+}
+
+.lger-header-txt {
+    font-size: var(--lger-header-txt);
+}
+
+.sm-std-txt {
+    font-size: var(--sm-std-txt);
+}
+
+.sxd-y {
+    color: var(--sxd-yellow);
+} 
+
+.std-btn {
+    background-color: var(--sxd-yellow);
+    color: black;
+    padding: 0.15em 1em 0.15em 1em; 
+    border: 0.05em solid black;
+    border-radius: 0.25em;
+    
+}
+
+.std-btn:hover {
+    background-color: black;
+    color: var(--sxd-yellow);
+    padding: 0.15em 1em 0.15em 1em; 
+    border: 0.05em solid var(--sxd-yellow);   
+    border-radius: 0.25em;
+}
+
+.side-txt:hover {
+    color: var(--sxd-yellow);
+}
+

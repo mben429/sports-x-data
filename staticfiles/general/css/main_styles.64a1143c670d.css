@@ -1,0 +1,47 @@
+
+@import url("vars.5654d6d46288.css");
+
+.cnt-overall {
+    background-color: black;
+    color: white;
+  }
+  
+  #cnt-overview {
+    display: grid;
+    grid-template-columns: repeat(24, 1fr [col-start]);
+    grid-template-rows: 100em;
+  }
+
+  #left-col {
+    grid-area: 1 / 1 / 2 / 5;     
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr [col-start]);
+    grid-template-rows: repeat(48, 1fr [col-start]);
+  }
+
+  #right-col {
+    grid-area: 1 / 21 / 2 / 25;     
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr [col-start]);
+    grid-template-rows: repeat(48, 1fr [col-start]);
+  }
+
+  #left-col-header-cnt {
+    grid-area: 1 / 1 / 2 / 13;
+  }
+
+  #left-col-name-logo-cnt {
+    grid-area: 3 / 1 / 4 / 13;
+  }
+
+  #left-col-btns-cnt {
+    grid-area: 5 / 1 / 15 / 13;
+  }
+
+  #left-col-extras-box-cnt {
+    grid-area: 16 / 1 / 18 / 13;
+  }
+
+  
