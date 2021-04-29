@@ -216,7 +216,8 @@
             },
             success: function(json) {
                 alert("Succesfully sent game_id (" +  game_id_int + ") to Django");
-                    
+                console.log("Inside success function");
+                window.location.href='../match_centre';
             },
             /*
             error: function(xhr, errmsg, err) {
