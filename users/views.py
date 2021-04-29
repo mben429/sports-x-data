@@ -6,18 +6,16 @@ from rest_framework.response import Response
 from json import dumps, loads
 from general.models import Team, Season, Game, Stat
 from general.retrieval import *
+from django.http import JsonResponse
+from django.core import serializers
 
 
 def matchCentreView(request):
 
-    team_game_data = get_team_game_data()
-    team_against = get_team_against()
+    game_id_str = request.POST.get('game_id_str')
+    print("Now in Views, Game Id is: ", game_id_str)
 
-    data_dict = {
-        'team_against': team_against
-    }
-
-    return render(request, "registration/new_ac.html");
+    return render(request, "registration/new_ac.html", {"game_id_JSON": game_id_JSON}, status=200)
 
 
 def check_league_enabled(team):

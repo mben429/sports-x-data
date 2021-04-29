@@ -95,15 +95,19 @@
     <div id="right-col">
     </div>
 </div>
-<script type="text/javascript" src="{% static 'general/js/TeamCentreData.js' %}"></script>
 <script type="text/javascript" src="{% static 'general/js/TeamCentreMain.js' %}"></script>
-<script>
-/*
-    function setHeader(team_against){
-        $("#header-game-against").html(tmHeaders[team_against]);
-    }
+{% endblock %}
+{% block javascript %}
+    <script>
+        var data = JSON.parse("{{ game_id_JSON|escapejs }}");
+        console.log("Now inside Match Centre, data is: ", data);
+    /*
+        Below works. But how to get information from click on match Centre?
+        function setHeader(team_against){
+            $("#header-game-against").html(tmHeaders[team_against]);
+        }
 
-    setHeader("westlake1stxv");
-*/
-</script>
+        setHeader("westlake1stxv");
+    */
+    </script>
 {% endblock %}

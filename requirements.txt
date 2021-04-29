@@ -32,7 +32,7 @@ jupyter-core==4.7.1
 Markdown==3.1.1
 nbformat==4.4.0
 numpy==1.20.1
-oauthlib==3.1.0
+#oauthlib==3.1.0
 opt-einsum==3.1.0
 pipenv==2020.11.4
 protobuf==3.11.2
@@ -65,4 +65,4 @@ virtualenvwrapper-win==1.2.5
 webencodings==0.5.1
 Werkzeug==0.16.0
 whitenoise==5.2.0
-wrapt==1.11.2
+#wrapt==1.11.2

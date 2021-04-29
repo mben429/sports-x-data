@@ -34,7 +34,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['sportsxdatanz.com','sportsxdatanzapp.herokuapp.com',]
+ALLOWED_HOSTS = ['sportsxdatanz.com','sportsxdatanzapp.herokuapp.com', 'localhost',]
+USE_X_FORWARDED_HOST = True
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend'
