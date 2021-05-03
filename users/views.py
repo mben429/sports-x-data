@@ -13,16 +13,6 @@ from django.template.loader import render_to_string
 
 
 def matchCentreView(request):
-    """
-    game_id_dict = {
-        'game_id' : game_id_str,
-    }
-    print("Now in Views, Game Id is: ", game_id_str)
-    game_id_json = dumps(game_id_dict, default=str)
-
-    if request.is_ajax():
-        return JsonResponse({'game_id_str': game_id_str}, status=200, safe=False)
-    """
 
     if request.method == "POST":
         match_id_form = MatchCentreIDForm(request.POST)
@@ -33,7 +23,7 @@ def matchCentreView(request):
             for key in request.POST.keys():
                 if key.startswith('game_id_'):
                     game_id = key[8:]
-                    print("Game id is: ", game_id)
+                    print("Current Game id is: ", game_id)
                     break
 
             return render(request, "registration/new_ac.html", {"game_id" : game_id})
@@ -123,9 +113,6 @@ def teamCentreView(request):
 
     dataJSON = dumps(data_dict, default=str)
 
-
-    
-    
     return render(request, "registration/ac_home.html", {"data": dataJSON})
 
     
