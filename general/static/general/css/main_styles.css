@@ -176,7 +176,7 @@
     
   }
 
-  .tbl th {
+  .fr-tbl th {
     font-size: 0.5em;
     padding: 0.5em 3em;
     background-color: var(--sxd-yellow);
@@ -184,11 +184,26 @@
     text-align: left;
   }
 
-  .tbl td {
+  .fr-tbl td {
     font-size: 0.45em;
     padding: 1.5em 3.5em;
     text-align: left;
   }
+
+  .stds-tbl th {
+    font-size: 0.45em;
+    padding: 0.45em 2.75em;
+    background-color: var(--sxd-yellow);
+    color: black;
+    text-align: left;
+  }
+
+  .stds-tbl td {
+    font-size: 0.35em;
+    padding: 1em 3.5em;
+    text-align: left;
+  }
+  
   
   .logo-im {
     max-width: 100%;

@@ -1,22 +1,49 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
-from .forms import LoginForm
+from .forms import LoginForm, MatchCentreIDForm
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from json import dumps, loads
 from general.models import Team, Season, Game, Stat
 from general.retrieval import *
-from django.http import JsonResponse, HttpResponse
+from django.http import JsonResponse, HttpResponse, HttpResponseRedirect
 from django.core import serializers
+from django.template.loader import render_to_string
+
 
 
 def matchCentreView(request):
-
-    game_id_str = request.POST.get('game_id_str')
-    json_string = dumps(game_id_str)
+    """
+    game_id_dict = {
+        'game_id' : game_id_str,
+    }
     print("Now in Views, Game Id is: ", game_id_str)
+    game_id_json = dumps(game_id_dict, default=str)
 
-    return JsonResponse(json_string, status=200, safe=False)
+    if request.is_ajax():
+        return JsonResponse({'game_id_str': game_id_str}, status=200, safe=False)
+    """
+
+    if request.method == "POST":
+        match_id_form = MatchCentreIDForm(request.POST)
+        print("Hello in Form now")
+
+        if match_id_form.is_valid():
+            print("Form is valid")
+            for key in request.POST.keys():
+                if key.startswith('game_id_'):
+                    game_id = key[8:]
+                    print("Game id is: ", game_id)
+                    break
+
+            return render(request, "registration/new_ac.html", {"game_id" : game_id})
+        else:
+            print("Form is invalid!")
+            print(match_id_form.errors)
+    else:
+        match_id_form = MatchCentreIDForm()
+    
+    return render(request, "registration/new_ac.html")
 
 
 def check_league_enabled(team):
@@ -72,8 +99,6 @@ def loginView(request):
 
 def teamCentreView(request):
     team_user_name = request.user.username
-    print("Current Team that is already logged in: ", team_user_name)
-
     # Redirect TeamTestName Login
     if team_user_name == "TeamTestName":
         team_user_name = "rosmini1stxv"
@@ -84,7 +109,6 @@ def teamCentreView(request):
     team_game_data = get_team_game_data(team_user_name)
     team_stat_data = get_team_stat_data(team_user_name)
     team_game_event_data = get_team_game_event_data(team_user_name)
-    print("Team Game data", team_game_event_data)
     
     # Dump data into JSON for communication with JS
     data_dict = {
@@ -96,11 +120,14 @@ def teamCentreView(request):
         'team_stat_data': team_stat_data,
         'team_game_event_data': team_game_event_data
     }
-    print(team_game_data)
 
     dataJSON = dumps(data_dict, default=str)
 
-    return render(request, "registration/ac_home.html", {'data': dataJSON})
+
+    
+    
+    return render(request, "registration/ac_home.html", {"data": dataJSON})
+
     
 def logoutView(request):
     logout(request)

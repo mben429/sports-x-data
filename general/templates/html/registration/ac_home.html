@@ -82,7 +82,7 @@
         console.log("info", stds_info);
         $("#tc-home-main-header").html("Standings<text class='sxd-y'>.</text>");
         
-        let table_content = '<table class="tbl"><tr><th>#</th><th>Team</th><th>Played</th>' + 
+        let table_content = '<table class="tbl stds-tbl"><tr><th>#</th><th>Team</th><th>Played</th>' + 
                             '<th>W</th>' + 
                             '<th>L</th>' + 
                             '<th>D</th>' + 
@@ -108,13 +108,14 @@
 
     function showFixturesResults(){
 
+        var csrf = "{{ csrf_token }}"
         var games = data["team_game_data"];
         let no_cols = 6;
         console.log("Retrieving Fixtures and Results data:")
         console.log(games);
         $("#tc-home-main-header").html("Fixtures and Results<text class='sxd-y'>.</text>");
 
-        let table_content = '<table class="tbl"><tr><th>Week no.</th><th>Game Against</th>' + 
+        let table_content = '<table class="tbl fr-tbl"><tr><th>Week no.</th><th>Game Against</th>' + 
                             '<th>Score For</th>' +
                             '<th>Score Against</th>' + 
                             '<th>Date</th>' + 
@@ -123,13 +124,22 @@
         for(let i = 0; i < games.length; i++){
             table_content += '<tr>';
             for(let j = 0; j < no_cols; j++){
-                if (j == 5){
-                table_content += '<td><a><button id="match-cntr-btn" class="std-btn" onclick="runMatchCentre(' + 
-                                games[i][0].toString() +
-                                ');">Match Centre</button></a></td>';
-                
-                //table_content += '<td><form action="/match_centre" method="post"><input type="submit" id="match-cntr-btn" class="std-btn" value="Match Centre"></form></td>';
+                if (j == 0){
+                    let curr_week = i+1;
+                    table_content += '<td>' + curr_week.toString() + '</td>';
                 }
+                else if ( j == 5){
+                    //table_content += '<td><a><button id="match-cntr-btn" class="std-btn" onclick="runMatchCentre(' + 
+                                    //games[i][0].toString() +
+                                    //');">Match Centre</button></a></td>';    
+                    table_content += '<td>' + 
+                                        '<form action="/match_centre/" method="post">' + '{% csrf_token %}' + '{{ match_id_form }}' + 
+                                            '<input type="submit" id="match-cntr-btn" class="std-btn" name="game_id_' + games[i][0].toString() + 
+                                            '" value="Match Centre">' +
+                                        '</form>' + 
+                                    '</td>';
+                }
+                
                 else{
                     table_content += '<td>' + games[i][j] + '</td>';
                 }
@@ -139,6 +149,8 @@
         $("#tc-home-main-content").html(table_content);
     }
 
+
+       
     function getMatchData(game_id) {
         var stats = data["team_stat_data"];
         // Arr to hold stat values for certain game
@@ -165,75 +177,6 @@
         let team_against_str = tmHeaders[team_against];
         console.log("Header to be set: ", team_against_str);
         $("#header-game_against").html(team_against_str);
-    }
-
-    function getCookie(name) {
-        var cookieValue = null;
-        if (document.cookie && document.cookie !== '') {
-            var cookies = document.cookie.split(';');
-            for (var i = 0; i < cookies.length; i++) {
-                var cookie = jQuery.trim(cookies[i]);
-                // Does this cookie string begin with the name we want?
-                if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                    break;
-                }
-            }
-        }
-        return cookieValue;
-    }
-
-    function csrfSafeMethod(method) {
-        // these HTTP methods do not require CSRF protection
-        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
-    }
-
-    function runMatchCentre(game_id){
-
-        // using jQuery
-        var game_id_str = game_id.toString();
-        var game_id_int = parseInt(game_id_str);
-        var csrftoken = getCookie('csrftoken');
-        console.log("Inside Click() function now...");
-        console.log("Game Id is...", game_id);
-        console.log("Getting ready to post with AJAX...");
-        $.ajaxSetup({
-            beforeSend: function(xhr, settings) {
-                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
-                }
-            }
-        });
-
-        $.ajax({
-            url: "{% url 'matchCentre' %}",
-            method: "POST",
-            dataType: "json",
-            headers: { 'X-CSRF-Token': csrftoken },
-            data: {
-                'game_id_str': game_id_str,
-
-            },
-            success: function(json) {
-                alert("Succesfully sent game_id (" +  game_id_int + ") to Django");
-                console.log("Inside success function");
-                window.location.href='../match_centre';
-            },
-            /*
-            error: function(xhr, errmsg, err) {
-                alert("Could not send URL to Django. Error: " + xhr.status + ": " + xhr.responseText);
-            }
-            */
-        });
-        console.log("Game id should be sent!!");
-        
-
-        console.log("Match Data for Game: " + game_id);
-        let match_data = getMatchData(parseInt(game_id));
-        console.log(match_data);
-
-        let tm_against = getTeamAgainst(game_id); 
-        setHeader(tm_against);
     }
 
     

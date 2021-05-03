@@ -86,6 +86,7 @@
         <div class="flex-down" id="mc-header-txt-cnt">
             <text class="lg-header-txt">Game <text class="sxd-y"v>vs</text> <text id="header-game-against"></text><text class="sxd-y">.</text></text>
             <text class="med-std-txt">Played <text class="sxd-y">Saturday 27th March</text> 2021</text>
+            <text class="med-std-txt">Played <text class="sxd-y">Game ID is</text> {{ game_id }}</text>
         </div>
         <div id="curr-sect-header">
             <text class="lger-header-text">Overview<text class="sxd-y">.</text></text>
@@ -98,9 +99,10 @@
 <script type="text/javascript" src="{% static 'general/js/TeamCentreMain.js' %}"></script>
 {% endblock %}
 {% block javascript %}
-    <script>
-        var data = JSON.parse("{{ game_id_JSON|escapejs }}");
-        console.log("Now inside Match Centre, data is: ", data);
+    <script type="text/javascript">
+        var game_id = "{{ game_id }}";
+        console.log("Successfully transferred Game Id to Match Centre Template. Game Id is: ", game_id);
+
     /*
         Below works. But how to get information from click on match Centre?
         function setHeader(team_against){
