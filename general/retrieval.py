@@ -63,4 +63,11 @@ def get_team_game_event_data(team):
         cursor.execute(exec_str)
         curr_team_data = cursor.fetchall()
     return curr_team_data
-    
+
+def get_game_stat_data(game_id):
+    # Get all stat and game data for a particular game
+    with connection.cursor() as cursor:
+        exec_str = 'SELECT * FROM general_stat INNER JOIN general_game ON general_stat.game_name_id = general_game.id WHERE general_stat.game_name_id = ' + str(game_id) + ';'
+        cursor.execute(exec_str)
+        curr_game_stat_data = cursor.fetchall()
+    return curr_game_stat_data   

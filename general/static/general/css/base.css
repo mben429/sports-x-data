@@ -2,6 +2,44 @@
 /*Entire CSS file in need of some serious refactoring!*/
 /*Variables*/
 
+:root {
+    --panel-grey: #2D2B28;
+    --massey-yellow: #FFD500;
+    --panel-border: #3A3A3E;
+    --green-win: #507623;
+    --red-lose: #9A2E2E;
+    --yellow-draws: #91651E;
+    --green-field: #0A831F;
+
+    --massey-yellow: #F8BD41;
+    --massey-black: #0F0E10;
+    --rosmini-blue: #0947B4;
+
+    --light-grey: #BABABA;
+    --light-grey-diff: #C1C0BF;
+    --dark-grey: #161512;
+    --medium-grey: #363430;
+    --light-blue: #3192C7;
+    --medium-grey-diff: #3E3C39;
+
+    --dark-blue: #0F1923;
+    --shade-blue: #1B2733;
+    --light-dark-blue: #28394A;
+    --blue-outline: #7399BF;
+    --dark-blue-outline: #1B2733;
+
+    --rosmini-blue: rgb(0,124,247);
+    --rosmini-red: rgb(235,28,36);
+    --crusaders-red: rgb(232,47,51);
+    --crusaders-black: rgb(34,29,32);
+    --canes-yellow: rgb(232,197,11);
+    --canes-black: rgb(39,37,40);
+    --toulon-red: rgb(208,43,34);
+    --toulon-black: rgb(15,17,15);
+
+    font-size: calc(1vw + 0.75vh + .5vmin);
+}
+
 /*Base css covers 1100 to 1600*/
 
 @media (min-width: 1100px) {
@@ -637,9 +675,42 @@
     font-size: 1.1em;
   }
 
-  
-  #transferNowForm {
-    grid-area: 2 / 2 / 8 / 6;
+  #btn-contact-us-id {
+    grid-column-start: 3;
+    grid-column-end: 5;
+    grid-row-start: 22;
+    grid-row-end: 23;
+
+    text-align: center;
+  }
+
+  .btn-contact-us {
+    background-color: var(--massey-yellow);
+    border-color: black;
+    border-width: 1.5px;
+    border-style: solid;
+    border-radius: 10px;
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    margin: 30px;
+    font-size: 22px;
+    font-style: bold;
+
+  }
+
+  .btn-contact-us:hover {
+    background-color: black;
+    border-color: var(--massey-yellow);
+    border-width: 1.5px;
+    border-style: solid;
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--massey-yellow);
+    text-align: center;
+    margin: 30px;
+    font-size: 22px;
+    font-style: bold;
   }
 
   /*End of the page, to be continued note*/

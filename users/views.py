@@ -14,6 +14,8 @@ from django.template.loader import render_to_string
 
 def matchCentreView(request):
 
+    team_user_name = request.user.username
+
     if request.method == "POST":
         match_id_form = MatchCentreIDForm(request.POST)
         print("Hello in Form now")
@@ -25,13 +27,30 @@ def matchCentreView(request):
                     game_id = key[8:]
                     print("Current Game id is: ", game_id)
                     break
+            
+                # Redirect TeamTestName Login
+            if team_user_name == "TeamTestName":
+                team_user_name = "rosmini1stxv"
 
-            return render(request, "registration/new_ac.html", {"game_id" : game_id})
+            # Get Data from DB
+            game_stat_data = get_game_stat_data(game_id)
+            data_dict = {
+                "game_stat_data": game_stat_data
+            }
+            print("Game Stat Data: ", game_stat_data)
+                            
+            dataJSON = dumps(data_dict, default=str)
+
+            return render(request, "registration/new_ac.html", {"game_id" : game_id, "data": dataJSON})
+        
         else:
             print("Form is invalid!")
             print(match_id_form.errors)
+
+        
     else:
         match_id_form = MatchCentreIDForm()
+
     
     return render(request, "registration/new_ac.html")
 
@@ -72,7 +91,6 @@ def loginView(request):
                 # Dump data into JSON for communication with JS
                 data_dict = {
                     'team_user_name' : team_user_name,
-                    'organization': "test_obj",
                     'team_table_data': team_table_data,
                     'team_season_data': team_season_data,
                     'team_game_data': team_game_data,
@@ -103,7 +121,6 @@ def teamCentreView(request):
     # Dump data into JSON for communication with JS
     data_dict = {
         'team_user_name' : team_user_name,
-        'organization': "test_obj",
         'team_table_data': team_table_data,
         'team_season_data': team_season_data,
         'team_game_data': team_game_data,

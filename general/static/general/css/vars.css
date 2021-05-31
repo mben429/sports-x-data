@@ -4,11 +4,25 @@
     --sxd-green: #4E8F00;
     --sxd-red: #9B0000;
     --rosmini-blue: #225fb3;
+
     --med-header-txt: 1em;
     --med-std-txt: 0.5em;
+    --med-2-std-txt: 0.95em;
     --lg-header-txt: 1.5em;
     --lger-header-txt: 1.75em;
+    --xll-header-txt: 3.5em;
+    --xl-header-txt: 2.5em;
     --sm-std-txt: 0.25em;
+    --xs-small-txt: 0.4em;
+    
+    --txt-s1: 0.25em;
+    --txt-s2: 0.5em;
+    --txt-s3: 0.75em;
+    --txt-s4: 1em;
+    --txt-s5: 1.25em;
+    --txt-s6: 1.5em;
+    --txt-s7: 1.75em;
+    --txt-s8: 2em;
 
     --panel-grey: #2D2B28;
     --massey-yellow: #FFD500;
@@ -47,12 +61,52 @@
     font-size: calc(1vw + 0.75vh + .5vmin);
 }
 
+.txt-s1 {
+    font-size: var(--txt-s1);
+}
+
+.txt-s2 {
+    font-size: var(--txt-s2);
+}
+
+.txt-s3 {
+    font-size: var(--txt-s3);
+}
+
+.txt-s4 {
+    font-size: var(--txt-s4);
+}
+
+.txt-s5 {
+    font-size: var(--txt-s5);
+}
+
+.txt-s6 {
+    font-size: var(--txt-s6);
+}
+
+.txt-s7 {
+    font-size: var(--txt-s7);
+}
+
+.txt-s8 {
+    font-size: var(--txt-s8);
+}
+
+.xs-small-txt {
+    font-size: var(--xs-small-txt);
+}
+
 .med-header-txt {
     font-size: var(--med-header-txt);
 }
 
 .med-std-txt {
     font-size: var(--med-std-txt);
+}
+
+.med-2-std-txt {
+    font-size: var(--med-2-std-txt);
 }
 
 .lg-header-txt {
@@ -63,6 +117,14 @@
     font-size: var(--lger-header-txt);
 }
 
+.xl-header-txt {
+    font-size: var(--xl-header-txt);
+}
+
+.xll-header-txt {
+    font-size: var(--xll-header-txt);
+}
+
 .sm-std-txt {
     font-size: var(--sm-std-txt);
 }
@@ -70,6 +132,14 @@
 .sxd-y {
     color: var(--sxd-yellow);
 } 
+
+.sxd-g {
+    color: var(--sxd-green);
+}
+
+.sxd-r {
+    color: var(--sxd-red);
+}
 
 .std-btn {
     background-color: var(--sxd-yellow);
@@ -92,3 +162,10 @@
     color: var(--sxd-yellow);
 }
 
+.cntr {
+    text-align: center;
+  }
+
+.blk-txt {
+    color: black;
+}

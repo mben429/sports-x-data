@@ -120,7 +120,7 @@
         margin: 0px;
         padding: 0px;
         grid-template-columns: repeat(6, 1fr);
-        grid-template-rows: repeat(22, 100px);
+        grid-template-rows: repeat(36, 100px);
       }
     
       .btn-login {
@@ -246,8 +246,8 @@
       #three-steps-header-id {
         grid-column-start: 1;
         grid-column-end: 7;
-        grid-row-start: 7;
-        grid-row-end: 8;
+        grid-row-start: 8;
+        grid-row-end: 9;
       }
     
       .three-steps-container{
@@ -257,8 +257,8 @@
       }
     
       #three-steps-container-id {
-        grid-row-start: 8;
-        grid-row-end: 14;
+        grid-row-start: 9;
+        grid-row-end: 15;
         grid-column-start: 1;
         grid-column-end: 7;
       }
@@ -402,8 +402,8 @@
         text-align: center;
         grid-column-start: 1;
         grid-column-end: 6;
-        grid-row-start: 5;
-        grid-row-end: 6;
+        grid-row-start: 6;
+        grid-row-end: 7;
         margin: 10px;
       }
     
@@ -414,7 +414,7 @@
         text-align: center;
         grid-column-start: 1;
         grid-column-end: 6;
-        grid-row-start: 7;
+        grid-row-start: 8;
         grid-row-end: 11;
       }
     
@@ -630,6 +630,44 @@
         grid-area: 1 / 2 / 2 / 6;
         text-align: center;
         font-size: 1.1em;
+      }
+
+      #btn-contact-us-id {
+        grid-column-start: 3;
+        grid-column-end: 5;
+        grid-row-start: 22;
+        grid-row-end: 23;
+    
+        text-align: center;
+      }
+    
+      .btn-contact-us {
+        background-color: var(--massey-yellow);
+        border-color: black;
+        border-width: 1.5px;
+        border-style: solid;
+        border-radius: 10px;
+        text-decoration: none;
+        color: black;
+        text-align: center;
+        margin: 30px;
+        font-size: 22px;
+        font-style: bold;
+    
+      }
+
+      .btn-contact-us:hover {
+        background-color: black;
+        border-color: var(--massey-yellow);
+        border-width: 1.5px;
+        border-style: solid;
+        border-radius: 10px;
+        text-decoration: none;
+        color: var(--massey-yellow);
+        text-align: center;
+        margin: 30px;
+        font-size: 22px;
+        font-style: bold;
       }
 
 

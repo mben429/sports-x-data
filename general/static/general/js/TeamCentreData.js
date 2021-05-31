@@ -18,6 +18,18 @@ const tmHeaders = {
     "mahurangi1stxv" : "Mahurangi College 1st XV"
 }
 
+const tmStdName = {
+    "massey1stxv" : "Massey BHS",
+    "rosmini1stxv" : "Rosmini",
+    "westlake1stxv" : "Westlake BHS",
+    "orewa1stxv" : "Orewa College",
+    "whangarei1stxv" : "Whangarei BHS",
+    "takapuna1stxv" : "Takapuna Grammar",
+    "manurewa1stxv" : "Manurewa College",
+    "rangitoto1stxv" : "Rangitoto",
+    "mahurangi1stxv" : "Mahurangi College"
+}
+
 const lgInfo = {
     "harbour1stxv_league": [
         "massey1stxv", 
@@ -59,3 +71,22 @@ const tmInfo = {
 
     ],
 };
+
+const months = [
+    "January", 
+    "February", 
+    "March", 
+    "April", 
+    "May", 
+    "June", 
+    "July", 
+    "August", 
+    "September", 
+    "October", 
+    "November", 
+    "December"
+];
+
+const Leagues = {
+    "rosmini1stxv": "North Harbour Rugby 1st XV Competition",
+}

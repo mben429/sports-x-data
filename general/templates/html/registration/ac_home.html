@@ -80,9 +80,9 @@
         let no_cols = 11;
         console.log("Showing Standings for: ", team);
         console.log("info", stds_info);
-        $("#tc-home-main-header").html("Standings<text class='sxd-y'>.</text>");
+        $("#tc-home-main-header").html("<text data-aos='fade-right'>Standings<text class='sxd-y'>.</text></text>");
         
-        let table_content = '<table class="tbl stds-tbl"><tr><th>#</th><th>Team</th><th>Played</th>' + 
+        let table_content = '<table class="tbl stds-tbl" data-aos="fade-right"><tr><th>#</th><th>Team</th><th>Played</th>' + 
                             '<th>W</th>' + 
                             '<th>L</th>' + 
                             '<th>D</th>' + 
@@ -113,9 +113,9 @@
         let no_cols = 6;
         console.log("Retrieving Fixtures and Results data:")
         console.log(games);
-        $("#tc-home-main-header").html("Fixtures and Results<text class='sxd-y'>.</text>");
+        $("#tc-home-main-header").html("<text data-aos='fade-right'>Fixtures and Results<text class='sxd-y'>.</text></text>");
 
-        let table_content = '<table class="tbl fr-tbl"><tr><th>Week no.</th><th>Game Against</th>' + 
+        let table_content = '<table class="tbl fr-tbl" data-aos="fade-right"><tr><th>Week no.</th><th>Game Against</th>' + 
                             '<th>Score For</th>' +
                             '<th>Score Against</th>' + 
                             '<th>Date</th>' + 
@@ -124,14 +124,19 @@
         for(let i = 0; i < games.length; i++){
             table_content += '<tr>';
             for(let j = 0; j < no_cols; j++){
+                // Current Week (not game Id!)
                 if (j == 0){
                     let curr_week = i+1;
                     table_content += '<td>' + curr_week.toString() + '</td>';
                 }
+                // Team Name correction
+                else if (j == 1) {
+                    let curr_team_ag = tmStdName[games[i][j]];
+                    table_content += '<td>' + curr_team_ag + '</td>';
+                }
+                // Match Centre button
                 else if ( j == 5){
-                    //table_content += '<td><a><button id="match-cntr-btn" class="std-btn" onclick="runMatchCentre(' + 
-                                    //games[i][0].toString() +
-                                    //');">Match Centre</button></a></td>';    
+                    // Link to corresponding Match Centre Page 
                     table_content += '<td>' + 
                                         '<form action="/match_centre/" method="post">' + '{% csrf_token %}' + '{{ match_id_form }}' + 
                                             '<input type="submit" id="match-cntr-btn" class="std-btn" name="game_id_' + games[i][0].toString() + 
@@ -139,7 +144,7 @@
                                         '</form>' + 
                                     '</td>';
                 }
-                
+                // Everything else..
                 else{
                     table_content += '<td>' + games[i][j] + '</td>';
                 }
@@ -149,8 +154,6 @@
         $("#tc-home-main-content").html(table_content);
     }
 
-
-       
     function getMatchData(game_id) {
         var stats = data["team_stat_data"];
         // Arr to hold stat values for certain game
@@ -162,23 +165,6 @@
         }
         return arr;
     }
-
-    function getTeamAgainst(game_id){
-        var games = data["team_game_data"];
-        console.log("Getting Team Against...");
-        console.log("Games", games);
-
-        tm_against = games[game_id-1][1];
-        console.log("Team Against is: ", tm_against);
-        return tm_against;
-    }
-
-    function setHeader(team_against){
-        let team_against_str = tmHeaders[team_against];
-        console.log("Header to be set: ", team_against_str);
-        $("#header-game_against").html(team_against_str);
-    }
-
     
     </script>
 

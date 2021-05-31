@@ -3,7 +3,7 @@
 
 {% block content %}
 <div class="cnt-overall" id="cnt-overview">
-    <div id="left-col">
+    <div id="left-col" data-aos="fade-right">
         <div class="flex-centre" id="left-col-header-cnt">
             <div id="sm-logo-cnt">
                 <img src="{% static 'general/images/sxd_logo_60px.PNG' %}">
@@ -28,49 +28,49 @@
            <nav class="sidebar-nav">
                 <ul class="med-std-txt" id="side-bar-menu-cnt">
                     <li id="side-bar-menu-item" class="flex-centre">
-                        <a href="#" class="basic-btns hvr-icon-spin">
+                        <a class="basic-btns hvr-icon-spin" onclick="displayOverview();">
                             <img class="hvr-icon" src="{% static 'general/images/schedule.PNG' %}">
                             <text class="side-txt">Overview</text>
                         </a>
                     </li>
                     <li id="side-bar-menu-item" class="flex-centre">
-                        <a href="#" class="basic-btns hvr-icon-spin">
+                        <a class="basic-btns hvr-icon-spin" onclick="displayAttack();">
                             <img class="hvr-icon" src="{% static 'general/images/attack.PNG' %}">
                             <text class="side-txt">Attack</text>
                         </a>
                     </li>
                     <li id="side-bar-menu-item" class="flex-centre">
-                        <a href="#" class="basic-btns hvr-icon-spin">
+                        <a class="basic-btns hvr-icon-spin" onclick="displayDefense();">
                             <img class="hvr-icon" src="{% static 'general/images/defense.PNG' %}">
                             <text class="side-txt">Defense</text>
                         </a>
                     </li>
                    <li id="side-bar-menu-item" class="flex-centre">
-                        <a href="#" class="basic-btns hvr-icon-spin">
+                        <a class="basic-btns hvr-icon-spin" onclick="displayKickingGame();">
                             <img class="hvr-icon" src="{% static 'general/images/kicking.PNG' %}">
                             <text class="side-txt">Kicking Game</text>
                         </a>
                     </li>
                     <li id="side-bar-menu-item" class="flex-centre">
-                        <a href="#" class="basic-btns hvr-icon-spin">
+                        <a class="basic-btns hvr-icon-spin" onclick="displayBallHandling();">
                             <img class="hvr-icon" src="{% static 'general/images/bh.PNG' %}">
                             <text class="side-txt">Ball Handling</text>
                         </a>
                     </li>
                     <li id="side-bar-menu-item" class="flex-centre">
-                        <a href="#" class="basic-btns hvr-icon-spin">
+                        <a class="basic-btns hvr-icon-spin" onclick="displayRucks();">
                             <img class="hvr-icon" src="{% static 'general/images/breakdown.PNG' %}">
                             <text class="side-txt">Breakdown</text>
                         </a>
                     </li>
                     <li id="side-bar-menu-item" class="flex-centre">
-                        <a href="#" class="basic-btns hvr-icon-spin">
+                        <a class="basic-btns hvr-icon-spin" onclick="displaySetPiece();">
                             <img class="hvr-icon" src="{% static 'general/images/setpiece.PNG' %}">
                             <text class="side-txt">Set Piece</text>
                         </a>
                     </li>
                     <li id="side-bar-menu-item" class="flex-centre">
-                        <a href="#" class="basic-btns hvr-icon-spin">
+                        <a class="basic-btns hvr-icon-spin" onclick="displayDiscipline();">
                             <img class="hvr-icon" src="{% static 'general/images/discipline.PNG' %}">
                             <text class="side-txt">Discipline</text>
                         </a>
@@ -82,34 +82,320 @@
 
         </div>
     </div>
-    <div id="middle-col">
+    <div id="middle-col" data-aos="fade-right">
         <div class="flex-down" id="mc-header-txt-cnt">
             <text class="lg-header-txt">Game <text class="sxd-y"v>vs</text> <text id="header-game-against"></text><text class="sxd-y">.</text></text>
-            <text class="med-std-txt">Played <text class="sxd-y">Saturday 27th March</text> 2021</text>
-            <text class="med-std-txt">Played <text class="sxd-y">Game ID is</text> {{ game_id }}</text>
+            <text class="med-std-txt">Played: <text class="sxd-y" id="date-txt"></text></text>
         </div>
         <div id="curr-sect-header">
-            <text class="lger-header-text">Overview<text class="sxd-y">.</text></text>
+            <text class="lger-header-text" id="tc-header-txt">Overview<text class="sxd-y">.</text></text>
         </div>
+        <!-- Navbar decides what is displayed here. -->
+        <div id="main-content-tm-centre"></div>
         
     </div>
     <div id="right-col">
     </div>
 </div>
-<script type="text/javascript" src="{% static 'general/js/TeamCentreMain.js' %}"></script>
 {% endblock %}
 {% block javascript %}
     <script type="text/javascript">
+        var data = JSON.parse("{{ data|escapejs }}");
         var game_id = "{{ game_id }}";
-        console.log("Successfully transferred Game Id to Match Centre Template. Game Id is: ", game_id);
+        var curr_team = "{{ user.get_username }}";
+        console.log("Current Team is: ", curr_team);
+        var game_id_int = parseInt(game_id);
+        console.log("Current Game Data", data);
+        console.log("Current Game ID: ", game_id);
 
-    /*
-        Below works. But how to get information from click on match Centre?
-        function setHeader(team_against){
-            $("#header-game-against").html(tmHeaders[team_against]);
+        // Get current team against
+        const getTeamAgainst = (game_id) =>{
+            tm_against = data["game_stat_data"][game_id-1][7];
+            return tm_against;
         }
 
-        setHeader("westlake1stxv");
-    */
+        // SetCorrect Header
+        const setHeader = (team_against) =>{
+            let team_against_str = tmHeaders[team_against];
+            $("#header-game-against").html(team_against_str);
+        }
+
+        // convert date helper function
+        const convertDate = (date_str) => {
+            temp_date = date_str.split("-");
+            return temp_date[2] + " " + months[Number(temp_date[1]) - 1] + " " + temp_date[0];
+        }
+
+        const setDate = (date_str) =>{
+            let new_date_str = convertDate(date_str);
+            $("#date-txt").html(new_date_str);w
+        }
+
+        
+
+        const displayOverview = () => {
+            console.log("Displaying Overview Stats");
+            let html_layout = `
+                <div class="gr-panel row-1 col-hlf-1" id="basic-stats-panel-id">
+                    <div id="result-letter-big"><text class="sxd-g xll-header-txt">W</text></div>
+                    <div id="gm-score"><text id="sf-id">21</text><text class="sxd-y">-</text><text id="sa-id">16</text></div>
+                    <div id="gm-basic-stats-id"></div>
+                </div>
+                <div class="gr-panel row-1 col-hlf-2" id="pos-stds-panel-id">
+                    <div id="league-title-id" class="med-std-txt"><text id="league-name-id"></text></div>
+                    <div id="league-sub-id" class="med-std-txt"><text class="sxd-y">Current Position</text> in Standings after Match.</div>
+                    <div id="pos-change-lg-id" class="lg-header-txt">2nd</div>
+                    <div id="change-val-id" class="sxd-g xs-small-txt">+1</div>
+                    <div id="view-stds-btn-id"><button class="std-btn med-std-txt">View Full Standings</button></div>
+                </div>
+                <div class="gr-panel row-2 col-qrt-1" id="posession-panel-id">
+                    <div class="q-panel-g-1-header med-std-txt">Posession</div>
+                    <div class="q-panel-g-1-value lg-header-txt">59<text class="sxd-y">%</text></div>
+                    <div class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</div>
+                    <div class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</div>
+                    <div class="q-panel-g-1-sa-val xs-small-txt sxd-g">+3%</div>
+                    <div class="q-panel-g-1-la-val xs-small-txt">+1%</div>
+                </div>
+                <div class="gr-panel row-2 col-qrt-2" id="territory-panel-id">
+                    <div class="q-panel-g-1-header med-std-txt">Territory</div>
+                    <div class="q-panel-g-1-value lg-header-txt">64<text class="sxd-y">%</text></div>
+                    <div class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</div>
+                    <div class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</div>
+                    <div class="q-panel-g-1-sa-val xs-small-txt sxd-g">+3%</div>
+                    <div class="q-panel-g-1-la-val xs-small-txt sxd-g">+1%</div>
+                </div>
+                <div class="gr-panel row-2 col-qrt-3" id="handling-errors-panel-id">
+                    <div class="q-panel-g-1-header med-std-txt">Handling Errors</div>
+                    <div class="q-panel-g-1-value lg-header-txt">12</div>
+                    <div class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</div>
+                    <div class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</div>
+                    <div class="q-panel-g-1-sa-val xs-small-txt sxd-r">+3</div>
+                    <div class="q-panel-g-1-la-val xs-small-txt sxd-g">-1.5</div>
+                </div>
+                <div class="gr-panel row-2 col-qrt-4" id="tackling-success-panel-id">
+                    <div class="q-panel-g-1-header med-std-txt">Tackle Success %</div>
+                    <div class="q-panel-g-1-value lg-header-txt">92<text class="sxd-y">%</text></div>
+                    <div class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</div>
+                    <div class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</div>
+                    <div class="q-panel-g-1-sa-val xs-small-txt sxd-g">+6%</div>
+                    <div class="q-panel-g-1-la-val xs-small-txt sxd-g">+4%</div>
+                </div>
+
+
+                <div class="gr-panel row-3 col-thrd-1" id="top-tkler-panel-id">
+                    <div class="q-panel-g-1-header med-std-txt">Top Tackler</div>
+                    <div class="q-panel-g-1-value med-2-std-txt"><text class="sxd-y">#</text>7 Ben Afu</div>
+                    <div class="q-panel-g-1-sa-txt xs-small-txt">No. of Tackles</div>
+                    <div class="q-panel-g-1-la-txt xs-small-txt">Tackles Success %</div>
+                    <div class="q-panel-g-1-sa-val med-2-std-txt">19</div>
+                    <div class="q-panel-g-1-la-val med-2-std-txt">91<text class="sxd-y">%</text></div>
+                </div>
+                <div class="gr-panel row-3 col-thrd-2" id="top-lb-panel-id">
+                    <div class="q-panel-g-1-header med-std-txt">Top Line Breaks</div>
+                    <div class="q-panel-g-1-value med-2-std-txt"><text class="sxd-y">#</text>13 Liam Colman</div>
+                    <div class="q-panel-g-1-txt-single xs-small-txt">No. of Linebreaks</div>
+                    <div class="q-panel-g-1-val-single med-2-std-txt">7</div>
+                </div>
+                <div class="gr-panel row-3 col-thrd-3" id="top-tb-panel-id">
+                    <div class="q-panel-g-1-header med-std-txt">Top Tackles Broken</div>
+                    <div class="q-panel-g-1-value med-2-std-txt"><text class="sxd-y">#</text>8 Sam Ioane</div>
+                    <div class="q-panel-g-1-sa-txt xs-small-txt">No. of Tackles Broken</div>
+                    <div class="q-panel-g-1-la-txt xs-small-txt">% Broke the First Tackle</div>
+                    <div class="q-panel-g-1-sa-val med-2-std-txt">11</div>
+                    <div class="q-panel-g-1-la-val med-2-std-txt">70<text class="sxd-y">%</text></div>
+
+                </div>
+                <div class="gr-panel row-4 col-thrd-1" id="top-rs-panel-id">
+                    <div class="q-panel-g-1-header med-std-txt">Most Ruck Steals</div>
+                    <div class="q-panel-g-1-value med-2-std-txt"><text class="sxd-y">#</text>7 Ben Afu</div>
+                    <div class="q-panel-g-1-txt-single xs-small-txt">No. of Ruck Steals</div>
+                    <div class="q-panel-g-1-val-single med-2-std-txt">5</div>
+                </div>                                
+                <div class="gr-panel row-4 col-thrd-2" id="top-pm-panel-id">
+                    <div class="q-panel-g-1-header med-std-txt">Best Playmaker</div>
+                    <div class="q-panel-g-1-value med-2-std-txt"><text class="sxd-y">#</text>10 Steve Francis</div>
+                    <div class="q-panel-g-1-sa-txt xs-small-txt">Passes Leading to Linebreaks</div>
+                    <div class="q-panel-g-1-la-txt xs-small-txt">No. of Successful Passes</div>
+                    <div class="q-panel-g-1-sa-val med-2-std-txt">4</div>
+                    <div class="q-panel-g-1-la-val med-2-std-txt">23</div>
+                </div>
+                <div class="gr-panel row-4 col-thrd-3" id="top-bc-panel-id">
+                    <div class="q-panel-g-1-header med-std-txt">Most Ball Carries</div>
+                    <div class="q-panel-g-1-value med-2-std-txt"><text class="sxd-y">#</text>8 Sam Ioane</div>
+                    <div class="q-panel-g-1-txt-single xs-small-txt">Ball Carries Total</div>
+                    <div class="q-panel-g-1-val-single med-2-std-txt">16</div>
+                </div>
+
+                <div class="gr-panel row-5-6 col-full" id="overview-hl-panel-id"></div>
+            `;
+            $("#tc-header-txt").html("Overview<text class='sxd-y'>.</text>");
+            $("#main-content-tm-centre").html(html_layout);
+        };
+
+        const displayAttack = () => {
+            console.log("Displaying Attack Stats");
+            let html_layout = `
+                <div class="gr-panel row-1 col-hlf-1" id="att-tries-panel-id">
+                    <div class="q-panel-g-1-header med-2-std-txt cntr">Tries<text class="sxd-y">.</text></div>
+                    <div class="h-panel-sh-1 cntr med-std-txt">Tries Scored</div>
+                    <div class="h-panel-sh-2 cntr med-std-txt">Season Average</div>
+                    <div class="h-panel-sh-3 cntr med-std-txt">Total Season Tries</div>
+                    <div class="h-panel-val-1 cntr med-2-std-txt">4</div>
+                    <div class="h-panel-val-2 cntr med-2-std-txt">3<text class="sxd-y">.</text>2</div>
+                    <div class="h-panel-val-3 cntr med-2-std-txt">30</div>
+                </div>
+                <div class="gr-panel row-1 col-hlf-2" id="att-ts-panel-id">
+                    <div class="q-panel-g-1-header med-2-std-txt cntr">Try Scorers<text class="sxd-y">.</text></div>
+                    <div class="h-panel-full-center med-std-txt cntr flex-down space-btwn-flex">
+                        <div><text class="sxd-y">#5</text> Phil Johnson</div>
+                        <div><text class="sxd-y">#15</text> Liam Colman</div>
+                        <div><text class="sxd-y">#12</text> Don Benson</div>
+                        <div><text class="sxd-y">#9</text> Cam Williamson</div>
+                    </div>
+                </div>
+                <div class="gr-panel row-2-3 col-full" id="att-ld-tries-panel-id">
+                    <div class="full-panel-header cntr med-2-std-txt">What lead to Tries<text class="sxd-y">?</text></div>
+                    <div class="xs-small-txt cntr flex-centre space-btwn-flex" id="cntainer-try-scorers">
+                        <div class="flex-down" id="try-1">
+                            <div><text class="sxd-y">#5</text> Phil Johnson</div>
+                            <button class="std-btn">Show how it happened</button>
+                        </div>
+                        <div class="flex-down" id="try-2">
+                            <div><text class="sxd-y">#15</text> Liam Colman</div>
+                            <button class="std-btn">Show how it happened</button>
+                        </div>
+                        <div class="flex-down" id="try-3">
+                            <div><text class="sxd-y">#12</text> Don Benson</div>
+                            <button class="std-btn">Show how it happened</button>
+                        </div>
+                        <div class="flex-down" id="try-4">
+                            <div><text class="sxd-y">#9</text> Cam Williamson</div>
+                            <button class="std-btn">Show how it happened</button>
+                        </div>
+                    </div>
+                    <div id="field-img-cnt">
+                        <img id="field-img" src="{% static 'general/images/rugby_field.PNG' %}">
+                    </div>
+                </div>
+                <div class="gr-panel row-4 col-qrt-1" id="att-lbtotal-panel-id"></div>
+                <div class="gr-panel row-4 col-qrt-2" id="att-rob-panel-id"></div>
+                <div class="gr-panel row-4 col-qrt-3" id="att-opp22-panel-id"></div>
+                <div class="gr-panel row-4 col-qrt-4" id="att-png-panel-id"></div>
+                <div class="gr-panel row-5 col-qrt-1" id="att-oneoffgain-panel-id"></div>
+                <div class="gr-panel row-5 col-qrt-2" id="att-blgain-panel-id"></div>
+                <div class="gr-panel row-5 col-qrt-3" id="att-tbtotal-panel-id"></div>
+                <div class="gr-panel row-5 col-qrt-4" id="att-pvisit22-panel-id"></div>
+                <div class="gr-panel row-6-7 col-full" id="att-hl-panel-id"></div>
+            `;
+            $("#tc-header-txt").html("Attack<text class='sxd-y'>.</text>");
+            $("#main-content-tm-centre").html(html_layout);
+        };
+
+        const displayDefense = () => {
+            console.log("Displaying Defense Stats");
+            let html_layout = `
+                <div class="gr-panel row-1 col-full" id="def-tackles-panel-id"></div>
+                <div class="gr-panel row-2 col-hlf-1" id="def-tklpos-panel-id"></div>
+                <div class="gr-panel row-2 col-hlf-2" id="def-tkltype-panel-id"></div>
+                <div class="gr-panel row-3 col-hlf-1" id="def-tklarea-panel-id"></div>
+                <div class="gr-panel row-3 col-hlf-2" id="def-avgls-panel-id"></div>
+                <div class="gr-panel row-4 col-hlf-1" id="def-cllb-panel-id"></div>
+                <div class="gr-panel row-4 col-hlf-2" id="def-lballowed-panel-id"></div>
+                <div class="gr-panel row-5-6 col-full" id="def-lballowed-panel-id"></div>
+            `;
+            $("#tc-header-txt").html("Defense<text class='sxd-y'>.</text>");
+            $("#main-content-tm-centre").html(html_layout);
+        }
+
+        const displayKickingGame = () => {
+            console.log("Displaying Kicking Game Stats");
+            let html_layout = `
+                <div class="gr-panel row-1 col-thrd-1" id="kicks-made-panel-id"></div>
+                <div class="gr-panel row-1 col-thrd-2" id="pos-kicked-panel-id"></div>
+                <div class="gr-panel row-1 col-thrd-3" id="kicks-full-panel-id"></div>
+                <div class="gr-panel row-2 col-hlf-1" id="type-kicks-panel-id"></div>
+                <div class="gr-panel row-2 col-hlf-2" id="kicks-reg-panel-id"></div>
+                <div class="gr-panel row-3 col-hlf-1" id="kick-touch-gain-panel-id"></div>
+                <div class="gr-panel row-3 col-hlf-2" id="gk-panel-id"></div>
+                <div class="gr-panel row-4-5 col-full" id="kg-hl-panel-id"></div>
+            `;
+            $("#tc-header-txt").html("Kicking Game<text class='sxd-y'>.</text>");
+            $("#main-content-tm-centre").html(html_layout);
+        }
+
+        const displayBallHandling = () => {
+            console.log("Displaying Ball Handilng Stats");
+            let html_layout = `
+                <div class="gr-panel row-1 col-thrd-1" id="pass-success-panel-id"></div>
+                <div class="gr-panel row-1 col-thrd-2" id="total-success-pass-panel-id"></div>
+                <div class="gr-panel row-1 col-thrd-3" id="total-unsuccessful-pass-panel-id"></div>
+                <div class="gr-panel row-2 col-full" id="ps-type-panel-id"></div>
+                <div class="gr-panel row-3 col-full" id="type-pass-panel-id"></div>
+                <div class="gr-panel row-4 col-hlf-1" id="total-he-panel-id"></div>
+                <div class="gr-panel row-4 col-hlf-2" id="typ-he-panel-id"></div>
+                <div class="gr-panel row-4-5 col-full" id="bh-hl-panel-id"></div>
+            `;
+            $("#tc-header-txt").html("Ball Handling<text class='sxd-y'>.</text>");
+            $("#main-content-tm-centre").html(html_layout);
+        };
+
+        const displayRucks = () => {
+            console.log("Displaying Breakdown Stats");
+            let html_layout = `
+                <div class="gr-panel row-1 col-thrd-1" id="total-rw-panel-id"></div>
+                <div class="gr-panel row-1 col-thrd-2" id="total-rl-panel-id"></div>
+                <div class="gr-panel row-1 col-thrd-3" id="total-rs-panel-id"></div>
+                <div class="gr-panel row-2-3 col-full" id="rspeed-panel-id"></div>
+                <div class="gr-panel row-4-5 col-full" id="how-rucks-lost-panel-id"></div>
+                <div class="gr-panel row-6-7 col-full" id="rucks-hl-panel-id"></div>
+                
+            `;
+            $("#tc-header-txt").html("The Breakdown<text class='sxd-y'>.</text>");
+            $("#main-content-tm-centre").html(html_layout);
+        };
+        
+        const displaySetPiece = () => {
+            console.log("Displaying Set Piece Stats");
+            let html_layout = `
+                <div class="gr-panel row-1-2 col-full" id="sp-success-panel-id"></div>
+                <div class="gr-panel row-3 col-thrd-1" id="tot-lin-stolen-panel-id"></div>
+                <div class="gr-panel row-3 col-thrd-2" id="tot-scrums-stolen-panel-id"></div>
+                <div class="gr-panel row-3 col-thrd-3" id="sp-22-try-panel-id"></div>
+                <div class="gr-panel row-4-5 col-full" id="sp-hl-panel-id"></div>
+            `
+            $("#tc-header-txt").html("Set Piece<text class='sxd-y'>.</text>");
+            $("#main-content-tm-centre").html(html_layout);
+        };
+
+
+        const displayDiscipline = () => {
+            console.log("Displaying Set Piece Stats");
+            let html_layout = `
+                <div class="gr-panel row-1 col-hlf-1" id="tot-pen-conc-panel-id"></div>
+                <div class="gr-panel row-1 col-hlf-2" id="pts-frm-pens-panel-id"></div>
+                <div class="gr-panel row-2-3 col-full" id="type-pen-panel-id"></div>
+                <div class="gr-panel row-4 col-thrd-1" id="dang-tack-panel-id"></div>
+                <div class="gr-panel row-4 col-thrd-2" id="dang-re-panel-id"></div>
+                <div class="gr-panel row-4 col-thrd-3" id="offsides-panel-id"></div>
+                <div class="gr-panel row-5-6 col-full" id="disc-hl-panel-id"></div>
+            `
+            $("#tc-header-txt").html("Discipline<text class='sxd-y'>.</text>");
+            $("#main-content-tm-centre").html(html_layout);
+        };
+
+        // Show overview as default
+        displayOverview();
+        console.log(Leagues[curr_team]);
+        $("#league-name-id").html(Leagues[curr_team]);
+
+        // Set header
+        let team_against = getTeamAgainst(game_id_int)
+        setHeader(team_against);
+
+        // Set Date
+        let curr_date = data["game_stat_data"][game_id_int-1][10];
+        setDate(curr_date);
+
+
     </script>
 {% endblock %}

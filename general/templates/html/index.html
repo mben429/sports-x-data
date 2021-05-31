@@ -3,26 +3,90 @@
 
 {% block content %}
 <div class="content-grid-container">
-
     <div class="homepage-title-1" data-aos="fade-right">
         Analyze<text style="color: var(--massey-yellow);">.</text> Improve<text style="color: var(--massey-yellow);">.</text>  Advance<text style="color: var(--massey-yellow);">.</text>
     </div>
-
     <div class="homepage-subtitle-1" data-aos="fade-right">
         Sign up with us to get access to <text style="color: var(--massey-yellow);">in-depth and advanced analysis</text> of your game footage.
         <br>
         <br>
         <a class="btn-learn-more" href="/contact">Contact Us</a>
     </div>
-
     <div class="homepage-img-container" data-aos="fade-right">
       <img class="hom-img-centre" src="{% static 'general/images/graphic_homepage_larger.png' %}">
     </div>
 
+
+    <div id="hmpage-content-cnt" class="blk-txt">
+      <div class="flex-centre-justify" id="analysis-inf-h">
+        <div class="sm-padding-right med-padding-top"><img src="{% static 'general/images/analysis.PNG' %}"></div>
+        <div class="txt-s4 med-padding-top">Analysis<text class="sxd-y">.</text></div>
+      </div>
+      <div id="analysis-inf-sh" class="xl-header-txt">Advanced Analysis as a Service<text class="sxd-y">.</text></div>
+      <div id="analysis-inf-ssh" class="txt-s3">Upload your game footage, and receive an <text class="sxd-y">in-depth analysis</text> within a week. </div>
+      <div id="analysis-laptop-im-cnt">
+        <img src="{% static 'general/images/laptop_graphic_sm.JPG' %}"></img>
+      </div>
+      <div id="analysis-inf-btn-cnt" class="cent">
+        <button class="std-btn txt-s2 cent">Contact us for a Demo</button>
+      </div>
+      <div id="analysis-inf-txt-cnt">
+        <div class="bullet-pnt txt-s2 flex-centre-justify" id="analysis-bp-1">
+          <img class="med-padding-right" src="{% static 'general/images/analysis.PNG' %}">
+          <div>Upload your footage, and within 4 days, login to access a full in-depth analysis, tracking approximately 
+          <text class="sxd-y">70 different statistics and insights</text>.</div>
+        </div>
+        <div class="bullet-pnt txt-s2 flex-centre-justify" id="analysis-bp-2">
+          <img class="med-padding-right" src="{% static 'general/images/analysis.PNG' %}">
+          <div>Players and coaches can login anytime and view in-depth stats on <text class="sxd-y">any game</text> that has been uploaded to our site</div>
+        </div>
+        <div class="bullet-pnt txt-s2 flex-centre-justify" id="analysis-bp-3">
+          <img class="med-padding-right" src="{% static 'general/images/analysis.PNG' %}">
+          <div>Sign up as a <text class="sxd-y">League of Teams</text> to lower costs per team, and enable us to look at team comparisons, top performers, player matchups, and more!</div>
+        </div>
+      </div>
+
+      <div class="flex-centre-justify" id="gp-inf-h">
+        <div class="sm-padding-right med-padding-top"><img src="{% static 'general/images/gameplan.PNG' %}"></div>
+        <div class="txt-s4 med-padding-top">GamePlan<text class="sxd-y">.</text></div>
+      </div>
+      <div id="gp-inf-sh" class="xl-header-txt">Ultimate Team Collaboration Platform<text class="sxd-y">.</text></div>
+      <div id="gp-inf-ssh" class="txt-s3">Discuss tactics, create set plays, private message players, and more with GamePlan.</div>
+      <div id="gp-laptop-im-cnt">
+        <img src="{% static 'general/images/laptop_graphic_2.JPG' %}"></img>
+      </div>
+      <div id="gp-inf-btn-cnt" class="cent">
+        <button class="std-btn txt-s2 cent">Contact us for a Demo</button>
+      </div>
+      <div id="gp-inf-txt-cnt">
+        <div class="bullet-pnt txt-s2 flex-centre-justify" id="gp-bp-1">
+          <img class="med-padding-right" src="{% static 'general/images/gameplan.PNG' %}">
+          <div><text class="sxd-y">Create, edit, and view all</text> your teams' backline moves, lineout calls, gameplan, and more. </div>
+        </div>
+        <div class="bullet-pnt txt-s2 flex-centre-justify" id="gp-bp-2">
+          <img class="med-padding-right" src="{% static 'general/images/gameplan.PNG' %}">
+          <div>Annotation, and note taking features for players wanting to <text class="sxd-y">discuss tactics and collaborate</text>.</div>
+        </div>
+        <div class="bullet-pnt txt-s2 flex-centre-justify" id="gp-bp-3">
+          <img class="med-padding-right" src="{% static 'general/images/gameplan.PNG' %}">
+          <div>Players aren't remembering what was discussed at training? With GamePlan, players have <text class="sxd-y">easy access</text> to <text class="sxd-y">key discussion points</text> from trainings, drills to complete at home, and more.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="fter-cnt">
+      <div id="fter-header" class="txt-s3">Get In touch<text class="sxd-y">.</text></div>
+      <div id="fter-ph" class="txt-s2"><text class="sxd-y">PH:</text> (09) 600 3277</div>
+      <div id="fter-em" class="txt-s2"><text class="sxd-y">E:</text> mike@sportsxdatanz.com</div>
+    </div>
+  </div>
+
+<!--
     <div class="three-steps-header" id="three-steps-header-id" data-aos="fade-right">
       Easy <text style="color: var(--massey-yellow);">3 Step</text> Process.
     </div>
-    <!-- Three steps container-->
+
     <div class="three-steps-container" id="three-steps-container-id" data-aos="fade-right">
       <div class="step" id="film-games-step-id">
         <picture class="img-step">
@@ -55,8 +119,8 @@
         </div>
       </div>
     </div>
-
-    <!--What you'll get Container-->
+-->
+<!--
     <div class="three-steps-header" id="what-youll-get-header-id" data-aos="fade-right">
       What <text style="color: var(--massey-yellow);">you'll get</text>.
     </div>
@@ -64,7 +128,6 @@
     <div class="what-youll-get-container" id="what-youll-get-container-id" data-aos="fade-right">
       <div class="hp-panel" id="season-overview-panel-id">
         <div class="hp-panel-img" id="hp-panel-season-overview-img-id">
-          <!-- Image here -->
           <img class="hp-panel-img-center" src="{% static 'general/images/report.png' %}">
         </div>
         <div class="hp-panel-title" id="hp-panel-season-overview-id">Season Overview</div>
@@ -77,7 +140,6 @@
 
       <div class="hp-panel" id="match-overview-panel-id">
         <div class="hp-panel-img" id="hp-panel-match-overview-img-id">
-          <!-- Imagre -->
           <img class="hp-panel-img-center" src="{% static 'general/images/analytics.png' %}">
         </div>
         <div class="hp-panel-title" id="hp-match-overview-id">Match Report</div>
@@ -90,7 +152,6 @@
 
       <div class="hp-panel" id="season-long-tracking-panel-id">
         <div class="hp-panel-img" id="hp-panel-season-long-tracking-img-id">
-          <!-- Image here -->
           <img class="hp-panel-img-center" src="{% static 'general/images/tracking.png' %}">
         </div>
         <div class="hp-panel-title" id="hp-panel-season-long-tracking-id">Season-Long Tracking</div>
@@ -102,7 +163,6 @@
 
       <div class="hp-panel" id="player-performance-tracking-panel-id">
         <div class="hp-panel-img" id="hp-panel-player-performance-tracking-img-id">
-          <!-- Image here -->
           <img class="hp-panel-img-center" src="{% static 'general/images/standings.png' %}">
         </div>
         <div class="hp-panel-title" id="hp-player-performance-tracking-overview-id">League Overview</div>
@@ -118,4 +178,5 @@
 
     <a id="btn-contact-us-id" class="btn-contact-us" href="/contact">Get in Contact for a DEMO</a>
 </div>
+-->
 {% endblock %}
