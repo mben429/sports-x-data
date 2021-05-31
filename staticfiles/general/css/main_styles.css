@@ -1,47 +1,644 @@
 
 @import "vars.css";
 
-.cnt-overall {
+  .cnt-overall {
     background-color: black;
     color: white;
   }
   
   #cnt-overview {
     display: grid;
-    grid-template-columns: repeat(24, 1fr [col-start]);
+    grid-template-columns: repeat(24, 1fr);
     grid-template-rows: 100em;
   }
+
+  .fixed-pos { 
+    position: fixed;
+  }
+
+  /*Left Col css*/
 
   #left-col {
     grid-area: 1 / 1 / 2 / 5;     
 
     display: grid;
-    grid-template-columns: repeat(12, 1fr [col-start]);
-    grid-template-rows: repeat(48, 1fr [col-start]);
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(48, 1fr );
   }
 
   #right-col {
     grid-area: 1 / 21 / 2 / 25;     
 
     display: grid;
-    grid-template-columns: repeat(12, 1fr [col-start]);
-    grid-template-rows: repeat(48, 1fr [col-start]);
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(48, 1fr );
+  }
+
+  .flex {
+    display: flex;
+  }
+
+  .flex-centre {
+    display: flex;
+    align-items: center;
+  }
+
+  .flex-spc-even {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .flex-centre-justify {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .flex-down {
+    display: flex;
+    flex-direction: column;
   }
 
   #left-col-header-cnt {
-    grid-area: 1 / 1 / 2 / 13;
+    grid-area: 2 / 1 / 3 / 13;
   }
 
   #left-col-name-logo-cnt {
-    grid-area: 3 / 1 / 4 / 13;
+    grid-area: 4 / 1 / 5 / 13;
   }
 
   #left-col-btns-cnt {
-    grid-area: 5 / 1 / 15 / 13;
+    grid-area: 6 / 1 / 15 / 13;
   }
 
   #left-col-extras-box-cnt {
     grid-area: 16 / 1 / 18 / 13;
   }
 
+  .basic-btns {
+    text-decoration: none;
+    color: white;
+  }
   
+  .basic-btns:hover { 
+    color: var(--sxd-yellow);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  #side-bar-menu-cnt li {
+    margin: 0 0 3em 0;
+  }
+
+  #side-bar-menu-item a {
+    padding-left: 1em;
+  }
+
+  .side-txt {
+    padding-left: 1em;
+  }
+
+  #sm-team-logo-cnt {
+    background-color: white;
+    border-radius: 50%;
+    border-color: var(--rosmini-blue);
+    border-width: 0.05em;
+    border-style: solid;
+    width: 3em;
+    height: 3em;
+    text-align: center;
+  }
+
+  /*handles the vertical centering*/
+  .Centerer
+  {
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+  }
+
+  .Centered
+  {
+      display: inline-block;
+      vertical-align: middle;
+  }
+    
+  /*Right Col css*/
+
+  #middle-col {
+    grid-area: 1 / 6 / 2 / 20; 
+    display: grid;
+    grid-template-columns: repeat(24, 1fr );
+    grid-template-rows: repeat(48, 1fr );
+  }
+
+  #mc-header-txt-cnt {
+    grid-area: 4 / 1 / 6 / 25;
+  }
+
+  #curr-sect-header {
+    grid-area: 6 / 1 / 8 / 25;
+  }
+
+  .lg-team-logo-cnt {
+    background-color: white;
+    border-radius: 50%;
+    border-color: var(--rosmini-blue);
+    border-width: 0.1em;
+    border-style: solid;
+    width: 6em;
+    height: 6em;
+    text-align: center;
+  }
+
+  #lg-team-logo-cnt-id {
+    grid-area: 4 / 11 / 7 / 15;
+  }
+
+  #tm-header {
+    grid-area: 8 / 1 / 9 / 25;
+    text-align: center;
+  }
+
+  #tm-season {
+    grid-area: 9 / 1 / 10 / 25;
+    text-align: center;
+  }
+
+  #season-choose-btn {
+    grid-area: 10 / 10 / 11 / 16;
+    text-align: center;
+  }
+
+  #tc-home-main-header {
+    grid-area: 13 / 1 / 14 / 25;
+  }
+
+  #tc-home-main-content {
+    grid-area: 15 / 1 / 30 / 25;
+    display: flex;
+    align-items: stretch;
+  }
+
+  .tbl {
+    border-collapse: collapse;
+    border-radius: 0.1em 0.1em 0em 0em;
+    overflow: hidden;
+    box-shadow: 0 0 1em rgba(255, 255, 255, 0.15);
+  }
+
+  .tbl tbody tr.active-row {
+    font-weight: bold;
+    color: var(--sxd-yellow);
+  }
+
+  .tbl tbody tr:nth-of-type(even) {
+    background-color: var(--dark-grey);
+  }
+
+  .tbl tbody tr:last-of-type {
+    border-bottom: 0.07em solid var(--sxd-yellow);
+  }
+
+  .fr-tbl th {
+    font-size: 0.5em;
+    padding: 2em 2.5em;
+    background-color: var(--sxd-yellow);
+    color: black;
+    text-align: left;
+  }
+
+  .fr-tbl td {
+    font-size:  0.5em;
+    padding: 2em 2.5em;
+    text-align: left;
+  }
+
+ 
+
+  .stds-tbl tbody tr:nth-of-type(even) {
+    background-color: var(--dark-grey);
+  }
+
+  .stds-tbl th {
+    font-size: 0.45em;
+    padding: 0.9em 2em;
+    text-align: left;
+    background-color: var(--sxd-yellow);
+    color: black;
+  }
+
+  .stds-tbl td {
+    font-size: 0.45em;
+    padding: 0.9em 2em;
+    text-align: left;
+  }
+  
+  
+  .logo-im {
+    max-width: 100%;
+    max-height: auto;
+  }
+
+@media screen and (max-width: 1300px) {
+  .logo-im {
+    max-width: 50%;
+    max-height: auto;
+  }
+}
+
+.cent {
+  text-align: center;
+}
+
+#main-content-tm-centre {
+  grid-area: 8 / 1 / 49 / 25;
+  display: grid;
+  grid-template-columns: repeat(24, 1fr );
+  grid-template-rows: repeat(48, 1fr );
+}
+
+.gr-panel {
+  background-color: var(--sxd-grey);
+  border-radius: 0.4em;
+  border: 0.1em solid black;
+  margin: 0.35em;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr );
+  grid-template-rows: repeat(12, 1fr );
+}
+
+.row-1{
+  grid-row-start: 1;
+  grid-row-end: 6;
+}
+
+.row-2{
+  grid-row-start: 6;
+  grid-row-end: 11;
+}
+
+.row-3 {
+  grid-row-start: 11;
+  grid-row-end: 16;
+}
+
+.row-4 { 
+  grid-row-start: 16;
+  grid-row-end: 21; 
+}
+
+.row-5 {
+  grid-row-start: 21;
+  grid-row-end: 26;
+}
+
+.row-6 {
+  grid-row-start: 26;
+  grid-row-end: 31;
+}
+
+.row-7 {
+  grid-row-start: 31;
+  grid-row-end: 36;
+}
+
+.row-1-2 {
+  grid-row-start: 1;
+  grid-row-end: 11;
+}
+
+.row-2-3 {
+  grid-row-start: 6;
+  grid-row-end: 16;
+}
+
+.row-3-4 {
+  grid-row-start: 11;
+  grid-row-end: 21;
+}
+
+.row-4-5 {
+  grid-row-start: 16;
+  grid-row-end: 26;
+}
+
+.row-5-6 {
+  grid-row-start: 21;
+  grid-row-end: 31;
+}
+
+.row-6-7 {
+  grid-row-start: 26;
+  grid-row-end: 36;
+}
+
+.col-hlf-1 {
+  grid-column-start: 1;
+  grid-column-end: 13;
+}
+
+.col-hlf-2 {
+  grid-column-start: 13;
+  grid-column-end: 25;
+}
+
+.col-qrt-1 {
+  grid-column-start: 1;
+  grid-column-end: 7;
+}
+
+.col-qrt-2 {
+  grid-column-start: 7;
+  grid-column-end: 13;
+}
+
+.col-qrt-3 {
+  grid-column-start: 13;
+  grid-column-end: 19;
+}
+
+.col-qrt-4 {
+  grid-column-start: 19;
+  grid-column-end: 25;
+}
+
+.col-thrd-1 {
+  grid-column-start: 1;
+  grid-column-end: 9;
+}
+
+.col-thrd-2 {
+  grid-column-start: 9;
+  grid-column-end: 17;
+}
+
+.col-thrd-3 {
+  grid-column-start: 17;
+  grid-column-end: 25;
+}
+
+.col-full {
+  grid-column-start: 1;
+  grid-column-end: 25;
+}
+
+/*Now the layout for inside the panels*/
+#result-letter-big {
+  grid-area: 2 /  2 / 8 / 6;
+  text-align: center;
+}
+
+#gm-score {
+  grid-area: 10 / 2 / 13 / 6;
+  text-align: center;
+}
+
+#gm-basic-stats-id {
+  grid-area: 2 / 6 / 11 / 12;
+}
+
+#league-title-id {
+  grid-area: 2 / 2 / 4 / 12;
+}
+
+#league-sub-id {
+  grid-area: 4 / 2 / 5 / 12;
+}
+
+#pos-change-lg-id {
+  grid-area: 7 / 2 / 12 / 5;
+}
+
+#change-val-id {
+  grid-area: 8 / 4 / 10 / 5;
+  
+}
+
+#view-stds-btn-id {
+  grid-area: 8 / 8 / 10 / 12;
+}
+
+.q-panel-g-1-header {
+  grid-area: 2 / 1 / 4 / 13;
+  text-align: center;
+}
+
+.q-panel-g-1-value {
+  grid-area: 4 / 1 / 7 / 13;
+  text-align: center;
+}
+
+.q-panel-g-1-sa-txt {
+  grid-area: 8 / 1 / 10 / 7;
+  text-align: center;
+}
+
+.q-panel-g-1-la-txt {
+  grid-area: 8 / 7 / 10 / 13;
+  text-align: center;
+}
+
+.q-panel-g-1-sa-val {
+  grid-area: 10 / 1 / 13 / 7;
+  text-align: center;
+}
+
+.q-panel-g-1-la-val {
+  grid-area: 10 / 7 / 13 / 13;
+  text-align: center;
+}
+
+.q-panel-g-1-txt-single {
+  grid-area: 8 / 1 / 10 / 13;
+  text-align: center;
+}
+
+.q-panel-g-1-val-single {
+  grid-area: 10 / 1 / 13 / 13;
+  text-align: center;
+}
+
+.h-panel-sh-1 {
+  grid-area: 5 / 1 / 7 / 5;
+}
+
+.h-panel-sh-2 {
+  grid-area: 5 / 5 / 7 / 9;
+}
+
+.h-panel-sh-3 {
+  grid-area: 5 / 9 / 7 / 13;
+}
+
+.h-panel-val-1 {
+  grid-area: 7 / 1 / 13 / 5; 
+}
+
+.h-panel-val-2 {
+  grid-area: 7 / 5 / 13 / 9; 
+}
+
+.h-panel-val-3 {
+  grid-area: 7 / 9 / 13 / 13; 
+}
+
+.h-panel-full-center {
+  grid-area: 5 / 1 / 13 / 13;
+}
+
+.space-btwn-flex {
+  align-content: space-evenly;
+}
+
+.full-panel-header {
+  grid-area: 1 / 1 / 2 / 13;
+}
+
+#cntainer-try-scorers {
+  grid-area: 2 / 1 / 3 / 13;
+  margin: 0 auto;
+}
+
+#field-img-cnt {
+  grid-area: 4 / 3 / 13 / 11;
+  display: grid;
+  grid-template-rows: repeat(24, 1fr);
+  grid-template-columns: repeat(60, 1fr);
+
+}
+
+#field-img {
+  grid-area: 1 / 1 / 25 / 61; 
+  display: block;
+  margin: auto;
+}
+
+#hmpage-content-cnt {
+  background-color: white;
+  grid-area: 9 / 1 / 34 / 7;
+  display: grid;
+  grid-template-rows: repeat(48, 1fr);
+  grid-template-columns: repeat(12, 1fr);
+}
+
+#analysis-inf-h {
+  grid-area: 1 / 6 / 2 / 8;
+  text-align: center;
+}
+
+#analysis-inf-sh {
+  grid-area: 3 / 1 / 6 / 13; 
+  text-align: center;
+}
+
+#analysis-inf-ssh {
+  grid-area: 7 / 4 / 9 / 10;
+  text-align: center;
+}
+
+#analysis-laptop-im-cnt {
+  grid-area: 11 / 8 / 24 / 13;
+}
+
+.sm-padding-right {
+  padding-right: 0.5em;
+}
+
+#analysis-inf-txt-cnt {
+  grid-area: 10 / 1 / 24 / 8; 
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+}
+
+#analysis-inf-btn-cnt {
+  grid-area: 8 / 6 / 9 / 8;
+}
+
+#analysis-bp-1 {
+  grid-area: 1 / 3 / 3 / 10;
+}
+
+#analysis-bp-2 {
+  grid-area: 4 / 3 / 6 / 10;
+}
+
+#analysis-bp-3 {
+  grid-area: 7 / 3 / 9 / 10;
+}
+
+.med-padding-right {
+  padding-right: 1.5em;
+}
+
+.med-padding-top {
+  padding-top: 1.5em;
+}
+
+#gp-inf-h {
+  grid-area: 27 / 6 / 28 / 8;
+  text-align: center;
+}
+
+#gp-inf-sh {
+  grid-area: 29 / 1 / 32 / 13;  
+  text-align: center;
+}
+
+#gp-inf-ssh{
+  grid-area: 33 / 4 / 35 / 10; 
+  text-align: center;
+}
+
+#gp-laptop-im-cnt {
+  grid-area: 36 / 8 / 48 / 13;
+}
+
+#gp-inf-btn-cnt {
+  grid-area: 34 / 6 / 35 / 8;
+}
+
+#gp-inf-txt-cnt {
+  grid-area: 37 / 1 / 49 / 8; 
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+}
+
+
+#gp-bp-1 {
+  grid-area: 1 / 3 / 3 / 10;
+}
+
+#gp-bp-2 {
+  grid-area: 4 / 3 / 6 / 10;
+}
+
+#gp-bp-3 {
+  grid-area: 7 / 3 / 9 / 10;
+}
+
+#fter-cnt {
+  grid-area: 34 / 1 / 37 / 7;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+}
+
+#fter-header {
+  grid-area: 1 / 1 / 3 / 3;
+  text-align: center;
+  padding-top: 1.5em;
+}
+
+#fter-ph {
+  grid-area: 3 / 2 / 4 / 3;
+}
+
+#fter-em {
+  grid-area: 4 / 2 / 5 / 5;
+}
+
+
