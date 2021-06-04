@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="blk-txt" id="prod-analysis-cnt">
+    <div class="flex-centre-justify" id="prod-header">
+        <div class="sm-padding-right med-padding-top"><img src="{% static 'general/images/analysis.png' %}"></div>
+        <div class="txt-s4 med-padding-top">Analysis<text class="sxd-y">.</text></div>
+    </div>
+    <div id="prod-lg-txt" class="txt-s8 med-padding-top">
+        In-depth game analysis delivered weekly<text class="sxd-y">.</text>
+    </div>
+    <div id="prod-subtxt" class="txt-s2 med-padding-top">
+        We've got professional analysts to track stats, extract insights, and find game-changing moments 
+        from your game footage<text class="sxd-y">.</text> 
+    </div>
+    <div id="prod-top-btn">
+        <a class="std-btn txt-s2">Request a Demo</a>
+    </div>
+    <div id="prod-header-im-cnt">
+        <img src="{% static 'general/images/three_screens_graphic.jpg'%}">
+    </div>
+    <div id="prod-im-2-cnt">
+        <img src="{% static 'general/images/login_upload_graphic_rsz.jpg'%}">
+    </div>
+    <div class="txt-s7" id="prod-subheader-1-title">Simple 3 Step Process<text class="sxd-y">.</text></div>
+    <div id="prod-subheader-1-bp-cnt">
+        <div class="bullet-pnt txt-s2 flex-centre-justify" id="prod-subheader-bp-1">
+            <img class="med-padding-right" src="{% static 'general/images/login_upload.png' %}">
+            <div>Login and Upload your game footage<text class="sxd-y">.</text></div> 
+        </div>
+        <div class="bullet-pnt txt-s2 flex-centre-justify" id="prod-subheader-bp-2">
+            <img class="med-padding-right" src="{% static 'general/images/login_analysis.png' %}">
+            <div> Our professional analysts compile an in-depth, easy-to-read report based on game footage<text class="sxd-y">.</text></div>
+        </div>
+        <div class="bullet-pnt txt-s2 flex-centre-justify" id="prod-subheader-bp-3">
+            <img class="med-padding-right" src="{% static 'general/images/login_access.png' %}">
+            <div>Your Game Report will be ready for you to login and access within 4 days of the upload date<text class="sxd-y">.</text></div>
+        </div>
+    </div>
+    <div id="prod-subheader-2-title-cnt" class="txt-s7">Save Valuable Hours<text class="sxd-y">.</text></div>
+    <div id="prod-subheader-2-img-cnt">
+        <img src="{% static 'general/images/coach.jpg' %}">
+    </div>
+    <div id="prod-subheader-2-bp-cnt">
+        <div class="bullet-pnt txt-s2 flex-centre-justify" id="prod-subheader-2-bp-1">
+            <img class="med-padding-right" src="{% static 'general/images/clock.png' %}">
+            <div>
+            It can take 3+ hours to analyze, tag, 
+            and extract insights from your team’s game footage. Save these valuable hours in the week for more important
+            tasks like planning trainings, drawing up gameplans, and general team management. 
+            </div> 
+        </div>
+    </div>
+    <div id="prod-subheader-3-cnt" class="txt-s7">What we look at<text class="sxd-y">.</text></div>
+    <div id="bars-containers" class="txt-s2">
+        <div class="bar" id="overview-bar">
+            <div class="bar-title">Overview</div>
+            <div class="bar-btn">
+                <img class="arrow-img hvr-grow" src="{% static 'general/images/arrow.png' %}" onClick="overviewBtnClick()">
+            </div>
+        </div>
+        <div id="overview-cntent" class="dropdown-cntent">
+            
+        </div>
+        <div class="bar" id="attack-bar">
+            <div class="bar-title">Attack</div>
+            <div class="bar-btn">
+                <img class="arrow-img hvr-grow" src="{% static 'general/images/arrow.png' %}">
+            </div>
+        </div>
+        <div class="bar" id="defense-bar">
+            <div class="bar-title">Defense</div>
+            <div class="bar-btn">
+                <img class="arrow-img hvr-grow" src="{% static 'general/images/arrow.png' %}">
+            </div>
+        </div>
+        <div class="bar" id="kg-bar">
+            <div class="bar-title">Kicking Game</div>
+            <div class="bar-btn">
+                <img class="arrow-img hvr-grow" src="{% static 'general/images/arrow.png' %}">
+            </div>
+        </div>
+        <div class="bar" id="bh-bar">
+            <div class="bar-title">Ball Handling</div>
+            <div class="bar-btn">
+                <img class="arrow-img hvr-grow" src="{% static 'general/images/arrow.png' %}">
+            </div>
+        </div>
+        <div class="bar" id="rm-bar">
+            <div class="bar-title">Rucks/Mauls</div>
+            <div class="bar-btn">
+                <img class="arrow-img hvr-grow" src="{% static 'general/images/arrow.png' %}">
+            </div>
+        </div>
+        <div class="bar" id="sp-bar">
+            <div class="bar-title">Set Piece</div>
+            <div class="bar-btn">
+                <img class="arrow-img hvr-grow" src="{% static 'general/images/arrow.png' %}">
+            </div>
+        </div>
+        <div class="bar" id="discipline-bar">
+            <div class="bar-title">Discipline</div>
+            <div class="bar-btn">
+                <img class="arrow-img hvr-grow" src="{% static 'general/images/arrow.png' %}">
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

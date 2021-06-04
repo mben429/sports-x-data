@@ -13,3 +13,9 @@ def plans(request):
 
 def about(request):
     return render(request, "about-us.html")
+
+def analysis(request):
+    return render(request, "analysis.html")
+
+def gameplan(request):
+    return render(request, "gameplan.html")
