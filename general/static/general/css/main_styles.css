@@ -620,11 +620,20 @@
   grid-area: 7 / 3 / 9 / 10;
 }
 
-#fter-cnt {
+#fter-cnt-index {
   grid-area: 34 / 1 / 37 / 7;
+}
+
+#fter-cnt-prod {
+  grid-area: 44 / 1 / 48 / 25;
+}
+
+.fter {
+  color: white;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(6, 1fr);
+  background-color: black;
 }
 
 #fter-header {
@@ -643,7 +652,7 @@
 
 #prod-analysis-cnt {
   display: grid;
-  grid-template-rows: repeat(100, 100px);
+  grid-template-rows: repeat(47, 100px);
   grid-template-columns: repeat(24, 1fr);
   background-color: white;
 }
@@ -722,10 +731,10 @@
 }
 
 #bars-containers {
-  grid-area: 30 / 6 / 69 / 20;
+  grid-area: 30 / 6 / 39 / 20;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(39, 1fr);
+  grid-template-rows: repeat(9, 1fr);
 }
 
 .bar {
