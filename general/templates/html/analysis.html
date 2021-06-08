@@ -16,7 +16,7 @@
         from your game footage<text class="sxd-y">.</text> 
     </div>
     <div id="prod-top-btn">
-        <a class="std-btn txt-s2">Request a Demo</a>
+        <a href="/contact" class="std-btn txt-s2">Request a Demo</a>
     </div>
     <div id="prod-header-im-cnt">
         <img src="{% static 'general/images/three_screens_graphic.jpg'%}">
@@ -58,54 +58,130 @@
         <div class="bar" id="overview-bar">
             <div class="bar-title">Overview</div>
             <div class="bar-btn">
-                <img class="arrow-img hvr-grow" src="{% static 'general/images/arrow.png' %}" onClick="overviewBtnClick()">
+                <img id="overview-btn" class="arrow-img hvr-grow" src="{% static 'general/images/arrow.png' %}" onclick="overviewBtnClick();">
             </div>
         </div>
-        <div id="overview-cntent" class="dropdown-cntent">
-            
+        <div id="overview-cntent" class="dropdown-cntent txt-s3" style="display: none">
+            <div class="cntent-panel" id="ov-p1">Basic Game Stats (Tries, cons, pens, score).</div>
+            <div class="cntent-panel" id="ov-p2">Fixtures, Results and Standings.</div>
+            <div class="cntent-panel" id="ov-p3">Possession %</div>
+            <div class="cntent-panel" id="ov-p4">Territory %</div>
+            <div class="cntent-panel" id="ov-p5">Total Handling Errors</div>
+            <div class="cntent-panel" id="ov-p6">Tackle Success %</div>
+            <div class="cntent-panel" id="ov-p7">Top Individual Performers (Tackles, Line Breaks, Tackles Broken, Ruck Steals, Playmaking, and Ball Carries).</div>
         </div>
         <div class="bar" id="attack-bar">
             <div class="bar-title">Attack</div>
             <div class="bar-btn">
-                <img class="arrow-img hvr-grow" src="{% static 'general/images/arrow.png' %}">
+                <img id="attack-btn" class="arrow-img hvr-grow" src="{% static 'general/images/arrow.png' %}" onclick="attackBtnClick();">
             </div>
         </div>
+        <div id="attack-cntent" class="dropdown-cntent txt-s3" style="display: none">
+            <div class="cntent-panel" id="ov-p1">Total Tries Scored</div>
+            <div class="cntent-panel" id="ov-p2">Top Try Scorers Tracking</div>
+            <div class="cntent-panel" id="ov-p3">What Lead to Tries? (Interactive Graphic)</div>
+            <div class="cntent-panel" id="ov-p4">Linebreaks</div>
+            <div class="cntent-panel" id="ov-p5">% Time Running onto Ball</div>
+            <div class="cntent-panel" id="ov-p6">Time in Opp 22</div>
+            <div class="cntent-panel" id="ov-p7">Pick and Go Meters Gain %</div>
+            <div class="cntent-panel" id="ov-p8">One off runners Meters Gain %</div>
+            <div class="cntent-panel" id="ov-p9">Backline Move Meters Gain %</div>
+            <div class="cntent-panel" id="ov-p10">Tackles Broken</div>
+            <div class="cntent-panel" id="ov-p11">Points / Visit to 22</div>
+        </div>
+        
         <div class="bar" id="defense-bar">
             <div class="bar-title">Defense</div>
             <div class="bar-btn">
-                <img class="arrow-img hvr-grow" src="{% static 'general/images/arrow.png' %}">
+                <img id="defense-btn" class="arrow-img hvr-grow" src="{% static 'general/images/arrow.png' %}" onclick="defenseBtnClick();">
             </div>
         </div>
+        <div id="defense-cntent" class="dropdown-cntent txt-s3" style="display: none">
+            <div class="cntent-panel" id="ov-p1">Tackles: Made, Missed Attempted, Success %</div>
+            <div class="cntent-panel" id="ov-p2">% Tackles Above and Below the waist</div>
+            <div class="cntent-panel" id="ov-p3">Tackle Success % by Position</div>
+            <div class="cntent-panel" id="ov-p4">Tackle Success % by Type of Tackle</div>
+            <div class="cntent-panel" id="ov-p5">Tackle Success % by Area of Field</div>
+            <div class="cntent-panel" id="ov-p6">Average Linespeed (time until first contact)</div>
+            <div class="cntent-panel" id="ov-p7">Total Line Breaks allowed</div>
+            <div class="cntent-panel" id="ov-p8">Line Breaks allowed by Position</div>
+        </div>
+        
         <div class="bar" id="kg-bar">
             <div class="bar-title">Kicking Game</div>
             <div class="bar-btn">
-                <img class="arrow-img hvr-grow" src="{% static 'general/images/arrow.png' %}">
+                <img id="kg-btn" class="arrow-img hvr-grow" src="{% static 'general/images/arrow.png' %}" onclick="kgBtnClick();">
             </div>
+        </div>
+        <div id="kg-cntent" class="dropdown-cntent txt-s3" style="display: none">
+            <div class="cntent-panel" id="ov-p1">No. of Kicks Made Total</div>
+            <div class="cntent-panel" id="ov-p2">% of Posessions where kick was made</div>
+            <div class="cntent-panel" id="ov-p3">No. of Kicks out on full (outside 22)</div>
+            <div class="cntent-panel" id="ov-p4">No. of kicks made by Type of Kick</div>
+            <div class="cntent-panel" id="ov-p5">% of Kicks regathered by Type of Kick</div>
+            <div class="cntent-panel" id="ov-p6">% Kick for touch Meters Gain Success</div>
+            <div class="cntent-panel" id="ov-p7">Goal Kicking %</div>
         </div>
         <div class="bar" id="bh-bar">
             <div class="bar-title">Ball Handling</div>
             <div class="bar-btn">
-                <img class="arrow-img hvr-grow" src="{% static 'general/images/arrow.png' %}">
+                <img id="bh-btn" class="arrow-img hvr-grow" src="{% static 'general/images/arrow.png' %}" onclick="bhBtnClick();">
             </div>
+        </div>
+        <div id="bh-cntent" class="dropdown-cntent txt-s3" style="display: none">
+            <div class="cntent-panel" id="ov-p1">Overall Pass Success %</div>
+            <div class="cntent-panel" id="ov-p2">Total Successful, and Unsuccessful Passes</div>
+            <div class="cntent-panel" id="ov-p3">Pass Success % by Type of Pass</div>
+            <div class="cntent-panel" id="ov-p4">Types of Passes Made</div>
+            <div class="cntent-panel" id="ov-p5">Total Handling Errors</div>
+            <div class="cntent-panel" id="ov-p6">Total Handling Errors by type of Handling Error (Knock on, Forward Pass, Dropped Pass (Backward)</div>
         </div>
         <div class="bar" id="rm-bar">
             <div class="bar-title">Rucks/Mauls</div>
             <div class="bar-btn">
-                <img class="arrow-img hvr-grow" src="{% static 'general/images/arrow.png' %}">
+                <img id="rm-btn" class="arrow-img hvr-grow" src="{% static 'general/images/arrow.png' %}" onclick="rmBtnClick();">
             </div>
+        </div>
+        <div id="rm-cntent" class="dropdown-cntent txt-s3" style="display: none">
+            <div class="cntent-panel" id="ov-p1">Total Rucks Retained</div>
+            <div class="cntent-panel" id="ov-p2">Total Rucks Lost</div>
+            <div class="cntent-panel" id="ov-p3">Total Ruck Steals</div>
+            <div class="cntent-panel" id="ov-p4">Ruck Recycle Speed % (0-3sec, 3-6sec, 6+sec)</div>
+            <div class="cntent-panel" id="ov-p5">How were Rucks Lost (Interactive Graphic)</div>
         </div>
         <div class="bar" id="sp-bar">
             <div class="bar-title">Set Piece</div>
             <div class="bar-btn">
-                <img class="arrow-img hvr-grow" src="{% static 'general/images/arrow.png' %}">
+                <img id="sp-btn" class="arrow-img hvr-grow" src="{% static 'general/images/arrow.png' %}" onclick="spBtnClick();">
             </div>
+        </div>
+        <div id="sp-cntent" class="dropdown-cntent txt-s3" style="display: none">
+            <div class="cntent-panel" id="ov-p1">Own Lineout Success %</div>
+            <div class="cntent-panel" id="ov-p2">Opp Lineout Success %</div>
+            <div class="cntent-panel" id="ov-p3">Own Scrum Success %</div>
+            <div class="cntent-panel" id="ov-p4">Opp Scrum Success %</div>
+            <div class="cntent-panel" id="ov-p5">Total Lineouts Stolen</div>
+            <div class="cntent-panel" id="ov-p6">Total Scrums Stolen</div>
+            <div class="cntent-panel" id="ov-p6">% Set Piece in 22 leading to try</div>
         </div>
         <div class="bar" id="discipline-bar">
             <div class="bar-title">Discipline</div>
             <div class="bar-btn">
-                <img class="arrow-img hvr-grow" src="{% static 'general/images/arrow.png' %}">
+                <img id="discipline-btn" class="arrow-img hvr-grow" src="{% static 'general/images/arrow.png' %}" onclick="disciplineBtnClick();">
             </div>
         </div>
+        <div id="discipline-cntent" class="dropdown-cntent txt-s3" style="display: none">
+            <div class="cntent-panel" id="ov-p1">Total Penalties Conceded</div>
+            <div class="cntent-panel" id="ov-p2">Points Allowed from Penalties</div>
+            <div class="cntent-panel" id="ov-p3">Types of Penalties Given Away</div>
+            <div class="cntent-panel" id="ov-p4">Dangerous Tackles Made</div>
+            <div class="cntent-panel" id="ov-p5">Dangerous Ruck Entries Made</div>
+            <div class="cntent-panel" id="ov-p6">Offsides Commited</div>
+        </div>
+        <!--Bars completed-->
     </div>
+    <div id="interested-header" class="txt-s4 flex-centre-justify">Interested in Optimizing your teams performance?</div>
+    <div id="interested-subheader" class="txt-s2 flex-centre-justify">Get in touch for info about pricing, packages, and more.</div>
+    <div id="get-in-touch-btn" class="flex-centre-justify"><a href="/contact" class="std-btn txt-s2">Get In Touch</a></div>
 </div>
 {% endblock %}
