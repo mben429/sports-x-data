@@ -1,2 +1,2 @@
-# Sports x Data - Rugby Game Footage Analysis Service
+# Sports x Data - Digital Tools and Services for Sports Teams
 Source for Sports x Data Website.
