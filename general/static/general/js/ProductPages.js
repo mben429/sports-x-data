@@ -47,12 +47,22 @@ function rotateImage(id, degree) {
     });
 }
 
+
+// GETTERS AND SETTERS
+
+
 function getStartRowVal(id) {
     return parseInt($(id).css("grid-row-start"));
 }
 
 function getEndRowVal(id) {
     return parseInt($(id).css("grid-row-end"));
+}
+
+function getGridTemplateVals(id) {
+    let gtr = $(id).css("grid-template-rows");
+
+    return gtr;
 }
 
 function setNewStartRowVal(id, new_row) {
@@ -76,20 +86,15 @@ function setBarRowVals(bar_clicked, bars_affected_indexes, disp){
     
     // Go through necessary indexes and set new positions.
     for(let i = 0; i < bars_affected_indexes.length; i++){
-        console.log("Current Bar: ", bars_affected_indexes[i]);
         //Retrieve Id's
         curr_bar_id_str = bars_dict[bars_affected_indexes[i]];
         curr_cntent_id_str = cntent_dict[bars_affected_indexes[i]];
-        console.log("Current Bar ID: ", curr_bar_id_str);
-        console.log("Current Content ID: ", curr_cntent_id_str);
         
-
         // Get current row values
         strt_row_bar = getStartRowVal(curr_bar_id_str);
         end_row_bar = getEndRowVal(curr_bar_id_str);
         strt_row_cntent = getStartRowVal(curr_cntent_id_str);
         end_row_cntent = getEndRowVal(curr_cntent_id_str);
-        console.log("Current Row Values: ", strt_row_bar, end_row_bar, strt_row_cntent, end_row_cntent);
 
 
         //Set Current Row Values
@@ -108,11 +113,124 @@ function setBarRowVals(bar_clicked, bars_affected_indexes, disp){
     }  
 }
 
+function setGridRepeatVal(id, curr_grid, op){
+    let add_str = "";
+    let str_length = curr_grid.length;
+    let min_str = "";
+
+    if (op == "add") {
+        add_str = curr_grid.concat(" 100px", " 100px", " 100px", " 100px");
+        $(id).css("grid-template-rows", add_str);
+    }
+
+    else if (op == "minus"){
+        min_str = curr_grid.slice(0, str_length-24);
+        $(id).css("grid-template-rows", min_str);
+    }
+}
+
+function getGridRepeatVal(id){
+    let gtr_str = $(id).css("grid-template-rows");
+    console.log("Value in getter function: ", gtr_str.length);
+    return gtr_str;
+}
+
+function setFooterPosition(id, op){
+    let strt_row = getStartRowVal(id);
+    let end_row = getEndRowVal(id);
+
+
+    if (op == "add"){
+        setNewStartRowVal(id, strt_row + 3);
+        setNewEndRowVal(id, end_row + 3);
+    }
+    else if (op == "minus"){
+        setNewStartRowVal(id, strt_row - 3);
+        setNewEndRowVal(id, end_row - 3);
+    }
+}
+
+function setInterestedSection(header_id, subheader_id, btn_id, op){
+    let header_sr = getStartRowVal(header_id);
+    let header_er = getEndRowVal(header_id);
+    let subheader_sr = getStartRowVal(subheader_id);
+    let subheader_er = getEndRowVal(subheader_id);
+    let btn_sr = getStartRowVal(btn_id);
+    let btn_er = getEndRowVal(btn_id);
+
+    if (op == "add"){
+        setNewStartRowVal(header_id, header_sr + 3);
+        setNewEndRowVal(header_id, header_er + 3);
+        setNewStartRowVal(subheader_id, subheader_sr + 3);
+        setNewEndRowVal(subheader_id, subheader_er + 3);
+        setNewStartRowVal(btn_id, btn_sr + 3);
+        setNewEndRowVal(btn_id, btn_er + 3);
+    }
+    else if (op == "minus"){
+        setNewStartRowVal(header_id, header_sr - 3);
+        setNewEndRowVal(header_id, header_er - 3);
+        setNewStartRowVal(subheader_id, subheader_sr - 3);
+        setNewEndRowVal(subheader_id, subheader_er - 3);
+        setNewStartRowVal(btn_id, btn_sr - 3);
+        setNewEndRowVal(btn_id, btn_er - 3);
+    }
+}
+
+function setBarGrid(grid_id, op){
+    /*
+    let bar_grid_er = getEndRowVal(grid_id);
+
+    if (op == "add") {
+        setNewEndRowVal(grid_id, bar_grid_er + 3);
+    }
+    else if (op == "minus") {
+        setNewEndRowVal(grid_id, bar_grid_er - 3);
+    }
+    */
+}
+
+function setBarGridRows(grid_id, op){
+    let gtr = getGridTemplateVals(grid_id);
+    let gtr_arr = gtr.split(" ");
+    let arr_length = gtr_arr.length;
+    console.log("GTR Array: ", gtr_arr.length);
+    let new_gtr = "";
+    let new_gtr_arr;
+
+    console.log("GTR: ", gtr);
+
+    let curr_rep_val = gtr.substring(
+        0,
+        gtr.indexOf(" ")
+    );
+
+    console.log("Current Repeat() val: ", curr_rep_val);
+
+    if (op == "add") {
+        new_gtr = gtr.concat(" ", curr_rep_val, " ", curr_rep_val, " ", curr_rep_val);
+    }
+
+    else if (op == "minus") {
+        new_gtr_arr = gtr_arr.slice(0, arr_length - 3);
+        new_gtr = new_gtr_arr.join(' ');
+        console.log("New GTR: ", new_gtr_arr.length);
+    }
+    
+    $("#bars-containers").css("grid-template-rows", new_gtr);
+}
+
+
+
+// BAR BUTTONS CLICK FUNCTIONS
 
 
 function overviewBtnClick(){
     let bars_affected_list = [2, 3, 4, 5, 6, 7, 8];
     let bar_clicked_id = 1;
+    let grid_str;
+
+    //Testing
+
 
     if ($("#overview-cntent").css("display") == "none") {
         rotateImage(img_dict[bar_clicked_id], 90);
@@ -121,12 +239,55 @@ function overviewBtnClick(){
         setBarRowVals(bar_clicked_id, bars_affected_list, false);
 
 
+        // Prod Analysis Grid Manipulation
+        grid_str = getGridRepeatVal("#prod-analysis-cnt");
+        setGridRepeatVal("#prod-analysis-cnt", grid_str, "add");
+
+
+        // Set Footer section
+        setFooterPosition("#fter-cnt-prod", "add");
+
+
+        // Set Interested? Section.
+        setInterestedSection("#interested-header", "#interested-subheader", "#get-in-touch-btn", "add");
+
+
+        // Set Bar container grid
+        setBarGrid("#bars-containers", "add");
+
+
+        // Set Bar Grid Rows
+        setBarGridRows("#bars-containers", "add");
+
     }
+
+
     else {
         $("#overview-cntent").css("display", "none");
         rotateImage(img_dict[bar_clicked_id], 0);
         console.log("content is visible!");
         setBarRowVals(bar_clicked_id, bars_affected_list, true);
+    
+
+       // Prod Analysis Grid Manipulation
+       grid_str = getGridRepeatVal("#prod-analysis-cnt");
+       setGridRepeatVal("#prod-analysis-cnt", grid_str, "minus");
+
+
+        // Footer section manipulation
+        setFooterPosition("#fter-cnt-prod", "minus");
+
+        // Interested? Section manipulation.
+        setInterestedSection("#interested-header", "#interested-subheader", "#get-in-touch-btn", "minus");
+        
+        
+        // Set Bar container grid
+        setBarGrid("#bars-containers", "minus");
+        
+
+        // Set Bar Grid Rows
+        setBarGridRows("#bars-containers", "minus");
+
     }
 }
 
@@ -134,24 +295,70 @@ function attackBtnClick(){
     let bars_affected_list = [3, 4, 5, 6, 7, 8];
     let bar_clicked_id = 2;
 
+    let grid_str;
+
     if ($("#attack-cntent").css("display") == "none") {
         rotateImage(img_dict[bar_clicked_id], 90);
         $("#attack-cntent").slideToggle();
         console.log("content is hidden!");
         setBarRowVals(bar_clicked_id, bars_affected_list, false);
 
+
+        // Prod Analysis Grid Manipulation
+        grid_str = getGridRepeatVal("#prod-analysis-cnt");
+        setGridRepeatVal("#prod-analysis-cnt", grid_str, "add");
+
+
+        // Set Footer section
+        setFooterPosition("#fter-cnt-prod", "add");
+
+
+        // Set Interested? Section.
+        setInterestedSection("#interested-header", "#interested-subheader", "#get-in-touch-btn", "add");
+
+
+        // Set Bar container grid
+        setBarGrid("#bars-containers", "add");
+
+
+        // Set Bar Grid Rows
+        setBarGridRows("#bars-containers", "add");
+
     }
+
+
     else {
         $("#attack-cntent").css("display", "none");
         rotateImage(img_dict[bar_clicked_id], 0);
         console.log("content is visible!");
         setBarRowVals(bar_clicked_id, bars_affected_list, true);
+    
+
+       // Prod Analysis Grid Manipulation
+       grid_str = getGridRepeatVal("#prod-analysis-cnt");
+       setGridRepeatVal("#prod-analysis-cnt", grid_str, "minus");
+
+
+        // Footer section manipulation
+        setFooterPosition("#fter-cnt-prod", "minus");
+
+        // Interested? Section manipulation.
+        setInterestedSection("#interested-header", "#interested-subheader", "#get-in-touch-btn", "minus");
+        
+        
+        // Set Bar container grid
+        setBarGrid("#bars-containers", "minus");
+
+        // Set Bar Grid Rows
+        setBarGridRows("#bars-containers", "minus");
+
     }
 }
 
 function defenseBtnClick(){
     let bars_affected_list = [4, 5, 6, 7, 8];
     let bar_clicked_id = 3;
+    let grid_str;
 
     if ($("#defense-cntent").css("display") == "none") {
         rotateImage(img_dict[bar_clicked_id], 90);
@@ -159,12 +366,54 @@ function defenseBtnClick(){
         console.log("content is hidden!");
         setBarRowVals(bar_clicked_id, bars_affected_list, false);
 
+
+        // Prod Analysis Grid Manipulation
+        grid_str = getGridRepeatVal("#prod-analysis-cnt");
+        setGridRepeatVal("#prod-analysis-cnt", grid_str, "add");
+
+
+        // Set Footer section
+        setFooterPosition("#fter-cnt-prod", "add");
+
+
+        // Set Interested? Section.
+        setInterestedSection("#interested-header", "#interested-subheader", "#get-in-touch-btn", "add");
+
+
+        // Set Bar container grid
+        setBarGrid("#bars-containers", "add");
+
+        // Set Bar Grid Rows
+        setBarGridRows("#bars-containers", "add");
+
     }
+
+
     else {
         $("#defense-cntent").css("display", "none");
         rotateImage(img_dict[bar_clicked_id], 0);
         console.log("content is visible!");
         setBarRowVals(bar_clicked_id, bars_affected_list, true);
+    
+
+       // Prod Analysis Grid Manipulation
+       grid_str = getGridRepeatVal("#prod-analysis-cnt");
+       setGridRepeatVal("#prod-analysis-cnt", grid_str, "minus");
+
+
+        // Footer section manipulation
+        setFooterPosition("#fter-cnt-prod", "minus");
+
+        // Interested? Section manipulation.
+        setInterestedSection("#interested-header", "#interested-subheader", "#get-in-touch-btn", "minus");
+        
+        
+        // Set Bar container grid
+        setBarGrid("#bars-containers", "minus");
+
+        // Set Bar Grid Rows
+        setBarGridRows("#bars-containers", "minus");
+
     }
 }
 
@@ -172,18 +421,62 @@ function kgBtnClick(){
     let bars_affected_list = [5, 6, 7, 8];
     let bar_clicked_id = 4;
 
+    let grid_str;
+
     if ($("#kg-cntent").css("display") == "none") {
         rotateImage(img_dict[bar_clicked_id], 90);
         $("#kg-cntent").slideToggle();
         console.log("content is hidden!");
         setBarRowVals(bar_clicked_id, bars_affected_list, false);
 
+
+        // Prod Analysis Grid Manipulation
+        grid_str = getGridRepeatVal("#prod-analysis-cnt");
+        setGridRepeatVal("#prod-analysis-cnt", grid_str, "add");
+
+
+        // Set Footer section
+        setFooterPosition("#fter-cnt-prod", "add");
+
+
+        // Set Interested? Section.
+        setInterestedSection("#interested-header", "#interested-subheader", "#get-in-touch-btn", "add");
+
+
+        // Set Bar container grid
+        setBarGrid("#bars-containers", "add");
+
+        // Set Bar Grid Rows
+        setBarGridRows("#bars-containers", "add");
+
     }
+
+
     else {
         $("#kg-cntent").css("display", "none");
         rotateImage(img_dict[bar_clicked_id], 0);
         console.log("content is visible!");
         setBarRowVals(bar_clicked_id, bars_affected_list, true);
+    
+
+       // Prod Analysis Grid Manipulation
+       grid_str = getGridRepeatVal("#prod-analysis-cnt");
+       setGridRepeatVal("#prod-analysis-cnt", grid_str, "minus");
+
+
+        // Footer section manipulation
+        setFooterPosition("#fter-cnt-prod", "minus");
+
+        // Interested? Section manipulation.
+        setInterestedSection("#interested-header", "#interested-subheader", "#get-in-touch-btn", "minus");
+        
+        
+        // Set Bar container grid
+        setBarGrid("#bars-containers", "minus");
+
+        // Set Bar Grid Rows
+        setBarGridRows("#bars-containers", "minus");
+
     }
 }
 
@@ -191,24 +484,71 @@ function bhBtnClick(){
     let bars_affected_list = [6, 7, 8];
     let bar_clicked_id = 5;
 
+    let grid_str;
+
     if ($("#bh-cntent").css("display") == "none") {
         rotateImage(img_dict[bar_clicked_id], 90);
         $("#bh-cntent").slideToggle();
         console.log("content is hidden!");
         setBarRowVals(bar_clicked_id, bars_affected_list, false);
 
+
+        // Prod Analysis Grid Manipulation
+        grid_str = getGridRepeatVal("#prod-analysis-cnt");
+        setGridRepeatVal("#prod-analysis-cnt", grid_str, "add");
+
+
+        // Set Footer section
+        setFooterPosition("#fter-cnt-prod", "add");
+
+
+        // Set Interested? Section.
+        setInterestedSection("#interested-header", "#interested-subheader", "#get-in-touch-btn", "add");
+
+
+        // Set Bar container grid
+        setBarGrid("#bars-containers", "add");
+
+
+        // Set Bar Grid Rows
+        setBarGridRows("#bars-containers", "add");
+
     }
+
+
     else {
         $("#bh-cntent").css("display", "none");
         rotateImage(img_dict[bar_clicked_id], 0);
         console.log("content is visible!");
         setBarRowVals(bar_clicked_id, bars_affected_list, true);
+    
+
+       // Prod Analysis Grid Manipulation
+       grid_str = getGridRepeatVal("#prod-analysis-cnt");
+       setGridRepeatVal("#prod-analysis-cnt", grid_str, "minus");
+
+
+        // Footer section manipulation
+        setFooterPosition("#fter-cnt-prod", "minus");
+
+        // Interested? Section manipulation.
+        setInterestedSection("#interested-header", "#interested-subheader", "#get-in-touch-btn", "minus");
+        
+        
+        // Set Bar container grid
+        setBarGrid("#bars-containers", "minus");
+
+        
+        // Set Bar Grid Rows
+        setBarGridRows("#bars-containers", "minus");
+
     }
 }
 
 function rmBtnClick(){
     let bars_affected_list = [7, 8];
     let bar_clicked_id = 6;
+    let grid_str;
 
     if ($("#rm-cntent").css("display") == "none") {
         rotateImage(img_dict[bar_clicked_id], 90);
@@ -216,12 +556,56 @@ function rmBtnClick(){
         console.log("content is hidden!");
         setBarRowVals(bar_clicked_id, bars_affected_list, false);
 
+
+        // Prod Analysis Grid Manipulation
+        grid_str = getGridRepeatVal("#prod-analysis-cnt");
+        setGridRepeatVal("#prod-analysis-cnt", grid_str, "add");
+
+
+        // Set Footer section
+        setFooterPosition("#fter-cnt-prod", "add");
+
+
+        // Set Interested? Section.
+        setInterestedSection("#interested-header", "#interested-subheader", "#get-in-touch-btn", "add");
+
+
+        // Set Bar container grid
+        setBarGrid("#bars-containers", "add");
+
+        
+        // Set Bar Grid Rows
+        setBarGridRows("#bars-containers", "add");
+
     }
+
+
     else {
         $("#rm-cntent").css("display", "none");
         rotateImage(img_dict[bar_clicked_id], 0);
         console.log("content is visible!");
         setBarRowVals(bar_clicked_id, bars_affected_list, true);
+    
+
+       // Prod Analysis Grid Manipulation
+       grid_str = getGridRepeatVal("#prod-analysis-cnt");
+       setGridRepeatVal("#prod-analysis-cnt", grid_str, "minus");
+
+
+        // Footer section manipulation
+        setFooterPosition("#fter-cnt-prod", "minus");
+
+        // Interested? Section manipulation.
+        setInterestedSection("#interested-header", "#interested-subheader", "#get-in-touch-btn", "minus");
+        
+        
+        // Set Bar container grid
+        setBarGrid("#bars-containers", "minus");
+
+        
+        // Set Bar Grid Rows
+        setBarGridRows("#bars-containers", "minus");
+
     }
 
 }
@@ -229,6 +613,7 @@ function rmBtnClick(){
 function spBtnClick(){
     let bars_affected_list = [8];
     let bar_clicked_id = 7;
+    let grid_str;
 
     if ($("#sp-cntent").css("display") == "none") {
         rotateImage(img_dict[bar_clicked_id], 90);
@@ -236,26 +621,116 @@ function spBtnClick(){
         console.log("content is hidden!");
         setBarRowVals(bar_clicked_id, bars_affected_list, false);
 
+
+        // Prod Analysis Grid Manipulation
+        grid_str = getGridRepeatVal("#prod-analysis-cnt");
+        setGridRepeatVal("#prod-analysis-cnt", grid_str, "add");
+
+
+        // Set Footer section
+        setFooterPosition("#fter-cnt-prod", "add");
+
+
+        // Set Interested? Section.
+        setInterestedSection("#interested-header", "#interested-subheader", "#get-in-touch-btn", "add");
+
+
+        // Set Bar container grid
+        setBarGrid("#bars-containers", "add");
+
+        
+        // Set Bar Grid Rows
+        setBarGridRows("#bars-containers", "add");
+
     }
+
+
     else {
         $("#sp-cntent").css("display", "none");
         rotateImage(img_dict[bar_clicked_id], 0);
         console.log("content is visible!");
         setBarRowVals(bar_clicked_id, bars_affected_list, true);
+    
+
+       // Prod Analysis Grid Manipulation
+       grid_str = getGridRepeatVal("#prod-analysis-cnt");
+       setGridRepeatVal("#prod-analysis-cnt", grid_str, "minus");
+
+
+        // Footer section manipulation
+        setFooterPosition("#fter-cnt-prod", "minus");
+
+        // Interested? Section manipulation.
+        setInterestedSection("#interested-header", "#interested-subheader", "#get-in-touch-btn", "minus");
+        
+        
+        // Set Bar container grid
+        setBarGrid("#bars-containers", "minus");
+
+        
+        // Set Bar Grid Rows
+        setBarGridRows("#bars-containers", "minus");
+
     }
 }
 
 function disciplineBtnClick(){
     let bar_clicked_id = 8;
+    let grid_str;
 
     if ($("#discipline-cntent").css("display") == "none") {
         rotateImage(img_dict[bar_clicked_id], 90);
         $("#discipline-cntent").slideToggle();
         console.log("content is hidden!");
+
+
+        // Prod Analysis Grid Manipulation
+        grid_str = getGridRepeatVal("#prod-analysis-cnt");
+        setGridRepeatVal("#prod-analysis-cnt", grid_str, "add");
+
+
+        // Set Footer section
+        setFooterPosition("#fter-cnt-prod", "add");
+
+
+        // Set Interested? Section.
+        setInterestedSection("#interested-header", "#interested-subheader", "#get-in-touch-btn", "add");
+
+
+        // Set Bar container grid
+        setBarGrid("#bars-containers", "add");
+
+        
+        // Set Bar Grid Rows
+        setBarGridRows("#bars-containers", "add");
+
     }
+
+
     else {
         $("#discipline-cntent").css("display", "none");
         rotateImage(img_dict[bar_clicked_id], 0);
         console.log("content is visible!");
+    
+
+        // Prod Analysis Grid Manipulation
+        grid_str = getGridRepeatVal("#prod-analysis-cnt");
+        setGridRepeatVal("#prod-analysis-cnt", grid_str, "minus");
+
+
+        // Footer section manipulation
+        setFooterPosition("#fter-cnt-prod", "minus");
+
+        // Interested? Section manipulation.
+        setInterestedSection("#interested-header", "#interested-subheader", "#get-in-touch-btn", "minus");
+        
+        
+        // Set Bar container grid
+        setBarGrid("#bars-containers", "minus");
+
+        
+        // Set Bar Grid Rows
+        setBarGridRows("#bars-containers", "minus");
+
     }
 }
