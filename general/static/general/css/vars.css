@@ -145,7 +145,7 @@
     background-color: var(--sxd-yellow);
     color: black;
     padding: 0.15em 1em 0.15em 1em; 
-    border: 0.05em solid black;
+    border: 0.05em solid var(--sxd-yellow);
     border-radius: 0.25em;
     text-decoration: none;
     

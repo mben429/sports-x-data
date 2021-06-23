@@ -17,11 +17,13 @@
     <script type="text/javascript" src="{% static 'general/js/TeamCentreData.js' %}"></script>
     <script type="text/javascript" src="{% static 'general/js/ProductPages.js'%}"></script>
     <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
-    <link rel="stylesheet" href="{% static 'general/css/base.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static 'general/css/medium_screen.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static 'general/css/small_screen.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static 'general/css/large_screen.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static 'general/css/extra_large_screen.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'general/css/xx-small.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'general/css/x-small.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'general/css/small.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'general/css/medium.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'general/css/large.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'general/css/x-large.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'general/css/xx-large.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'general/css/main_styles.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'general/css/hover-min.css' %}" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -34,23 +36,26 @@
 
 <body>
     <div class="header-container">
-      <div class="nav-logo" data-aos="fade-right">
+      <div class="nav-logo marg-top" data-aos="fade-right">
         <a href="/">
           <img class="logo-image" src="{% static 'general/images/new_logo.PNG' %}">
         </a>
         </div>
-      <div class="home-sect navbar-btn">
+      <div class="home-sect navbar-btn marg-top">
         <a href="/" class="btn-nav">Home |</a>
       </div>
-      <div class="contact-sect navbar-btn">
+      <div class="analysis-sect navbar-btn marg-top">
+        <a href="/analysis" class="btn-nav">Analysis |</a>
+      </div>
+      <div class="contact-sect navbar-btn marg-top">
         <a href="/contact" class="btn-nav">Contact Us |</a>
       </div>
-      <div class="user-sect navbar-btn">
+      <div class="user-sect navbar-btn marg-top">
         {% if user.is_authenticated %}
           <a href="/team_centre" class="btn-login">Team Centre</a>
           <a href="/logout" class="btn-logout">Logout</a>
         {% else %}
-          <a href="/login" class="btn-login">Team Centre Log In</a>
+          <a href="/login" class="btn-login">Login to Team Centre</a>
         {% endif %}
         </div>
     </div>

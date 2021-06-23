@@ -141,12 +141,12 @@ function setFooterPosition(id, op){
 
 
     if (op == "add"){
-        setNewStartRowVal(id, strt_row + 3);
-        setNewEndRowVal(id, end_row + 3);
+        setNewStartRowVal(id, strt_row + 4);
+        setNewEndRowVal(id, end_row + 4);
     }
     else if (op == "minus"){
-        setNewStartRowVal(id, strt_row - 3);
-        setNewEndRowVal(id, end_row - 3);
+        setNewStartRowVal(id, strt_row - 4);
+        setNewEndRowVal(id, end_row - 4);
     }
 }
 
@@ -159,37 +159,36 @@ function setInterestedSection(header_id, subheader_id, btn_id, op){
     let btn_er = getEndRowVal(btn_id);
 
     if (op == "add"){
-        setNewStartRowVal(header_id, header_sr + 3);
-        setNewEndRowVal(header_id, header_er + 3);
-        setNewStartRowVal(subheader_id, subheader_sr + 3);
-        setNewEndRowVal(subheader_id, subheader_er + 3);
-        setNewStartRowVal(btn_id, btn_sr + 3);
-        setNewEndRowVal(btn_id, btn_er + 3);
+        setNewStartRowVal(header_id, header_sr + 4);
+        setNewEndRowVal(header_id, header_er + 4);
+        setNewStartRowVal(subheader_id, subheader_sr + 4);
+        setNewEndRowVal(subheader_id, subheader_er + 4);
+        setNewStartRowVal(btn_id, btn_sr + 4);
+        setNewEndRowVal(btn_id, btn_er + 4);
     }
     else if (op == "minus"){
-        setNewStartRowVal(header_id, header_sr - 3);
-        setNewEndRowVal(header_id, header_er - 3);
-        setNewStartRowVal(subheader_id, subheader_sr - 3);
-        setNewEndRowVal(subheader_id, subheader_er - 3);
-        setNewStartRowVal(btn_id, btn_sr - 3);
-        setNewEndRowVal(btn_id, btn_er - 3);
+        setNewStartRowVal(header_id, header_sr - 4);
+        setNewEndRowVal(header_id, header_er - 4);
+        setNewStartRowVal(subheader_id, subheader_sr - 4);
+        setNewEndRowVal(subheader_id, subheader_er - 4);
+        setNewStartRowVal(btn_id, btn_sr - 4);
+        setNewEndRowVal(btn_id, btn_er - 4);
     }
 }
 
 function setBarGrid(grid_id, op){
-    /*
-    let bar_grid_er = getEndRowVal(grid_id);
+    let end_row = getEndRowVal(grid_id);
 
-    if (op == "add") {
-        setNewEndRowVal(grid_id, bar_grid_er + 3);
+    if (op == "add"){
+        setNewEndRowVal(grid_id, end_row + 4);
     }
-    else if (op == "minus") {
-        setNewEndRowVal(grid_id, bar_grid_er - 3);
+    else if (op == "minus"){
+        setNewEndRowVal(grid_id, end_row - 4);
     }
-    */
 }
 
 function setBarGridRows(grid_id, op){
+    /* 
     let gtr = getGridTemplateVals(grid_id);
     let gtr_arr = gtr.split(" ");
     let arr_length = gtr_arr.length;
@@ -211,18 +210,19 @@ function setBarGridRows(grid_id, op){
     }
 
     else if (op == "minus") {
-        new_gtr_arr = gtr_arr.slice(0, arr_length - 3);
+        new_gtr_arr = gtr_arr.slice(0, arr_length - 4);
         new_gtr = new_gtr_arr.join(' ');
         console.log("New GTR: ", new_gtr_arr.length);
     }
     
     $("#bars-containers").css("grid-template-rows", new_gtr);
+    */
 }
 
 
 
 // BAR BUTTONS CLICK FUNCTIONS
-
+const toggle_speed = 0;
 
 function overviewBtnClick(){
     let bars_affected_list = [2, 3, 4, 5, 6, 7, 8];
@@ -234,7 +234,7 @@ function overviewBtnClick(){
 
     if ($("#overview-cntent").css("display") == "none") {
         rotateImage(img_dict[bar_clicked_id], 90);
-        $("#overview-cntent").slideToggle();
+        $("#overview-cntent").slideToggle(toggle_speed);
         console.log("content is hidden!");
         setBarRowVals(bar_clicked_id, bars_affected_list, false);
 
@@ -299,7 +299,7 @@ function attackBtnClick(){
 
     if ($("#attack-cntent").css("display") == "none") {
         rotateImage(img_dict[bar_clicked_id], 90);
-        $("#attack-cntent").slideToggle();
+        $("#attack-cntent").slideToggle(toggle_speed);
         console.log("content is hidden!");
         setBarRowVals(bar_clicked_id, bars_affected_list, false);
 
@@ -362,7 +362,7 @@ function defenseBtnClick(){
 
     if ($("#defense-cntent").css("display") == "none") {
         rotateImage(img_dict[bar_clicked_id], 90);
-        $("#defense-cntent").slideToggle();
+        $("#defense-cntent").slideToggle(toggle_speed);
         console.log("content is hidden!");
         setBarRowVals(bar_clicked_id, bars_affected_list, false);
 
@@ -425,7 +425,7 @@ function kgBtnClick(){
 
     if ($("#kg-cntent").css("display") == "none") {
         rotateImage(img_dict[bar_clicked_id], 90);
-        $("#kg-cntent").slideToggle();
+        $("#kg-cntent").slideToggle(toggle_speed);
         console.log("content is hidden!");
         setBarRowVals(bar_clicked_id, bars_affected_list, false);
 
@@ -488,7 +488,7 @@ function bhBtnClick(){
 
     if ($("#bh-cntent").css("display") == "none") {
         rotateImage(img_dict[bar_clicked_id], 90);
-        $("#bh-cntent").slideToggle();
+        $("#bh-cntent").slideToggle(toggle_speed);
         console.log("content is hidden!");
         setBarRowVals(bar_clicked_id, bars_affected_list, false);
 
@@ -552,7 +552,7 @@ function rmBtnClick(){
 
     if ($("#rm-cntent").css("display") == "none") {
         rotateImage(img_dict[bar_clicked_id], 90);
-        $("#rm-cntent").slideToggle();
+        $("#rm-cntent").slideToggle(toggle_speed);
         console.log("content is hidden!");
         setBarRowVals(bar_clicked_id, bars_affected_list, false);
 
@@ -617,7 +617,7 @@ function spBtnClick(){
 
     if ($("#sp-cntent").css("display") == "none") {
         rotateImage(img_dict[bar_clicked_id], 90);
-        $("#sp-cntent").slideToggle();
+        $("#sp-cntent").slideToggle(toggle_speed);
         console.log("content is hidden!");
         setBarRowVals(bar_clicked_id, bars_affected_list, false);
 
@@ -680,7 +680,7 @@ function disciplineBtnClick(){
 
     if ($("#discipline-cntent").css("display") == "none") {
         rotateImage(img_dict[bar_clicked_id], 90);
-        $("#discipline-cntent").slideToggle();
+        $("#discipline-cntent").slideToggle(toggle_speed);
         console.log("content is hidden!");
 
 
