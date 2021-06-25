@@ -307,14 +307,14 @@
   .form-field {
       background-color: black;
       border-style: solid;
-      border-radius: 5px;
+      border-radius: 2px;
       border-color: var(--massey-yellow);
       color: white;
       border-width: 0.5px;
-      font-size: 0.7em;
+      font-size: 0.55em;
       font-family: "Noto Sans", "Sans-Serif";
-      padding: 5px;
-      width: 20em;
+      padding: 1.2em;
+      width: 25em;
   }
 
   .success-page-header {
