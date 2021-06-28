@@ -7,7 +7,7 @@
   body {
     background-color: black;
     color: white;
-    font-family: "Noto Sans", "Sans-Serif";
+    font-family: 'Abel', sans-serif;
     margin: 0px;
     
   }
@@ -927,8 +927,10 @@
   }
 
   .analysis-img {
-    max-width: 75%;
+    max-width: 40%;
     max-height: auto;
+    margin-left: 2.2em;
+    margin-top: 0.5em;
   }
   
   #analysis-inf-h {
@@ -1106,8 +1108,17 @@
     background-color: white;
   }
 
-  #prod-header {
-    grid-area: 1 / 1 / 2 / 5;
+  #analysis-prod-header-img-cntainer {
+    grid-area: 1 / 1 / 2 / 2;
+    padding-left: 0.5em;
+  }
+
+  #analysis-prod-header-img {
+    width: 90%;
+  }
+
+  #analysis-prod-header {
+    grid-area: 1 / 2 / 2 / 4;
   }
 
   #prod-lg-txt {
@@ -1448,5 +1459,4 @@
   #ov-p11 {
     grid-area: 11 / 7 / 16 / 10;
   }
-
 }

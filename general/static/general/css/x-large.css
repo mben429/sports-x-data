@@ -5,7 +5,7 @@
     body {
         background-color: black;
         color: white;
-        font-family: "Noto Sans", "Sans-Serif";
+        font-family: 'Abel', sans-serif;
         margin: 0px;
         
       }
@@ -952,8 +952,9 @@
   }
 
   .analysis-img {
-    max-width: 75%;
+    max-width: 50%;
     max-height: auto;
+    margin-left: 1em;
   }
   
   #analysis-inf-h {
@@ -1128,6 +1129,19 @@
     grid-template-rows: repeat(46, 100px);
     grid-template-columns: repeat(24, 1fr);
     background-color: white;
+  }
+
+  #analysis-prod-header-img-cntainer {
+    grid-area: 1 / 1 / 2 / 2;
+    padding-left: 0.5em;
+  }
+
+  #analysis-prod-header-img {
+    width: 90%;
+  }
+
+  #analysis-prod-header {
+    grid-area: 1 / 2 / 2 / 4;
   }
 
   #prod-header {
