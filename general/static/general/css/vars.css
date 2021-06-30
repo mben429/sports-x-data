@@ -5,6 +5,7 @@
     --sxd-red: #9B0000;
     --rosmini-blue: #225fb3;
     --light-grey: #F0F0F0;
+    --very-light-grey: #e5e5e5;
 
     --med-header-txt: 1em;
     --med-std-txt: 0.5em;
@@ -59,6 +60,10 @@
     --toulon-black: rgb(15,17,15);
 
     font-size: calc(1vw + 0.75vh + .5vmin);
+}
+
+.very-light-grey {
+    color: var(--very-light-grey);
 }
 
 .txt-s1 {
