@@ -1221,13 +1221,14 @@
 
   #prod-lg-txt {
       grid-area: 3 / 2 / 4 / 13;
-      font-size: 1.5em;
+      font-size: 2.5em;
       padding-top: 0em;
   }
 
   #prod-subtxt {
     grid-area: 5 / 2 / 6 / 13;
-    font-size: 0.8em;
+    font-size: 0.9em;
+    padding-top: 2.5em;
   }
 
   #prod-top-btn {
@@ -1254,7 +1255,7 @@
   #prod-subheader-1-title {
     grid-area: 12 / 14 / 13 / 24; 
     text-align: center;
-    font-size: 1.5em;
+    font-size: 2.3em;
   }
 
   #prod-subheader-1-bp-cnt {
@@ -1262,7 +1263,8 @@
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(12, 1fr);
-    font-size: 1.2em;
+    font-size: 1.4em;
+    padding-top: 1em;
   }
 
   #prod-subheader-bp-1 {
@@ -1271,15 +1273,16 @@
   }
 
   #prod-subheader-bp-2 {
-    grid-area: 4 / 1 / 6 / 13;
+    grid-area: 5 / 1 / 7/ 13;
   }
 
   #prod-subheader-bp-3 {
-    grid-area: 7 / 1 / 9 / 13;
+    grid-area: 9 / 1 / 11 / 13;
   }
 
   #prod-subheader-2-title-cnt {
     grid-area: 20 / 2 / 21 / 13;
+    font-size: 2.3em;
   }
 
   #prod-subheader-2-img-cnt {
@@ -1295,6 +1298,7 @@
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(12, 1fr);
+    font-size: 1.25em;
   }
 
   #prod-subheader-2-bp-1 {

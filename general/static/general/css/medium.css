@@ -1058,7 +1058,7 @@
   }
 
   .bullet-pnt {
-    
+
   }
   
   #gp-bp-1 {
@@ -1198,18 +1198,21 @@
 
   #prod-lg-txt {
       grid-area: 2 / 2 / 6 / 13;
-      font-size: 1.5em;
+      font-size: 2em;
       padding-top: 0em;
   }
 
   #prod-subtxt {
-    grid-area: 3 / 2 / 5 / 13;
-    font-size: 0.8em;
+    grid-area: 3 / 2 / 4 / 13;
+    font-size: 0.95em;
+    padding-top:2.5em;
   }
 
   #prod-top-btn {
-    grid-area: 5 / 2 / 6 / 7;
+    grid-area: 4 / 2 / 5 / 7;
     font-size: 1.5em;
+    padding-top:1.2em;
+
   }
 
   #prod-header-im-cnt {
@@ -1232,7 +1235,7 @@
   #prod-subheader-1-title {
     grid-area: 9 / 14 / 10 / 24; 
     text-align: center;
-    font-size: 1.5em;
+    font-size: 2em;
   }
 
   #prod-subheader-1-bp-cnt {
@@ -1240,7 +1243,7 @@
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(12, 1fr);
-    font-size: 1.2em;
+    font-size: 1.5em;
   }
 
   #prod-subheader-bp-1 {
@@ -1258,6 +1261,7 @@
 
   #prod-subheader-2-title-cnt {
     grid-area: 14 / 2 / 15 / 13;
+    font-size: 2em;
   }
 
   #prod-subheader-2-img-cnt {
@@ -1273,6 +1277,7 @@
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(12, 1fr);
+    font-size: 1.2em;
   }
 
   #prod-subheader-2-bp-1 {
