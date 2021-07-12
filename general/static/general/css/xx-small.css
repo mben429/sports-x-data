@@ -1199,7 +1199,7 @@
       /*Start of analysis product styles*/
       #prod-analysis-cnt {
         display: grid;
-        grid-template-rows: repeat(26, 100px);
+        grid-template-rows: repeat(26, 70px);
         grid-template-columns: repeat(24, 1fr);
         background-color: white;
       }
@@ -1218,17 +1218,21 @@
       }
 
       #prod-lg-txt {
-          grid-area: 2 / 2 / 6 / 13;
-          font-size: 1.5em;
+          grid-area: 2 / 2 / 3 / 16;
+          font-size: 1.8em;
+          font-style: bold;
+          padding-top: 0px;
       }
       
       #prod-subtxt {
         grid-area: 3 / 2 / 4 / 13;
-        font-size: 0.8em; 
+        font-size: 1em; 
       }
       
       #prod-top-btn {
-        grid-area: 4 / 2 / 5 / 6;
+        grid-area: 4 / 2 / 5 / 9;
+        margin-top: 1.8em;
+        font-size: 1.5em;
       }
       
       #prod-header-im-cnt {
@@ -1250,13 +1254,15 @@
       #prod-subheader-1-title {
         grid-area: 5 / 14 / 6 / 23; 
         text-align: center;
+        font-size: 2.2em;
       }
       
       #prod-subheader-1-bp-cnt {
-        grid-area: 6 / 13 / 8 / 24;
+        grid-area: 6 / 13 / 9 / 24;
         display: grid;
         grid-template-columns: repeat(12, 1fr);
         grid-template-rows: repeat(12, 1fr);
+        margin-top: 1.5em;
       }
       
       #prod-subheader-bp-1 {
@@ -1265,15 +1271,16 @@
       }
       
       #prod-subheader-bp-2 {
-        grid-area: 4 / 1 / 6 / 13;
+        grid-area: 4 / 1 / 7 / 13;
       }
       
       #prod-subheader-bp-3 {
-        grid-area: 7 / 1 / 9 / 13;
+        grid-area: 8 / 1 / 11 / 13;
       }
       
       #prod-subheader-2-title-cnt {
         grid-area: 9 / 2 / 10 / 13;
+        font-size: 2.2em;
       }
       
       #prod-subheader-2-img-cnt {
@@ -1292,7 +1299,7 @@
       }
       
       #prod-subheader-2-bp-1 {
-        grid-area: 3 / 1 / 7 / 13;
+        grid-area: 3 / 1 / 12 / 13;
       }
       
       #prod-subheader-3-cnt {
@@ -1301,7 +1308,8 @@
       }
 
       .analysis-bp-im {
-        width: 15%;
+        max-width: 15%;
+        text-align: left;
       }
 
       #analysis-save-im-sm {
@@ -1309,18 +1317,18 @@
       }
 
       #analysis-save-txt {
-        font-size: 1.5em; 
+        font-size: 1.8em; 
       }
 
       .analysis-bp-txt {
-        font-size: 1.5em;
+        font-size: 2em;
       }
       
       #bars-containers {
         grid-area: 13 / 4 / 18 / 22;
         display: grid;
         grid-template-columns: repeat(7, 1fr);
-        grid-template-rows: repeat(9, 100px);
+        grid-template-rows: repeat(9, 70px);
       }
       
       .bar {
@@ -1422,6 +1430,10 @@
         100% {
           transform: rotate(90deg)
         }
+      }
+
+      .arrow-img {
+        max-width: 60%;
       }
       
       .arrow-img:hover {
