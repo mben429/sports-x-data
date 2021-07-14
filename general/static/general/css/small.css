@@ -14,7 +14,7 @@
   .header-container {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: 40px;
+    grid-template-rows: 3.5em;
 
     color: white;
     background-color: black;
@@ -42,7 +42,7 @@
   .navbar-btn {
     display: flex;
     align-items: center;
-    font-size:0.75em
+    font-size:0.85em
   }
 
   .contact-sect {
@@ -108,8 +108,8 @@
 
   .btn-login {
     border-radius: 2.5px;
-    padding-right: 10px;
-    padding-left: 10px;
+    padding-right: 35px;
+    padding-left: 35px;
     padding-top: 1.25px;
     padding-bottom: 1.25px;
     color: black;
@@ -123,8 +123,8 @@
 
   .btn-login:hover {
     border-radius: 2.5px;
-    padding-right: 10px;
-    padding-left: 10px;
+    padding-right: 35px;
+    padding-left: 35px;
     padding-top: 1.25px;
     padding-bottom: 1.25px;
     color: var(--massey-yellow);
@@ -178,7 +178,7 @@
     text-decoration: none;
     padding-left: 20px;
     padding-right: 20px;
-    font-size: 0.95em
+    font-size: 0.95em;
   }
 
   .btn-learn-more:hover{
@@ -191,15 +191,16 @@
     text-decoration: none;
     padding-left: 10px;
     padding-right: 10px;
-    font-size: 0.75em
+    font-size: 0.95em;
+
   }
 
   .hom-img-centre {
     display: grid;
     margin-left: auto;
     margin-right: auto;
-    width: 70%;
-    padding-top: 15px;
+    max-width: 90%;
+    padding-top: 1em;
     grid-area: 1 / 1 / 5 / 5;
   }
 
