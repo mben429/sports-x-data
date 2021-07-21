@@ -1314,7 +1314,7 @@
       }
       
       #prod-subheader-2-bp-cnt {
-        grid-area: 10 / 2 / 13 / 13;
+        grid-area: 10 / 2 / 12 / 13;
         display: grid;
         grid-template-columns: repeat(12, 1fr);
         grid-template-rows: repeat(12, 1fr);
@@ -1322,7 +1322,7 @@
       }
       
       #prod-subheader-2-bp-1 {
-        grid-area: 3 / 1 / 12 / 13;
+        grid-area: 1 / 1 / 12 / 13;
       }
       
       #prod-subheader-3-cnt {
