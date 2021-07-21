@@ -1240,8 +1240,7 @@
       }
       
       #prod-subheader-1-title {
-        grid-area: 6 / 14 / 7 / 23; 
-        text-align: center;
+        grid-area: 6 / 13 / 7 / 23; 
       }
       
       #prod-subheader-1-bp-cnt {
