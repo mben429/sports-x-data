@@ -46,7 +46,13 @@
       .contact-sect {
         display: flex;
         align-items: center;
-        grid-area: 1 / 5 / 3 / 7;
+        grid-area: 1 / 6 / 2 / 7;
+      }
+
+      .gp-sect {
+        display: flex;
+        align-items: center;
+        grid-area: 1 / 5 / 2 / 6;
       }
     
       .analysis-sect {
@@ -79,6 +85,11 @@
       .contact-sect a:hover {
         text-decoration: none;
     
+        color: var(--massey-yellow);
+      }
+
+      .gp-sect a:hover {
+        text-decoration: none;
         color: var(--massey-yellow);
       }
     
@@ -1562,5 +1573,123 @@
 
   #ov-p11 {
     grid-area: 11 / 7 / 16 / 10;
+  }
+
+  /*Gameplan styles*/
+
+  #prod-subheader-3-title {
+    grid-area: 13 / 13 / 14 / 24;
+    font-size: 2.2em; 
+  }
+
+  #prod-subheader-3-bp-cnt {
+    grid-area: 15 / 13 / 18 / 24;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    font-size: 0.8em;
+  }
+
+  #interested-header-gp {
+    grid-area: 66 / 4 / 67 / 21;
+    text-align: center;
+    font-size: 2.5em;
+  }
+
+  #interested-subheader-gp {
+    grid-area: 68 / 6 / 69 / 19;
+    text-align: center;
+    font-size: 1.2em;
+  }
+
+  #get-in-touch-btn-gp {
+    grid-area: 71 / 8 / 72 / 17;
+    font-size: 2em;
+  }
+
+  #prod-gp-cnt {
+    display: grid;
+    grid-template-rows: repeat(80, 70px);
+    grid-template-columns: repeat(24, 1fr);
+    background-color: white;
+  }
+
+  #gp-secure-img {
+    width: 60%;
+  }
+
+  #prod-subheader-1-title-gp {
+    grid-area: 17 / 12 / 18 / 23; 
+    font-size: 2.7em;
+  }
+  
+  #prod-subheader-1-bp-cnt-gp {
+    grid-area: 19 / 12 / 28 / 24;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    font-size: 1.7em;
+    padding-top: 1.5em;
+  }
+
+  #prod-subheader-1-im-cnt-gp {
+    grid-area: 17 / 1 / 21 / 9;
+  }
+
+  #prod-subheader-2-title-cnt-gp {
+    grid-area: 34 / 2 / 35 / 17;
+    font-size: 2.7em;
+  }
+
+  #prod-subheader-2-bp-cnt-gp {
+    grid-area: 37 / 2 / 45 / 13;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    font-size: 1.7em;
+    padding-top: 1em;
+  }
+
+  #prod-subheader-2-img-cnt-gp {
+    grid-area: 37 / 14 / 46 / 24;
+  }
+
+  #prod-subheader-3-img-cnt-gp {
+    grid-area: 53 / 4 / 59 / 12;
+  }
+
+  #prod-subheader-3-title-cnt-gp {
+    grid-area: 50 / 12 / 51 / 25;
+    font-size: 2.5em;
+  }
+
+  #prod-subheader-3-bp-cnt-gp {
+    grid-area: 55 / 12 / 64 / 25;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    font-size: 1.7em;
+    padding-top: 1em;
+  }
+
+  #fter-cnt-gp {
+    grid-area: 75 / 1 / 81 / 25;
+  }
+
+  #prod-lg-txt-gp {
+    grid-area: 3 / 2 / 7 / 13;
+    font-size: 2.6em;
+    padding-top: 0em;
+  }
+
+  #prod-subtxt-gp {
+    grid-area: 8 / 2 / 9 / 13;
+    font-size: 0.9em;
+  }
+
+  #prod-top-btn-gp {
+    grid-area: 10 / 2 / 11 / 6;
+    font-size: 1.7em;
+    padding-top: 0.5em;
   }
 }

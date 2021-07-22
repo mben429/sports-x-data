@@ -51,10 +51,16 @@
       .contact-sect {
         display: flex;
         align-items: center;
-        grid-area: 1 / 5 / 2 / 7;
+        grid-area: 1 / 6 / 2 / 7;
       }
 
-      .analysis-sec {
+      .gp-sect {
+        display: flex;
+        align-items: center;
+        grid-area: 1 / 5 / 2 / 6;
+      }
+
+      .analysis-sect {
         display: flex;
         align-items: center;
         grid-area: 1 / 4 / 2 / 5;
@@ -72,6 +78,11 @@
       }
     
       .home-sect a:hover {
+        text-decoration: none;
+        color: var(--massey-yellow);
+      }
+
+      .gp-sect a:hover {
         text-decoration: none;
         color: var(--massey-yellow);
       }
@@ -1593,6 +1604,8 @@
         font-size: 2em;
       }
 
+      /*Gameplan styles*/
+
       #prod-subheader-3-title {
         grid-area: 13 / 13 / 14 / 24;
         font-size: 2.2em; 
@@ -1634,9 +1647,63 @@
         width: 75%;
       }
 
-      #prod-subheader-3-img-cnt {
-        grid-area: 15 / 3 / 18 / 12;
+      #prod-subheader-1-title-gp {
+        grid-area: 5 / 13 / 6 / 23; 
+        font-size: 2.2em;
       }
+      
+      #prod-subheader-1-bp-cnt-gp {
+        grid-area: 6 / 13 / 9 / 24;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: repeat(12, 1fr);
+        margin-top: 1.5em;
+      }
+
+      #prod-subheader-1-im-cnt-gp {
+        grid-area: 6 / 2 / 8 / 11;
+      }
+
+      #prod-subheader-2-title-cnt-gp {
+        grid-area: 9 / 2 / 10 / 17;
+        font-size: 2.2em;
+      }
+
+      #prod-subheader-2-bp-cnt-gp {
+        grid-area: 10 / 2 / 13 / 13;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: repeat(12, 1fr);
+        font-size: 0.9em;
+      }
+
+      #prod-subheader-2-img-cnt-gp {
+        grid-area: 10 / 14 / 12 / 24;
+      }
+
+      #prod-subheader-3-img-cnt-gp {
+        grid-area: 14 / 2 / 17 / 12;
+      }
+   
+      #prod-subheader-3-title-cnt-gp {
+        grid-area: 13 / 11 / 14 / 25;
+        font-size: 2em;
+      }
+
+      #prod-subheader-3-bp-cnt-gp {
+        grid-area: 14 / 11 / 17 / 25;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: repeat(12, 1fr);
+        font-size: 0.9em;
+        padding-top: 1.5em;
+      }
+
+      #fter-cnt-gp {
+        grid-area: 23 / 1 / 25 / 25;
+      }
+      
+
 
 
   }

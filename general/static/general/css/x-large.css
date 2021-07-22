@@ -47,7 +47,13 @@
       .contact-sect {
         display: flex;
         align-items: center;
-        grid-area: 1 / 5 / 3 / 7;
+        grid-area: 1 / 6 / 3 / 7;
+      }
+
+      .gp-sect {
+        display: flex;
+        align-items: center;
+        grid-area: 1 / 5 / 3 / 6;
       }
     
       .analysis-sect {
@@ -81,6 +87,11 @@
       .contact-sect a:hover {
         text-decoration: none;
     
+        color: var(--massey-yellow);
+      }
+
+      .gp-sect a:hover {
+        text-decoration: none;
         color: var(--massey-yellow);
       }
 
@@ -1576,6 +1587,122 @@
 
   #ov-p11 {
     grid-area: 11 / 7 / 16 / 10;
+  }
+
+  /*Gameplan styles*/
+
+  #prod-subheader-3-title {
+    grid-area: 13 / 13 / 14 / 24;
+    font-size: 2.2em; 
+  }
+
+  #prod-subheader-3-bp-cnt {
+    grid-area: 15 / 13 / 18 / 24;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    font-size: 0.8em;
+  }
+
+  #interested-header-gp {
+    grid-area: 54 / 4 / 55 / 21;
+    text-align: center;
+    font-size: 2.5em;
+  }
+
+  #interested-subheader-gp {
+    grid-area: 56 / 6 / 57 / 19;
+    text-align: center;
+    font-size: 1.2em;
+  }
+
+  #get-in-touch-btn-gp {
+    grid-area: 58 / 8 / 59 / 17;
+    font-size: 2em;
+  }
+
+  #prod-gp-cnt {
+    display: grid;
+    grid-template-rows: repeat(65, 70px);
+    grid-template-columns: repeat(24, 1fr);
+    background-color: white;
+  }
+
+  #gp-secure-img {
+    width: 60%;
+  }
+
+  #prod-subheader-1-title-gp {
+    grid-area: 14 / 12 / 15 / 23; 
+    font-size: 2.7em;
+  }
+  
+  #prod-subheader-1-bp-cnt-gp {
+    grid-area: 16 / 12 / 23 / 24;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    font-size: 1.7em;
+    padding-top: 1em;
+  }
+
+  #prod-subheader-1-im-cnt-gp {
+    grid-area: 15 / 1 / 20 / 9;
+  }
+
+  #prod-subheader-2-title-cnt-gp {
+    grid-area: 25 / 2 / 26 / 17;
+    font-size: 2.7em;
+  }
+
+  #prod-subheader-2-bp-cnt-gp {
+    grid-area: 26 / 2 / 34 / 13;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    font-size: 1.7em;
+    padding-top: 2em;
+  }
+
+  #prod-subheader-2-img-cnt-gp {
+    grid-area: 26 / 14 / 31 / 24;
+  }
+
+  #prod-subheader-3-img-cnt-gp {
+    grid-area: 37 / 3 / 43 / 12;
+  }
+
+  #prod-subheader-3-title-cnt-gp {
+    grid-area: 36 / 12 / 37 / 25;
+    font-size: 2.5em;
+  }
+
+  #prod-subheader-3-bp-cnt-gp {
+    grid-area: 41 / 12 / 48 / 25;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    font-size: 1.9em;
+  }
+
+  #fter-cnt-gp {
+    grid-area: 61 / 1 / 66 / 25;
+  }
+
+  #prod-lg-txt-gp {
+    grid-area: 3 / 2 / 7 / 13;
+    font-size: 2.6em;
+    padding-top: 0em;
+  }
+
+  #prod-subtxt-gp {
+    grid-area: 7 / 2 / 8 / 13;
+    font-size: 0.9em;
+  }
+
+  #prod-top-btn-gp {
+    grid-area: 9 / 2 / 10 / 6;
+    font-size: 1.7em;
   }
 
 }
