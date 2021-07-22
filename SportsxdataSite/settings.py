@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'file_upload',
     'storages',
     'rest_framework',
+    'register_interest',
 ]
 
 MIDDLEWARE = [

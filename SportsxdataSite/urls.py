@@ -22,5 +22,6 @@ urlpatterns = [
     path('', include('contactform.urls')),
     path('', include('users.urls')),
     path('', include('file_upload.urls')),
+    path('', include('register_interest.urls')),
 
 ]

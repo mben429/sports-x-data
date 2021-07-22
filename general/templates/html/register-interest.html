@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="contact-grid-container">
+    <div class="contact-page-header flex-centre" data-aos="fade-right">
+        Register Interest<text style="color:var(--massey-yellow);">.</text>
+    </div>
+
+    <div class="form" data-aos="fade-right">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="submit-btn">Register Interest</button>
+        </form>
+    </div>
+
+    <div class="contact-info-header" data-aos="fade-right">
+        Contact Info<text style="color:var(--massey-yellow);">.</text>
+    </div>
+
+    <div class="contact-info-text" data-aos="fade-right">
+        <text style="color: var(--massey-yellow);">Email:</text> mike@sportsxdatanz.com
+        <br>
+        <br>
+        <text style="color: var(--massey-yellow);">Ph:</text> (09) 600 3277
+    </div>
+</div>
+{% endblock %}
