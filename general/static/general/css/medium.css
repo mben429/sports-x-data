@@ -311,7 +311,7 @@
       font-size: 0.55em;
       font-family: "Noto Sans", "Sans-Serif";
       padding: 1.2em;
-      width: 25em;
+      width: 30em;
   }
 
   .success-page-header {
@@ -356,10 +356,10 @@
     }
 
   .login-page-header {
-    font-size: 1.1em;
+    font-size: 2.1em;
     grid-area: 1 / 2 / 2 / 6;
     text-align: center;
-    padding-top: 25px;
+    padding-top: 0.5em;
   }
 
   .login-page-button {
@@ -388,10 +388,12 @@
     color: var(--massey-yellow);
     border-style: solid;
     border-width: 1px;
+    border-radius: 4px;
+
     border-color: var(--massey-yellow);
     background-color: black;
     text-decoration: none;
-    font-size: 0.9em;
+    font-size: 0.75em;
   }
 
   #login-again-id {

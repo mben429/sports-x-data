@@ -321,14 +321,14 @@
       .form-field {
           background-color: black;
           border-style: solid;
-          border-radius: 5px;
+          border-radius: 1.5px;
           border-color: var(--massey-yellow);
           color: white;
-          border-width: 0.5px;
+          border-width: 0.1px;
           font-size: 0.7em;
           font-family: "Noto Sans", "Sans-Serif";
           padding: 5px;
-          width: 15em;
+          width: 20em;
       }
     
       .success-page-header {
@@ -369,12 +369,12 @@
     
       .form-login {
         display: block;
-        grid-area: 2 / 2 / 7 / 6;
+        grid-area: 2 / 1 / 7 / 7;
         text-align: center;
         }
     
       .login-page-header {
-        font-size: 1.3em;
+        font-size: 2em;
         grid-area: 1 / 2 / 2 / 6;
         text-align: center;
         padding-top: 15px;
