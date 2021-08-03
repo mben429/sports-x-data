@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-<div class="cnt-overall" id="cnt-overview">
+<div class="cnt-overall" id="cnt-overview-tc ">
     <div id="left-col">
         <div class="flex-centre" id="left-col-header-cnt">
             <div id="sm-logo-cnt">
@@ -53,13 +53,6 @@
         </div>
     </div>
     <div id="middle-col">
-        <div class="lg-team-logo-cnt" id="lg-team-logo-cnt-id">
-            <span class="Centerer"></span>
-            <img class="logo-im" src="{% static 'general/images/rosmini_logo_org_lg.png' %}">
-        </div>
-        <div class="lger-header-txt" id="tm-header">Rosmini College <text class="sxd-y">1st XV.</text></div>
-        <div class="med-header-txt" id="tm-season">2021 Season<text class="sxd-y">.</text></div>
-        <button class="std-btn med-std-txt" id="season-choose-btn">Choose Season</button>
         <div class="lg-header-txt" id="tc-home-main-header"></div>
         <div class="lg-container-mid" id="tc-home-main-content"></div>
     </div>
@@ -104,7 +97,7 @@
         $("#tc-home-main-content").html(table_content);
     }
 
-    showStandings(data["team_user_name"]);
+    
 
     function showFixturesResults(){
 
@@ -132,6 +125,7 @@
                 // Team Name correction
                 else if (j == 1) {
                     let curr_team_ag = tmStdName[games[i][j]];
+                    console.log(curr_team_ag);
                     table_content += '<td>' + curr_team_ag + '</td>';
                 }
                 // Match Centre button
@@ -153,6 +147,8 @@
         }
         $("#tc-home-main-content").html(table_content);
     }
+
+    showFixturesResults(data["team_user_name"]);
 
     function getMatchData(game_id) {
         var stats = data["team_stat_data"];
