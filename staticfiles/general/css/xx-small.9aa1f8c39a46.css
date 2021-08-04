@@ -1,5 +1,5 @@
 /*xx-s Css file, meant for mobile phones*/
-@import "vars.css";
+@import url("vars.30cd71c3360e.css");
 
 
 @media (min-width: 300px) and  (max-width: 599px){

@@ -25,7 +25,7 @@
       }
     
       .logo-image {
-        max-width: 50%;
+        max-width: 45%;
         max-height: auto;
         float:left;
         margin-left: 15px;
@@ -320,10 +320,10 @@
           border-color: var(--massey-yellow);
           color: white;
           border-width: 0.5px;
-          font-size: 0.55em;
+          font-size: 0.5em;
           font-family: "Noto Sans", "Sans-Serif";
           padding: 1em;
-          width: 25em;
+          width: 30em;
       }
     
       .success-page-header {
@@ -368,10 +368,9 @@
         }
     
       .login-page-header {
-        font-size: 1.1em;
+        font-size: 2.1em;
         grid-area: 1 / 2 / 2 / 6;
         text-align: center;
-        padding-top: 25px;
       }
     
       .login-page-button {
@@ -388,7 +387,7 @@
         border-color: black;
         background-color: var(--massey-yellow);
         text-decoration: none;
-        font-size: 0.65em;
+        font-size: 0.8em;
       }
     
       .login-page-button:hover {
@@ -405,7 +404,7 @@
         border-color: var(--massey-yellow);
         background-color: black;
         text-decoration: none;
-        font-size: 0.65em;
+        font-size: 0.8em;
       }
     
       #login-again-id {

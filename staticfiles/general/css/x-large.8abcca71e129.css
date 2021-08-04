@@ -1,5 +1,5 @@
 /*xl css file. Meant for desktops*/
-@import "vars.css";
+@import url("vars.30cd71c3360e.css");
 
 @media (min-width: 1900px) and  (max-width: 2299px){
     body {
