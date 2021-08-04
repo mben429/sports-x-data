@@ -83,6 +83,9 @@
         </div>
     </div>
     <div id="middle-col" data-aos="fade-right">
+        <div id="btn-back-tc-cnt">
+            <a href="/team_centre" class="btn-back-tc">Back to Team Centre</a>
+        </div>
         <div class="flex-down" id="mc-header-txt-cnt">
             <text class="lg-header-txt">Game <text class="sxd-y"v>vs</text> <text id="header-game-against"></text><text class="sxd-y">.</text></text>
             <text class="med-std-txt">Played: <text class="sxd-y" id="date-txt"></text></text>
@@ -91,8 +94,7 @@
             <text class="lger-header-text" id="tc-header-txt">Overview<text class="sxd-y">.</text></text>
         </div>
         <!-- Navbar decides what is displayed here. -->
-        <div id="main-content-tm-centre"></div>
-        
+        <div id="main-content-tm-centre"></div> 
     </div>
     <div id="right-col">
     </div>
@@ -108,45 +110,31 @@
         console.log("Current Game Data", data);
         console.log("Current Game ID: ", game_id);
 
-        // Get current team against
-        const getTeamAgainst = (game_id) =>{
-            tm_against = data["game_stat_data"][game_id-1][7];
-            return tm_against;
-        }
-
-        // SetCorrect Header
-        const setHeader = (team_against) =>{
-            let team_against_str = tmHeaders[team_against];
-            $("#header-game-against").html(team_against_str);
-        }
-
-        // convert date helper function
-        const convertDate = (date_str) => {
-            temp_date = date_str.split("-");
-            return temp_date[2] + " " + months[Number(temp_date[1]) - 1] + " " + temp_date[0];
-        }
-
-        const setDate = (date_str) =>{
-            let new_date_str = convertDate(date_str);
-            $("#date-txt").html(new_date_str);w
-        }
-
+        
         
 
         const displayOverview = () => {
             console.log("Displaying Overview Stats");
             let html_layout = `
                 <div class="gr-panel row-1 col-hlf-1" id="basic-stats-panel-id">
-                    <div id="result-letter-big"><text class="sxd-g xll-header-txt">W</text></div>
+                    <div id="result-letter-big"><text class="sxd-g xll-header-txt" id="result-letter">W</text></div>
                     <div id="gm-score"><text id="sf-id">21</text><text class="sxd-y">-</text><text id="sa-id">16</text></div>
-                    <div id="gm-basic-stats-id"></div>
+                    <div id="gm-basic-stats-id">
+                        <div class="gm-event-txt" id="gm-tries">
+                        </div>
+                        <div class="gm-event-txt" id="gm-cons">
+                        </div>
+                        <div class="gm-event-txt" id="gm-pens">
+                        </div>
+                        <div class="gm-event-txt" id="gm-dgs">
+                        </div>
+                    </div>
                 </div>
                 <div class="gr-panel row-1 col-hlf-2" id="pos-stds-panel-id">
                     <div id="league-title-id" class="med-std-txt"><text id="league-name-id"></text></div>
                     <div id="league-sub-id" class="med-std-txt"><text class="sxd-y">Current Position</text> in Standings after Match.</div>
                     <div id="pos-change-lg-id" class="lg-header-txt">2nd</div>
                     <div id="change-val-id" class="sxd-g xs-small-txt">+1</div>
-                    <div id="view-stds-btn-id"><button class="std-btn med-std-txt">View Full Standings</button></div>
                 </div>
                 <div class="gr-panel row-2 col-qrt-1" id="posession-panel-id">
                     <div class="q-panel-g-1-header med-std-txt">Posession</div>
@@ -383,6 +371,76 @@
             $("#main-content-tm-centre").html(html_layout);
         };
 
+        // Get current team against
+        const getTeamAgainst = () => {
+            tm_against = data["game_info_data"][0][1];
+            tm_against_str = tmHeaders[tm_against];
+            return tm_against_str;
+        }
+
+        // SetCorrect Header
+        const setHeader = (team_against) => {
+            $("#header-game-against").html(team_against);
+        }
+
+        // Get Date of game
+        const getGameDate = () => {
+            let curr_date = data["game_info_data"][0][4];
+            return curr_date;
+        }
+
+        // convert date helper function
+        const convertDate = (temp_date) => { 
+            temp_date = date_str.split("-");
+            return temp_date[2] + " " + months[Number(temp_date[1]) - 1] + " " + temp_date[0];
+        }
+
+        const setDate = () =>{
+            date_str = getGameDate();
+            let new_date_str = convertDate(date_str);
+            $("#date-txt").html(new_date_str);
+        }
+
+
+        const setScore = () => {
+            let score_for = data["game_info_data"][0][2] + "  "
+            let score_against = "  " + data["game_info_data"][0][3];
+
+            $("#sf-id").html(score_for);
+            $("#sa-id").html(score_against);
+        }
+
+        const setResult = () => {
+            let result = data["game_info_data"][0][5];
+            if (result == "Win") {
+                $("#result-letter").html("W");
+                $("#result-letter").css("color", "#4E8F00");
+            }
+            else if (result == "Loss") {
+                $("#result-letter").html("L");
+                $("#result-letter").css("color", "#9B0000");
+            }
+            else if (result == "Draw") {
+                $("#result-letter").html("D");
+                $("#result-letter").css("color", "#f8bd41");
+            }
+            else {
+                $("#result-letter").html("N/A");
+                $("#result-letter").css("color", "#f8bd41");
+            }
+        }
+
+        const setGameEvents = () => {
+            let tries_info = "<text class='sxd-y'>Tries</text>: " + data["game_event_data"][0][6];
+            $("#gm-tries").html(tries_info);
+
+            let con_info = "<text class='sxd-y'>Cons</text>: " + data["game_event_data"][0][4];
+            $("#gm-cons").html(con_info);
+
+            let pen_info = "<text class='sxd-y'>Pens</text>: " + data["game_event_data"][0][5];
+            $("#gm-pens").html(pen_info);
+        }
+
         // Show overview as default
         displayOverview();
         console.log(Leagues[curr_team]);
@@ -392,10 +450,17 @@
         let team_against = getTeamAgainst(game_id_int)
         setHeader(team_against);
 
-        // Set Date
-        let curr_date = data["game_stat_data"][game_id_int-1][10];
-        setDate(curr_date);
+        // Set and display Date
+        setDate();
 
+        //Set score
+        setScore();
+
+        //Set W/L
+        setResult();
+
+        //Set GameEvents
+        setGameEvents();
 
     </script>
 {% endblock %}

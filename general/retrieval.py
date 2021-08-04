@@ -71,3 +71,19 @@ def get_game_stat_data(game_id):
         cursor.execute(exec_str)
         curr_game_stat_data = cursor.fetchall()
     return curr_game_stat_data   
+
+def get_game_info_data(game_id):
+    # Get all basic game info for a particular game
+    with connection.cursor() as cursor:
+        exec_str = 'SELECT * FROM general_game WHERE general_game.id = ' + str(game_id) + ';'
+        cursor.execute(exec_str)
+        curr_game_info_data = cursor.fetchall()
+    return curr_game_info_data   
+
+def get_game_event_data(game_id):
+    # Get all game event data (cons, pens, dg, tries...)
+    with connection.cursor() as cursor:
+        exec_str = 'SELECT * FROM general_game_event WHERE general_game_event.game_name_id = ' + str(game_id) + ';'
+        cursor.execute(exec_str)
+        curr_game_event_data = cursor.fetchall()
+    return curr_game_event_data   
