@@ -699,6 +699,9 @@
     font-size: 0.5em;
   }
 
+  #tc-header-txt {
+    font-size: 1.8em;
+  }
  
 
   .stds-tbl tbody tr:nth-of-type(even) {
