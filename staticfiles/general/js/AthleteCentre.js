@@ -15,10 +15,10 @@ const LeagueEnabled = {
 
 const teamLogos = {
   "massey1stxv": "/static/general/images/rsz_massey_logo-small.png", 
-  "rosmini1stxv": "/static/general/images/rsz_rosmini_logo_org.png",
+  "rosmini1stxv": "/static/general/images/rsz_rosmini_logo_org.PNG",
   "crusadersrugby": "/static/general/images/rsz_crusaders_logo_org.png",
-  "canesrugby": "/static/general/images/rsz_hurricanes_logo_org.png",
-  "toulonrugby": "/static/general/images/rsz_toulon_rugby_org.png",
+  "canesrugby": "/static/general/images/rsz_hurricanes_logo_org.PNG",
+  "toulonrugby": "/static/general/images/rsz_toulon_rugby_org.PNG",
 }
 
 function setColor(id, property, team){
