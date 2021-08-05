@@ -181,10 +181,16 @@
             $("#gm-pens").html(pen_info);
         }
 
+        const setLeague = () => {
+            $("#league-name-id").html(Leagues[curr_team]);
+        }
+
         const fillInfo = () => {
             // Set header
             let team_against = getTeamAgainst(game_id_int)
             setHeader(team_against);
+
+            setLeague();
 
             // Set and display Date
             setDate();
@@ -464,8 +470,6 @@
 
          // Show overview as default
         displayOverview();
-        console.log(Leagues[curr_team]);
-        $("#league-name-id").html(Leagues[curr_team]);
 
     </script>
 {% endblock %}
