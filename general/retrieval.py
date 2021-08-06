@@ -87,3 +87,33 @@ def get_game_event_data(game_id):
         cursor.execute(exec_str)
         curr_game_event_data = cursor.fetchall()
     return curr_game_event_data   
+
+
+def get_overview_stats(game_id):
+    ov_stat_list = [
+        "'posession'", 
+        "'territory'", 
+        "'handling_errors'", 
+        "'tackle_success'", 
+        "'top_tackler_total'",
+        "'top_tackler_percentage'",
+        "'top_linebreaks'",
+        "'top_tackles_broken'",
+        "'top_tackles_broken_percentage'",
+        "'most_ruck_steals'",
+        "'best_playmaker_pass_to_linebreaks'",
+        "'best_playmaker_successful_passes'",
+        "'most_ball_carries'"
+    ]
+
+    ov_stat_dict = {}
+    with connection.cursor() as cursor:
+        for i in range(len(ov_stat_list)):
+            exec_str_part = "SELECT general_stat.statval FROM general_stat WHERE general_stat.game_name_id = " + str(game_id) + " AND general_stat.statname = " + ov_stat_list[i] + ";"
+            cursor.execute(exec_str_part)
+            stat = cursor.fetchall()
+            ov_stat_dict[ov_stat_list[i]] = stat
+    
+    return ov_stat_dict
+        
+            
