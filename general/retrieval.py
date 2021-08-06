@@ -115,5 +115,23 @@ def get_overview_stats(game_id):
             ov_stat_dict[ov_stat_list[i]] = stat
     
     return ov_stat_dict
+
+
+def extract_names(name_str_list):
+    try_scorers_list = []
+    for i in range(len(name_str_list)):
+        curr_name = name_str_list[i][0][3:]
+        try_scorers_list.append(curr_name)
+    
+    return try_scorers_list
+
+
+def attack_stats(game_id):
+    
+    # First get try scorers
+    with connection.cursor() as cursor:
+        exec_str = "SELECT general_stat.statname FROM general_stat WHERE LEFT(general_stat.statname, 3) = 'TS_' AND game_name_id = " + str(game_id) + ";"
+        cursor.execute(exec_str)
+        try_scorers = cursor.fetchall()
+        try_scorers_list = extract_names(try_scorers)
         
-            

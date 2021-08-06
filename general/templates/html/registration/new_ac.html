@@ -210,6 +210,10 @@
             $("#top-bc-total-stat").html(relevant_data["'most_ball_carries'"][0][0]);
         }
 
+        const setAttackStats = () => {
+            
+        }
+
         const fillInfo = () => {
             // Set header
             let team_against = getTeamAgainst(game_id_int)
@@ -353,17 +357,17 @@
                     <div class="h-panel-sh-1 cntr med-std-txt">Tries Scored</div>
                     <div class="h-panel-sh-2 cntr med-std-txt">Season Average</div>
                     <div class="h-panel-sh-3 cntr med-std-txt">Total Season Tries</div>
-                    <div class="h-panel-val-1 cntr med-2-std-txt">4</div>
-                    <div class="h-panel-val-2 cntr med-2-std-txt">3<text class="sxd-y">.</text>2</div>
-                    <div class="h-panel-val-3 cntr med-2-std-txt">30</div>
+                    <div class="h-panel-val-1 cntr att-tries-stat"><text id="tries-scored-stat">N/A</text></div>
+                    <div class="h-panel-val-2 cntr att-tries-stat"><text id="tries-scored-av-stat">N/A</text></div>
+                    <div class="h-panel-val-3 cntr att-tries-stat"><text id="tries-scored-total-stat">N/A</text></div>
                 </div>
                 <div class="gr-panel row-1 col-hlf-2" id="att-ts-panel-id">
                     <div class="q-panel-g-1-header med-2-std-txt cntr">Try Scorers<text class="sxd-y">.</text></div>
-                    <div class="h-panel-full-center med-std-txt cntr flex-down space-btwn-flex">
-                        <div><text class="sxd-y">#5</text> Phil Johnson</div>
-                        <div><text class="sxd-y">#15</text> Liam Colman</div>
-                        <div><text class="sxd-y">#12</text> Don Benson</div>
-                        <div><text class="sxd-y">#9</text> Cam Williamson</div>
+                    <div class="h-panel-full-center med-std-txt cntr flex-down space-btwn-flex" id="try-scorer-cnt">
+                        <div><text class="sxd-y player-no-txt">#5</text> Phil Johnson</div>
+                        <div><text class="sxd-y player-no-txt">#15</text> Liam Colman</div>
+                        <div><text class="sxd-y player-no-txt">#12</text> Don Benson</div>
+                        <div><text class="sxd-y player-no-txt">#9</text> Cam Williamson</div>
                     </div>
                 </div>
                 <div class="gr-panel row-2-3 col-full" id="att-ld-tries-panel-id">
@@ -402,6 +406,7 @@
             `;
             $("#tc-header-txt").html("Attack<text class='sxd-y'>.</text>");
             $("#main-content-tm-centre").html(html_layout);
+            fillInfo();
         };
 
         const displayDefense = () => {
@@ -497,7 +502,10 @@
         };
 
          // Show overview as default
-        displayOverview();
+        //displayOverview();
+        
+        // For testing purposes...
+        displayAttack();
 
     </script>
 {% endblock %}

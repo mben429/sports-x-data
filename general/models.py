@@ -103,6 +103,3 @@ class Season_Averages(models.Model):
         Season,
         on_delete=models.CASCADE
     )
-
-
-

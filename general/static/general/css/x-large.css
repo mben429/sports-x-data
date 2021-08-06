@@ -702,6 +702,14 @@
   #tc-header-txt {
     font-size: 1.8em;
   }
+
+  .att-tries-stat {
+    font-size: 2em;
+  }
+
+  #try-scorer-cnt {
+    
+  }
  
 
   .stds-tbl tbody tr:nth-of-type(even) {

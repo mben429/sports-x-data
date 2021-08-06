@@ -37,6 +37,10 @@ def matchCentreView(request):
             game_stat_data = get_game_stat_data(game_id)
             game_overview_data = get_overview_stats(game_id)
             game_event_data = get_game_event_data(game_id)
+
+            # Testing
+            attack_stats(game_id)
+
             data_dict = {
                 "game_info_data": game_info_data,
                 "game_stat_data": game_stat_data,
