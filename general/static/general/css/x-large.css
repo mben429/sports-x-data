@@ -707,11 +707,6 @@
     font-size: 2em;
   }
 
-  #try-scorer-cnt {
-    
-  }
- 
-
   .stds-tbl tbody tr:nth-of-type(even) {
     background-color: var(--dark-grey);
   }
@@ -754,6 +749,22 @@
     display: grid;
     grid-template-columns: repeat(12, 1fr );
     grid-template-rows: repeat(12, 1fr );
+  }
+
+  .gr-panel h2 {
+    font-size: 0.7em; 
+  }
+
+  .gr-panel h1 {
+    font-size: 1.8em;
+  }
+
+  .gr-panel h3 {
+    font-size: 0.85em;
+  }
+
+  .gr-panel h4 {
+    font-size: 0.5em;
   }
   
   .row-1{
@@ -866,6 +877,11 @@
     grid-column-end: 25;
   }
   
+  .col-3q {
+    grid-column-start: 1;
+    grid-column-end: 19; 
+  }
+
   .col-full {
     grid-column-start: 1;
     grid-column-end: 25;
@@ -1795,5 +1811,7 @@
     grid-area: 9 / 2 / 10 / 6;
     font-size: 1.7em;
   }
+
+
 
 }

@@ -211,7 +211,16 @@
         }
 
         const setAttackStats = () => {
-            
+            let relevant_data = data["game_attack_data"]
+
+            $("#tries-scored-stat").html(relevant_data["'tries_scored_stat'"][0][0]);
+            $("#tries-scored-av-stat").html(relevant_data["'avg_tries_scored_season'"][0][0]);
+            $("#tries-scored-total-stat").html(relevant_data["'total_season_tries'"][0][0]);
+            $("#lb-stat").html(relevant_data["'linebreaks_total'"][0][0]);
+            $("#rob-stat").html(relevant_data["'running_onto_ball_pct'"][0][0]);
+            $("#opp-22-stat").html(relevant_data["'time_in_opp22'"][0][0]);
+            $("#tb-stat").html(relevant_data["'tackles_broken'"][0][0]); 
+            $("#pts-22-stat").html(relevant_data["'points_per_visit_22'"][0][0]);
         }
 
         const fillInfo = () => {
@@ -235,6 +244,9 @@
 
             //Set OverView stats 
             setOverviewStats();
+
+            // Set Attack STats
+            setAttackStats();
         }
 
        
@@ -265,81 +277,81 @@
                     <div id="change-val-id" class="sxd-g xs-small-txt">+1</div>
                 </div>
                 <div class="gr-panel row-2 col-qrt-1" id="posession-panel-id">
-                    <div class="q-panel-g-1-header med-std-txt">Posession</div>
-                    <div class="q-panel-g-1-value lg-header-txt"><text id="pos-stat"></text><text class="sxd-y">%</text></div>
-                    <div class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</div>
-                    <div class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</div>
-                    <div class="q-panel-g-1-sa-val xs-small-txt sxd-g">+3%</div>
-                    <div class="q-panel-g-1-la-val xs-small-txt">+1%</div>
+                    <h2 class="q-panel-g-1-header">Posession</h2>
+                    <h1 class="q-panel-g-1-value lg-header-txt"><text id="pos-stat"></text><text class="sxd-y">%</text></h1>
+                    <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h3 class="q-panel-g-1-sa-val xs-small-txt sxd-g">+3%</h3>
+                    <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
                 </div>
                 <div class="gr-panel row-2 col-qrt-2" id="territory-panel-id">
-                    <div class="q-panel-g-1-header med-std-txt">Territory</div>
-                    <div class="q-panel-g-1-value lg-header-txt"><text id="terr-stat">N/A</text><text class="sxd-y">%</text></div>
-                    <div class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</div>
-                    <div class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</div>
-                    <div class="q-panel-g-1-sa-val xs-small-txt sxd-g">+3%</div>
-                    <div class="q-panel-g-1-la-val xs-small-txt sxd-g">+1%</div>
+                    <h2 class="q-panel-g-1-header med-std-txt">Territory</h2>
+                    <h1 class="q-panel-g-1-value lg-header-txt"><text id="terr-stat">N/A</text><text class="sxd-y">%</text></h1>
+                    <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h3 class="q-panel-g-1-sa-val xs-small-txt sxd-g">+3%</h3>
+                    <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
                 </div>
                 <div class="gr-panel row-2 col-qrt-3" id="handling-errors-panel-id">
-                    <div class="q-panel-g-1-header med-std-txt">Handling Errors</div>
-                    <div class="q-panel-g-1-value lg-header-txt"><text id="he-stat">N/A</text></div>
-                    <div class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</div>
-                    <div class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</div>
-                    <div class="q-panel-g-1-sa-val xs-small-txt sxd-r">+3</div>
-                    <div class="q-panel-g-1-la-val xs-small-txt sxd-g">-1.5</div>
+                    <h2 class="q-panel-g-1-header med-std-txt">Handling Errors</h2>
+                    <h1 class="q-panel-g-1-value lg-header-txt"><text id="he-stat">N/A</text></h1>
+                    <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h3 class="q-panel-g-1-sa-val xs-small-txt sxd-g">+3%</h3>
+                    <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
                 </div>
                 <div class="gr-panel row-2 col-qrt-4" id="tackling-success-panel-id">
-                    <div class="q-panel-g-1-header med-std-txt">Tackle Success %</div>
-                    <div class="q-panel-g-1-value lg-header-txt"><text id="ts-stat">N/A</text><text class="sxd-y">%</text></div>
-                    <div class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</div>
-                    <div class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</div>
-                    <div class="q-panel-g-1-sa-val xs-small-txt sxd-g">+6%</div>
-                    <div class="q-panel-g-1-la-val xs-small-txt sxd-g">+4%</div>
+                    <h2 class="q-panel-g-1-header med-std-txt">Tackle Success %</h2>
+                    <h1 class="q-panel-g-1-value lg-header-txt"><text id="ts-stat">N/A</text><text class="sxd-y">%</text></h1>
+                    <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h3 class="q-panel-g-1-sa-val xs-small-txt sxd-g">+3%</h3>
+                    <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
                 </div>
 
 
                 <div class="gr-panel row-3 col-thrd-1" id="top-tkler-panel-id">
-                    <div class="q-panel-g-1-header med-std-txt">Top Tackler</div>
+                    <h2 class="q-panel-g-1-header med-std-txt">Top Tackler</h2>
                     <div class="q-panel-g-1-value med-2-std-txt"><text class="sxd-y">#</text>7 Ben Afu</div>
-                    <div class="q-panel-g-1-sa-txt xs-small-txt">No. of Tackles</div>
-                    <div class="q-panel-g-1-la-txt xs-small-txt">Tackles Success %</div>
-                    <div class="q-panel-g-1-sa-val med-2-std-txt"><text id="ts-total-stat">N/A</text></div>
-                    <div class="q-panel-g-1-la-val med-2-std-txt"><text id="ts-pct-stat">N/A<text class="sxd-y">%</text></div>
+                    <h4 class="q-panel-g-1-sa-txt xs-small-txt">No. of Tackles</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Tackles Success %</h4>
+                    <h3 class="q-panel-g-1-sa-val med-2-std-txt"><text id="ts-total-stat">N/A</text></h3>
+                    <h3 class="q-panel-g-1-la-val med-2-std-txt"><text id="ts-pct-stat">N/A<text class="sxd-y">%</text></h3>
                 </div>
                 <div class="gr-panel row-3 col-thrd-2" id="top-lb-panel-id">
-                    <div class="q-panel-g-1-header med-std-txt">Top Line Breaks</div>
+                    <h2 class="q-panel-g-1-header med-std-txt">Top Line Breaks</h2>
                     <div class="q-panel-g-1-value med-2-std-txt"><text class="sxd-y">#</text>13 Liam Colman</div>
-                    <div class="q-panel-g-1-txt-single xs-small-txt">No. of Linebreaks</div>
-                    <div class="q-panel-g-1-val-single med-2-std-txt"><text id="top-lb-stat">N/A</text></div>
+                    <h4 class="q-panel-g-1-txt-single xs-small-txt">No. of Linebreaks</h4>
+                    <h3 class="q-panel-g-1-val-single med-2-std-txt"><text id="top-lb-stat">N/A</text></h3>
                 </div>
                 <div class="gr-panel row-3 col-thrd-3" id="top-tb-panel-id">
-                    <div class="q-panel-g-1-header med-std-txt">Top Tackles Broken</div>
+                    <h2 class="q-panel-g-1-header med-std-txt">Top Tackles Broken</h2>
                     <div class="q-panel-g-1-value med-2-std-txt"><text class="sxd-y">#</text>8 Sam Ioane</div>
-                    <div class="q-panel-g-1-sa-txt xs-small-txt">No. of Tackles Broken</div>
-                    <div class="q-panel-g-1-la-txt xs-small-txt">% Broke the First Tackle</div>
-                    <div class="q-panel-g-1-sa-val med-2-std-txt"><text id="top-tck-broken">N/A</text></div>
-                    <div class="q-panel-g-1-la-val med-2-std-txt"><text id="top-tck-pct-broken-first">N/A</text><text class="sxd-y">%</text></div>
+                    <h4 class="q-panel-g-1-sa-txt xs-small-txt">No. of Tackles Broken</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">% Broke the First Tackle</h4>
+                    <h3 class="q-panel-g-1-sa-val med-2-std-txt"><text id="top-tck-broken">N/A</text></h3>
+                    <h3 class="q-panel-g-1-la-val med-2-std-txt"><text id="top-tck-pct-broken-first">N/A</text><text class="sxd-y">%</text></h3>
 
                 </div>
                 <div class="gr-panel row-4 col-thrd-1" id="top-rs-panel-id">
-                    <div class="q-panel-g-1-header med-std-txt">Most Ruck Steals</div>
+                    <h2 class="q-panel-g-1-header med-std-txt">Most Ruck Steals</h2>
                     <div class="q-panel-g-1-value med-2-std-txt"><text class="sxd-y">#</text>7 Ben Afu</div>
-                    <div class="q-panel-g-1-txt-single xs-small-txt">No. of Ruck Steals</div>
-                    <div class="q-panel-g-1-val-single med-2-std-txt"><text id="ruck-steals-stat">N/A</text></div>
+                    <h4 class="q-panel-g-1-txt-single xs-small-txt">No. of Ruck Steals</h4>
+                    <h3 class="q-panel-g-1-val-single med-2-std-txt"><text id="ruck-steals-stat">N/A</text></h3>
                 </div>                                
                 <div class="gr-panel row-4 col-thrd-2" id="top-pm-panel-id">
-                    <div class="q-panel-g-1-header med-std-txt">Best Playmaker</div>
+                    <h2 class="q-panel-g-1-header med-std-txt">Best Playmaker</h2>
                     <div class="q-panel-g-1-value med-2-std-txt"><text class="sxd-y">#</text>10 Steve Francis</div>
-                    <div class="q-panel-g-1-sa-txt xs-small-txt">Passes Leading to Linebreaks</div>
-                    <div class="q-panel-g-1-la-txt xs-small-txt">No. of Successful Passes</div>
-                    <div class="q-panel-g-1-sa-val med-2-std-txt"><text id="top-passes-to-lb-stat">N/A</text></div>
-                    <div class="q-panel-g-1-la-val med-2-std-txt"><text id="top-passess-success-stat">N/A</text></div>
+                    <h4 class="q-panel-g-1-sa-txt xs-small-txt">Passes Leading to Linebreaks</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">No. of Successful Passes</h4>
+                    <h3 class="q-panel-g-1-sa-val med-2-std-txt"><text id="top-passes-to-lb-stat">N/A</text></h3>
+                    <h3 class="q-panel-g-1-la-val med-2-std-txt"><text id="top-passess-success-stat">N/A</text></h3>
                 </div>
                 <div class="gr-panel row-4 col-thrd-3" id="top-bc-panel-id">
-                    <div class="q-panel-g-1-header med-std-txt">Most Ball Carries</div>
+                    <h2 class="q-panel-g-1-header med-std-txt">Most Ball Carries</h2>
                     <div class="q-panel-g-1-value med-2-std-txt"><text class="sxd-y">#</text>8 Sam Ioane</div>
-                    <div class="q-panel-g-1-txt-single xs-small-txt">Ball Carries Total</div>
-                    <div class="q-panel-g-1-val-single med-2-std-txt"><text id="top-bc-total-stat">N/A</text></div>
+                    <h4 class="q-panel-g-1-txt-single xs-small-txt">Ball Carries Total</h4>
+                    <h3 class="q-panel-g-1-val-single med-2-std-txt"><text id="top-bc-total-stat">N/A</text></h3>
                 </div>
 
                 <div class="gr-panel row-5-6 col-full" id="overview-hl-panel-id"></div>
@@ -352,7 +364,7 @@
         const displayAttack = () => {
             console.log("Displaying Attack Stats");
             let html_layout = `
-                <div class="gr-panel row-1 col-hlf-1" id="att-tries-panel-id">
+                <div class="gr-panel row-1 col-3q" id="att-tries-panel-id">
                     <div class="q-panel-g-1-header med-2-std-txt cntr">Tries<text class="sxd-y">.</text></div>
                     <div class="h-panel-sh-1 cntr med-std-txt">Tries Scored</div>
                     <div class="h-panel-sh-2 cntr med-std-txt">Season Average</div>
@@ -361,49 +373,54 @@
                     <div class="h-panel-val-2 cntr att-tries-stat"><text id="tries-scored-av-stat">N/A</text></div>
                     <div class="h-panel-val-3 cntr att-tries-stat"><text id="tries-scored-total-stat">N/A</text></div>
                 </div>
-                <div class="gr-panel row-1 col-hlf-2" id="att-ts-panel-id">
-                    <div class="q-panel-g-1-header med-2-std-txt cntr">Try Scorers<text class="sxd-y">.</text></div>
-                    <div class="h-panel-full-center med-std-txt cntr flex-down space-btwn-flex" id="try-scorer-cnt">
-                        <div><text class="sxd-y player-no-txt">#5</text> Phil Johnson</div>
-                        <div><text class="sxd-y player-no-txt">#15</text> Liam Colman</div>
-                        <div><text class="sxd-y player-no-txt">#12</text> Don Benson</div>
-                        <div><text class="sxd-y player-no-txt">#9</text> Cam Williamson</div>
+                <div class="gr-panel row-1 col-qrt-4" id="att-lb-panel-id">
+                    <h2 class="q-panel-g-1-header">Linebreaks<text class="sxd-y">.</text></h2>
+                    <h1 class="q-panel-g-1-value lg-header-txt"><text id="lb-stat">N/A</text></h1>
+                    <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h3 class="q-panel-g-1-sa-val xs-small-txt sxd-g">+3%</h3>
+                    <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                </div>
+                <div class="gr-panel row-2 col-qrt-1" id="att-rob-panel-id">
+                    <h2 class="q-panel-g-1-header">Running Onto the Ball<text class="sxd-y"> %.</text></h2>
+                    <h1 class="q-panel-g-1-value lg-header-txt"><text id="rob-stat">N/A</text><text class="sxd-y">%</text></h1>
+                    <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h3 class="q-panel-g-1-sa-val xs-small-txt sxd-g">+3%</h3>
+                    <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                </div>
+                <div class="gr-panel row-2 col-qrt-2" id="att-opp22-panel-id">
+                    <h2 class="q-panel-g-1-header">Time in Opp '22<text class="sxd-y">.</text></h2>
+                    <h1 class="q-panel-g-1-value lg-header-txt"><text id="opp-22-stat">N/A</text></h1>
+                    <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h3 class="q-panel-g-1-sa-val xs-small-txt sxd-g">+3%</h3>
+                    <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                </div>
+                <div class="gr-panel row-2 col-qrt-3" id="att-tbtotal-panel-id">
+                    <h2 class="q-panel-g-1-header">Tackles Broken<text class="sxd-y">.</text></h2>
+                    <h1 class="q-panel-g-1-value lg-header-txt"><text id="tb-stat">N/A</text></h1>
+                    <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h3 class="q-panel-g-1-sa-val xs-small-txt sxd-g">+3%</h3>
+                    <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                </div>
+                <div class="gr-panel row-2 col-qrt-4" id="att-pvisit22-panel-id">
+                    <h2 class="q-panel-g-1-header">Points / Visit to '22<text class="sxd-y">.</text></h2>
+                    <h1 class="q-panel-g-1-value lg-header-txt"><text id="pts-22-stat">N/A</text></h1>
+                    <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h3 class="q-panel-g-1-sa-val xs-small-txt sxd-g">+3%</h3>
+                    <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                </div>
+                <div class="gr-panel row-3-4 col-full" id="att-meters-gained-grph-cnt">
+                    <div id="mg-graph-cnt">
+                        
                     </div>
                 </div>
-                <div class="gr-panel row-2-3 col-full" id="att-ld-tries-panel-id">
-                    <div class="full-panel-header cntr med-2-std-txt">What lead to Tries<text class="sxd-y">?</text></div>
-                    <div class="xs-small-txt cntr flex-centre space-btwn-flex" id="cntainer-try-scorers">
-                        <div class="flex-down" id="try-1">
-                            <div><text class="sxd-y">#5</text> Phil Johnson</div>
-                            <button class="std-btn">Show how it happened</button>
-                        </div>
-                        <div class="flex-down" id="try-2">
-                            <div><text class="sxd-y">#15</text> Liam Colman</div>
-                            <button class="std-btn">Show how it happened</button>
-                        </div>
-                        <div class="flex-down" id="try-3">
-                            <div><text class="sxd-y">#12</text> Don Benson</div>
-                            <button class="std-btn">Show how it happened</button>
-                        </div>
-                        <div class="flex-down" id="try-4">
-                            <div><text class="sxd-y">#9</text> Cam Williamson</div>
-                            <button class="std-btn">Show how it happened</button>
-                        </div>
-                    </div>
-                    <div id="field-img-cnt">
-                        <img id="field-img" src="{% static 'general/images/rugby_field.png' %}">
-                    </div>
-                </div>
-                <div class="gr-panel row-4 col-qrt-1" id="att-lbtotal-panel-id"></div>
-                <div class="gr-panel row-4 col-qrt-2" id="att-rob-panel-id"></div>
-                <div class="gr-panel row-4 col-qrt-3" id="att-opp22-panel-id"></div>
-                <div class="gr-panel row-4 col-qrt-4" id="att-png-panel-id"></div>
-                <div class="gr-panel row-5 col-qrt-1" id="att-oneoffgain-panel-id"></div>
-                <div class="gr-panel row-5 col-qrt-2" id="att-blgain-panel-id"></div>
-                <div class="gr-panel row-5 col-qrt-3" id="att-tbtotal-panel-id"></div>
-                <div class="gr-panel row-5 col-qrt-4" id="att-pvisit22-panel-id"></div>
-                <div class="gr-panel row-6-7 col-full" id="att-hl-panel-id"></div>
             `;
+            
+
             $("#tc-header-txt").html("Attack<text class='sxd-y'>.</text>");
             $("#main-content-tm-centre").html(html_layout);
             fillInfo();

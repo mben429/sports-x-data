@@ -116,7 +116,7 @@ def get_overview_stats(game_id):
     
     return ov_stat_dict
 
-
+"""
 def extract_names(name_str_list):
     try_scorers_list = []
     for i in range(len(name_str_list)):
@@ -124,14 +124,41 @@ def extract_names(name_str_list):
         try_scorers_list.append(curr_name)
     
     return try_scorers_list
+"""
 
-
-def attack_stats(game_id):
+def get_try_scorers(game_id):
     
     # First get try scorers
     with connection.cursor() as cursor:
-        exec_str = "SELECT general_stat.statname FROM general_stat WHERE LEFT(general_stat.statname, 3) = 'TS_' AND game_name_id = " + str(game_id) + ";"
+        exec_str = "SELECT general_stat.statname, general_stat.statval FROM general_stat WHERE LEFT(general_stat.statname, 3) = 'TS_' AND game_name_id = " + str(game_id) + ";"
         cursor.execute(exec_str)
         try_scorers = cursor.fetchall()
-        try_scorers_list = extract_names(try_scorers)
+
+    return try_scorers
         
+
+def get_attack_stats(game_id):
+    att_stat_list = [
+        "'tries_scored_stat'",
+        "'avg_tries_scored_season'",
+        "'total_season_tries'",
+        "'linebreaks_total'",
+        "'running_onto_ball_pct'",
+        "'time_in_opp22'",
+        "'tackles_broken'",
+        "'points_per_visit_22'",
+        "'oor_meters_gain_pct'",
+        "'bm_meters_gain_pct'",
+        "'pag_meters_gain_pct'"
+    ]
+
+    att_stat_dict = {}
+
+    with connection.cursor() as cursor:
+        for i in range(len(att_stat_list)):
+            exec_str_part = "SELECT general_stat.statval FROM general_stat WHERE general_stat.game_name_id = " + str(game_id) + " AND general_stat.statname = " + att_stat_list[i] + ";"
+            cursor.execute(exec_str_part)
+            stat = cursor.fetchall()
+            att_stat_dict[att_stat_list[i]] = stat
+
+    return att_stat_dict

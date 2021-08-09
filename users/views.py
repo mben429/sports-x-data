@@ -37,17 +37,18 @@ def matchCentreView(request):
             game_stat_data = get_game_stat_data(game_id)
             game_overview_data = get_overview_stats(game_id)
             game_event_data = get_game_event_data(game_id)
-
-            # Testing
-            attack_stats(game_id)
+            try_scorers_data = get_try_scorers(game_id)
+            game_attack_data = get_attack_stats(game_id)
 
             data_dict = {
                 "game_info_data": game_info_data,
                 "game_stat_data": game_stat_data,
                 "game_event_data": game_event_data,
-                "game_overview_data" : game_overview_data
+                "game_overview_data" : game_overview_data,
+                "try_scorers_data" : try_scorers_data,
+                "game_attack_data" : game_attack_data
             }
-            print("Game Stat Data: ", game_stat_data)
+            print("Data Dict", data_dict)
                             
             dataJSON = dumps(data_dict, default=str)
 
