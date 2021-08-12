@@ -11,6 +11,7 @@ var black_1 = "rgb(40,37,40)";
 var red_1 = "rgb(186,41,46)";
 var orange_1 = "rgb(225,93,58)";
 var yellow_1 =  "rgb(255,167,60)";
+var white = "rgb(255, 255, 255)";
 
 const teamMainColors = {
     "massey1stxv": "var(--massey-yellow)", 

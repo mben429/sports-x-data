@@ -353,8 +353,6 @@
                     <h4 class="q-panel-g-1-txt-single xs-small-txt">Ball Carries Total</h4>
                     <h3 class="q-panel-g-1-val-single med-2-std-txt"><text id="top-bc-total-stat">N/A</text></h3>
                 </div>
-
-                <div class="gr-panel row-5-6 col-full" id="overview-hl-panel-id"></div>
             `;
             $("#tc-header-txt").html("Overview<text class='sxd-y'>.</text>");
             $("#main-content-tm-centre").html(html_layout);
@@ -414,8 +412,9 @@
                     <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
                 </div>
                 <div class="gr-panel row-3-4 col-full" id="att-meters-gained-grph-cnt">
+                    <h2 id="graph-title"><text class="sxd-y">%</text> of the Time Meters Were Gained<text class="sxd-y">.</text></h2>
                     <div id="mg-graph-cnt">
-                        
+                        <canvas id="mg-graph-canv"></canvas>
                     </div>
                 </div>
             `;
@@ -424,6 +423,7 @@
             $("#tc-header-txt").html("Attack<text class='sxd-y'>.</text>");
             $("#main-content-tm-centre").html(html_layout);
             fillInfo();
+            MetersGainedGraph();
         };
 
         const displayDefense = () => {
@@ -519,10 +519,10 @@
         };
 
          // Show overview as default
-        //displayOverview();
+        displayOverview();
+        // Show others first for development.
+        //displayAttack();
         
-        // For testing purposes...
-        displayAttack();
 
     </script>
 {% endblock %}

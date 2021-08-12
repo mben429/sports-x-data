@@ -461,7 +461,7 @@
   #cnt-overview-mc {
     display: grid;
     grid-template-columns: repeat(24, 1fr);
-    grid-template-rows: repeat(100, 1em);
+    grid-template-rows: repeat(51, 1em);
   }
 
   .fixed-pos { 
@@ -577,7 +577,7 @@
   /*Right Col css*/
 
   #middle-col {
-    grid-area: 1 / 6 / 101 / 24; 
+    grid-area: 1 / 6 / 51 / 24; 
     display: grid;
     grid-template-columns: repeat(24, 1fr );
     grid-template-rows: repeat(48, 1fr );
@@ -588,7 +588,7 @@
   }
 
   #curr-sect-header {
-    grid-area: 6 / 1 / 8 / 25;
+    grid-area: 7 / 1 / 9 / 25;
   }
 
   .lg-team-logo-cnt {
@@ -626,7 +626,7 @@
   }
 
   #tc-home-main-content {
-    grid-area: 8 / 1 / 25 / 25;
+    grid-area: 10 / 1 / 51 / 25;
   }
 
   .tbl {
@@ -735,12 +735,22 @@
   }
   
   #main-content-tm-centre {
-    grid-area: 8 / 1 / 49 / 25;
+    grid-area: 10 / 1 / 52 / 25;
     display: grid;
     grid-template-columns: repeat(24, 1fr );
     grid-template-rows: repeat(48, 1fr );
   }
   
+  #mg-graph-cnt {
+    grid-area: 3 / 1 / 13 / 13; 
+  }
+
+  #graph-title {
+    text-align: center;
+    grid-area: 2 / 1 / 13 / 13;
+    font-size: 1.2em;
+  }
+
   .gr-panel {
     background-color: var(--sxd-grey);
     border-radius: 0.4em;
@@ -769,27 +779,27 @@
   
   .row-1{
     grid-row-start: 1;
-    grid-row-end: 6;
-  }
-  
-  .row-2{
-    grid-row-start: 6;
     grid-row-end: 11;
   }
   
-  .row-3 {
+  .row-2{
     grid-row-start: 11;
-    grid-row-end: 16;
+    grid-row-end: 21;
+  }
+  
+  .row-3 {
+    grid-row-start: 21;
+    grid-row-end: 31;
   }
   
   .row-4 { 
-    grid-row-start: 16;
-    grid-row-end: 21; 
+    grid-row-start: 31;
+    grid-row-end: 41; 
   }
   
   .row-5 {
-    grid-row-start: 21;
-    grid-row-end: 26;
+    grid-row-start: 41;
+    grid-row-end: 51;
   }
   
   .row-6 {
@@ -804,17 +814,17 @@
   
   .row-1-2 {
     grid-row-start: 1;
-    grid-row-end: 11;
+    grid-row-end: 21;
   }
   
   .row-2-3 {
-    grid-row-start: 6;
-    grid-row-end: 16;
+    grid-row-start: 11;
+    grid-row-end: 31;
   }
   
   .row-3-4 {
-    grid-row-start: 11;
-    grid-row-end: 21;
+    grid-row-start: 21;
+    grid-row-end: 41;
   }
   
   .row-4-5 {
