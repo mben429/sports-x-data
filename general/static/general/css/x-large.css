@@ -464,6 +464,12 @@
     grid-template-rows: repeat(51, 1em);
   }
 
+  #cnt-overview-mc-def {
+    display: grid;
+    grid-template-columns: repeat(24, 1fr);
+    grid-template-rows: repeat(71, 1em);
+  }
+
   .fixed-pos { 
     position: fixed;
   }
@@ -740,15 +746,32 @@
     grid-template-columns: repeat(24, 1fr );
     grid-template-rows: repeat(48, 1fr );
   }
+
+  #main-content-tm-centre-def {
+    grid-area: 10 / 1 / 71 / 25;
+    display: grid;
+    grid-template-columns: repeat(24, 1fr );
+    grid-template-rows: repeat(72, 1fr );
+  }
   
   #mg-graph-cnt {
     grid-area: 3 / 1 / 13 / 13; 
+  }
+
+  #ts-pos-graph-cnt {
+    grid-area:  3 / 1 / 13 / 13; 
   }
 
   #graph-title {
     text-align: center;
     grid-area: 2 / 1 / 13 / 13;
     font-size: 1.2em;
+  }
+
+  #graph-title-2 {
+    text-align: center;
+    grid-area: 2 / 1 / 13 / 13;
+    font-size: 0.95em;
   }
 
   .gr-panel {
@@ -803,13 +826,13 @@
   }
   
   .row-6 {
-    grid-row-start: 26;
-    grid-row-end: 31;
+    grid-row-start: 51;
+    grid-row-end: 61;
   }
   
   .row-7 {
-    grid-row-start: 31;
-    grid-row-end: 36;
+    grid-row-start: 61;
+    grid-row-end: 71;
   }
   
   .row-1-2 {
@@ -828,8 +851,8 @@
   }
   
   .row-4-5 {
-    grid-row-start: 16;
-    grid-row-end: 26;
+    grid-row-start: 31;
+    grid-row-end: 51;
   }
   
   .row-5-6 {
@@ -838,8 +861,8 @@
   }
   
   .row-6-7 {
-    grid-row-start: 26;
-    grid-row-end: 36;
+    grid-row-start: 51;
+    grid-row-end: 71;
   }
   
   .col-hlf-1 {
@@ -896,6 +919,24 @@
     grid-column-start: 1;
     grid-column-end: 25;
   }
+
+  .hlf h1 {
+    font-size: 2.9em;
+  }
+
+  .hlf h2 {
+    font-size: 1.2em;
+  }
+
+  .hlf h3 {
+    font-size: 1.2em;
+  }
+
+  .hlf h4 {
+    font-size: 0.9em; 
+  }
+
+
   
   /*Now the layout for inside the panels*/
   #result-letter-big {

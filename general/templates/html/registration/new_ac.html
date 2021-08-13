@@ -255,6 +255,15 @@
 
         const displayOverview = () => {
             console.log("Displaying Overview Stats");
+            $(".cnt-overall").attr("id", "cnt-overview-mc");
+            $("#middle-col").css({
+                "grid-row-end": "51",
+                "grid-template-rows": "repeat(48, 1fr)"
+            });
+            $("#main-content-tm-centre").css({
+                "grid-row-end": "51",
+                "grid-template-rows": "repeat(48, 1fr)"
+            });
             let html_layout = `
                 <div class="gr-panel row-1 col-hlf-1" id="basic-stats-panel-id">
                     <div id="result-letter-big"><text class="sxd-g xll-header-txt" id="result-letter">W</text></div>
@@ -361,6 +370,15 @@
 
         const displayAttack = () => {
             console.log("Displaying Attack Stats");
+            $(".cnt-overall").attr("id", "cnt-overview-mc");
+            $("#middle-col").css({
+                "grid-row-end": "51",
+                "grid-template-rows": "repeat(48, 1fr)"
+            });
+            $("#main-content-tm-centre").css({
+                "grid-row-end": "51",
+                "grid-template-rows": "repeat(48, 1fr)"
+            });
             let html_layout = `
                 <div class="gr-panel row-1 col-3q" id="att-tries-panel-id">
                     <div class="q-panel-g-1-header med-2-std-txt cntr">Tries<text class="sxd-y">.</text></div>
@@ -428,18 +446,99 @@
 
         const displayDefense = () => {
             console.log("Displaying Defense Stats");
+            $(".cnt-overall").attr("id", "cnt-overview-mc-def");
+            $("#middle-col").css({
+                "grid-row-end": "71",
+                "grid-template-rows": "repeat(71, 1fr)"
+            });
+            $("#main-content-tm-centre").css({
+                "grid-row-end": "71",
+                "grid-template-rows": "repeat(71, 1fr)"
+            });
+
             let html_layout = `
-                <div class="gr-panel row-1 col-full" id="def-tackles-panel-id"></div>
-                <div class="gr-panel row-2 col-hlf-1" id="def-tklpos-panel-id"></div>
-                <div class="gr-panel row-2 col-hlf-2" id="def-tkltype-panel-id"></div>
-                <div class="gr-panel row-3 col-hlf-1" id="def-tklarea-panel-id"></div>
-                <div class="gr-panel row-3 col-hlf-2" id="def-avgls-panel-id"></div>
-                <div class="gr-panel row-4 col-hlf-1" id="def-cllb-panel-id"></div>
-                <div class="gr-panel row-4 col-hlf-2" id="def-lballowed-panel-id"></div>
-                <div class="gr-panel row-5-6 col-full" id="def-lballowed-panel-id"></div>
+                <div class="gr-panel row-1 col-qrt-1" id="def-tackles-made-panel-id">
+                    <h2 class="q-panel-g-1-header">Tackles Made Total</h2>
+                    <h1 class="q-panel-g-1-value lg-header-txt"><text id="tackles-made-stat">N/A</text><text class="sxd-y">%</text></h1>
+                    <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h3 class="q-panel-g-1-sa-val xs-small-txt sxd-g">+3%</h3>
+                    <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                </div>
+                <div class="gr-panel row-1 col-qrt-2" id="def-tackles-missed-panel-id">
+                    <h2 class="q-panel-g-1-header">Tackles Missed</h2>
+                    <h1 class="q-panel-g-1-value lg-header-txt"><text id="tackles-missed-stat">N/A</text><text class="sxd-y"></text></h1>
+                    <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h3 class="q-panel-g-1-sa-val xs-small-txt sxd-g">+3%</h3>
+                    <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                </div>
+                <div class="gr-panel row-1 col-qrt-3" id="def-tackles-success-panel-id">
+                    <h2 class="q-panel-g-1-header">Tackles Success<text class="sxd-y"> %.</text></h2>
+                    <h1 class="q-panel-g-1-value lg-header-txt"><text id="tackles-success-stat">N/A</text><text class="sxd-y">%</text></h1>
+                    <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h3 class="q-panel-g-1-sa-val xs-small-txt sxd-g">+3%</h3>
+                    <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                </div>
+                <div class="gr-panel row-1 col-qrt-4" id="def-tackles-below-waist-panel-id">
+                    <h2 class="q-panel-g-1-header">Tackles Below Waist<text class="sxd-y"> %.</text></h2>
+                    <h1 class="q-panel-g-1-value lg-header-txt"><text id="tackles-below-waist-stat">N/A</text><text class="sxd-y">%</text></h1>
+                    <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h3 class="q-panel-g-1-sa-val xs-small-txt sxd-g">+3%</h3>
+                    <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                </div>
+                <div class="gr-panel row-2-3 col-hlf-1" id="def-tklpos-panel-id">
+                    <h2 id="graph-title-2">Tackle Success<text class="sxd-y"> %</text> by Position<text class="sxd-y">.</text></h2>
+                    <div id="ts-pos-graph-cnt">
+                        <canvas id="ts-pos-graph"></canvas>
+                    </div>
+                </div>
+                <div class="gr-panel row-2-3 col-hlf-2" id="def-tkltype-panel-id">
+                    <h2 id="graph-title-2">Tackle Success<text class="sxd-y"> %</text> by Type of Tackle<text class="sxd-y">.</text></h2>
+                    <div id="ts-pos-graph-cnt">
+                        <canvas id="tck-aw-graph"></canvas>
+                    </div>
+                </div>
+                <div class="gr-panel row-4-5 col-hlf-1" id="def-tklarea-panel-id">
+                    <h2 id="graph-title-2">Tackle Success<text class="sxd-y"> %</text> by Area of Field<text class="sxd-y">.</text></h2>
+                    <div id="ts-pos-graph-cnt">
+                        <canvas id="tck-area-graph"></canvas>
+                    </div>
+                </div>
+                <div class="gr-panel row-4-5 col-hlf-2 hlf" id="def-avgls-panel-id">
+                    <h2 class="q-panel-g-1-header">Average Linespeed (time until first contact)<text class="sxd-y">.</text></h2>
+                    <h1 class="q-panel-g-1-value lger-txt"><text id="av-linespeed-stat">N/A</text><text class="sxd-y"> s</text></h1>
+                    <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h3 class="q-panel-g-1-sa-val xs-small-txt sxd-g">+3%</h3>
+                    <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                </div>
+                <div class="gr-panel row-6-7 col-hlf-1 hlf" id="def-avgls-panel-id">
+                    <h2 class="q-panel-g-1-header">Clean Line Breaks Allowed<text class="sxd-y">.</text></h2>
+                    <h1 class="q-panel-g-1-value lger-txt"><text id="linebreaks-total-stat">N/A</text></h1>
+                    <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h3 class="q-panel-g-1-sa-val xs-small-txt sxd-g">+3%</h3>
+                    <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                </div>
+                <div class="gr-panel row-6-7 col-hlf-2 hlf" id="def-avgls-panel-id">
+                    <h2 id="graph-title-2">Line Breaks Allowed by Position<text class="sxd-y">.</text></h2>
+                    <div id="ts-pos-graph-cnt">
+                        <canvas id="lb-by-position-graph"></canvas>
+                    </div>
+                </div>
+                
+                
             `;
             $("#tc-header-txt").html("Defense<text class='sxd-y'>.</text>");
             $("#main-content-tm-centre").html(html_layout);
+            fillInfo();
+            TackleSuccessPosGraph();
+            TackleSuccessByTypeGraph();
+            TackleSuccessByArea();
+            LinebreaksByPos();
         }
 
         const displayKickingGame = () => {
@@ -520,8 +619,8 @@
 
          // Show overview as default
         displayOverview();
-        // Show others first for development.
         //displayAttack();
+        //displayDefense();
         
 
     </script>
