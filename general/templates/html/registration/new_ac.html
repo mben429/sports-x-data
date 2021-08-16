@@ -543,49 +543,210 @@
 
         const displayKickingGame = () => {
             console.log("Displaying Kicking Game Stats");
+            $(".cnt-overall").attr("id", "cnt-overview-mc");
+            $("#middle-col").css({
+                "grid-row-end": "51",
+                "grid-template-rows": "repeat(48, 1fr)"
+            });
+            $("#main-content-tm-centre").css({
+                "grid-row-end": "51",
+                "grid-template-rows": "repeat(48, 1fr)"
+            });
             let html_layout = `
-                <div class="gr-panel row-1 col-thrd-1" id="kicks-made-panel-id"></div>
-                <div class="gr-panel row-1 col-thrd-2" id="pos-kicked-panel-id"></div>
-                <div class="gr-panel row-1 col-thrd-3" id="kicks-full-panel-id"></div>
-                <div class="gr-panel row-2 col-hlf-1" id="type-kicks-panel-id"></div>
-                <div class="gr-panel row-2 col-hlf-2" id="kicks-reg-panel-id"></div>
-                <div class="gr-panel row-3 col-hlf-1" id="kick-touch-gain-panel-id"></div>
-                <div class="gr-panel row-3 col-hlf-2" id="gk-panel-id"></div>
-                <div class="gr-panel row-4-5 col-full" id="kg-hl-panel-id"></div>
+                <div class="gr-panel row-1 col-thrd-1" id="kicks-made-panel-id">
+                    <h2 class="q-panel-g-1-header">No. of Kicks Made</h2>
+                    <h1 class="q-panel-g-1-value lg-header-txt"><text id="kicks_made_stat">N/A</text></h1>
+                    <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h3 class="q-panel-g-1-sa-val xs-small-txt sxd-g">+3%</h3>
+                    <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                </div>
+                <div class="gr-panel row-1 col-thrd-2" id="pos-kicked-panel-id">
+                    <h2 id="graph-title-2"><text class="sxd-y">%</text> of Posession Kicked<text class="sxd-y">.</text></h2>
+                    <div id="pos-kicked-graph-cnt">
+                        <canvas id="pos-kicked-graph"></canvas>
+                    </div>
+                </div>
+                <div class="gr-panel row-1 col-thrd-3" id="kicks-full-panel-id">
+                    <h2 class="q-panel-g-1-header">No. of Kicks Out On Full</h2>
+                    <h1 class="q-panel-g-1-value lg-header-txt"><text id="kicks_out_full_stat">N/A</text></h1>
+                    <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h3 class="q-panel-g-1-sa-val xs-small-txt sxd-g">+3%</h3>
+                    <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                </div>
+                <div class="gr-panel row-2-3 col-hlf-1" id="type-kicks-panel-id">
+                    <h2 id="graph-title-2">Types of Kicks Made<text class="sxd-y">.</text></h2>
+                    <div id="ts-pos-graph-cnt">
+                        <canvas id="type_of_kick_graph"></canvas>
+                    </div>
+                </div>
+                <div class="gr-panel row-2-3 col-hlf-2" id="kicks-reg-panel-id">
+                    <h2 id="graph-title-2"><text class="sxd-y">%</text> Kicks Regathered by Type of Kick</h2>
+                    <div id="ts-pos-graph-cnt">
+                        <canvas id="kick_regathered_graph"></canvas>
+                    </div>
+                </div>
+                <div class="gr-panel row-4-5 col-hlf-1" id="kick-touch-gain-panel-id">
+                    <h2 id="graph-title-2">Meters Gained from Kicks to touch<text class="sxd-y">.</text></h2>
+                    <div id="ts-pos-graph-cnt">
+                        <canvas id="meters_gain_kft_graph"></canvas>
+                    </div>
+                </div>
+                <div class="gr-panel row-4-5 col-hlf-2 hlf" id="gk-panel-id">
+                    <h2 class="q-panel-g-1-header">Goal Kicking <text class="sxd-y">%</text></h2>
+                    <h1 class="q-panel-g-1-value lg-header-txt"><text id="gk_pct_stat">N/A</text></h1>
+                    <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h3 class="q-panel-g-1-sa-val xs-small-txt sxd-g">+3%</h3>
+                    <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                </div>
             `;
             $("#tc-header-txt").html("Kicking Game<text class='sxd-y'>.</text>");
             $("#main-content-tm-centre").html(html_layout);
+            fillInfo();
+            PosessionKickedGraph();
+            TypeOfKicksMade();
+            KicksRegatheredGraph();
+            KickForTouchMetersGainGraph();
         }
 
         const displayBallHandling = () => {
             console.log("Displaying Ball Handilng Stats");
+            $(".cnt-overall").attr("id", "cnt-overview-mc");
+            $("#middle-col").css({
+                "grid-row-end": "51",
+                "grid-template-rows": "repeat(48, 1fr)"
+            });
+            $("#main-content-tm-centre").css({
+                "grid-row-end": "51",
+                "grid-template-rows": "repeat(48, 1fr)"
+            });
             let html_layout = `
-                <div class="gr-panel row-1 col-thrd-1" id="pass-success-panel-id"></div>
-                <div class="gr-panel row-1 col-thrd-2" id="total-success-pass-panel-id"></div>
-                <div class="gr-panel row-1 col-thrd-3" id="total-unsuccessful-pass-panel-id"></div>
-                <div class="gr-panel row-2 col-full" id="ps-type-panel-id"></div>
-                <div class="gr-panel row-3 col-full" id="type-pass-panel-id"></div>
-                <div class="gr-panel row-4 col-hlf-1" id="total-he-panel-id"></div>
-                <div class="gr-panel row-4 col-hlf-2" id="typ-he-panel-id"></div>
-                <div class="gr-panel row-4-5 col-full" id="bh-hl-panel-id"></div>
+                <div class="gr-panel row-1 col-thrd-1" id="pass-success-panel-id">
+                    <h2 class="q-panel-g-1-header">Overall Pass Success <text class="sxd-y">%</text></h2>
+                    <h1 class="q-panel-g-1-value lg-header-txt"><text id="pass_success_pct_stat">N/A</text></h1>
+                    <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h3 class="q-panel-g-1-sa-val xs-small-txt sxd-g">+3%</h3>
+                    <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                </div>
+                <div class="gr-panel row-1 col-thrd-2" id="total-success-pass-panel-id">
+                    <h2 class="q-panel-g-1-header">Total Passes Made<text class="sxd-y">.</text></h2>
+                    <h1 class="q-panel-g-1-value lg-header-txt"><text id="pass_success_total_stat">N/A</text></h1>
+                    <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h3 class="q-panel-g-1-sa-val xs-small-txt sxd-g">+3%</h3>
+                    <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                </div>
+                <div class="gr-panel row-1 col-thrd-3" id="total-unsuccessful-pass-panel-id">
+                    <h2 class="q-panel-g-1-header">Total Unsuccessful Passes Made<text class="sxd-y">.</text></h2>
+                    <h1 class="q-panel-g-1-value lg-header-txt"><text id="pass_failed_total_stat">N/A</text></h1>
+                    <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h3 class="q-panel-g-1-sa-val xs-small-txt sxd-g">+3%</h3>
+                    <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                </div>
+                <div class="gr-panel row-2-3 col-hlf-1" id="ps-type-panel-id">
+                    <h2 id="graph-title-2">Pass Success <text class="sxd-y">% </text>by Type of Pass</h2>
+                    <div id="ts-pos-graph-cnt">
+                        <canvas id="pass_success_by_type_graph"></canvas>
+                    </div>
+                </div>
+                <div class="gr-panel row-2-3 col-hlf-2" id="type-pass-panel-id">
+                    <h2 id="graph-title-2"><text class="sxd-y">%</text> Type of Passes Made by Type of Pass<text class="sxd-y">.</text></h2>
+                    <div id="ts-pos-graph-cnt">
+                        <canvas id="passes_made_total_by_type_graph"></canvas>
+                    </div>
+                </div>
+                <div class="gr-panel row-4-5 col-hlf-1 hlf" id="total-he-panel-id">
+                    <h2 class="q-panel-g-1-header">Total Handling Errors Made<text class="sxd-y">.</text></h2>
+                    <h1 class="q-panel-g-1-value lg-header-txt"><text id="total_handling_errors_stat">N/A</text></h1>
+                    <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h3 class="q-panel-g-1-sa-val xs-small-txt sxd-g">+3%</h3>
+                    <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                </div>
+                <div class="gr-panel row-4-5 col-hlf-2" id="typ-he-panel-id">
+                    <h2 id="graph-title-2">Type of Handling Errors Made</h2>
+                    <div id="ts-pos-graph-cnt">
+                        <canvas id="type_handling_errors_graph"></canvas>
+                    </div>
+                </div>
             `;
             $("#tc-header-txt").html("Ball Handling<text class='sxd-y'>.</text>");
             $("#main-content-tm-centre").html(html_layout);
+            fillInfo();
+            PassSuccessByTypeGraph();
+            PassesTotalByType();
+            TypeHandlingErrorsGraph();
         };
 
         const displayRucks = () => {
             console.log("Displaying Breakdown Stats");
+            $(".cnt-overall").attr("id", "cnt-overview-mc");
+            $("#middle-col").css({
+                "grid-row-end": "51",
+                "grid-template-rows": "repeat(48, 1fr)"
+            });
+            $("#main-content-tm-centre").css({
+                "grid-row-end": "51",
+                "grid-template-rows": "repeat(48, 1fr)"
+            });
+
             let html_layout = `
-                <div class="gr-panel row-1 col-thrd-1" id="total-rw-panel-id"></div>
-                <div class="gr-panel row-1 col-thrd-2" id="total-rl-panel-id"></div>
-                <div class="gr-panel row-1 col-thrd-3" id="total-rs-panel-id"></div>
-                <div class="gr-panel row-2-3 col-full" id="rspeed-panel-id"></div>
-                <div class="gr-panel row-4-5 col-full" id="how-rucks-lost-panel-id"></div>
-                <div class="gr-panel row-6-7 col-full" id="rucks-hl-panel-id"></div>
+                <div class="gr-panel row-1 col-thrd-1" id="total-rw-panel-id">
+                    <h2 class="q-panel-g-1-header">Total Rucks Won<text class="sxd-y">.</text></h2>
+                    <h1 class="q-panel-g-1-value lg-header-txt"><text id="ruck_won_stat">N/A</text></h1>
+                    <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h3 class="q-panel-g-1-sa-val xs-small-txt sxd-g">+3%</h3>
+                    <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                </div>
+                <div class="gr-panel row-1 col-thrd-2" id="total-rl-panel-id">
+                    <h2 class="q-panel-g-1-header">Total Rucks Lost<text class="sxd-y">.</text></h2>
+                    <h1 class="q-panel-g-1-value lg-header-txt"><text id="total_rucks_lost_stat">N/A</text></h1>
+                    <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h3 class="q-panel-g-1-sa-val xs-small-txt sxd-g">+3%</h3>
+                    <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                </div>
+                <div class="gr-panel row-1 col-thrd-3" id="total-rs-panel-id">
+                    <h2 class="q-panel-g-1-header">Total Ruck Steals<text class="sxd-y">.</text></h2>
+                    <h1 class="q-panel-g-1-value lg-header-txt"><text id="total_ruck_steals_stat">N/A</text></h1>
+                    <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h3 class="q-panel-g-1-sa-val xs-small-txt sxd-g">+3%</h3>
+                    <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                </div>
+                <div class="gr-panel row-2-3 col-full" id="rspeed-panel-id">
+                    <h2 id="graph-title-2">Ruck Recycle Speed %</h2>
+                    <div id="ts-pos-graph-cnt">
+                        <canvas id="ruck_recycle_speed_graph"></canvas>
+                    </div>
+                </div>
+                <div class="gr-panel row-4-5 col-hlf-2 hlf" id="ruck-infrigements-allowed-panel-id">
+                    <h2 class="q-panel-g-1-header">Ruck Infringements Made<text class="sxd-y">.</text></h2>
+                    <h1 class="q-panel-g-1-value lg-header-txt"><text id="ruck_infringments_stat">N/A</text></h1>
+                    <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h3 class="q-panel-g-1-sa-val xs-small-txt sxd-g">+3%</h3>
+                    <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                </div>
+                <div class="gr-panel row-4-5 col-hlf-1 hlf" id="ruck-steals-allowed-panel-id">
+                    <h2 class="q-panel-g-1-header">Ruck Steals Allowed<text class="sxd-y">.</text></h2>
+                    <h1 class="q-panel-g-1-value lg-header-txt"><text id="ruck_steals_allowed_stat">N/A</text></h1>
+                    <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h3 class="q-panel-g-1-sa-val xs-small-txt sxd-g">+3%</h3>
+                    <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                </div>
                 
             `;
             $("#tc-header-txt").html("The Breakdown<text class='sxd-y'>.</text>");
             $("#main-content-tm-centre").html(html_layout);
+            fillInfo();
+            RuckRecycleSpeedGraph();
         };
         
         const displaySetPiece = () => {
@@ -596,6 +757,7 @@
                 <div class="gr-panel row-3 col-thrd-2" id="tot-scrums-stolen-panel-id"></div>
                 <div class="gr-panel row-3 col-thrd-3" id="sp-22-try-panel-id"></div>
                 <div class="gr-panel row-4-5 col-full" id="sp-hl-panel-id"></div>
+                
             `
             $("#tc-header-txt").html("Set Piece<text class='sxd-y'>.</text>");
             $("#main-content-tm-centre").html(html_layout);
@@ -618,10 +780,12 @@
         };
 
          // Show overview as default
-        displayOverview();
+        //displayOverview();
         //displayAttack();
         //displayDefense();
-        
+        //displayKickingGame();
+        //displayBallHandling();
+        displayRucks();
 
     </script>
 {% endblock %}
