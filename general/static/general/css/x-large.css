@@ -583,7 +583,7 @@
   /*Right Col css*/
 
   #middle-col {
-    grid-area: 1 / 6 / 51 / 24; 
+    grid-area: 1 / 6 / 51 / 20; 
     display: grid;
     grid-template-columns: repeat(24, 1fr );
     grid-template-rows: repeat(48, 1fr );
@@ -763,8 +763,9 @@
   }
 
   #pos-kicked-graph-cnt {
-    grid-area: 4 / 1 / 12 / 13; 
+    grid-area: 4 / 1 / 13 / 13; 
   }
+
 
   #graph-title {
     text-align: center;

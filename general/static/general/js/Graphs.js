@@ -401,8 +401,9 @@ const PosessionKickedGraph = () => {
             backgroundColor: [green_win, red_lose],
             borderColor: black_1,
             data: [15, 85],
+            hoverOffset: 20,
             }],
-        hoverOffset: 4,
+        
         };
 
     const config = {
@@ -693,7 +694,7 @@ const PassSuccessByTypeGraph = () => {
             label: 'Pass Success %',
             backgroundColor: massey_yellow,
             borderColor: black_1,
-            barThickness: 75,
+            barThickness: 50,
             data: [95, 80, 80, 75, 70],
             }]
         };
@@ -931,6 +932,161 @@ const RuckRecycleSpeedGraph = () => {
 
     var myChart = new Chart(
         document.getElementById('ruck_recycle_speed_graph'),
+        config
+    );
+}
+
+const TriesOffSetPieceGraph = () => {
+    const labels = [
+        "Scrum",
+        "Lineouts"
+        ];
+
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: 'Tries off of Set Piece',
+            backgroundColor: massey_yellow,
+            borderColor: black_1,
+            barThickness: 150,
+            data: [1, 2],
+            }]
+        };
+
+    const config = {
+        type: 'bar',
+        data,
+        options: {
+            scales: {
+                x: {
+                    grid: {
+                        display: true,
+                        drawBorder: true,
+                        drawOnChartArea: false,
+                        drawTicks: true,
+                        color: "rgb(165,167,170)"
+                    },
+                    ticks: {
+                        font: {
+                            size: 13,
+                            family: "'Abel', sans-serif"
+                        },
+                        color: white,
+                        padding: 15
+                    }
+                },
+                y: {
+                    grid: {
+                        display: true,
+                        drawBorder: true,
+                        drawOnChartArea: false,
+                        drawTicks: true,
+                        color: "rgb(165,167,170)"
+                    },
+                    ticks: {
+                        font: {
+                            size: 16,
+                            family: "'Abel', sans-serif"
+                        },
+                        color: white,
+                        padding: 7
+                    },
+                    min: 0,
+                    max: 4,
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            responsive: true,
+            maintainAspectRatio: false
+        }
+        };
+
+
+    var myChart = new Chart(
+        document.getElementById('tries_off_set_piece_graph'),
+        config
+    );
+}
+
+const TypesOfPenaltiesGraph = () => {
+    const labels = [
+        "Ruck Penalty",
+        "Offside Penalty",
+        "Scrum Penalty",
+        "Lineout Penalty",
+        "Other"
+        ];
+
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: 'Tries off of Set Piece',
+            backgroundColor: massey_yellow,
+            borderColor: black_1,
+            barThickness: 80,
+            data: [5, 6, 3, 1, 1],
+            }]
+        };
+
+    const config = {
+        type: 'bar',
+        data,
+        options: {
+            scales: {
+                x: {
+                    grid: {
+                        display: true,
+                        drawBorder: true,
+                        drawOnChartArea: false,
+                        drawTicks: true,
+                        color: "rgb(165,167,170)"
+                    },
+                    ticks: {
+                        font: {
+                            size: 13,
+                            family: "'Abel', sans-serif"
+                        },
+                        color: white,
+                        padding: 15
+                    }
+                },
+                y: {
+                    grid: {
+                        display: true,
+                        drawBorder: true,
+                        drawOnChartArea: false,
+                        drawTicks: true,
+                        color: "rgb(165,167,170)"
+                    },
+                    ticks: {
+                        font: {
+                            size: 16,
+                            family: "'Abel', sans-serif"
+                        },
+                        color: white,
+                        padding: 7
+                    },
+                    min: 0,
+                    max: 10,
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            responsive: true,
+            maintainAspectRatio: false
+        }
+        };
+
+
+    var myChart = new Chart(
+        document.getElementById('types_of_penalties_conceded_graph'),
         config
     );
 }
