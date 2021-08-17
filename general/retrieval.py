@@ -162,3 +162,4 @@ def get_attack_stats(game_id):
             att_stat_dict[att_stat_list[i]] = stat
 
     return att_stat_dict
+
