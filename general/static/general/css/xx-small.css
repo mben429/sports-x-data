@@ -462,7 +462,7 @@
       #cnt-overview-mc {
         display: grid;
         grid-template-columns: repeat(24, 1fr);
-        grid-template-rows: repeat(51, 1em);
+        grid-template-rows: repeat(60, 1em);
       }
 
       #cnt-overview-tc {
@@ -559,7 +559,7 @@
       }
 
       .mc-nav-icons {
-        max-width: 35%;
+        max-width: 30%;
       }
 
       .side-txt {
@@ -609,7 +609,7 @@
       /*Right Col css*/
     
       #middle-col {
-        grid-area: 1 / 9 / 51 / 24; 
+        grid-area: 1 / 9 / 61 / 24; 
         display: grid;
         grid-template-columns: repeat(24, 1fr);
         grid-template-rows: repeat(48, 1fr);

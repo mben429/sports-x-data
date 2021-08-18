@@ -1,44 +1,4 @@
 
-
-const CURRENT_SCREEN_WIDTH = $(window).width();
-const CURRENT_SCREEN_HEIGHT = $(window).height();
-
-
-const setBarThickness = (bar_graph, bar_thickness) => {
-    bar_graph.data.datasets[0]["barThickness"] = bar_thickness;
-    bar_graph.update();
-}
-
-const setXticksFontSize = (bar_graph, font_size) => {
-    bar_graph.options.scales.x.ticks.font.size = font_size;
-    bar_graph.update();
-}
-
-const setYticksFontSize = (bar_graph, font_size) => {
-    bar_graph.options.scales.y.ticks.font.size = font_size;
-    console.log(font_size)
-    bar_graph.update();
-}
-
-// Need to change barthickness, x ticks font size, y ticks font size
-const setBarGraphConfig = (bar_graph, offsetbt=0, offsetxt=0, offsetyt=0) => {
-    if (CURRENT_SCREEN_WIDTH >= 300 && CURRENT_SCREEN_WIDTH <= 599) {
-        console.log("xx-small");
-        setBarThickness(bar_graph, 12-offsetbt);
-        setXticksFontSize(bar_graph, 7-offsetxt);
-        setYticksFontSize(bar_graph, 7-offsetyt);
-    } 
-}
-
-const setDoughnutConfig = (d_graph) => {
-    if (CURRENT_SCREEN_WIDTH >= 300 && CURRENT_SCREEN_HEIGHT <= 599) {
-        console.log("xx-small");
-    } 
-}
-
-
-
-
 const MetersGainedGraph = () => {
     
     const labels = [
@@ -459,7 +419,13 @@ const PosessionKickedGraph = () => {
         options: {
             plugins: {
                 legend: {
-                    display: true
+                    display: true,
+                    labels: {
+                        font: {
+                            size: 4
+                        },
+                        boxWidth: 40
+                    }
                 },
                 datalabels: {
                     formatter: (value, ctx) => {
@@ -484,6 +450,7 @@ const PosessionKickedGraph = () => {
         document.getElementById('pos-kicked-graph'),
         config
     );
+    setDoughnutConfig(myChart);
 }
 
 
@@ -839,8 +806,14 @@ const PassesTotalByType = () => {
         options: {
             plugins: {
                 legend: {
-                    display: true
-                }
+                    display: true,
+                    labels: {
+                        font: {
+                            size: 4
+                        },
+                        boxWidth: 40
+                    }
+                },
             },
             responsive: true,
             maintainAspectRatio: false
@@ -852,8 +825,8 @@ const PassesTotalByType = () => {
         document.getElementById('passes_made_total_by_type_graph'),
         config
     );
+    setDoughnutConfig(myChart);
 }
-
 
 const TypeHandlingErrorsGraph = () => {
     const labels = [
@@ -883,7 +856,13 @@ const TypeHandlingErrorsGraph = () => {
         options: {
             plugins: {
                 legend: {
-                    display: true
+                    display: true,
+                    labels: {
+                        font: {
+                            size: 4
+                        },
+                        boxWidth: 40
+                    }
                 },
                 datalabels: {
                     formatter: (value, ctx) => {
@@ -908,6 +887,7 @@ const TypeHandlingErrorsGraph = () => {
         document.getElementById('type_handling_errors_graph'),
         config
     );
+    setDoughnutConfig(myChart);
 }
 
 const RuckRecycleSpeedGraph = () => {

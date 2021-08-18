@@ -111,8 +111,6 @@
         var game_id_int = parseInt(game_id);
         console.log("Current Game Data", data);
         console.log("Current Game ID: ", game_id);
-
-        
     
         // Get current team against
         const getTeamAgainst = () => {
@@ -267,6 +265,7 @@
                 "grid-row-end": "51",
                 "grid-template-rows": "repeat(48, 1fr)"
             });
+            setGridSize(1);
             let html_layout = `
                 <div class="gr-panel row-1 col-hlf-1" id="basic-stats-panel-id" data-aos="fade-right">
                     <div id="result-letter-big"><text class="sxd-g xll-header-txt" id="result-letter">W</text></div>
@@ -382,6 +381,7 @@
                 "grid-row-end": "51",
                 "grid-template-rows": "repeat(48, 1fr)"
             });
+            setGridSize(1);
             let html_layout = `
                 <div class="gr-panel row-1 col-3q" id="att-tries-panel-id" data-aos="fade-right">
                     <div class="q-panel-g-1-header med-2-std-txt cntr">Tries<text class="sxd-y">.</text></div>
@@ -458,7 +458,7 @@
                 "grid-row-end": "71",
                 "grid-template-rows": "repeat(71, 1fr)"
             });
-
+            setGridSize(0);
             let html_layout = `
                 <div class="gr-panel row-1 col-qrt-1" id="def-tackles-made-panel-id" data-aos="fade-right">
                     <h2 class="q-panel-g-1-header">Tackles Made Total</h2>
@@ -555,6 +555,7 @@
                 "grid-row-end": "51",
                 "grid-template-rows": "repeat(48, 1fr)"
             });
+            setGridSize(1);
             let html_layout = `
                 <div class="gr-panel row-1 col-thrd-1" id="kicks-made-panel-id" data-aos="fade-right">
                     <h2 class="q-panel-g-1-header">No. of Kicks Made</h2>
@@ -625,6 +626,7 @@
                 "grid-row-end": "51",
                 "grid-template-rows": "repeat(48, 1fr)"
             });
+            setGridSize(1);
             let html_layout = `
                 <div class="gr-panel row-1 col-thrd-1" id="pass-success-panel-id" data-aos="fade-right">
                     <h2 class="q-panel-g-1-header">Overall Pass Success <text class="sxd-y">%</text></h2>
@@ -696,7 +698,7 @@
                 "grid-row-end": "51",
                 "grid-template-rows": "repeat(48, 1fr)"
             });
-
+            setGridSize(1);
             let html_layout = `
                 <div class="gr-panel row-1 col-thrd-1" id="total-rw-panel-id" data-aos="fade-right">
                     <h2 class="q-panel-g-1-header">Total Rucks Retained<text class="sxd-y">.</text></h2>
@@ -763,6 +765,7 @@
                 "grid-row-end": "51",
                 "grid-template-rows": "repeat(48, 1fr)"
             });
+            setGridSize(1);
             let html_layout = `
                 <div class="gr-panel row-1 col-hlf-1" id="own-lineout-success-panel-id" data-aos="fade-right">
                     <h2 class="q-panel-g-1-header">Own Lineout Throw Success<text class="sxd-y">%</text></h2>
@@ -838,6 +841,7 @@
                 "grid-row-end": "51",
                 "grid-template-rows": "repeat(48, 1fr)"
             });
+            setGridSize(1);
             let html_layout = `
                 <div class="gr-panel row-1 col-hlf-1" id="tot-pen-conc-panel-id" data-aos="fade-right">
                     <h2 class="q-panel-g-1-header">Total Penalties Conceded<text class="sxd-y">.</text></h2>
@@ -893,11 +897,11 @@
         };
 
          // Show overview as default
-        displayOverview();
+        //displayOverview();
         //displayAttack();
         //displayDefense();
         //displayKickingGame();
-        //displayBallHandling();
+        displayBallHandling();
         //displayRucks();
         //displaySetPiece();
         //displayDiscipline();
