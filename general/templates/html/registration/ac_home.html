@@ -6,7 +6,7 @@
     <div id="left-col">
         <div class="flex-centre" id="left-col-header-cnt">
             <div id="sm-logo-cnt">
-                <img src="{% static 'general/images/sxd_logo_60px.png' %}">
+                <img class="tc-logo" src="{% static 'general/images/sxd_logo_60px.png' %}">
             </div>
             <div class="med-header-txt" id="left-col-info-header">
                 Analysis<text class="sxd-y">.</text>
@@ -18,19 +18,19 @@
                 <ul class="med-std-txt" id="side-bar-menu-cnt">
                     <li id="side-bar-menu-item" class="flex-centre">
                         <a onclick="showStandings('{{user.username}}')" class="basic-btns hvr-icon-spin">
-                            <img class="hvr-icon" src="{% static 'general/images/schedule.png' %}">
+                            <img class="sidebar-icon hvr-icon" src="{% static 'general/images/schedule.png' %}">
                             <text class="side-txt">Standings</text>
                         </a>
                     </li>
                     <li id="side-bar-menu-item" class="flex-centre">
                         <a onclick="showFixturesResults();" class="basic-btns hvr-icon-spin">
-                            <img class="hvr-icon" src="{% static 'general/images/podium.png' %}">
+                            <img class="sidebar-icon hvr-icon" src="{% static 'general/images/podium.png' %}">
                             <text class="side-txt">Fixtures and Results</text>
                         </a>
                     </li>
                     <li id="side-bar-menu-item" class="flex-centre">
                         <a href="/upload" class="basic-btns hvr-icon-spin">
-                            <img class="hvr-icon" src="{% static 'general/images/upload.png' %}">
+                            <img class="sidebar-icon hvr-icon" src="{% static 'general/images/upload.png' %}">
                             <text class="side-txt">Upload Footage</text>
                         </a>
                     </li>
