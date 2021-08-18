@@ -540,6 +540,10 @@
       #left-col-btns-cnt {
         grid-area: 5 / 1 / 25 / 13;
       }
+
+      #left-col-btns-cnt-mc {
+        grid-area: 7 / 1 / 25/ 13;
+      }
     
       #left-col-extras-box-cnt {
         grid-area: 16 / 1 / 18 / 13;
@@ -552,6 +556,10 @@
 
       .sidebar-icon {
         max-width: 30%;
+      }
+
+      .mc-nav-icons {
+        max-width: 35%;
       }
 
       .side-txt {
@@ -579,6 +587,10 @@
         height: 3em;
         text-align: center;
       }
+
+      .team-logo-im {
+        max-width: 70%;
+      }
     
       /*handles the vertical centering*/
       .Centerer
@@ -605,13 +617,14 @@
     
       #mc-header-txt-cnt {
         grid-area: 4 / 1 / 6 / 25;
+        font-size: 0.8em;
       }
     
       #curr-sect-header {
         grid-area: 6 / 1 / 8 / 25;
       }
       #back-to-team-centre {
-        grid-area: 4 / 14 / 6 / 19;
+        grid-area: 4 / 16 / 5 / 24;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -844,7 +857,7 @@
       }
       
       .gr-panel h2 {
-        font-size: 0.7em; 
+        font-size: 0.6em; 
       }
     
       .gr-panel h1 {
@@ -852,11 +865,11 @@
       }
     
       .gr-panel h3 {
-        font-size: 0.85em;
+        font-size: 0.8em;
       }
     
       .gr-panel h4 {
-        font-size: 0.5em;
+        font-size: 0.4em;
       }
       .row-1{
         grid-row-start: 1;
@@ -979,11 +992,11 @@
       }
       
       .hlf h1 {
-        font-size: 2.9em;
+        font-size: 2.5em;
       }
     
       .hlf h2 {
-        font-size: 1.2em;
+        font-size: 0.8em;
       }
     
       .hlf h3 {
@@ -1012,14 +1025,14 @@
       }
       
       #gm-basic-stats-id {
-        grid-area: 3 / 6 / 12 / 12;
+        grid-area: 3 / 7 / 12 / 12;
         display: grid;
         grid-template-columns: repeat(12, 1fr);
         grid-template-rows: repeat(12, 1fr);
       }
     
       .gm-event-txt {
-        font-size: 0.6em;
+        font-size: 0.5em;
       }
     
       #gm-tries {
@@ -1040,18 +1053,21 @@
       
       #league-title-id {
         grid-area: 2 / 2 / 4 / 12;
+        font-size: 0.8em;
       }
       
       #league-sub-id {
-        grid-area: 4 / 2 / 5 / 12;
+        grid-area: 6 / 2 / 7 / 12;
       }
       
       #pos-change-lg-id {
         grid-area: 7 / 2 / 12 / 5;
+        font-size: 2.5em;
       }
       
       #change-val-id {
-        grid-area: 8 / 4 / 10 / 5;
+        grid-area: 8 / 8 / 11 / 10;
+        font-size: 1.5em;
         
       }
       

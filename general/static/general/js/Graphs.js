@@ -1,4 +1,46 @@
+
+
+const CURRENT_SCREEN_WIDTH = $(window).width();
+const CURRENT_SCREEN_HEIGHT = $(window).height();
+
+
+const setBarThickness = (bar_graph, bar_thickness) => {
+    bar_graph.data.datasets[0]["barThickness"] = bar_thickness;
+    bar_graph.update();
+}
+
+const setXticksFontSize = (bar_graph, font_size) => {
+    bar_graph.options.scales.x.ticks.font.size = font_size;
+    bar_graph.update();
+}
+
+const setYticksFontSize = (bar_graph, font_size) => {
+    bar_graph.options.scales.y.ticks.font.size = font_size;
+    console.log(font_size)
+    bar_graph.update();
+}
+
+// Need to change barthickness, x ticks font size, y ticks font size
+const setBarGraphConfig = (bar_graph, offsetbt=0, offsetxt=0, offsetyt=0) => {
+    if (CURRENT_SCREEN_WIDTH >= 300 && CURRENT_SCREEN_WIDTH <= 599) {
+        console.log("xx-small");
+        setBarThickness(bar_graph, 12-offsetbt);
+        setXticksFontSize(bar_graph, 7-offsetxt);
+        setYticksFontSize(bar_graph, 7-offsetyt);
+    } 
+}
+
+const setDoughnutConfig = (d_graph) => {
+    if (CURRENT_SCREEN_WIDTH >= 300 && CURRENT_SCREEN_HEIGHT <= 599) {
+        console.log("xx-small");
+    } 
+}
+
+
+
+
 const MetersGainedGraph = () => {
+    
     const labels = [
         'One-Off Runner',
         'Backline Move',
@@ -74,6 +116,7 @@ const MetersGainedGraph = () => {
         document.getElementById('mg-graph-canv'),
         config
     );
+    setBarGraphConfig(myChart);
 }
 
 const TackleSuccessPosGraph = () => {
@@ -151,6 +194,7 @@ const TackleSuccessPosGraph = () => {
         document.getElementById('ts-pos-graph'),
         config
     );
+    setBarGraphConfig(myChart);
 }
 
 
@@ -229,6 +273,7 @@ const TackleSuccessByTypeGraph = () => {
         document.getElementById('tck-aw-graph'),
         config
     );
+    setBarGraphConfig(myChart);
 }
 
 const TackleSuccessByArea = () => {
@@ -309,6 +354,7 @@ const TackleSuccessByArea = () => {
         document.getElementById('tck-area-graph'),
         config
     );
+    setBarGraphConfig(myChart);
 }
 
 const LinebreaksByPos = () => {
@@ -386,6 +432,7 @@ const LinebreaksByPos = () => {
         document.getElementById('lb-by-position-graph'),
         config
     );
+    setBarGraphConfig(myChart);
 }
 
 const PosessionKickedGraph = () => {
@@ -518,6 +565,7 @@ const TypeOfKicksMade = () => {
         document.getElementById('type_of_kick_graph'),
         config
     );
+    setBarGraphConfig(myChart);
 }
 
 const KicksRegatheredGraph = () => {
@@ -597,6 +645,7 @@ const KicksRegatheredGraph = () => {
         document.getElementById('kick_regathered_graph'),
         config
     );
+    setBarGraphConfig(myChart);
 }
 
 const KickForTouchMetersGainGraph = () => {
@@ -676,6 +725,7 @@ const KickForTouchMetersGainGraph = () => {
         document.getElementById('meters_gain_kft_graph'),
         config
     );
+    setBarGraphConfig(myChart);
 }
 
 const PassSuccessByTypeGraph = () => {
@@ -756,6 +806,7 @@ const PassSuccessByTypeGraph = () => {
         document.getElementById('pass_success_by_type_graph'),
         config
     );
+    setBarGraphConfig(myChart, 0, 4, 0);
 }
 
 const PassesTotalByType = () => {
@@ -934,6 +985,8 @@ const RuckRecycleSpeedGraph = () => {
         document.getElementById('ruck_recycle_speed_graph'),
         config
     );
+    setBarGraphConfig(myChart);
+
 }
 
 const TriesOffSetPieceGraph = () => {
@@ -1010,6 +1063,8 @@ const TriesOffSetPieceGraph = () => {
         document.getElementById('tries_off_set_piece_graph'),
         config
     );
+    setBarGraphConfig(myChart, -15);
+
 }
 
 const TypesOfPenaltiesGraph = () => {
@@ -1089,4 +1144,5 @@ const TypesOfPenaltiesGraph = () => {
         document.getElementById('types_of_penalties_conceded_graph'),
         config
     );
+    setBarGraphConfig(myChart, -10);
 }
