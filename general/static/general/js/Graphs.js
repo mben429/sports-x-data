@@ -453,7 +453,6 @@ const PosessionKickedGraph = () => {
     setDoughnutConfig(myChart);
 }
 
-
 const TypeOfKicksMade = () => {
     const labels = [
         "Punts",
