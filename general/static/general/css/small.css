@@ -1669,4 +1669,335 @@
     grid-area: 6 / 2 / 7 / 6;
     font-size: 1.8em;
   }
+
+  #cnt-overview-mc {
+    display: grid;
+    grid-template-columns: repeat(24, 1fr);
+    grid-template-rows: repeat(60, 1em);
+  }
+  
+  #cnt-overview-mc-def {
+    display: grid;
+    grid-template-columns: repeat(24, 1fr);
+    grid-template-rows: repeat(71, 1em);
+  }
+  
+  #cnt-overview-tc {
+    display: grid;
+    grid-template-columns: repeat(24, 1fr);
+    grid-template-rows: repeat(51, 1em);
+  }
+  
+  #middle-col {
+    grid-area: 1 / 9 / 61 / 24; 
+    display: grid;
+    grid-template-columns: repeat(24, 1fr);
+    grid-template-rows: repeat(48, 1fr);
+    }
+     
+     
+  #left-col {
+    grid-area: 1 / 1 / 52 / 8;     
+  
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(48, 1fr );
+    }
+  #left-col-btns-cnt {
+    grid-area: 5 / 1 / 25 / 13;
+  }
+  
+  #left-col-btns-cnt-mc {
+    grid-area: 7 / 1 / 25/ 13;
+  }
+  
+  #tc-home-main-header {
+    grid-area: 5 / 1 / 8 / 25;
+    font-size: 2em;
+  }
+  
+  #tc-home-main-content {
+    grid-area: 10 / 1 / 38 / 25;
+    display: flex;
+    align-items: stretch;
+  }
+  
+  .tbl {
+    border-collapse: collapse;
+    border-radius: 0.1em 0.1em 0em 0em;
+    overflow: hidden;
+    box-shadow: 0 0 1em rgba(255, 255, 255, 0.15);
+  }
+  
+  .tbl tbody tr.active-row {
+    font-weight: bold;
+    color: var(--sxd-yellow);
+  }
+  
+  .tbl tbody tr:nth-of-type(even) {
+    background-color: var(--dark-grey);
+  }
+  
+  .tbl tbody tr:last-of-type {
+    border-bottom: 0.07em solid var(--sxd-yellow);
+  }
+  
+  .fr-tbl th {
+    font-size: 0.5em;
+    padding: 0.5em 1em;
+    background-color: var(--sxd-yellow);
+    color: black;
+    text-align: left;
+  }
+  
+  .fr-tbl td {
+    font-size:  0.5em;
+    padding: 1em 1em;
+    text-align: left;
+  }
+  
+  .stds-tbl tbody tr:nth-of-type(even) {
+          background-color: var(--dark-grey);
+        }
+      
+        .stds-tbl th {
+          font-size: 0.45em;
+          padding: 0.5em 1.2em;
+          text-align: left;
+          background-color: var(--sxd-yellow);
+          color: black;
+        }
+      
+        .stds-tbl td {
+          font-size: 0.45em;
+          padding: 0.9em 1.2em;
+          text-align: left;
+        }
+        
+  
+  #btn-back-tc-cnt {
+    grid-area: 4 / 12 / 5 / 15;
+  }
+  
+  .btn-back-tc {
+    border-radius: 2.5px;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: black;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    background-color: var(--sxd-yellow);
+    text-decoration: none;
+    font-style: bold;
+    font-size: 0.5em;
+  }
+  
+  .btn-back-tc:hover {
+    border-radius: 2.5px;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: var(--sxd-yellow);
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--sxd-yellow);
+    background-color: black;
+    text-decoration: none;
+    font-style: bold;
+    font-size: 0.5em;
+  }
+  
+  #curr-sect-header {
+    grid-area: 6 / 1 / 8 / 25;
+   }
+   
+   #back-to-team-centre {
+    grid-area: 4 / 16 / 5 / 24;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+   
+   #back-to-team-centre a {
+          padding-left: 1.5em;
+          padding-right: 1.5em;
+          padding-top: 0.5em;
+          padding-bottom: 0.5em;
+          color: black;
+          background: var(--sxd-yellow);
+          border-style: solid;
+          border-width: 0.05em;
+          border-color: black;
+          text-decoration: none;
+          font-size: 0.5em;
+        }
+      
+        
+  #back-to-team-centre a:hover {
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    color: var(--sxd-yellow);
+    background: black;
+    border-style: solid;
+    border-width: 0.05em;
+    border-color: var(--sxd-yellow);
+    text-decoration: none;
+    font-size: 0.5em;
+  }
+  
+  #main-content-tm-centre {
+    grid-area: 8 / 1 / 49 / 25;
+    display: grid;
+    grid-template-columns: repeat(24, 1fr );
+    grid-template-rows: repeat(48, 1fr );
+  }
+        
+        
+  #main-content-tm-centre-def {
+    grid-area: 10 / 1 / 71 / 25;
+    display: grid;
+    grid-template-columns: repeat(24, 1fr );
+    grid-template-rows: repeat(72, 1fr );
+  }
+  
+  .gr-panel h2 {
+    font-size: 0.6em; 
+  }
+  
+  .gr-panel h1 {
+    font-size: 1.8em;
+  }
+  
+  .gr-panel h3 {
+    font-size: 0.8em;
+  }
+  
+  .gr-panel h4 {
+    font-size: 0.4em;
+  }
+  
+  .row-1{
+    grid-row-start: 1;
+    grid-row-end: 11;
+  }
+  
+  .row-2{
+    grid-row-start: 11;
+    grid-row-end: 21;
+  }
+  
+  .row-3 {
+    grid-row-start: 21;
+    grid-row-end: 31;
+  }
+  
+  .row-4 { 
+    grid-row-start: 31;
+    grid-row-end: 41; 
+  }
+  
+  .row-5 {
+    grid-row-start: 41;
+    grid-row-end: 51;
+  }
+  
+  .row-6 {
+    grid-row-start: 51;
+    grid-row-end: 61;
+  }
+  
+  .row-7 {
+    grid-row-start: 61;
+    grid-row-end: 71;
+  }
+  
+  .row-1-2 {
+    grid-row-start: 1;
+    grid-row-end: 21;
+  }
+  
+  .row-2-3 {
+    grid-row-start: 11;
+    grid-row-end: 31;
+  }
+  
+  .row-3-4 {
+    grid-row-start: 21;
+    grid-row-end: 41;
+  }
+  
+  .row-4-5 {
+  grid-row-start: 31;
+  grid-row-end: 51;
+  }
+  
+  .row-5-6 {
+    grid-row-start: 21;
+    grid-row-end: 31;
+  }
+  
+  .row-6-7 {
+    grid-row-start: 51;
+    grid-row-end: 71;
+  }
+  
+  .hlf h1 {
+    font-size: 2.5em;
+  }
+  
+  .hlf h2 {
+    font-size: 0.8em;
+  }
+  
+  .hlf h3 {
+    font-size: 1.2em;
+  }
+  
+  .hlf h4 {
+    font-size: 0.9em; 
+  }
+  
+  .team-logo-im {
+    max-width: 70%;
+  }
+  
+  #ts-pos-graph-cnt {
+    grid-area:  3 / 1 / 13 / 13; 
+  }
+  
+  #graph-title {
+    text-align: center;
+    grid-area: 2 / 1 / 13 / 13;
+    font-size: 1.2em;
+  }
+  
+  #graph-title-2 {
+    text-align: center;
+    grid-area: 2 / 1 / 13 / 13;
+    font-size: 0.95em;
+  }
+  
+  .gm-event-txt {
+    font-size: 0.5em;
+  }
+  
+  .col-3q {
+    grid-column-start: 1;
+    grid-column-end: 19; 
+  }
+  
+  #curr-sect-header {
+    grid-area: 6 / 1 / 8 / 25;
+    font-size: 1.75em;
+  }
+  
+  #pos-kicked-graph-cnt {
+    grid-area: 4 / 1 / 13 / 13; 
+  }
 }

@@ -1987,4 +1987,8 @@
       #pos-kicked-graph-cnt {
         grid-area: 4 / 1 / 13 / 13; 
       }
+
+      .att-tries-stat {
+        font-size: 2.5em;
+      }
 }
