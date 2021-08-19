@@ -29,6 +29,8 @@ const setLegendBoxSize = (d_graph, box_size) => {
     d_graph.update();
 }
 
+
+
 // Need to change barthickness, x ticks font size, y ticks font size
 const setBarGraphConfig = (bar_graph, offsetbt=0, offsetxt=0, offsetyt=0) => {
     if (CURRENT_SCREEN_WIDTH >= 300 && CURRENT_SCREEN_WIDTH <= 599) {
@@ -36,14 +38,25 @@ const setBarGraphConfig = (bar_graph, offsetbt=0, offsetxt=0, offsetyt=0) => {
         setBarThickness(bar_graph, 12-offsetbt);
         setXticksFontSize(bar_graph, 7-offsetxt);
         setYticksFontSize(bar_graph, 7-offsetyt);
+    }
+    else if (CURRENT_SCREEN_WIDTH >= 600 && CURRENT_SCREEN_WIDTH <= 899) {
+        console.log("Setting Bar config... xx-small");
+        setBarThickness(bar_graph, 40-offsetbt);
+        setXticksFontSize(bar_graph, 9-offsetxt);
+        setYticksFontSize(bar_graph, 9-offsetyt);
     } 
 }
 
-const setDoughnutConfig = (d_graph, legendOffset=0, boxWidthOffset=0) => {
+const setDoughnutConfig = (d_graph, legendOffset=0, boxWidthOffset=0, boxOutlineOffset=0) => {
     if (CURRENT_SCREEN_WIDTH >= 300 && CURRENT_SCREEN_WIDTH <= 599) {
         console.log("Setting Doughnut config... xx-small");
         setLegendFontSize(d_graph, 4-legendOffset);
         setLegendBoxSize(d_graph, 15-boxWidthOffset);
+    } 
+    else if (CURRENT_SCREEN_WIDTH >= 600 && CURRENT_SCREEN_WIDTH <= 899) {
+        console.log("Setting Doughnut config... xx-small");
+        setLegendFontSize(d_graph, 9-legendOffset);
+        setLegendBoxSize(d_graph, 12-boxWidthOffset);
     } 
 }
 
@@ -62,5 +75,26 @@ const setGridSize = (option) => {
             $("#cnt-overview-mc").css("grid-template-rows", "repeat(65, 1em)");
             $("#middle-col").css("grid-row-end", "66");
         }
+    }
+
+    else if (CURRENT_SCREEN_WIDTH >= 600 && CURRENT_SCREEN_WIDTH <= 899) {
+        // Option 1 == larger
+        if (option == 1){
+            console.log("Setting larger Grid Size config... xx-small");
+            $("#cnt-overview-mc").css("grid-template-rows", "repeat(60, 1em)");
+            $("#middle-col").css("grid-row-end", "61");
+        }
+        // Option 0 == smaller
+        else if (option == 0){
+            console.log("Setting smaller Grid Size config... xx-small");
+            $("#cnt-overview-mc").css("grid-template-rows", "repeat(65, 1em)");
+            $("#middle-col").css("grid-row-end", "66");
+        }
+    }
+}
+
+const middlColPosition = () => {
+    if (CURRENT_SCREEN_WIDTH >= 300 && CURRENT_SCREEN_WIDTH <= 599) {
+        $("#middle-col").css("grid-column-start", "66");
     }
 }

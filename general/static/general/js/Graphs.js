@@ -157,7 +157,6 @@ const TackleSuccessPosGraph = () => {
     setBarGraphConfig(myChart);
 }
 
-
 const TackleSuccessByTypeGraph = () => {
     const labels = [
         'Above Waist',
@@ -251,6 +250,7 @@ const TackleSuccessByArea = () => {
             label: 'Tackle Success % by Area of Field',
             backgroundColor: massey_yellow,
             borderColor: black_1,
+            borderWidth: 3,
             barThickness: 50,
             data: [95, 75, 88, 79, 70],
             }]
@@ -422,7 +422,7 @@ const PosessionKickedGraph = () => {
                     display: true,
                     labels: {
                         font: {
-                            size: 4
+                            size: 12
                         },
                         boxWidth: 40
                     }
@@ -468,6 +468,7 @@ const TypeOfKicksMade = () => {
             label: 'Types of Kicks Made',
             backgroundColor: massey_yellow,
             borderColor: black_1,
+            borderWidth: 3,
             barThickness: 75,
             data: [8, 8, 15, 3, 5],
             }]
@@ -550,6 +551,7 @@ const KicksRegatheredGraph = () => {
             backgroundColor: massey_yellow,
             borderColor: black_1,
             barThickness: 75,
+            borderWidth: 3,
             data: [0, 75, 50, 100, 25],
             }]
         };
@@ -630,6 +632,7 @@ const KickForTouchMetersGainGraph = () => {
             backgroundColor: massey_yellow,
             borderColor: black_1,
             barThickness: 75,
+            borderWidth: 3,
             data: [2, 2, 6, 9, 1],
             }]
         };
@@ -711,6 +714,7 @@ const PassSuccessByTypeGraph = () => {
             backgroundColor: massey_yellow,
             borderColor: black_1,
             barThickness: 50,
+            borderWidth: 3,
             data: [95, 80, 80, 75, 70],
             }]
         };
@@ -726,7 +730,8 @@ const PassSuccessByTypeGraph = () => {
                         drawBorder: true,
                         drawOnChartArea: false,
                         drawTicks: true,
-                        color: "rgb(165,167,170)"
+                        color: "rgb(165,167,170)",
+                        
                     },
                     ticks: {
                         font: {
@@ -808,9 +813,10 @@ const PassesTotalByType = () => {
                     display: true,
                     labels: {
                         font: {
-                            size: 4
+                            size: 12
                         },
-                        boxWidth: 40
+                        boxWidth: 40,
+                        padding: 5
                     }
                 },
             },
@@ -858,7 +864,7 @@ const TypeHandlingErrorsGraph = () => {
                     display: true,
                     labels: {
                         font: {
-                            size: 4
+                            size: 12
                         },
                         boxWidth: 40
                     }
