@@ -1029,13 +1029,13 @@
   
   #league-title-id {
     grid-area: 2 / 2 / 4 / 12;
-    font-size:0.9em;
+    font-size:0.8em;
   }
   
   #league-sub-id {
     padding-top: 0.1em;
     font-size: 0.6em;
-    grid-area: 5 / 2 / 6 / 12;
+    grid-area: 6 / 2 / 7 / 12;
   }
   
   #pos-change-lg-id {
@@ -1052,8 +1052,6 @@
     align-items: center;
     justify-content: center;
     font-size: 1.25em;
-
-    
   }
   
   #view-stds-btn-id {
