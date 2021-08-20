@@ -63,6 +63,12 @@ const setBarGraphConfig = (bar_graph, offsetbt=0, offsetxt=0, offsetyt=0) => {
         setXticksFontSize(bar_graph, 12-offsetxt);
         setYticksFontSize(bar_graph, 12-offsetyt);
     }
+    else if (CURRENT_SCREEN_WIDTH >= 2300) {
+        console.log("Setting Bar config... xx-small");
+        
+        setXticksFontSize(bar_graph, 16-offsetxt);
+        setYticksFontSize(bar_graph, 16-offsetyt);
+    }
 }
 
 const setDoughnutConfig = (d_graph, legendOffset=0, boxWidthOffset=0, boxOutlineOffset=0) => {
