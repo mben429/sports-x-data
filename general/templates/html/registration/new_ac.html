@@ -243,6 +243,15 @@
             $("#gk_pct_stat").html(relevant_data["'goal_kicking_pct'"][0][0]);
         }
 
+        const setBhStats = () => {
+            let relevant_data = data["game_bh_data"];
+
+            $("#pass_success_pct_stat").html(relevant_data["'overall_pass_success_pct'"][0][0]);
+            $("#pass_success_total_stat").html(relevant_data["'total_passes_made'"][0][0]);
+            $("#pass_failed_total_stat").html(relevant_data["'total_unsuccessful_passes_made'"][0][0]);
+            $("#total_handling_errors_stat").html(relevant_data["'total_handling_errors'"][0][0]);
+        }
+
 
         const fillInfo = () => {
             // Set header
@@ -274,6 +283,9 @@
 
             //Set Kicking Game Stats
             setKgStats();
+
+            //Set Ball Handling Game stats
+            setBhStats();
         }
 
        
@@ -765,9 +777,37 @@
             $("#tc-header-txt").html("Ball Handling<text class='sxd-y'>.</text>");
             $("#main-content-tm-centre").html(html_layout);
             fillInfo();
-            PassSuccessByTypeGraph();
-            PassesTotalByType();
-            TypeHandlingErrorsGraph();
+
+            let rel_data = data["game_bh_data"];
+            let ps_type_graph_data_arr = [
+                rel_data["'ps_by_type_sbr'"], 
+                rel_data["'ps_by_type_btb'"],
+                rel_data["'ps_by_type_sploose'"],
+                rel_data["'ps_by_type_medloose'"],
+                rel_data["'ps_by_type_longloose'"],
+                rel_data["'ps_by_type_offloads'"], 
+            ]
+            PassSuccessByTypeGraph(ps_type_graph_data_arr);
+
+            let tp_graph_data_arr = [
+                rel_data["'type_pass_sbr'"],
+                rel_data["'type_pass_btb'"],
+                rel_data["'type_pass_sploose'"],
+                rel_data["'type_pass_medloose'"],
+                rel_data["'type_pass_longloose'"], 
+                rel_data["'type_pass_offloads'"]
+            ]
+            PassesTotalByType(tp_graph_data_arr);
+
+            let type_he_graph_data_arr = [
+                rel_data["'total_handling_errors'"],
+                rel_data["'type_he_knockon'"],
+                rel_data["'type_he_forward_pass'"],
+                rel_data["'type_he_dropped_ball_kick'"],
+                rel_data["'type_he_knock_on_ruck'"],
+                rel_data["'type_he_ko_set_piece'"]
+            ]
+            TypeHandlingErrorsGraph(type_he_graph_data_arr);
         };
 
         const displayRucks = () => {

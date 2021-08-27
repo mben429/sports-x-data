@@ -232,5 +232,41 @@ def get_kg_stats(game_id):
 
     return stat_dict
 
+def get_bh_stats(game_id):
+    stat_list = [
+        "'overall_pass_success_pct'",
+        "'total_passes_made'",
+        "'total_unsuccessful_passes_made'",
+        "'ps_by_type_sbr'",
+        "'ps_by_type_btb'",
+        "'ps_by_type_sploose'",
+        "'ps_by_type_medloose'",
+        "'ps_by_type_longloose'",
+        "'ps_by_type_offloads'",
+        "'type_pass_sbr'",
+        "'type_pass_btb'",
+        "'type_pass_sploose'",
+        "'type_pass_medloose'",
+        "'type_pass_longloose'",
+        "'type_pass_offloads'",
+        "'total_handling_errors'",
+        "'type_he_knockon'",
+        "'type_he_forward_pass'",
+        "'type_he_dropped_ball_kick'",
+        "'type_he_knock_on_ruck'",
+        "'type_he_ko_set_piece'"
+    ]
+
+    stat_dict = {}
+
+    with connection.cursor() as cursor:
+        for i in range(len(stat_list)):
+            exec_str_part = "SELECT general_stat.statval FROM general_stat WHERE general_stat.game_name_id = " + str(game_id) + " AND general_stat.statname = " + stat_list[i] + ";"
+            cursor.execute(exec_str_part)
+            stat = cursor.fetchall()
+            stat_dict[stat_list[i]] = stat
+
+    return stat_dict
+
 
 

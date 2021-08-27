@@ -697,7 +697,7 @@ const KickForTouchMetersGainGraph = (graph_data_arr) => {
     setBarGraphConfig(myChart);
 }
 
-const PassSuccessByTypeGraph = () => {
+const PassSuccessByTypeGraph = (graph_data_arr) => {
     const labels = [
         "Short Ball from Ruck or Set Piece",
         "Ball to Backline from Ruck or Set Piece",
@@ -715,7 +715,7 @@ const PassSuccessByTypeGraph = () => {
             borderColor: black_1,
             barThickness: 50,
             borderWidth: 3,
-            data: [95, 80, 80, 75, 70],
+            data: graph_data_arr,
             }]
         };
 
@@ -780,7 +780,7 @@ const PassSuccessByTypeGraph = () => {
     setBarGraphConfig(myChart, 0, 4, 0);
 }
 
-const PassesTotalByType = () => {
+const PassesTotalByType = (graph_data_arr) => {
     const labels = [
         "Short Ball from Ruck or Set Piece %",
         "Ball to Backline from Ruck or Set Piece %",
@@ -796,7 +796,7 @@ const PassesTotalByType = () => {
             label: 'Pass Total %',
             backgroundColor: [green_win, red_lose, massey_yellow, blue_1, orange_1],
             borderColor: black_1,
-            data: [30, 25, 10, 15, 20],
+            data: graph_data_arr,
             borderWidth: 3,
             hoverBorderWidth: 1,
             hoverOffset: 20
@@ -833,7 +833,7 @@ const PassesTotalByType = () => {
     setDoughnutConfig(myChart);
 }
 
-const TypeHandlingErrorsGraph = () => {
+const TypeHandlingErrorsGraph = (graph_data_arr) => {
     const labels = [
         "Knock on From General Passing Play",
         "Forward Pass",
@@ -848,7 +848,7 @@ const TypeHandlingErrorsGraph = () => {
             label: '% Handling Errors Made',
             backgroundColor: [green_win, red_lose, massey_yellow, blue_1, orange_1],
             borderColor: black_1,
-            data: [30, 25, 10, 15, 20],
+            data: graph_data_arr,
             borderWidth: 3,
             hoverBorderWidth: 1, 
             hoverOffset: 20

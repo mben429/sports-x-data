@@ -38,7 +38,8 @@ def matchCentreView(request):
                 "try_scorers_data" : get_try_scorers(game_id),
                 "game_attack_data" : get_attack_stats(game_id),
                 "game_defense_data": get_defense_stats(game_id),
-                "game_kg_data": get_kg_stats(game_id)
+                "game_kg_data": get_kg_stats(game_id),
+                "game_bh_data": get_bh_stats(game_id)
             }
                 
             dataJSON = dumps(data_dict, default=str)
