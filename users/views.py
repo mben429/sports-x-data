@@ -18,38 +18,29 @@ def matchCentreView(request):
 
     if request.method == "POST":
         match_id_form = MatchCentreIDForm(request.POST)
-        print("Hello in Form now")
 
         if match_id_form.is_valid():
-            print("Form is valid")
             for key in request.POST.keys():
                 if key.startswith('game_id_'):
                     game_id = key[8:]
-                    print("Current Game id is: ", game_id)
                     break
             
                 # Redirect TeamTestName Login
             if team_user_name == "TeamTestName":
                 team_user_name = "rosmini1stxv"
 
-            # Access DB for necessary info
-            game_info_data = get_game_info_data(game_id)
-            game_stat_data = get_game_stat_data(game_id)
-            game_overview_data = get_overview_stats(game_id)
-            game_event_data = get_game_event_data(game_id)
-            try_scorers_data = get_try_scorers(game_id)
-            game_attack_data = get_attack_stats(game_id)
-
+            # Get Data from DB, prepare to deserialize into JSON.
             data_dict = {
-                "game_info_data": game_info_data,
-                "game_stat_data": game_stat_data,
-                "game_event_data": game_event_data,
-                "game_overview_data" : game_overview_data,
-                "try_scorers_data" : try_scorers_data,
-                "game_attack_data" : game_attack_data
+                "game_info_data": get_game_info_data(game_id),
+                "game_stat_data": get_game_stat_data(game_id),
+                "game_event_data": get_game_event_data(game_id),
+                "game_overview_data" : get_overview_stats(game_id),
+                "try_scorers_data" : get_try_scorers(game_id),
+                "game_attack_data" : get_attack_stats(game_id),
+                "game_defense_data": get_defense_stats(game_id),
+                "game_kg_data": get_kg_stats(game_id)
             }
-            print("Data Dict", data_dict)
-                            
+                
             dataJSON = dumps(data_dict, default=str)
 
             return render(request, "registration/new_ac.html", {"game_id" : game_id, "data": dataJSON})

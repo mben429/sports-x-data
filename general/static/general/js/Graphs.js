@@ -1,5 +1,5 @@
 
-const MetersGainedGraph = () => {
+const MetersGainedGraph = (graph_data_arr) => {
     
     const labels = [
         'One-Off Runner',
@@ -14,7 +14,7 @@ const MetersGainedGraph = () => {
             backgroundColor: massey_yellow,
             borderColor: black_1,
             barThickness: 100,
-            data: [62, 70, 59],
+            data: graph_data_arr,
             }]
         };
 
@@ -79,7 +79,7 @@ const MetersGainedGraph = () => {
     setBarGraphConfig(myChart);
 }
 
-const TackleSuccessPosGraph = () => {
+const TackleSuccessPosGraph = (graph_data_arr) => {
     const labels = [
         'Backs',
         'Forwards',
@@ -92,7 +92,7 @@ const TackleSuccessPosGraph = () => {
             backgroundColor: massey_yellow,
             borderColor: black_1,
             barThickness: 75,
-            data: [66.66, 85],
+            data: graph_data_arr,
             }]
         };
 
@@ -157,7 +157,7 @@ const TackleSuccessPosGraph = () => {
     setBarGraphConfig(myChart);
 }
 
-const TackleSuccessByTypeGraph = () => {
+const TackleSuccessByTypeGraph = (graph_data_arr) => {
     const labels = [
         'Above Waist',
         'Below Waist',
@@ -170,7 +170,7 @@ const TackleSuccessByTypeGraph = () => {
             backgroundColor: massey_yellow,
             borderColor: black_1,
             barThickness: 75,
-            data: [75, 90],
+            data: graph_data_arr,
             }]
         };
 
@@ -235,7 +235,7 @@ const TackleSuccessByTypeGraph = () => {
     setBarGraphConfig(myChart);
 }
 
-const TackleSuccessByArea = () => {
+const TackleSuccessByArea = (graph_data_arr) => {
     const labels = [
         'Own 5m',
         'Opp 5m',
@@ -252,7 +252,7 @@ const TackleSuccessByArea = () => {
             borderColor: black_1,
             borderWidth: 3,
             barThickness: 50,
-            data: [95, 75, 88, 79, 70],
+            data: graph_data_arr,
             }]
         };
 
@@ -317,7 +317,7 @@ const TackleSuccessByArea = () => {
     setBarGraphConfig(myChart);
 }
 
-const LinebreaksByPos = () => {
+const LinebreaksByPos = (graph_data_arr) => {
     const labels = [
         "Backs",
         "Forwards"
@@ -330,7 +330,7 @@ const LinebreaksByPos = () => {
             backgroundColor: massey_yellow,
             borderColor: black_1,
             barThickness: 75,
-            data: [9, 5],
+            data: graph_data_arr,
             }]
         };
 
@@ -395,7 +395,7 @@ const LinebreaksByPos = () => {
     setBarGraphConfig(myChart);
 }
 
-const PosessionKickedGraph = () => {
+const PosessionKickedGraph = (graph_data_arr) => {
     const labels = [
         "% Kicked",
         "% Not Kicked"
@@ -407,7 +407,7 @@ const PosessionKickedGraph = () => {
             label: '% Posession Kicked',
             backgroundColor: [green_win, red_lose],
             borderColor: black_1,
-            data: [15, 85],
+            data: graph_data_arr,
             hoverOffset: 20,
             }],
         
@@ -453,7 +453,7 @@ const PosessionKickedGraph = () => {
     setDoughnutConfig(myChart);
 }
 
-const TypeOfKicksMade = () => {
+const TypeOfKicksMade = (graph_data_arr) => {
     const labels = [
         "Punts",
         "Chip Kicks",
@@ -470,7 +470,7 @@ const TypeOfKicksMade = () => {
             borderColor: black_1,
             borderWidth: 3,
             barThickness: 75,
-            data: [8, 8, 15, 3, 5],
+            data: graph_data_arr,
             }]
         };
 
@@ -535,7 +535,7 @@ const TypeOfKicksMade = () => {
     setBarGraphConfig(myChart);
 }
 
-const KicksRegatheredGraph = () => {
+const KicksRegatheredGraph = (graph_data_arr) => {
     const labels = [
         "Punts",
         "Chip Kicks",
@@ -552,7 +552,7 @@ const KicksRegatheredGraph = () => {
             borderColor: black_1,
             barThickness: 75,
             borderWidth: 3,
-            data: [0, 75, 50, 100, 25],
+            data: graph_data_arr,
             }]
         };
 
@@ -616,7 +616,7 @@ const KicksRegatheredGraph = () => {
     setBarGraphConfig(myChart);
 }
 
-const KickForTouchMetersGainGraph = () => {
+const KickForTouchMetersGainGraph = (graph_data_arr) => {
     const labels = [
         "0m",
         "0m to 10m",
@@ -633,7 +633,7 @@ const KickForTouchMetersGainGraph = () => {
             borderColor: black_1,
             barThickness: 75,
             borderWidth: 3,
-            data: [2, 2, 6, 9, 1],
+            data: graph_data_arr,
             }]
         };
 

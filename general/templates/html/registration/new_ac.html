@@ -212,7 +212,7 @@
         }
 
         const setAttackStats = () => {
-            let relevant_data = data["game_attack_data"]
+            let relevant_data = data["game_attack_data"];
 
             $("#tries-scored-stat").html(relevant_data["'tries_scored_stat'"][0][0]);
             $("#tries-scored-av-stat").html(relevant_data["'avg_tries_scored_season'"][0][0]);
@@ -223,6 +223,26 @@
             $("#tb-stat").html(relevant_data["'tackles_broken'"][0][0]); 
             $("#pts-22-stat").html(relevant_data["'points_per_visit_22'"][0][0]);
         }
+
+        const setDefStats = () => {
+            let relevant_data = data["game_defense_data"];
+
+            $("#tackles-made-stat").html(relevant_data["'tackles_made_total_stat'"][0][0]);
+            $("#tackles-missed-stat").html(relevant_data["'tackles_missed_total_stat'"][0][0]);
+            $("#tackles-success-stat").html(relevant_data["'tackles_success_pct'"][0][0]);
+            $("#tackles-below-waist-stat").html(relevant_data["'tackles_below_waist_pct'"][0][0]);
+            $("#av-linespeed-stat").html(relevant_data["'average_linespeed_stat'"][0][0]);
+            $("#linebreaks-total-stat").html(relevant_data["'clean_line_breaks_stat'"][0][0]);
+        }
+
+        const setKgStats = () => {
+            let relevant_data = data["game_kg_data"];
+
+            $("#kicks_made_stat").html(relevant_data["'no_of_kicks_made'"][0][0]);
+            $("#kicks_out_full_stat").html(relevant_data["'no_of_kicks_out_full'"][0][0]);
+            $("#gk_pct_stat").html(relevant_data["'goal_kicking_pct'"][0][0]);
+        }
+
 
         const fillInfo = () => {
             // Set header
@@ -248,6 +268,12 @@
 
             // Set Attack Stats
             setAttackStats();
+
+            //Set Def Stats
+            setDefStats();
+
+            //Set Kicking Game Stats
+            setKgStats();
         }
 
        
@@ -444,7 +470,11 @@
             $("#tc-header-txt").html("Attack<text class='sxd-y'>.</text>");
             $("#main-content-tm-centre").html(html_layout);
             fillInfo();
-            MetersGainedGraph();
+            mg_graph_data_arr = [
+                data["game_attack_data"]["'oor_meters_gain_pct'"], 
+                data["game_attack_data"]["'bm_meters_gain_pct'"], 
+                data["game_attack_data"]["'pag_meters_gain_pct'"]]
+            MetersGainedGraph(mg_graph_data_arr);
         };
 
         const displayDefense = () => {
@@ -458,11 +488,11 @@
                 "grid-row-end": "71",
                 "grid-template-rows": "repeat(71, 1fr)"
             });
-            setGridSize(0);
+            setGridSize(1);
             let html_layout = `
                 <div class="gr-panel row-1 col-qrt-1" id="def-tackles-made-panel-id" data-aos="fade-right">
                     <h2 class="q-panel-g-1-header">Tackles Made Total</h2>
-                    <h1 class="q-panel-g-1-value lg-header-txt"><text id="tackles-made-stat">N/A</text><text class="sxd-y">%</text></h1>
+                    <h1 class="q-panel-g-1-value lg-header-txt"><text id="tackles-made-stat">N/A</text></h1>
                     <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
                     <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
                     <h3 class="q-panel-g-1-sa-val xs-small-txt sxd-g">+3%</h3>
@@ -511,7 +541,7 @@
                     </div>
                 </div>
                 <div class="gr-panel row-4-5 col-hlf-2 hlf" id="def-avgls-panel-id" data-aos="fade-right">
-                    <h2 class="q-panel-g-1-header">Average Linespeed (time until first contact)<text class="sxd-y">.</text></h2>
+                    <h2 id="graph-title-2">Average Linespeed (time until first contact)<text class="sxd-y">.</text></h2>
                     <h1 class="q-panel-g-1-value lger-txt"><text id="av-linespeed-stat">N/A</text><text class="sxd-y"> s</text></h1>
                     <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
                     <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
@@ -519,7 +549,7 @@
                     <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
                 </div>
                 <div class="gr-panel row-6-7 col-hlf-1 hlf" id="def-avgls-panel-id" data-aos="fade-right">
-                    <h2 class="q-panel-g-1-header">Clean Line Breaks Allowed<text class="sxd-y">.</text></h2>
+                    <h2 id="graph-title-2">Clean Line Breaks Allowed<text class="sxd-y">.</text></h2>
                     <h1 class="q-panel-g-1-value lger-txt"><text id="linebreaks-total-stat">N/A</text></h1>
                     <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
                     <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
@@ -532,17 +562,40 @@
                         <canvas id="lb-by-position-graph"></canvas>
                     </div>
                 </div>
-                
-                
             `;
             $("#tc-header-txt").html("Defense<text class='sxd-y'>.</text>");
             $("#main-content-tm-centre").html(html_layout);
+            
             fillInfo();
-            TackleSuccessPosGraph();
-            TackleSuccessByTypeGraph();
-            TackleSuccessByArea();
-            LinebreaksByPos();
-        }
+
+            let rel_data = data["game_defense_data"]
+            let ts_graph_data_arr = [
+                rel_data["'tackle_success_pos_backs'"], 
+                rel_data["'tackle_success_pos_forwards'"]
+            ]
+            TackleSuccessPosGraph(ts_graph_data_arr);
+
+            let ts_pos_graph_data_arr = [
+                rel_data["'tackles_success_above_waist_pct'"], 
+                rel_data["'tackles_success_below_waist_pct'"]
+            ]
+            TackleSuccessByTypeGraph(ts_pos_graph_data_arr);
+            
+            let ts_area_graph_data_arr = [
+                rel_data["'tackles_success_area_own5_pct'"], 
+                rel_data["'tackles_success_area_opp5_pct'"],
+                rel_data["'tackles_success_area_own22_pct'"],
+                rel_data["'tackles_success_area_opp22_pct'"],
+                rel_data["'tackles_success_area_midfield_pct'"]
+            ]
+            TackleSuccessByArea(ts_area_graph_data_arr);
+
+            let lb_allowed = [
+                rel_data["'line_breaks_allowed_pos_backs'"], 
+                rel_data["'line_breaks_allowed_pos_forwards'"],
+            ]
+            LinebreaksByPos(lb_allowed);
+        };
 
         const displayKickingGame = () => {
             console.log("Displaying Kicking Game Stats");
@@ -558,7 +611,7 @@
             setGridSize(1);
             let html_layout = `
                 <div class="gr-panel row-1 col-thrd-1" id="kicks-made-panel-id" data-aos="fade-right">
-                    <h2 class="q-panel-g-1-header">No. of Kicks Made</h2>
+                    <h2 id="graph-title-2">No. of Kicks Made</h2>
                     <h1 class="q-panel-g-1-value lg-header-txt"><text id="kicks_made_stat">N/A</text></h1>
                     <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
                     <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
@@ -566,13 +619,13 @@
                     <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
                 </div>
                 <div class="gr-panel row-1 col-thrd-2" id="pos-kicked-panel-id" data-aos="fade-right">
-                    <h2 class="q-panel-g-1-header"><text class="sxd-y">%</text> of Posession Kicked<text class="sxd-y">.</text></h2>
+                    <h2 id="graph-title-2"><text class="sxd-y">%</text> of Posession Kicked<text class="sxd-y">.</text></h2>
                     <div id="pos-kicked-graph-cnt">
                         <canvas id="pos-kicked-graph"></canvas>
                     </div>
                 </div>
                 <div class="gr-panel row-1 col-thrd-3" id="kicks-full-panel-id" data-aos="fade-right">
-                    <h2 class="q-panel-g-1-header">No. of Kicks Out On Full</h2>
+                    <h2 id="graph-title-2">No. of Kicks Out On Full</h2>
                     <h1 class="q-panel-g-1-value lg-header-txt"><text id="kicks_out_full_stat">N/A</text></h1>
                     <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
                     <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
@@ -598,7 +651,7 @@
                     </div>
                 </div>
                 <div class="gr-panel row-4-5 col-hlf-2 hlf" id="gk-panel-id" data-aos="fade-right">
-                    <h2 class="q-panel-g-1-header">Goal Kicking <text class="sxd-y">%</text></h2>
+                    <h2 id="graph-title-2">Goal Kicking <text class="sxd-y">%</text></h2>
                     <h1 class="q-panel-g-1-value lg-header-txt"><text id="gk_pct_stat">N/A</text></h1>
                     <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
                     <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
@@ -609,11 +662,41 @@
             $("#tc-header-txt").html("Kicking Game<text class='sxd-y'>.</text>");
             $("#main-content-tm-centre").html(html_layout);
             fillInfo();
-            PosessionKickedGraph();
-            TypeOfKicksMade();
-            KicksRegatheredGraph();
-            KickForTouchMetersGainGraph();
-        }
+            
+            let rel_data = data["game_kg_data"];
+            let tkm_graph_data_arr = [
+                rel_data["'type_of_kicks_punts'"], 
+                rel_data["'types_of_kicks_chips'"],
+                rel_data["'types_of_kicks_grubbers'"],
+                rel_data["'types_of_kicks_upandunders'"],
+                rel_data["'types_of_kicks_boxkicks'"],
+            ];
+            TypeOfKicksMade(tkm_graph_data_arr);
+
+            let krp_graph_data_arr = [
+                rel_data["'kicks_regathered_by_type_punts'"],
+                rel_data["'kicks_regathered_by_type_chips'"],
+                rel_data["'kicks_regathered_by_type_grubbers'"],
+                rel_data["'kicks_regathered_by_type_upandunders'"],
+                rel_data["'kicks_regathered_by_type_boxkicks'"],
+            ];
+            KicksRegatheredGraph(krp_graph_data_arr);
+
+            let mgk_graph_data_arr = [
+                rel_data["'meters_gained_from_kicks_0m'"],
+                rel_data["'meters_gained_from_kicks_10m'"],
+                rel_data["'meters_gained_from_kicks_30m'"],
+                rel_data["'meters_gained_from_kicks_60m'"],
+                rel_data["'meters_gained_from_kicks_60_plus'"]
+            ];
+            KickForTouchMetersGainGraph(mgk_graph_data_arr);
+            
+            let pkg_graph_data_arr = [
+                rel_data["'posessions_kicked_pct'"],
+                rel_data["'posessions_not_kicked_pct'"]
+            ]
+            PosessionKickedGraph(pkg_graph_data_arr);
+        };
 
         const displayBallHandling = () => {
             console.log("Displaying Ball Handilng Stats");
@@ -665,7 +748,7 @@
                     </div>
                 </div>
                 <div class="gr-panel row-4-5 col-hlf-1 hlf" id="total-he-panel-id" data-aos="fade-right">
-                    <h2 class="q-panel-g-1-header">Total Handling Errors Made<text class="sxd-y">.</text></h2>
+                    <h2 id="graph-title-2">Total Handling Errors Made<text class="sxd-y">.</text></h2>
                     <h1 class="q-panel-g-1-value lg-header-txt"><text id="total_handling_errors_stat">N/A</text></h1>
                     <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
                     <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
@@ -731,7 +814,7 @@
                     </div>
                 </div>
                 <div class="gr-panel row-4-5 col-hlf-2 hlf" id="ruck-infrigements-allowed-panel-id" data-aos="fade-right">
-                    <h2 class="q-panel-g-1-header">Ruck Infringements Made<text class="sxd-y">.</text></h2>
+                    <h2 id="graph-title-2">Ruck Infringements Made<text class="sxd-y">.</text></h2>
                     <h1 class="q-panel-g-1-value lg-header-txt"><text id="ruck_infringments_stat">N/A</text></h1>
                     <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
                     <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
@@ -739,7 +822,7 @@
                     <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
                 </div>
                 <div class="gr-panel row-4-5 col-hlf-1 hlf" id="ruck-steals-allowed-panel-id" data-aos="fade-right">
-                    <h2 class="q-panel-g-1-header">Ruck Steals Allowed<text class="sxd-y">.</text></h2>
+                    <h2 id="graph-title-2">Ruck Steals Allowed<text class="sxd-y">.</text></h2>
                     <h1 class="q-panel-g-1-value lg-header-txt"><text id="ruck_steals_allowed_stat">N/A</text></h1>
                     <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
                     <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
@@ -756,16 +839,16 @@
         
         const displaySetPiece = () => {
             console.log("Displaying Set Piece Stats");
-            $(".cnt-overall").attr("id", "cnt-overview-mc");
+            $(".cnt-overall").attr("id", "cnt-overview-mc-def");
             $("#middle-col").css({
-                "grid-row-end": "51",
-                "grid-template-rows": "repeat(48, 1fr)"
+                "grid-row-end": "71",
+                "grid-template-rows": "repeat(71, 1fr)"
             });
             $("#main-content-tm-centre").css({
-                "grid-row-end": "51",
-                "grid-template-rows": "repeat(48, 1fr)"
+                "grid-row-end": "71",
+                "grid-template-rows": "repeat(71, 1fr)"
             });
-            setGridSize(1);
+            setGridSize(0);
             let html_layout = `
                 <div class="gr-panel row-1 col-hlf-1" id="own-lineout-success-panel-id" data-aos="fade-right">
                     <h2 class="q-panel-g-1-header">Own Lineout Throw Success<text class="sxd-y">%</text></h2>
@@ -799,13 +882,13 @@
                     <h3 class="q-panel-g-1-sa-val xs-small-txt sxd-g">+3%</h3>
                     <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
                 </div>
-                <div class="gr-panel row-3 col-full" id="set-piece-to-try-panel-id" data-aos="fade-right">
+                <div class="gr-panel row-3-4 col-full" id="set-piece-to-try-panel-id" data-aos="fade-right">
                     <h2 id="graph-title-2">Tries off of Set Piece<text class="sxd-y">.</text></h2>
                     <div id="ts-pos-graph-cnt">
                         <canvas id="tries_off_set_piece_graph"></canvas>
                     </div>
                 </div>
-                <div class="gr-panel row-4 col-hlf-1" id="total-lineots-stolen-panel-id" data-aos="fade-right">
+                <div class="gr-panel row-5 col-hlf-1" id="total-lineots-stolen-panel-id" data-aos="fade-right">
                     <h2 class="q-panel-g-1-header">Total Lineouts Stolen<text class="sxd-y">.</text></h2>
                     <h1 class="q-panel-g-1-value lg-header-txt"><text id="total_lineouts_stolen_stat">N/A</text></h1>
                     <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
@@ -813,7 +896,7 @@
                     <h3 class="q-panel-g-1-sa-val xs-small-txt sxd-g">+3%</h3>
                     <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
                 </div>
-                <div class="gr-panel row-4 col-hlf-2" id="total-scrums-stolen-panel-id" data-aos="fade-right">
+                <div class="gr-panel row-5 col-hlf-2" id="total-scrums-stolen-panel-id" data-aos="fade-right">
                     <h2 class="q-panel-g-1-header">Total Scrums Stolen<text class="sxd-y">.</text></h2>
                     <h1 class="q-panel-g-1-value lg-header-txt"><text id="total_scrums_stolen_stat">N/A</text></h1>
                     <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>

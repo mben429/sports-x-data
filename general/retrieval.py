@@ -86,6 +86,7 @@ def get_game_event_data(game_id):
         exec_str = 'SELECT * FROM general_game_event WHERE general_game_event.game_name_id = ' + str(game_id) + ';'
         cursor.execute(exec_str)
         curr_game_event_data = cursor.fetchall()
+    print(curr_game_event_data)
     return curr_game_event_data   
 
 
@@ -138,7 +139,7 @@ def get_try_scorers(game_id):
         
 
 def get_attack_stats(game_id):
-    att_stat_list = [
+    stat_list = [
         "'tries_scored_stat'",
         "'avg_tries_scored_season'",
         "'total_season_tries'",
@@ -149,17 +150,87 @@ def get_attack_stats(game_id):
         "'points_per_visit_22'",
         "'oor_meters_gain_pct'",
         "'bm_meters_gain_pct'",
-        "'pag_meters_gain_pct'"
+        "'pag_meters_gain_pct'",
     ]
 
-    att_stat_dict = {}
+    stat_dict = {}
 
     with connection.cursor() as cursor:
-        for i in range(len(att_stat_list)):
-            exec_str_part = "SELECT general_stat.statval FROM general_stat WHERE general_stat.game_name_id = " + str(game_id) + " AND general_stat.statname = " + att_stat_list[i] + ";"
+        for i in range(len(stat_list)):
+            exec_str_part = "SELECT general_stat.statval FROM general_stat WHERE general_stat.game_name_id = " + str(game_id) + " AND general_stat.statname = " + stat_list[i] + ";"
             cursor.execute(exec_str_part)
             stat = cursor.fetchall()
-            att_stat_dict[att_stat_list[i]] = stat
+            stat_dict[stat_list[i]] = stat
 
-    return att_stat_dict
+    return stat_dict
+
+def get_defense_stats(game_id):
+    stat_list = [
+        "'tackles_made_total_stat'",
+        "'tackles_missed_total_stat'",
+        "'tackles_success_pct'",
+        "'tackles_below_waist_pct'",
+        "'tackle_success_pos_backs'",
+        "'tackle_success_pos_forwards'",
+        "'tackles_success_above_waist_pct'",
+        "'tackles_success_below_waist_pct'",
+        "'tackles_success_area_own5_pct'",
+        "'tackles_success_area_opp5_pct'",
+        "'tackles_success_area_own22_pct'",
+        "'tackles_success_area_opp22_pct'",
+        "'tackles_success_area_midfield_pct'",
+        "'average_linespeed_stat'",
+        "'clean_line_breaks_stat'",
+        "'line_breaks_allowed_pos_backs'",
+        "'line_breaks_allowed_pos_forwards'"
+    ]
+
+    stat_dict = {}
+
+    with connection.cursor() as cursor:
+        for i in range(len(stat_list)):
+            exec_str_part = "SELECT general_stat.statval FROM general_stat WHERE general_stat.game_name_id = " + str(game_id) + " AND general_stat.statname = " + stat_list[i] + ";"
+            cursor.execute(exec_str_part)
+            stat = cursor.fetchall()
+            stat_dict[stat_list[i]] = stat
+
+    return stat_dict
+
+
+def get_kg_stats(game_id):
+    stat_list = [
+        "'no_of_kicks_made'",
+        "'posessions_kicked_pct'",
+        "'no_of_kicks_out_full'",
+        "'type_of_kicks_punts'",
+        "'types_of_kicks_chips'",
+        "'types_of_kicks_grubbers'",
+        "'types_of_kicks_upandunders'",
+        "'types_of_kicks_boxkicks'",
+        "'kicks_regathered_by_type_punts'",
+        "'kicks_regathered_by_type_chips'",
+        "'kicks_regathered_by_type_grubbers'",
+        "'kicks_regathered_by_type_upandunders'",
+        "'kicks_regathered_by_type_boxkicks'",
+        "'meters_gained_from_kicks_0m'",
+        "'meters_gained_from_kicks_10m'",
+        "'meters_gained_from_kicks_30m'",
+        "'meters_gained_from_kicks_60m'",
+        "'meters_gained_from_kicks_60_plus'",
+        "'goal_kicking_pct'",
+        "'posessions_not_kicked_pct'"
+    ]
+
+    stat_dict = {}
+
+    with connection.cursor() as cursor:
+        for i in range(len(stat_list)):
+            exec_str_part = "SELECT general_stat.statval FROM general_stat WHERE general_stat.game_name_id = " + str(game_id) + " AND general_stat.statname = " + stat_list[i] + ";"
+            cursor.execute(exec_str_part)
+            stat = cursor.fetchall()
+            stat_dict[stat_list[i]] = stat
+
+    return stat_dict
+
+
 
