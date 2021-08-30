@@ -292,5 +292,25 @@ def get_breakdown_stats(game_id):
     return stat_dict
 
 
+def get_sp_stats(game_id):
+    stat_list = [
+       "'own_lineout_throw_success'",
+       "'opp_lineout_throw_success'",
+       "'own_scrum_success'",
+       "'opp_scrum_success'",
+       "'tries_off_set_piece_scrum'",
+       "'tries_off_set_piece_lineouts'",
+       "'total_lineouts_stolen'",
+       "'total_scrums_stolen'"
+    ]
 
+    stat_dict = {}
 
+    with connection.cursor() as cursor:
+        for i in range(len(stat_list)):
+            exec_str_part = "SELECT general_stat.statval FROM general_stat WHERE general_stat.game_name_id = " + str(game_id) + " AND general_stat.statname = " + stat_list[i] + ";"
+            cursor.execute(exec_str_part)
+            stat = cursor.fetchall()
+            stat_dict[stat_list[i]] = stat
+
+    return stat_dict
