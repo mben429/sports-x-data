@@ -252,6 +252,15 @@
             $("#total_handling_errors_stat").html(relevant_data["'total_handling_errors'"][0][0]);
         }
 
+        const setBreakdownStats = () => {
+            let relevant_data = data["game_breakdown_data"];
+            $("#ruck_won_stat").html(relevant_data["'total_rucks_retained'"][0][0]);
+            $("#total_rucks_lost_stat").html(relevant_data["'total_rucks_lost'"][0][0]);
+            $("#total_ruck_steals_stat").html(relevant_data["'total_ruck_steals'"][0][0]);
+            $("#ruck_steals_allowed_stat").html(relevant_data["'ruck_steals_allowed'"][0][0]);
+            $("#ruck_infringments_stat").html(relevant_data["'ruck_infringements_made'"][0][0]);
+        }
+
 
         const fillInfo = () => {
             // Set header
@@ -286,6 +295,9 @@
 
             //Set Ball Handling Game stats
             setBhStats();
+
+            //Set Breakdown Stats
+            setBreakdownStats();
         }
 
        
@@ -874,7 +886,13 @@
             $("#tc-header-txt").html("The Breakdown<text class='sxd-y'>.</text>");
             $("#main-content-tm-centre").html(html_layout);
             fillInfo();
-            RuckRecycleSpeedGraph();
+            let rel_data = data["game_breakdown_data"];
+            let rr_speed_graph_data_arr = [
+                rel_data["'ruck_recycle_speed_pct_03'"], 
+                rel_data["'ruck_recycle_speed_pct_36'"],
+                rel_data["'ruck_recycle_speed_pct_6'"],
+            ]
+            RuckRecycleSpeedGraph(rr_speed_graph_data_arr);
         };
         
         const displaySetPiece = () => {
@@ -1020,12 +1038,12 @@
         };
 
          // Show overview as default
-        displayOverview();
+        //displayOverview();
         //displayAttack();
         //displayDefense();
         //displayKickingGame();
         //displayBallHandling();
-        //displayRucks();
+        displayRucks();
         //displaySetPiece();
         //displayDiscipline();
 

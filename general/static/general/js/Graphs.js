@@ -1,6 +1,5 @@
 
 const MetersGainedGraph = (graph_data_arr) => {
-    
     const labels = [
         'One-Off Runner',
         'Backline Move',
@@ -13,6 +12,8 @@ const MetersGainedGraph = (graph_data_arr) => {
             label: '% of the Time Meters Were Gained',
             backgroundColor: massey_yellow,
             borderColor: black_1,
+            hoverBackgroundColor: massey_yellow_2,
+            hoverBorderColor: black_1,
             barThickness: 100,
             data: graph_data_arr,
             }]
@@ -29,7 +30,7 @@ const MetersGainedGraph = (graph_data_arr) => {
                         drawBorder: true,
                         drawOnChartArea: false,
                         drawTicks: true,
-                        color: "rgb(165,167,170)"
+                        color: "rgba(165,167,170, 0.5)"
                     },
                     ticks: {
                         font: {
@@ -46,7 +47,7 @@ const MetersGainedGraph = (graph_data_arr) => {
                         drawBorder: true,
                         drawOnChartArea: false,
                         drawTicks: true,
-                        color: "rgb(165,167,170)"
+                        color: "rgba(165,167,170, 0.5)"
                     },
                     ticks: {
                         font: {
@@ -92,6 +93,8 @@ const TackleSuccessPosGraph = (graph_data_arr) => {
             backgroundColor: massey_yellow,
             borderColor: black_1,
             barThickness: 75,
+            hoverBackgroundColor: massey_yellow_2,
+            hoverBorderColor: black_1,
             data: graph_data_arr,
             }]
         };
@@ -107,7 +110,7 @@ const TackleSuccessPosGraph = (graph_data_arr) => {
                         drawBorder: true,
                         drawOnChartArea: false,
                         drawTicks: true,
-                        color: "rgb(165,167,170)"
+                        color: "rgba(165,167,170, 0.5)"
                     },
                     ticks: {
                         font: {
@@ -124,7 +127,7 @@ const TackleSuccessPosGraph = (graph_data_arr) => {
                         drawBorder: true,
                         drawOnChartArea: false,
                         drawTicks: true,
-                        color: "rgb(165,167,170)"
+                        color: "rgba(165,167,170, 0.5)"
                     },
                     ticks: {
                         font: {
@@ -170,6 +173,8 @@ const TackleSuccessByTypeGraph = (graph_data_arr) => {
             backgroundColor: massey_yellow,
             borderColor: black_1,
             barThickness: 75,
+            hoverBackgroundColor: massey_yellow_2,
+            hoverBorderColor: black_1,
             data: graph_data_arr,
             }]
         };
@@ -185,7 +190,7 @@ const TackleSuccessByTypeGraph = (graph_data_arr) => {
                         drawBorder: true,
                         drawOnChartArea: false,
                         drawTicks: true,
-                        color: "rgb(165,167,170)"
+                        color: "rgba(165,167,170, 0.5)"
                     },
                     ticks: {
                         font: {
@@ -202,7 +207,7 @@ const TackleSuccessByTypeGraph = (graph_data_arr) => {
                         drawBorder: true,
                         drawOnChartArea: false,
                         drawTicks: true,
-                        color: "rgb(165,167,170)"
+                        color: "rgba(165,167,170, 0.5)"
                     },
                     ticks: {
                         font: {
@@ -252,6 +257,8 @@ const TackleSuccessByArea = (graph_data_arr) => {
             borderColor: black_1,
             borderWidth: 3,
             barThickness: 50,
+            hoverBackgroundColor: massey_yellow_2,
+            hoverBorderColor: black_1,
             data: graph_data_arr,
             }]
         };
@@ -267,7 +274,7 @@ const TackleSuccessByArea = (graph_data_arr) => {
                         drawBorder: true,
                         drawOnChartArea: false,
                         drawTicks: true,
-                        color: "rgb(165,167,170)"
+                        color: "rgba(165,167,170, 0.5)"
                     },
                     ticks: {
                         font: {
@@ -284,7 +291,7 @@ const TackleSuccessByArea = (graph_data_arr) => {
                         drawBorder: true,
                         drawOnChartArea: false,
                         drawTicks: true,
-                        color: "rgb(165,167,170)"
+                        color: "rgba(165,167,170, 0.5)"
                     },
                     ticks: {
                         font: {
@@ -330,6 +337,8 @@ const LinebreaksByPos = (graph_data_arr) => {
             backgroundColor: massey_yellow,
             borderColor: black_1,
             barThickness: 75,
+            hoverBackgroundColor: massey_yellow_2,
+            hoverBorderColor: black_1,
             data: graph_data_arr,
             }]
         };
@@ -345,7 +354,7 @@ const LinebreaksByPos = (graph_data_arr) => {
                         drawBorder: true,
                         drawOnChartArea: false,
                         drawTicks: true,
-                        color: "rgb(165,167,170)"
+                        color: "rgba(165,167,170, 0.5)"
                     },
                     ticks: {
                         font: {
@@ -362,7 +371,7 @@ const LinebreaksByPos = (graph_data_arr) => {
                         drawBorder: true,
                         drawOnChartArea: false,
                         drawTicks: true,
-                        color: "rgb(165,167,170)"
+                        color: "rgba(165,167,170, 0.5)"
                     },
                     ticks: {
                         font: {
@@ -470,6 +479,8 @@ const TypeOfKicksMade = (graph_data_arr) => {
             borderColor: black_1,
             borderWidth: 3,
             barThickness: 75,
+            hoverBackgroundColor: massey_yellow_2,
+            hoverBorderColor: black_1,
             data: graph_data_arr,
             }]
         };
@@ -485,7 +496,7 @@ const TypeOfKicksMade = (graph_data_arr) => {
                         drawBorder: true,
                         drawOnChartArea: false,
                         drawTicks: true,
-                        color: "rgb(165,167,170)"
+                        color: "rgba(165,167,170, 0.5)"
                     },
                     ticks: {
                         font: {
@@ -502,7 +513,7 @@ const TypeOfKicksMade = (graph_data_arr) => {
                         drawBorder: true,
                         drawOnChartArea: false,
                         drawTicks: true,
-                        color: "rgb(165,167,170)"
+                        color: "rgba(165,167,170, 0.5)"
                     },
                     ticks: {
                         font: {
@@ -552,6 +563,8 @@ const KicksRegatheredGraph = (graph_data_arr) => {
             borderColor: black_1,
             barThickness: 75,
             borderWidth: 3,
+            hoverBackgroundColor: massey_yellow_2,
+            hoverBorderColor: black_1,
             data: graph_data_arr,
             }]
         };
@@ -567,7 +580,7 @@ const KicksRegatheredGraph = (graph_data_arr) => {
                         drawBorder: true,
                         drawOnChartArea: false,
                         drawTicks: true,
-                        color: "rgb(165,167,170)"
+                        color: "rgba(165,167,170, 0.5)"
                     },
                     ticks: {
                         font: {
@@ -584,7 +597,7 @@ const KicksRegatheredGraph = (graph_data_arr) => {
                         drawBorder: true,
                         drawOnChartArea: false,
                         drawTicks: true,
-                        color: "rgb(165,167,170)"
+                        color: "rgba(165,167,170, 0.5)"
                     },
                     ticks: {
                         font: {
@@ -633,6 +646,8 @@ const KickForTouchMetersGainGraph = (graph_data_arr) => {
             borderColor: black_1,
             barThickness: 75,
             borderWidth: 3,
+            hoverBackgroundColor: massey_yellow_2,
+            hoverBorderColor: black_1,
             data: graph_data_arr,
             }]
         };
@@ -648,7 +663,7 @@ const KickForTouchMetersGainGraph = (graph_data_arr) => {
                         drawBorder: true,
                         drawOnChartArea: false,
                         drawTicks: true,
-                        color: "rgb(165,167,170)"
+                        color: "rgba(165,167,170, 0.5)"
                     },
                     ticks: {
                         font: {
@@ -665,7 +680,7 @@ const KickForTouchMetersGainGraph = (graph_data_arr) => {
                         drawBorder: true,
                         drawOnChartArea: false,
                         drawTicks: true,
-                        color: "rgb(165,167,170)"
+                        color: "rgba(165,167,170, 0.5)"
                     },
                     ticks: {
                         font: {
@@ -715,6 +730,8 @@ const PassSuccessByTypeGraph = (graph_data_arr) => {
             borderColor: black_1,
             barThickness: 50,
             borderWidth: 3,
+            hoverBackgroundColor: massey_yellow_2,
+            hoverBorderColor: black_1,
             data: graph_data_arr,
             }]
         };
@@ -730,7 +747,7 @@ const PassSuccessByTypeGraph = (graph_data_arr) => {
                         drawBorder: true,
                         drawOnChartArea: false,
                         drawTicks: true,
-                        color: "rgb(165,167,170)",
+                        color: "rgba(165,167,170, 0.5)",
                         
                     },
                     ticks: {
@@ -748,7 +765,7 @@ const PassSuccessByTypeGraph = (graph_data_arr) => {
                         drawBorder: true,
                         drawOnChartArea: false,
                         drawTicks: true,
-                        color: "rgb(165,167,170)"
+                        color: "rgba(165,167,170, 0.5)"
                     },
                     ticks: {
                         font: {
@@ -895,7 +912,7 @@ const TypeHandlingErrorsGraph = (graph_data_arr) => {
     setDoughnutConfig(myChart);
 }
 
-const RuckRecycleSpeedGraph = () => {
+const RuckRecycleSpeedGraph = (graph_data_arr) => {
     const labels = [
         "0-3 Seconds",
         "3-6 Seconds",
@@ -909,7 +926,9 @@ const RuckRecycleSpeedGraph = () => {
             backgroundColor: massey_yellow,
             borderColor: black_1,
             barThickness: 75,
-            data: [51, 31, 18],
+            hoverBackgroundColor: massey_yellow_2,
+            hoverBorderColor: black_1,
+            data: graph_data_arr,
             }]
         };
 
@@ -924,7 +943,7 @@ const RuckRecycleSpeedGraph = () => {
                         drawBorder: true,
                         drawOnChartArea: false,
                         drawTicks: true,
-                        color: "rgb(165,167,170)"
+                        color: "rgba(165,167,170, 0.5)"
                     },
                     ticks: {
                         font: {
@@ -941,7 +960,7 @@ const RuckRecycleSpeedGraph = () => {
                         drawBorder: true,
                         drawOnChartArea: false,
                         drawTicks: true,
-                        color: "rgb(165,167,170)"
+                        color: "rgba(165,167,170, 0.5)"
                     },
                     ticks: {
                         font: {
@@ -987,6 +1006,8 @@ const TriesOffSetPieceGraph = () => {
             backgroundColor: massey_yellow,
             borderColor: black_1,
             barThickness: 150,
+            hoverBackgroundColor: massey_yellow_2,
+            hoverBorderColor: black_1,
             data: [1, 2],
             }]
         };
@@ -1002,7 +1023,7 @@ const TriesOffSetPieceGraph = () => {
                         drawBorder: true,
                         drawOnChartArea: false,
                         drawTicks: true,
-                        color: "rgb(165,167,170)"
+                        color: "rgba(165,167,170, 0.5)"
                     },
                     ticks: {
                         font: {
@@ -1019,7 +1040,7 @@ const TriesOffSetPieceGraph = () => {
                         drawBorder: true,
                         drawOnChartArea: false,
                         drawTicks: true,
-                        color: "rgb(165,167,170)"
+                        color: "rgba(165,167,170, 0.5)"
                     },
                     ticks: {
                         font: {
@@ -1068,6 +1089,8 @@ const TypesOfPenaltiesGraph = () => {
             backgroundColor: massey_yellow,
             borderColor: black_1,
             barThickness: 80,
+            hoverBackgroundColor: massey_yellow_2,
+            hoverBorderColor: black_1,
             data: [5, 6, 3, 1, 1],
             }]
         };
@@ -1083,7 +1106,7 @@ const TypesOfPenaltiesGraph = () => {
                         drawBorder: true,
                         drawOnChartArea: false,
                         drawTicks: true,
-                        color: "rgb(165,167,170)"
+                        color: "rgba(165,167,170, 0.5)"
                     },
                     ticks: {
                         font: {
@@ -1100,7 +1123,7 @@ const TypesOfPenaltiesGraph = () => {
                         drawBorder: true,
                         drawOnChartArea: false,
                         drawTicks: true,
-                        color: "rgb(165,167,170)"
+                        color: "rgba(165,167,170, 0.5)"
                     },
                     ticks: {
                         font: {

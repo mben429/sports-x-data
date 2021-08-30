@@ -1,7 +1,8 @@
 // Colors
 var green_win = "rgb(80,118,35)";
 var red_lose = "rgb(154,46,46)";
-var massey_yellow = "rgb(248,189,65)";
+var massey_yellow = "rgba(248,189,65, 0.8)";
+var massey_yellow_2 = "rgb(248,189,65)";
 var massey_black = "rgb(15, 14, 16)";
 var alternate_green = "rgb(80, 118, 40)";
 var alternate_red = "rgb(154,46,60)";
