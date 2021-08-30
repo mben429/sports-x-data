@@ -993,7 +993,7 @@ const RuckRecycleSpeedGraph = (graph_data_arr) => {
 
 }
 
-const TriesOffSetPieceGraph = () => {
+const TriesOffSetPieceGraph = (graph_data_arr) => {
     const labels = [
         "Scrum",
         "Lineouts"
@@ -1008,7 +1008,7 @@ const TriesOffSetPieceGraph = () => {
             barThickness: 150,
             hoverBackgroundColor: massey_yellow_2,
             hoverBorderColor: black_1,
-            data: [1, 2],
+            data: graph_data_arr,
             }]
         };
 
@@ -1051,7 +1051,7 @@ const TriesOffSetPieceGraph = () => {
                         padding: 7
                     },
                     min: 0,
-                    max: 4,
+                    max: 10,
                 }
             },
             plugins: {
@@ -1073,7 +1073,7 @@ const TriesOffSetPieceGraph = () => {
 
 }
 
-const TypesOfPenaltiesGraph = () => {
+const TypesOfPenaltiesGraph = (graph_data_arr) => {
     const labels = [
         "Ruck Penalty",
         "Offside Penalty",
@@ -1091,7 +1091,7 @@ const TypesOfPenaltiesGraph = () => {
             barThickness: 80,
             hoverBackgroundColor: massey_yellow_2,
             hoverBorderColor: black_1,
-            data: [5, 6, 3, 1, 1],
+            data: graph_data_arr,
             }]
         };
 

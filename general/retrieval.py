@@ -314,3 +314,28 @@ def get_sp_stats(game_id):
             stat_dict[stat_list[i]] = stat
 
     return stat_dict
+
+def get_discipline_stats(game_id):
+    stat_list = [
+        "'total_penalties_conceded'",
+        "'points_allowed_from_penalties'",
+        "'types_of_pens_rp'",
+        "'types_of_pens_op'",
+        "'types_of_pens_sp'",
+        "'types_of_pens_lineout_pen'",
+        "'types_of_pens_other'",
+        "'dang_tackles_made'",
+        "'dang_ruck_entries_made'",
+        "'offsides_commited'"
+    ]
+
+    stat_dict = {}
+
+    with connection.cursor() as cursor:
+        for i in range(len(stat_list)):
+            exec_str_part = "SELECT general_stat.statval FROM general_stat WHERE general_stat.game_name_id = " + str(game_id) + " AND general_stat.statname = " + stat_list[i] + ";"
+            cursor.execute(exec_str_part)
+            stat = cursor.fetchall()
+            stat_dict[stat_list[i]] = stat
+
+    return stat_dict

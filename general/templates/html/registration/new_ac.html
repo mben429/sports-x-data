@@ -261,48 +261,44 @@
             $("#ruck_infringments_stat").html(relevant_data["'ruck_infringements_made'"][0][0]);
         }
 
-
-        const fillInfo = () => {
-            // Set header
-            let team_against = getTeamAgainst(game_id_int)
-            setHeader(team_against);
-
-            setLeague();
-
-            // Set and display Date
-            setDate();
-
-            //Set score
-            setScore();
-
-            //Set W/L
-            setResult();
-
-            //Set GameEvents
-            setGameEvents();
-
-            //Set OverView stats 
-            setOverviewStats();
-
-            // Set Attack Stats
-            setAttackStats();
-
-            //Set Def Stats
-            setDefStats();
-
-            //Set Kicking Game Stats
-            setKgStats();
-
-            //Set Ball Handling Game stats
-            setBhStats();
-
-            //Set Breakdown Stats
-            setBreakdownStats();
+        const setSetPieceStats = () => {
+            let relevant_data = data["game_sp_data"];
+            $("#own_lineout_success_stat").html(relevant_data["'own_lineout_throw_success'"][0][0]);
+            $("#opp_throw_success_stat").html(relevant_data["'opp_lineout_throw_success'"][0][0]);
+            $("#own_scrum_success_stat").html(relevant_data["'own_scrum_success'"][0][0]);
+            $("#opp_scrum_success_stat").html(relevant_data["'opp_scrum_success'"][0][0]);
+            $("#total_lineouts_stolen_stat").html(relevant_data["'total_lineouts_stolen'"][0][0]);
+            $("#total_scrums_stolen_stat").html(relevant_data["'total_lineouts_stolen'"][0][0]);
         }
 
-       
+        const setDisciplineStats = () => {
+            let relevant_data = data["game_discipline_data"];
+            $("#total_pens_conceded_stat").html(relevant_data["'total_penalties_conceded'"][0][0]);
+            $("#points_allowed_from_pens_stat").html(relevant_data["'points_allowed_from_penalties'"][0][0]);
+            $("#dangerous_tackles_made_stat").html(relevant_data["'dang_tackles_made'"][0][0]);
+            $("#dangerous_ruck_entries_stat").html(relevant_data["'dang_ruck_entries_made'"][0][0]);
+            $("#offsides_commited").html(relevant_data["'offsides_commited'"][0][0]);
+        }
 
-        
+        // Display all correct stats for current game
+        const fillInfo = () => {
+            let team_against = getTeamAgainst(game_id_int)
+            setHeader(team_against);
+            setLeague();
+            setDate();
+            setScore();
+            setResult();
+            setGameEvents(); 
+            setOverviewStats();
+            setAttackStats();
+            setDefStats();
+            setKgStats();
+            setBhStats();
+            setBreakdownStats();
+            setSetPieceStats();
+            setDisciplineStats();
+        }
+
 
         const displayOverview = () => {
             console.log("Displaying Overview Stats");
@@ -968,7 +964,12 @@
             $("#tc-header-txt").html("Set Piece<text class='sxd-y'>.</text>");
             $("#main-content-tm-centre").html(html_layout);
             fillInfo();
-            TriesOffSetPieceGraph();
+            let rel_data = data["game_sp_data"];
+            let sp_tries_graph_data_arr = [
+                rel_data["'tries_off_set_piece_scrum'"], 
+                rel_data["'tries_off_set_piece_lineouts'"],
+            ]
+            TriesOffSetPieceGraph(sp_tries_graph_data_arr);
         };
 
         const displayDiscipline = () => {
@@ -1034,7 +1035,15 @@
             $("#tc-header-txt").html("Discipline<text class='sxd-y'>.</text>");
             $("#main-content-tm-centre").html(html_layout);
             fillInfo();
-            TypesOfPenaltiesGraph();
+            let rel_data = data["game_discipline_data"];
+            let pens_graph_data_arr = [
+                rel_data["'types_of_pens_rp'"], 
+                rel_data["'types_of_pens_op'"],
+                rel_data["'types_of_pens_sp'"],
+                rel_data["'types_of_pens_lineout_pen'"],
+                rel_data["'types_of_pens_other'"],
+            ]
+            TypesOfPenaltiesGraph(pens_graph_data_arr);
         };
 
          // Show overview as default
