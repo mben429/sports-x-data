@@ -40,31 +40,31 @@ const setBarGraphConfig = (bar_graph, offsetbt=0, offsetxt=0, offsetyt=0) => {
         setYticksFontSize(bar_graph, 7-offsetyt);
     }
     else if (CURRENT_SCREEN_WIDTH >= 600 && CURRENT_SCREEN_WIDTH <= 899) {
-        console.log("Setting Bar config... xx-small");
+        console.log("Setting Bar config... x-small");
         setBarThickness(bar_graph, 40-offsetbt);
         setXticksFontSize(bar_graph, 9-offsetxt);
         setYticksFontSize(bar_graph, 9-offsetyt);
     } 
     else if (CURRENT_SCREEN_WIDTH >= 900 && CURRENT_SCREEN_WIDTH <= 1199) {
-        console.log("Setting Bar config... xx-small");
+        console.log("Setting Bar config... small");
         setBarThickness(bar_graph, 40-offsetbt);
         setXticksFontSize(bar_graph, 9-offsetxt);
         setYticksFontSize(bar_graph, 9-offsetyt);
     }
     else if (CURRENT_SCREEN_WIDTH >= 1200 && CURRENT_SCREEN_WIDTH <= 1499) {
-        console.log("Setting Bar config... xx-small");
-        setBarThickness(bar_graph, 60-offsetbt);
+        console.log("Setting Bar config... medium");
+        setBarThickness(bar_graph, 40-offsetbt);
         setXticksFontSize(bar_graph, 12-offsetxt);
         setYticksFontSize(bar_graph, 12-offsetyt);
     }
     else if (CURRENT_SCREEN_WIDTH >= 1500 && CURRENT_SCREEN_WIDTH <= 1899) {
-        console.log("Setting Bar config... xx-small");
+        console.log("Setting Bar config... large");
         setBarThickness(bar_graph, 60-offsetbt);
         setXticksFontSize(bar_graph, 12-offsetxt);
         setYticksFontSize(bar_graph, 12-offsetyt);
     }
     else if (CURRENT_SCREEN_WIDTH >= 2300) {
-        console.log("Setting Bar config... xx-small");
+        console.log("Setting Bar config... xx-large");
         
         setXticksFontSize(bar_graph, 16-offsetxt);
         setYticksFontSize(bar_graph, 16-offsetyt);
@@ -78,22 +78,22 @@ const setDoughnutConfig = (d_graph, legendOffset=0, boxWidthOffset=0, boxOutline
         setLegendBoxSize(d_graph, 15-boxWidthOffset);
     } 
     else if (CURRENT_SCREEN_WIDTH >= 600 && CURRENT_SCREEN_WIDTH <= 899) {
-        console.log("Setting Doughnut config... xx-small");
+        console.log("Setting Bar config... x-small");
         setLegendFontSize(d_graph, 9-legendOffset);
         setLegendBoxSize(d_graph, 12-boxWidthOffset);
     } 
     else if (CURRENT_SCREEN_WIDTH >= 600 && CURRENT_SCREEN_WIDTH <= 899) {
-        console.log("Setting Doughnut config... xx-small");
+        console.log("Setting Bar config... small");
         setLegendFontSize(d_graph, 9-legendOffset);
         setLegendBoxSize(d_graph, 12-boxWidthOffset);
     } 
     else if (CURRENT_SCREEN_WIDTH >= 1200 && CURRENT_SCREEN_WIDTH <= 1499) {
-        console.log("Setting Doughnut config... xx-small");
+        console.log("Setting Bar config... large");
         setLegendFontSize(d_graph, 9-legendOffset);
         setLegendBoxSize(d_graph, 12-boxWidthOffset);
     } 
     else if (CURRENT_SCREEN_WIDTH >= 1500 && CURRENT_SCREEN_WIDTH <= 1899) {
-        console.log("Setting Doughnut config... xx-small");
+        console.log("Setting Bar config... xx-large");
         setLegendFontSize(d_graph, 9-legendOffset);
         setLegendBoxSize(d_graph, 12-boxWidthOffset);
     } 

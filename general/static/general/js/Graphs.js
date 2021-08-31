@@ -825,7 +825,7 @@ const PassSuccessByTypeGraph = (graph_data_arr) => {
         document.getElementById('pass_success_by_type_graph'),
         config
     );
-    setBarGraphConfig(myChart, 0, 4, 0);
+    setBarGraphConfig(myChart, 20, 4, 0);
 }
 
 const PassesTotalByType = (graph_data_arr) => {
