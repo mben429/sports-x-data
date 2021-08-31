@@ -1,15 +1,39 @@
 
+var BarTooltipsSettings = {
+    intersect: false,
+    position: 'nearest',
+    displayColors: false,
+    titleColor: massey_yellow,
+    titleFont: {
+        size: 20,
+        family: "'Abel', sans-serif"
+    },
+    bodyFont: {
+        size: 20,
+        family: "'Abel', sans-serif"
+    },
+    caretPadding: 10,
+}
+
 const MetersGainedGraph = (graph_data_arr) => {
+    /*
+    console.log("Graph data arr", graph_data_arr);
+    let new_g_data = []
+    for(let i = 0; i < graph_data_arr.length; i++){
+        new_g_data.push(graph_data_arr[i][0][0]);
+    }
+    console.log("After proccessing graph data arr", new_g_data);
+    */
     const labels = [
         'One-Off Runner',
         'Backline Move',
         'Pick and Go',
         ];
-
+    
     const data = {
         labels: labels,
         datasets: [{
-            label: '% of the Time Meters Were Gained',
+            label: '% time Meters where Gained',
             backgroundColor: massey_yellow,
             borderColor: black_1,
             hoverBackgroundColor: massey_yellow_2,
@@ -65,7 +89,8 @@ const MetersGainedGraph = (graph_data_arr) => {
             plugins: {
                 legend: {
                     display: false
-                }
+                },
+                tooltip: BarTooltipsSettings,
             },
             responsive: true,
             maintainAspectRatio: false
@@ -145,7 +170,8 @@ const TackleSuccessPosGraph = (graph_data_arr) => {
             plugins: {
                 legend: {
                     display: false
-                }
+                },
+                tooltip: BarTooltipsSettings,
             },
             responsive: true,
             maintainAspectRatio: false
@@ -225,7 +251,8 @@ const TackleSuccessByTypeGraph = (graph_data_arr) => {
             plugins: {
                 legend: {
                     display: false
-                }
+                },
+                tooltip: BarTooltipsSettings,
             },
             responsive: true,
             maintainAspectRatio: false
@@ -309,7 +336,8 @@ const TackleSuccessByArea = (graph_data_arr) => {
             plugins: {
                 legend: {
                     display: false
-                }
+                },
+                tooltip: BarTooltipsSettings,
             },
             responsive: true,
             maintainAspectRatio: false
@@ -382,14 +410,14 @@ const LinebreaksByPos = (graph_data_arr) => {
                         padding: 7
                     },
                     min: 0,
-                    max: 15,
-                    stepSize: 5,
+                    max: Math.max(...graph_data_arr) + 2,
                 }
             },
             plugins: {
                 legend: {
                     display: false
-                }
+                },
+                tooltip: BarTooltipsSettings,
             },
             responsive: true,
             maintainAspectRatio: false
@@ -524,14 +552,14 @@ const TypeOfKicksMade = (graph_data_arr) => {
                         padding: 7
                     },
                     min: 0,
-                    max: 15,
-                    stepSize: 5,
+                    max: Math.max(...graph_data_arr) + 2
                 }
             },
             plugins: {
                 legend: {
                     display: false
-                }
+                },
+                tooltip: BarTooltipsSettings,
             },
             responsive: true,
             maintainAspectRatio: false
@@ -614,7 +642,8 @@ const KicksRegatheredGraph = (graph_data_arr) => {
             plugins: {
                 legend: {
                     display: false
-                }
+                },
+                tooltip: BarTooltipsSettings,
             },
             responsive: true,
             maintainAspectRatio: false
@@ -641,7 +670,7 @@ const KickForTouchMetersGainGraph = (graph_data_arr) => {
     const data = {
         labels: labels,
         datasets: [{
-            label: 'No. of Kicks',
+            label: '% of Kicks',
             backgroundColor: massey_yellow,
             borderColor: black_1,
             barThickness: 75,
@@ -691,13 +720,14 @@ const KickForTouchMetersGainGraph = (graph_data_arr) => {
                         padding: 7
                     },
                     min: 0,
-                    max: 15,
+                    max: 100,
                 }
             },
             plugins: {
                 legend: {
                     display: false
-                }
+                },
+                tooltip: BarTooltipsSettings,
             },
             responsive: true,
             maintainAspectRatio: false
@@ -782,7 +812,8 @@ const PassSuccessByTypeGraph = (graph_data_arr) => {
             plugins: {
                 legend: {
                     display: false
-                }
+                },
+                tooltip: BarTooltipsSettings,
             },
             responsive: true,
             maintainAspectRatio: false
@@ -977,7 +1008,8 @@ const RuckRecycleSpeedGraph = (graph_data_arr) => {
             plugins: {
                 legend: {
                     display: false
-                }
+                },
+                tooltip: BarTooltipsSettings,
             },
             responsive: true,
             maintainAspectRatio: false
@@ -1051,13 +1083,14 @@ const TriesOffSetPieceGraph = (graph_data_arr) => {
                         padding: 7
                     },
                     min: 0,
-                    max: 10,
+                    max: Math.max(...graph_data_arr) + 2,
                 }
             },
             plugins: {
                 legend: {
                     display: false
-                }
+                },
+                tooltip: BarTooltipsSettings,
             },
             responsive: true,
             maintainAspectRatio: false
@@ -1134,13 +1167,14 @@ const TypesOfPenaltiesGraph = (graph_data_arr) => {
                         padding: 7
                     },
                     min: 0,
-                    max: 10,
+                    max: Math.max(...graph_data_arr) + 2,
                 }
             },
             plugins: {
                 legend: {
                     display: false
-                }
+                },
+                tooltip: BarTooltipsSettings,
             },
             responsive: true,
             maintainAspectRatio: false

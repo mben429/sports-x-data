@@ -491,9 +491,9 @@
             $("#main-content-tm-centre").html(html_layout);
             fillInfo();
             mg_graph_data_arr = [
-                data["game_attack_data"]["'oor_meters_gain_pct'"], 
-                data["game_attack_data"]["'bm_meters_gain_pct'"], 
-                data["game_attack_data"]["'pag_meters_gain_pct'"]]
+                data["game_attack_data"]["'oor_meters_gain_pct'"][0][0], 
+                data["game_attack_data"]["'bm_meters_gain_pct'"][0][0], 
+                data["game_attack_data"]["'pag_meters_gain_pct'"][0][0]]
             MetersGainedGraph(mg_graph_data_arr);
         };
 
@@ -590,29 +590,29 @@
 
             let rel_data = data["game_defense_data"]
             let ts_graph_data_arr = [
-                rel_data["'tackle_success_pos_backs'"], 
-                rel_data["'tackle_success_pos_forwards'"]
+                rel_data["'tackle_success_pos_backs'"][0][0], 
+                rel_data["'tackle_success_pos_forwards'"][0][0]
             ]
             TackleSuccessPosGraph(ts_graph_data_arr);
 
             let ts_pos_graph_data_arr = [
-                rel_data["'tackles_success_above_waist_pct'"], 
-                rel_data["'tackles_success_below_waist_pct'"]
+                rel_data["'tackles_success_above_waist_pct'"][0][0], 
+                rel_data["'tackles_success_below_waist_pct'"][0][0]
             ]
             TackleSuccessByTypeGraph(ts_pos_graph_data_arr);
             
             let ts_area_graph_data_arr = [
-                rel_data["'tackles_success_area_own5_pct'"], 
-                rel_data["'tackles_success_area_opp5_pct'"],
-                rel_data["'tackles_success_area_own22_pct'"],
-                rel_data["'tackles_success_area_opp22_pct'"],
-                rel_data["'tackles_success_area_midfield_pct'"]
+                rel_data["'tackles_success_area_own5_pct'"][0][0], 
+                rel_data["'tackles_success_area_opp5_pct'"][0][0],
+                rel_data["'tackles_success_area_own22_pct'"][0][0],
+                rel_data["'tackles_success_area_opp22_pct'"][0][0],
+                rel_data["'tackles_success_area_midfield_pct'"][0][0]
             ]
             TackleSuccessByArea(ts_area_graph_data_arr);
 
             let lb_allowed = [
-                rel_data["'line_breaks_allowed_pos_backs'"], 
-                rel_data["'line_breaks_allowed_pos_forwards'"],
+                rel_data["'line_breaks_allowed_pos_backs'"][0][0], 
+                rel_data["'line_breaks_allowed_pos_forwards'"][0][0],
             ]
             LinebreaksByPos(lb_allowed);
         };
@@ -665,14 +665,14 @@
                     </div>
                 </div>
                 <div class="gr-panel row-4-5 col-hlf-1" id="kick-touch-gain-panel-id" data-aos="fade-right">
-                    <h2 id="graph-title-2">Meters Gained from Kicks to touch<text class="sxd-y">.</text></h2>
+                    <h2 id="graph-title-2">% of Kicks to touch where Meters were Gained<text class="sxd-y">.</text></h2>
                     <div id="ts-pos-graph-cnt">
                         <canvas id="meters_gain_kft_graph"></canvas>
                     </div>
                 </div>
                 <div class="gr-panel row-4-5 col-hlf-2 hlf" id="gk-panel-id" data-aos="fade-right">
                     <h2 id="graph-title-2">Goal Kicking <text class="sxd-y">%</text></h2>
-                    <h1 class="q-panel-g-1-value lg-header-txt"><text id="gk_pct_stat">N/A</text></h1>
+                    <h1 class="q-panel-g-1-value lg-header-txt"><text id="gk_pct_stat">N/A</text><text class="sxd-y">%</text></h1>
                     <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
                     <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
                     <h3 class="q-panel-g-1-sa-val xs-small-txt sxd-g">+3%</h3>
@@ -685,29 +685,29 @@
             
             let rel_data = data["game_kg_data"];
             let tkm_graph_data_arr = [
-                rel_data["'type_of_kicks_punts'"], 
-                rel_data["'types_of_kicks_chips'"],
-                rel_data["'types_of_kicks_grubbers'"],
-                rel_data["'types_of_kicks_upandunders'"],
-                rel_data["'types_of_kicks_boxkicks'"],
+                rel_data["'type_of_kicks_punts'"][0][0], 
+                rel_data["'types_of_kicks_chips'"][0][0],
+                rel_data["'types_of_kicks_grubbers'"][0][0],
+                rel_data["'types_of_kicks_upandunders'"][0][0],
+                rel_data["'types_of_kicks_boxkicks'"][0][0],
             ];
             TypeOfKicksMade(tkm_graph_data_arr);
 
             let krp_graph_data_arr = [
-                rel_data["'kicks_regathered_by_type_punts'"],
-                rel_data["'kicks_regathered_by_type_chips'"],
-                rel_data["'kicks_regathered_by_type_grubbers'"],
-                rel_data["'kicks_regathered_by_type_upandunders'"],
-                rel_data["'kicks_regathered_by_type_boxkicks'"],
+                rel_data["'kicks_regathered_by_type_punts'"][0][0],
+                rel_data["'kicks_regathered_by_type_chips'"][0][0],
+                rel_data["'kicks_regathered_by_type_grubbers'"][0][0],
+                rel_data["'kicks_regathered_by_type_upandunders'"][0][0],
+                rel_data["'kicks_regathered_by_type_boxkicks'"][0][0],
             ];
             KicksRegatheredGraph(krp_graph_data_arr);
 
             let mgk_graph_data_arr = [
-                rel_data["'meters_gained_from_kicks_0m'"],
-                rel_data["'meters_gained_from_kicks_10m'"],
-                rel_data["'meters_gained_from_kicks_30m'"],
-                rel_data["'meters_gained_from_kicks_60m'"],
-                rel_data["'meters_gained_from_kicks_60_plus'"]
+                rel_data["'meters_gained_from_kicks_0m'"][0][0],
+                rel_data["'meters_gained_from_kicks_10m'"][0][0],
+                rel_data["'meters_gained_from_kicks_30m'"][0][0],
+                rel_data["'meters_gained_from_kicks_60m'"][0][0],
+                rel_data["'meters_gained_from_kicks_60_plus'"][0][0]
             ];
             KickForTouchMetersGainGraph(mgk_graph_data_arr);
             
@@ -733,7 +733,7 @@
             let html_layout = `
                 <div class="gr-panel row-1 col-thrd-1" id="pass-success-panel-id" data-aos="fade-right">
                     <h2 class="q-panel-g-1-header">Overall Pass Success <text class="sxd-y">%</text></h2>
-                    <h1 class="q-panel-g-1-value lg-header-txt"><text id="pass_success_pct_stat">N/A</text></h1>
+                    <h1 class="q-panel-g-1-value lg-header-txt"><text id="pass_success_pct_stat">N/A</text><text class="sxd-y">%</text></h1>
                     <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
                     <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
                     <h3 class="q-panel-g-1-sa-val xs-small-txt sxd-g">+3%</h3>
@@ -788,12 +788,12 @@
 
             let rel_data = data["game_bh_data"];
             let ps_type_graph_data_arr = [
-                rel_data["'ps_by_type_sbr'"], 
-                rel_data["'ps_by_type_btb'"],
-                rel_data["'ps_by_type_sploose'"],
-                rel_data["'ps_by_type_medloose'"],
-                rel_data["'ps_by_type_longloose'"],
-                rel_data["'ps_by_type_offloads'"], 
+                rel_data["'ps_by_type_sbr'"][0][0], 
+                rel_data["'ps_by_type_btb'"][0][0],
+                rel_data["'ps_by_type_sploose'"][0][0],
+                rel_data["'ps_by_type_medloose'"][0][0],
+                rel_data["'ps_by_type_longloose'"][0][0],
+                rel_data["'ps_by_type_offloads'"][0][0], 
             ]
             PassSuccessByTypeGraph(ps_type_graph_data_arr);
 
@@ -884,9 +884,9 @@
             fillInfo();
             let rel_data = data["game_breakdown_data"];
             let rr_speed_graph_data_arr = [
-                rel_data["'ruck_recycle_speed_pct_03'"], 
-                rel_data["'ruck_recycle_speed_pct_36'"],
-                rel_data["'ruck_recycle_speed_pct_6'"],
+                rel_data["'ruck_recycle_speed_pct_03'"][0][0], 
+                rel_data["'ruck_recycle_speed_pct_36'"][0][0],
+                rel_data["'ruck_recycle_speed_pct_6'"][0][0],
             ]
             RuckRecycleSpeedGraph(rr_speed_graph_data_arr);
         };
@@ -966,8 +966,8 @@
             fillInfo();
             let rel_data = data["game_sp_data"];
             let sp_tries_graph_data_arr = [
-                rel_data["'tries_off_set_piece_scrum'"], 
-                rel_data["'tries_off_set_piece_lineouts'"],
+                rel_data["'tries_off_set_piece_scrum'"][0][0], 
+                rel_data["'tries_off_set_piece_lineouts'"][0][0],
             ]
             TriesOffSetPieceGraph(sp_tries_graph_data_arr);
         };
@@ -1037,11 +1037,11 @@
             fillInfo();
             let rel_data = data["game_discipline_data"];
             let pens_graph_data_arr = [
-                rel_data["'types_of_pens_rp'"], 
-                rel_data["'types_of_pens_op'"],
-                rel_data["'types_of_pens_sp'"],
-                rel_data["'types_of_pens_lineout_pen'"],
-                rel_data["'types_of_pens_other'"],
+                rel_data["'types_of_pens_rp'"][0][0], 
+                rel_data["'types_of_pens_op'"][0][0],
+                rel_data["'types_of_pens_sp'"][0][0],
+                rel_data["'types_of_pens_lineout_pen'"][0][0],
+                rel_data["'types_of_pens_other'"][0][0],
             ]
             TypesOfPenaltiesGraph(pens_graph_data_arr);
         };
