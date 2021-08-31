@@ -1,1 +1,15 @@
+.btn-anim {
+    -webkit-transition: all 0.25s;
+	-moz-transition: all 0.25s;
+	transition: all 0.25s;
+}
 
+.btn-anim:after {
+	-webkit-transition: all 0.25s;
+	-moz-transition: all 0.25s;
+	transition: all 0.25s;
+}
+
+.btn-anim:before {
+    -webkit-font-smoothing: antialiased;
+}

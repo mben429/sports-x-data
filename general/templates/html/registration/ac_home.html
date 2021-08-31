@@ -17,19 +17,19 @@
            <nav class="sidebar-nav">
                 <ul class="med-std-txt" id="side-bar-menu-cnt">
                     <li id="side-bar-menu-item" class="flex-centre">
-                        <a onclick="showStandings('{{user.username}}')" class="basic-btns hvr-icon-spin">
+                        <a onclick="showStandings('{{user.username}}')" class="btn-anim basic-btns hvr-icon-spin">
                             <img class="sidebar-icon hvr-icon" src="{% static 'general/images/schedule.png' %}">
                             <text class="side-txt">Standings</text>
                         </a>
                     </li>
                     <li id="side-bar-menu-item" class="flex-centre">
-                        <a onclick="showFixturesResults();" class="basic-btns hvr-icon-spin">
+                        <a onclick="showFixturesResults();" class="btn-anim basic-btns hvr-icon-spin">
                             <img class="sidebar-icon hvr-icon" src="{% static 'general/images/podium.png' %}">
                             <text class="side-txt">Fixtures and Results</text>
                         </a>    
                     </li>
                     <li id="side-bar-menu-item" class="flex-centre">
-                        <a href="/upload" class="basic-btns hvr-icon-spin">
+                        <a href="/upload" class="btn-anim basic-btns hvr-icon-spin">
                             <img class="sidebar-icon hvr-icon" src="{% static 'general/images/upload.png' %}">
                             <text class="side-txt">Upload Footage</text>
                         </a>
@@ -123,7 +123,7 @@
                     if (i == 0){
                         table_content += '<td>' + 
                                             '<form action="/match_centre/" method="post">' + '{% csrf_token %}' + '{{ match_id_form }}' + 
-                                                '<input type="submit" id="match-cntr-btn" class="std-btn" name="game_id_' + games[i][0].toString() + 
+                                                '<input type="submit" id="match-cntr-btn" class="btn-anim std-btn" name="game_id_' + games[i][0].toString() + 
                                                 '" value="Match Centre">' +
                                             '</form>' + 
                                         '</td>';
