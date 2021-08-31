@@ -25,7 +25,7 @@ def matchCentreView(request):
                     game_id = key[8:]
                     break
             
-                # Redirect TeamTestName Login
+            # Redirect TeamTestName Login
             if team_user_name == "TeamTestName":
                 team_user_name = "rosmini1stxv"
 
@@ -47,7 +47,7 @@ def matchCentreView(request):
                 
             dataJSON = dumps(data_dict, default=str)
 
-            return render(request, "registration/new_ac.html", {"game_id" : game_id, "data": dataJSON})
+            return render(request, "registration/new_ac.html", {"game_id" : game_id, "data": dataJSON, "title": "Match Centre"})
         
         else:
             print("Form is invalid!")
@@ -106,9 +106,9 @@ def loginView(request):
                 dataJSON = dumps(data_dict, default=str)
                 return redirect("teamCentre")
             else:
-                return render(request, "registration/login_failure.html")
+                return render(request, "registration/login_failure.html", {"title": "Login"})
 
-    return render(request, "registration/login.html", {'form': form})
+    return render(request, "registration/login.html", {'form': form, "title": "Login"})
 
 
 def teamCentreView(request):
@@ -136,7 +136,7 @@ def teamCentreView(request):
 
     dataJSON = dumps(data_dict, default=str)
 
-    return render(request, "registration/ac_home.html", {"data": dataJSON})
+    return render(request, "registration/ac_home.html", {"data": dataJSON, "title": "Team Centre"})
 
     
 def logoutView(request):

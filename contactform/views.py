@@ -26,7 +26,7 @@ def contactView(request):
             message.send()
             return redirect('success')
 
-    return render(request, "contact.html", {'form': form})
+    return render(request, "contact.html", {'form': form, "title": "Contact Us"})
 
 
 def successView(request):

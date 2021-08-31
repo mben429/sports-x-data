@@ -36,8 +36,8 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 
 def uploadFile(request):
-    return render(request, 'upload.html')
+    return render(request, 'upload.html', {"title": "Upload"})
 
     
 def uploadSuccess(request):
-    return render(request, 'upload_success.html')
+    return render(request, 'upload_success.html', {"title": "Upload"})

@@ -26,9 +26,9 @@ def registerInterestView(request):
             message.send()
             return redirect('success')
 
-    return render(request, "register-interest.html", {'form': form})
+    return render(request, "register-interest.html", {'form': form, "title": "Register Interest"})
 
 
 def successView(request):
-    return render(request, "success.html")
+    return render(request, "success.html", {"title": "Register Interest"})
 
