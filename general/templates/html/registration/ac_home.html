@@ -26,7 +26,7 @@
                         <a onclick="showFixturesResults();" class="basic-btns hvr-icon-spin">
                             <img class="sidebar-icon hvr-icon" src="{% static 'general/images/podium.png' %}">
                             <text class="side-txt">Fixtures and Results</text>
-                        </a>
+                        </a>    
                     </li>
                     <li id="side-bar-menu-item" class="flex-centre">
                         <a href="/upload" class="basic-btns hvr-icon-spin">
@@ -120,12 +120,17 @@
                 // Match Centre button
                 else if ( j == 5){
                     // Link to corresponding Match Centre Page 
-                    table_content += '<td>' + 
-                                        '<form action="/match_centre/" method="post">' + '{% csrf_token %}' + '{{ match_id_form }}' + 
-                                            '<input type="submit" id="match-cntr-btn" class="std-btn" name="game_id_' + games[i][0].toString() + 
-                                            '" value="Match Centre">' +
-                                        '</form>' + 
-                                    '</td>';
+                    if (i == 0){
+                        table_content += '<td>' + 
+                                            '<form action="/match_centre/" method="post">' + '{% csrf_token %}' + '{{ match_id_form }}' + 
+                                                '<input type="submit" id="match-cntr-btn" class="std-btn" name="game_id_' + games[i][0].toString() + 
+                                                '" value="Match Centre">' +
+                                            '</form>' + 
+                                        '</td>';
+                    }
+                    else {
+                        table_content += '<td>TBC</td>';
+                    }
                 }
                 // Everything else..
                 else{
