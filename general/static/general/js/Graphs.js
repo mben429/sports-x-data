@@ -102,7 +102,25 @@ const MetersGainedGraph = (graph_data_arr) => {
         document.getElementById('mg-graph-canv'),
         config
     );
-    setBarGraphConfig(myChart);
+    // Set display settings based on size of screen args: (chart, barwidth, xticksfont, yticksfont, legendfont, tooltipfont)
+    if (CURRENT_SCREEN_WIDTH >= 300 && CURRENT_SCREEN_WIDTH <= 599) {
+        setBarDisplaySettings(myChart, 30, 7, 7, 10);
+    }
+    else if (CURRENT_SCREEN_WIDTH >= 600 && CURRENT_SCREEN_WIDTH <= 899) {
+        setBarDisplaySettings(myChart, 50, 12, 12, 35);
+    } 
+    else if (CURRENT_SCREEN_WIDTH >= 900 && CURRENT_SCREEN_WIDTH <= 1199) {
+        setBarDisplaySettings(myChart, 15, 7, 7, 7, 16);
+    }
+    else if (CURRENT_SCREEN_WIDTH >= 1200 && CURRENT_SCREEN_WIDTH <= 1499) {
+        setBarDisplaySettings(myChart, 15, 7, 7, 7, 16);
+    }
+    else if (CURRENT_SCREEN_WIDTH >= 1500 && CURRENT_SCREEN_WIDTH <= 1899) {
+        setBarDisplaySettings(myChart, 15, 7, 7, 7, 16);
+    }
+    else if (CURRENT_SCREEN_WIDTH >= 2300) {
+        setBarDisplaySettings(myChart, 15, 7, 7, 7, 16);
+    }
 }
 
 const TackleSuccessPosGraph = (graph_data_arr) => {
@@ -349,7 +367,7 @@ const TackleSuccessByArea = (graph_data_arr) => {
         document.getElementById('tck-area-graph'),
         config
     );
-    setBarGraphConfig(myChart);
+    setBarGraphConfig(myChart, 40);
 }
 
 const LinebreaksByPos = (graph_data_arr) => {

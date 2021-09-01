@@ -29,6 +29,39 @@ const setLegendBoxSize = (d_graph, box_size) => {
     d_graph.update();
 }
 
+const setTooltipFontSize = (bar_graph, font_size) => {
+    bar_graph.options.plugins.tooltip.titleFont = font_size;
+    bar_graph.options.plugins.tooltip.bodyFont = font_size;
+    bar_graph.update();
+}
+
+const setBarDisplaySettings = (chart, bar_thickness, xticksFontSize, yticksFontSize, tooltipFontSize) => {
+    setBarThickness(chart, bar_thickness);
+    setXticksFontSize(chart, xticksFontSize);
+    setYticksFontSize(chart, yticksFontSize);
+    setTooltipFontSize(chart, tooltipFontSize);
+}
+
+const setBarConfig = (bar_graph, bar_width, tooltipFontSize) => {
+    if (CURRENT_SCREEN_WIDTH >= 300 && CURRENT_SCREEN_WIDTH <= 599) {
+        console.log("Setting Bar config... xx-small");
+    }
+    else if (CURRENT_SCREEN_WIDTH >= 600 && CURRENT_SCREEN_WIDTH <= 899) {
+        console.log("Setting Bar config... x-small");
+    } 
+    else if (CURRENT_SCREEN_WIDTH >= 900 && CURRENT_SCREEN_WIDTH <= 1199) {
+        console.log("Setting Bar config... small");
+    }
+    else if (CURRENT_SCREEN_WIDTH >= 1200 && CURRENT_SCREEN_WIDTH <= 1499) {
+        console.log("Setting Bar config... medium");
+    }
+    else if (CURRENT_SCREEN_WIDTH >= 1500 && CURRENT_SCREEN_WIDTH <= 1899) {
+        console.log("Setting Bar config... large");
+    }
+    else if (CURRENT_SCREEN_WIDTH >= 2300) {
+        console.log("Setting Bar config... xx-large");
+    }
+}
 
 
 // Need to change barthickness, x ticks font size, y ticks font size
@@ -41,7 +74,7 @@ const setBarGraphConfig = (bar_graph, offsetbt=0, offsetxt=0, offsetyt=0) => {
     }
     else if (CURRENT_SCREEN_WIDTH >= 600 && CURRENT_SCREEN_WIDTH <= 899) {
         console.log("Setting Bar config... x-small");
-        setBarThickness(bar_graph, 40-offsetbt);
+        setBarThickness(bar_graph, 60-offsetbt);
         setXticksFontSize(bar_graph, 9-offsetxt);
         setYticksFontSize(bar_graph, 9-offsetyt);
     } 
@@ -102,21 +135,6 @@ const setDoughnutConfig = (d_graph, legendOffset=0, boxWidthOffset=0, boxOutline
 
 const setGridSize = (option) => {
     if (CURRENT_SCREEN_WIDTH >= 300 && CURRENT_SCREEN_WIDTH <= 599) {
-        // Option 1 == larger
-        if (option == 1){
-            console.log("Setting larger Grid Size config... xx-small");
-            $("#cnt-overview-mc").css("grid-template-rows", "repeat(60, 1em)");
-            $("#middle-col").css("grid-row-end", "61");
-        }
-        // Option 0 == smaller
-        else if (option == 0){
-            console.log("Setting smaller Grid Size config... xx-small");
-            $("#cnt-overview-mc").css("grid-template-rows", "repeat(65, 1em)");
-            $("#middle-col").css("grid-row-end", "66");
-        }
-    }
-
-    else if (CURRENT_SCREEN_WIDTH >= 600 && CURRENT_SCREEN_WIDTH <= 899) {
         // Option 1 == larger
         if (option == 1){
             console.log("Setting larger Grid Size config... xx-small");
