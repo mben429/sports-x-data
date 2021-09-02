@@ -1,7 +1,7 @@
 
 
-const CURRENT_SCREEN_WIDTH = $(window).width();
-const CURRENT_SCREEN_HEIGHT = $(window).height();
+var CURRENT_SCREEN_WIDTH = $(window).width();
+var CURRENT_SCREEN_HEIGHT = $(window).height();
 
 
 const setBarThickness = (bar_graph, bar_thickness) => {
@@ -29,10 +29,17 @@ const setLegendBoxSize = (d_graph, box_size) => {
     d_graph.update();
 }
 
+const setOffset = (d_graph, offset) => {
+    d_graph.data.datasets[0].hoverOffset = offset;
+    d_graph.update();
+}
+
 const setTooltipFontSize = (bar_graph, font_size) => {
-    bar_graph.options.plugins.tooltip.titleFont = font_size;
-    bar_graph.options.plugins.tooltip.bodyFont = font_size;
+    bar_graph.options.plugins.tooltip.titleFont.size = font_size;
+    bar_graph.options.plugins.tooltip.bodyFont.size = font_size;
     bar_graph.update();
+    console.log("YO", bar_graph.options.plugins.tooltip.bodyFont.size);
+
 }
 
 const setBarDisplaySettings = (chart, bar_thickness, xticksFontSize, yticksFontSize, tooltipFontSize) => {
@@ -40,6 +47,12 @@ const setBarDisplaySettings = (chart, bar_thickness, xticksFontSize, yticksFontS
     setXticksFontSize(chart, xticksFontSize);
     setYticksFontSize(chart, yticksFontSize);
     setTooltipFontSize(chart, tooltipFontSize);
+}
+
+const setDoughnutDisplaySettings = (chart, legendFontSize, legendBoxSize, legendBoxBorderSize, offset) => {
+    setLegendFontSize(chart, legendFontSize);
+    setLegendBoxSize(chart, legendBoxSize);
+    setOffset(chart, offset);
 }
 
 const setBarConfig = (bar_graph, bar_width, tooltipFontSize) => {

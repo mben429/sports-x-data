@@ -1,3 +1,5 @@
+var CURRENT_SCREEN_WIDTH = $(window).width();
+var CURRENT_SCREEN_HEIGHT = $(window).height();
 
 var BarTooltipsSettings = {
     intersect: false,
@@ -5,11 +7,9 @@ var BarTooltipsSettings = {
     displayColors: false,
     titleColor: massey_yellow,
     titleFont: {
-        size: 20,
         family: "'Abel', sans-serif"
     },
     bodyFont: {
-        size: 20,
         family: "'Abel', sans-serif"
     },
     caretPadding: 10,
@@ -98,28 +98,32 @@ const MetersGainedGraph = (graph_data_arr) => {
         };
 
 
-    var myChart = new Chart(
+    let myChart = new Chart(
         document.getElementById('mg-graph-canv'),
         config
     );
+
     // Set display settings based on size of screen args: (chart, barwidth, xticksfont, yticksfont, legendfont, tooltipfont)
     if (CURRENT_SCREEN_WIDTH >= 300 && CURRENT_SCREEN_WIDTH <= 599) {
-        setBarDisplaySettings(myChart, 30, 7, 7, 10);
+        setBarDisplaySettings(myChart, 25, 7, 7, 10);
     }
     else if (CURRENT_SCREEN_WIDTH >= 600 && CURRENT_SCREEN_WIDTH <= 899) {
-        setBarDisplaySettings(myChart, 50, 12, 12, 35);
+        setBarDisplaySettings(myChart, 50, 12, 12, 20);
     } 
     else if (CURRENT_SCREEN_WIDTH >= 900 && CURRENT_SCREEN_WIDTH <= 1199) {
-        setBarDisplaySettings(myChart, 15, 7, 7, 7, 16);
+        setBarDisplaySettings(myChart, 75, 16, 16, 20);
     }
     else if (CURRENT_SCREEN_WIDTH >= 1200 && CURRENT_SCREEN_WIDTH <= 1499) {
-        setBarDisplaySettings(myChart, 15, 7, 7, 7, 16);
+        setBarDisplaySettings(myChart, 75, 20, 20, 25);
     }
     else if (CURRENT_SCREEN_WIDTH >= 1500 && CURRENT_SCREEN_WIDTH <= 1899) {
-        setBarDisplaySettings(myChart, 15, 7, 7, 7, 16);
+        setBarDisplaySettings(myChart, 75, 20, 20, 25);
+    }
+    else if (CURRENT_SCREEN_WIDTH >= 1900 && CURRENT_SCREEN_WIDTH <= 2299) {
+        setBarDisplaySettings(myChart, 90, 25, 25, 35);
     }
     else if (CURRENT_SCREEN_WIDTH >= 2300) {
-        setBarDisplaySettings(myChart, 15, 7, 7, 7, 16);
+        setBarDisplaySettings(myChart, 130, 35, 35, 45);
     }
 }
 
@@ -197,14 +201,37 @@ const TackleSuccessPosGraph = (graph_data_arr) => {
         };
 
 
-    var myChart = new Chart(
+    let myChart = new Chart(
         document.getElementById('ts-pos-graph'),
         config
     );
-    setBarGraphConfig(myChart);
+    // Set display settings based on size of screen args: (chart, barwidth, xticksfont, yticksfont, legendfont, tooltipfont)
+    if (CURRENT_SCREEN_WIDTH >= 300 && CURRENT_SCREEN_WIDTH <= 599) {
+        setBarDisplaySettings(myChart, 15, 6, 6, 7);
+    }
+    else if (CURRENT_SCREEN_WIDTH >= 600 && CURRENT_SCREEN_WIDTH <= 899) {
+        setBarDisplaySettings(myChart, 50, 12, 12, 15);
+        myChart.update();
+    } 
+    else if (CURRENT_SCREEN_WIDTH >= 900 && CURRENT_SCREEN_WIDTH <= 1199) {
+        setBarDisplaySettings(myChart, 75, 16, 16, 20);
+    }
+    else if (CURRENT_SCREEN_WIDTH >= 1200 && CURRENT_SCREEN_WIDTH <= 1499) {
+        setBarDisplaySettings(myChart, 75, 20, 20, 25);
+    }
+    else if (CURRENT_SCREEN_WIDTH >= 1500 && CURRENT_SCREEN_WIDTH <= 1899) {
+        setBarDisplaySettings(myChart, 75, 20, 20, 25);
+    }
+    else if (CURRENT_SCREEN_WIDTH >= 1900 && CURRENT_SCREEN_WIDTH <= 2299) {
+        setBarDisplaySettings(myChart, 90, 25, 25, 35);
+    }
+    else if (CURRENT_SCREEN_WIDTH >= 2300) {
+        setBarDisplaySettings(myChart, 130, 35, 35, 45);
+    }
 }
 
 const TackleSuccessByTypeGraph = (graph_data_arr) => {
+    console.log("DATA", graph_data_arr);
     const labels = [
         'Above Waist',
         'Below Waist',
@@ -278,11 +305,32 @@ const TackleSuccessByTypeGraph = (graph_data_arr) => {
         };
 
 
-    var myChart = new Chart(
+    let myChart = new Chart(
         document.getElementById('tck-aw-graph'),
         config
     );
-    setBarGraphConfig(myChart);
+    // Set display settings based on size of screen args: (chart, barwidth, xticksfont, yticksfont, legendfont, tooltipfont)
+    if (CURRENT_SCREEN_WIDTH >= 300 && CURRENT_SCREEN_WIDTH <= 599) {
+        setBarDisplaySettings(myChart, 15, 5, 5, 5);
+    }
+    else if (CURRENT_SCREEN_WIDTH >= 600 && CURRENT_SCREEN_WIDTH <= 899) {
+        setBarDisplaySettings(myChart, 50, 12, 12, 15);
+    } 
+    else if (CURRENT_SCREEN_WIDTH >= 900 && CURRENT_SCREEN_WIDTH <= 1199) {
+        setBarDisplaySettings(myChart, 75, 16, 16, 20);
+    }
+    else if (CURRENT_SCREEN_WIDTH >= 1200 && CURRENT_SCREEN_WIDTH <= 1499) {
+        setBarDisplaySettings(myChart, 75, 20, 20, 25);
+    }
+    else if (CURRENT_SCREEN_WIDTH >= 1500 && CURRENT_SCREEN_WIDTH <= 1899) {
+        setBarDisplaySettings(myChart, 75, 20, 20, 25);
+    }
+    else if (CURRENT_SCREEN_WIDTH >= 1900 && CURRENT_SCREEN_WIDTH <= 2299) {
+        setBarDisplaySettings(myChart, 90, 25, 25, 35);
+    }
+    else if (CURRENT_SCREEN_WIDTH >= 2300) {
+        setBarDisplaySettings(myChart, 130, 35, 35, 45);
+    }
 }
 
 const TackleSuccessByArea = (graph_data_arr) => {
@@ -299,8 +347,6 @@ const TackleSuccessByArea = (graph_data_arr) => {
         datasets: [{
             label: 'Tackle Success % by Area of Field',
             backgroundColor: massey_yellow,
-            borderColor: black_1,
-            borderWidth: 3,
             barThickness: 50,
             hoverBackgroundColor: massey_yellow_2,
             hoverBorderColor: black_1,
@@ -363,11 +409,32 @@ const TackleSuccessByArea = (graph_data_arr) => {
         };
 
 
-    var myChart = new Chart(
+    let myChart = new Chart(
         document.getElementById('tck-area-graph'),
         config
     );
-    setBarGraphConfig(myChart, 40);
+    // Set display settings based on size of screen args: (chart, barwidth, xticksfont, yticksfont, legendfont, tooltipfont)
+    if (CURRENT_SCREEN_WIDTH >= 300 && CURRENT_SCREEN_WIDTH <= 599) {
+        setBarDisplaySettings(myChart, 10, 4, 4, 7);
+    }
+    else if (CURRENT_SCREEN_WIDTH >= 600 && CURRENT_SCREEN_WIDTH <= 899) {
+        setBarDisplaySettings(myChart, 20, 12, 12, 8);
+    } 
+    else if (CURRENT_SCREEN_WIDTH >= 900 && CURRENT_SCREEN_WIDTH <= 1199) {
+        setBarDisplaySettings(myChart, 35, 16, 16, 10);
+    }
+    else if (CURRENT_SCREEN_WIDTH >= 1200 && CURRENT_SCREEN_WIDTH <= 1499) {
+        setBarDisplaySettings(myChart, 50, 20, 20, 10);
+    }
+    else if (CURRENT_SCREEN_WIDTH >= 1500 && CURRENT_SCREEN_WIDTH <= 1899) {
+        setBarDisplaySettings(myChart, 55, 20, 20, 20);
+    }
+    else if (CURRENT_SCREEN_WIDTH >= 1900 && CURRENT_SCREEN_WIDTH <= 2299) {
+        setBarDisplaySettings(myChart, 75, 25, 25, 30);
+    }
+    else if (CURRENT_SCREEN_WIDTH >= 2300) {
+        setBarDisplaySettings(myChart, 90, 35, 35, 45);
+    }
 }
 
 const LinebreaksByPos = (graph_data_arr) => {
@@ -443,11 +510,32 @@ const LinebreaksByPos = (graph_data_arr) => {
         };
 
 
-    var myChart = new Chart(
+    let myChart = new Chart(
         document.getElementById('lb-by-position-graph'),
         config
     );
-    setBarGraphConfig(myChart);
+    // Set display settings based on size of screen args: (chart, barwidth, xticksfont, yticksfont, legendfont, tooltipfont)
+    if (CURRENT_SCREEN_WIDTH >= 300 && CURRENT_SCREEN_WIDTH <= 599) {
+        setBarDisplaySettings(myChart, 15, 6, 6, 7);
+    }
+    else if (CURRENT_SCREEN_WIDTH >= 600 && CURRENT_SCREEN_WIDTH <= 899) {
+        setBarDisplaySettings(myChart, 50, 12, 12, 15);
+    } 
+    else if (CURRENT_SCREEN_WIDTH >= 900 && CURRENT_SCREEN_WIDTH <= 1199) {
+        setBarDisplaySettings(myChart, 75, 16, 16, 20);
+    }
+    else if (CURRENT_SCREEN_WIDTH >= 1200 && CURRENT_SCREEN_WIDTH <= 1499) {
+        setBarDisplaySettings(myChart, 75, 20, 20, 25);
+    }
+    else if (CURRENT_SCREEN_WIDTH >= 1500 && CURRENT_SCREEN_WIDTH <= 1899) {
+        setBarDisplaySettings(myChart, 75, 20, 20, 25);
+    }
+    else if (CURRENT_SCREEN_WIDTH >= 1900 && CURRENT_SCREEN_WIDTH <= 2299) {
+        setBarDisplaySettings(myChart, 90, 25, 25, 35);
+    }
+    else if (CURRENT_SCREEN_WIDTH >= 2300) {
+        setBarDisplaySettings(myChart, 130, 35, 35, 45);
+    }
 }
 
 const PosessionKickedGraph = (graph_data_arr) => {
@@ -501,11 +589,32 @@ const PosessionKickedGraph = (graph_data_arr) => {
         };
 
 
-    var myChart = new Chart(
+    let myChart = new Chart(
         document.getElementById('pos-kicked-graph'),
         config
     );
-    setDoughnutConfig(myChart);
+    // Set display settings based on size of screen args: (chart, barwidth, xticksfont, yticksfont, legendfont, tooltipfont)
+    if (CURRENT_SCREEN_WIDTH >= 300 && CURRENT_SCREEN_WIDTH <= 599) {
+        setDoughnutDisplaySettings(myChart, 8, 8, 5);
+    }
+    else if (CURRENT_SCREEN_WIDTH >= 600 && CURRENT_SCREEN_WIDTH <= 899) {
+        setDoughnutDisplaySettings(myChart, 8, 8, 5);
+    } 
+    else if (CURRENT_SCREEN_WIDTH >= 900 && CURRENT_SCREEN_WIDTH <= 1199) {
+        setDoughnutDisplaySettings(myChart, 8, 8, 5);
+    }
+    else if (CURRENT_SCREEN_WIDTH >= 1200 && CURRENT_SCREEN_WIDTH <= 1499) {
+        setDoughnutDisplaySettings(myChart, 8, 8, 5);
+    }
+    else if (CURRENT_SCREEN_WIDTH >= 1500 && CURRENT_SCREEN_WIDTH <= 1899) {
+        setDoughnutDisplaySettings(myChart, 8, 8, 5);
+    }
+    else if (CURRENT_SCREEN_WIDTH >= 1900 && CURRENT_SCREEN_WIDTH <= 2299) {
+        setDoughnutDisplaySettings(myChart, 8, 8, 5);
+    }
+    else if (CURRENT_SCREEN_WIDTH >= 2300) {
+        setDoughnutDisplaySettings(myChart, 8, 8, 5);
+    }
 }
 
 const TypeOfKicksMade = (graph_data_arr) => {
@@ -585,7 +694,7 @@ const TypeOfKicksMade = (graph_data_arr) => {
         };
 
 
-    var myChart = new Chart(
+    let myChart = new Chart(
         document.getElementById('type_of_kick_graph'),
         config
     );
@@ -669,7 +778,7 @@ const KicksRegatheredGraph = (graph_data_arr) => {
         };
 
 
-    var myChart = new Chart(
+    let myChart = new Chart(
         document.getElementById('kick_regathered_graph'),
         config
     );
@@ -753,7 +862,7 @@ const KickForTouchMetersGainGraph = (graph_data_arr) => {
         };
 
 
-    var myChart = new Chart(
+    let myChart = new Chart(
         document.getElementById('meters_gain_kft_graph'),
         config
     );
@@ -839,7 +948,7 @@ const PassSuccessByTypeGraph = (graph_data_arr) => {
         };
 
 
-    var myChart = new Chart(
+    let myChart = new Chart(
         document.getElementById('pass_success_by_type_graph'),
         config
     );
@@ -892,7 +1001,7 @@ const PassesTotalByType = (graph_data_arr) => {
         };
 
 
-    var myChart = new Chart(
+    let myChart = new Chart(
         document.getElementById('passes_made_total_by_type_graph'),
         config
     );
@@ -954,7 +1063,7 @@ const TypeHandlingErrorsGraph = (graph_data_arr) => {
         };
 
 
-    var myChart = new Chart(
+    let myChart = new Chart(
         document.getElementById('type_handling_errors_graph'),
         config
     );
@@ -1035,7 +1144,7 @@ const RuckRecycleSpeedGraph = (graph_data_arr) => {
         };
 
 
-    var myChart = new Chart(
+    let myChart = new Chart(
         document.getElementById('ruck_recycle_speed_graph'),
         config
     );
@@ -1116,7 +1225,7 @@ const TriesOffSetPieceGraph = (graph_data_arr) => {
         };
 
 
-    var myChart = new Chart(
+    let myChart = new Chart(
         document.getElementById('tries_off_set_piece_graph'),
         config
     );
@@ -1200,7 +1309,7 @@ const TypesOfPenaltiesGraph = (graph_data_arr) => {
         };
 
 
-    var myChart = new Chart(
+    let myChart = new Chart(
         document.getElementById('types_of_penalties_conceded_graph'),
         config
     );
