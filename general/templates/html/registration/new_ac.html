@@ -755,16 +755,10 @@
                     <h3 class="q-panel-g-1-sa-val xs-small-txt sxd-g">+3%</h3>
                     <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
                 </div>
-                <div class="gr-panel row-2-3 col-hlf-1" id="ps-type-panel-id" data-aos="fade-right">
+                <div class="gr-panel row-2-3 col-full" id="ps-type-panel-id" data-aos="fade-right">
                     <h2 id="graph-title-2">Pass Success <text class="sxd-y">% </text>by Type of Pass</h2>
                     <div id="ts-pos-graph-cnt">
                         <canvas id="pass_success_by_type_graph"></canvas>
-                    </div>
-                </div>
-                <div class="gr-panel row-2-3 col-hlf-2" id="type-pass-panel-id" data-aos="fade-right">
-                    <h2 id="graph-title-2"><text class="sxd-y">%</text> Type of Passes Made<text class="sxd-y">.</text></h2>
-                    <div id="ts-pos-graph-cnt">
-                        <canvas id="passes_made_total_by_type_graph"></canvas>
                     </div>
                 </div>
                 <div class="gr-panel row-4-5 col-hlf-1 hlf" id="total-he-panel-id" data-aos="fade-right">
@@ -796,16 +790,6 @@
                 rel_data["'ps_by_type_offloads'"][0][0], 
             ]
             PassSuccessByTypeGraph(ps_type_graph_data_arr);
-
-            let tp_graph_data_arr = [
-                rel_data["'type_pass_sbr'"],
-                rel_data["'type_pass_btb'"],
-                rel_data["'type_pass_sploose'"],
-                rel_data["'type_pass_medloose'"],
-                rel_data["'type_pass_longloose'"], 
-                rel_data["'type_pass_offloads'"]
-            ]
-            PassesTotalByType(tp_graph_data_arr);
 
             let type_he_graph_data_arr = [
                 rel_data["'total_handling_errors'"],
@@ -1049,12 +1033,12 @@
          // Show overview as default
         //displayOverview();
         //displayAttack();
-        displayDefense();
+        //displayDefense();
         //displayKickingGame();
         //displayBallHandling();
         //displayRucks();
         //displaySetPiece();
-        //displayDiscipline();
+        displayDiscipline();
 
     </script>
 {% endblock %}
