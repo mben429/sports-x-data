@@ -120,7 +120,7 @@ var MetersGainedGraph = (graph_data_arr) => {
         setBarDisplaySettings(myChart, 75, 20, 20, 25);
     }
     else if (CURRENT_SCREEN_WIDTH >= 1900 && CURRENT_SCREEN_WIDTH <= 2299) {
-        setBarDisplaySettings(myChart, 90, 25, 25, 35);
+        setBarDisplaySettings(myChart, 90, 25, 25, 25);
     }
     else if (CURRENT_SCREEN_WIDTH >= 2300) {
         setBarDisplaySettings(myChart, 130, 35, 35, 45);
@@ -227,7 +227,7 @@ var TackleSuccessPosGraph = (graph_data_arr) => {
         myChart.update();
     }
     else if (CURRENT_SCREEN_WIDTH >= 1900 && CURRENT_SCREEN_WIDTH <= 2299) {
-        setBarDisplaySettings(myChart, 90, 25, 25, 30);
+        setBarDisplaySettings(myChart, 90, 25, 25, 25);
         myChart.update();
     }
     else if (CURRENT_SCREEN_WIDTH >= 2300) {
@@ -332,7 +332,7 @@ var TackleSuccessByTypeGraph = (graph_data_arr) => {
         setBarDisplaySettings(myChart, 75, 20, 20, 25);
     }
     else if (CURRENT_SCREEN_WIDTH >= 1900 && CURRENT_SCREEN_WIDTH <= 2299) {
-        setBarDisplaySettings(myChart, 90, 25, 25, 35);
+        setBarDisplaySettings(myChart, 90, 25, 25, 25);
     }
     else if (CURRENT_SCREEN_WIDTH >= 2300) {
         setBarDisplaySettings(myChart, 130, 35, 35, 45);
@@ -537,7 +537,7 @@ var LinebreaksByPos = (graph_data_arr) => {
         setBarDisplaySettings(myChart, 75, 20, 20, 25);
     }
     else if (CURRENT_SCREEN_WIDTH >= 1900 && CURRENT_SCREEN_WIDTH <= 2299) {
-        setBarDisplaySettings(myChart, 90, 25, 25, 35);
+        setBarDisplaySettings(myChart, 90, 25, 25, 25);
     }
     else if (CURRENT_SCREEN_WIDTH >= 2300) {
         setBarDisplaySettings(myChart, 130, 35, 35, 45);
@@ -718,7 +718,7 @@ var TypeOfKicksMade = (graph_data_arr) => {
         setBarDisplaySettings(myChart, 35, 18, 15, 20);
     }
     else if (CURRENT_SCREEN_WIDTH >= 1900 && CURRENT_SCREEN_WIDTH <= 2299) {
-        setBarDisplaySettings(myChart, 55, 18, 18, 30);
+        setBarDisplaySettings(myChart, 55, 18, 18, 25);
     }
     else if (CURRENT_SCREEN_WIDTH >= 2300) {
         setBarDisplaySettings(myChart, 70, 24, 24, 30);
@@ -820,7 +820,7 @@ var KicksRegatheredGraph = (graph_data_arr) => {
         setBarDisplaySettings(myChart, 35, 18, 15, 20);
     }
     else if (CURRENT_SCREEN_WIDTH >= 1900 && CURRENT_SCREEN_WIDTH <= 2299) {
-        setBarDisplaySettings(myChart, 55, 18, 18, 30);
+        setBarDisplaySettings(myChart, 55, 18, 18, 25);
     }
     else if (CURRENT_SCREEN_WIDTH >= 2300) {
         setBarDisplaySettings(myChart, 70, 24, 24, 30);
@@ -922,7 +922,7 @@ var KickForTouchMetersGainGraph = (graph_data_arr) => {
         setBarDisplaySettings(myChart, 35, 18, 15, 20);
     }
     else if (CURRENT_SCREEN_WIDTH >= 1900 && CURRENT_SCREEN_WIDTH <= 2299) {
-        setBarDisplaySettings(myChart, 55, 18, 18, 30);
+        setBarDisplaySettings(myChart, 55, 18, 18, 25);
     }
     else if (CURRENT_SCREEN_WIDTH >= 2300) {
         setBarDisplaySettings(myChart, 70, 24, 24, 30);
@@ -1204,7 +1204,7 @@ var RuckRecycleSpeedGraph = (graph_data_arr) => {
         setBarDisplaySettings(myChart, 95, 18, 19, 25);
     }
     else if (CURRENT_SCREEN_WIDTH >= 1900 && CURRENT_SCREEN_WIDTH <= 2299) {
-        setBarDisplaySettings(myChart, 105, 20, 21, 30);
+        setBarDisplaySettings(myChart, 105, 20, 21, 25);
     }
     else if (CURRENT_SCREEN_WIDTH >= 2300) {
         setBarDisplaySettings(myChart, 115, 22, 24, 30);
@@ -1306,7 +1306,7 @@ var TriesOffSetPieceGraph = (graph_data_arr) => {
         setBarDisplaySettings(myChart, 100, 18, 19, 25);
     }
     else if (CURRENT_SCREEN_WIDTH >= 1900 && CURRENT_SCREEN_WIDTH <= 2299) {
-        setBarDisplaySettings(myChart, 130, 20, 21, 30);
+        setBarDisplaySettings(myChart, 130, 20, 21, 25);
     }
     else if (CURRENT_SCREEN_WIDTH >= 2300) {
         setBarDisplaySettings(myChart, 200, 25, 26, 45);
@@ -1411,7 +1411,7 @@ var TypesOfPenaltiesGraph = (graph_data_arr) => {
         setBarDisplaySettings(myChart, 95, 18, 19, 25);
     }
     else if (CURRENT_SCREEN_WIDTH >= 1900 && CURRENT_SCREEN_WIDTH <= 2299) {
-        setBarDisplaySettings(myChart, 105, 20, 21, 30);
+        setBarDisplaySettings(myChart, 105, 20, 21, 25);
     }
     else if (CURRENT_SCREEN_WIDTH >= 2300) {
         setBarDisplaySettings(myChart, 115, 22, 24, 30);

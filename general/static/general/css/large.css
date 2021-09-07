@@ -370,7 +370,7 @@
     }
 
   .login-page-header {
-    font-size: 2.1em;
+    font-size: 1.8em;
     grid-area: 1 / 2 / 2 / 6;
     text-align: center;
     padding-top: 0.5em;
@@ -413,10 +413,10 @@
   #login-again-id {
     grid-column-start: 2;
     grid-column-end: 6;
-    grid-row-start: 4;
-    grid-row-end: 5;
+    grid-row-start: 5;
+    grid-row-end: 6;
     text-align: center;
-    font-size: 0.9em;
+    font-size: 0.75em;
   }
 
 
