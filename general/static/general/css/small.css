@@ -1977,13 +1977,13 @@
   
   #graph-title {
     text-align: center;
-    grid-area: 2 / 1 / 13 / 13;
+    grid-area: 2 / 1 / 3 / 13;
     font-size: 1.2em;
   }
   
   #graph-title-2 {
     text-align: center;
-    grid-area: 2 / 1 / 13 / 13;
+    grid-area: 2 / 1 / 3 / 13;
     font-size: 0.75em;
   }
   

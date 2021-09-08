@@ -3,13 +3,7 @@
 
 
 @media (min-width: 300px) and  (max-width: 599px){
-    body {
-        background-color: black;
-        color: white;
-        font-family: 'Abel', sans-serif;
-        margin: 0px;
-        
-      }
+    
     
       .header-container {
         display: grid;
@@ -837,13 +831,13 @@
     
       #graph-title {
         text-align: center;
-        grid-area: 2 / 1 / 13 / 13;
+        grid-area: 2 / 1 / 3 / 13;
         font-size: 1.2em;
       }
     
       #graph-title-2 {
         text-align: center;
-        grid-area: 2 / 1 / 13 / 13;
+        grid-area: 2 / 1 / 3 / 13;
         font-size: 0.95em;
       }
       .gr-panel {

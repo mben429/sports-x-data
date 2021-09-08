@@ -13,3 +13,65 @@
 .btn-anim:before {
     -webkit-font-smoothing: antialiased;
 }
+
+body {
+	background-color: black;
+	color: white;
+	font-family: 'Abel', sans-serif;
+	margin: 0px;
+	
+  }
+
+.info-icon-im {
+	max-width: 50%;
+	max-height: auto;
+	text-align: center;
+}
+
+.info-icon-im-c {
+	max-width: 35%;
+	max-height: auto;
+	text-align: center;
+}
+
+.info-icon-im-bc {
+	max-width: 35%;
+	max-height: auto;
+	text-align: center;
+}
+
+#info-cnt-r {
+	grid-area: 11 / 11 / 13 / 13;
+	display: flex;
+	align-items: center;
+	justify-content: center; 
+	z-index: 0;
+}
+
+#info-cnt-l {
+	grid-area: 11 / 1 / 13 / 3;
+	display: flex;
+	align-items: center;
+	justify-content: center; 
+}
+
+#info-cnt-c {
+	grid-area: 4 / 10 / 7 / 13;
+	display: flex;
+	align-items: center;
+	justify-content: center; 
+}
+
+#info-cnt-bc {
+	grid-area: 2 / 10 / 3 / 11;
+	display: flex;
+	align-items: center;
+	justify-content: center; 
+}
+
+#info-cnt-mc {
+	grid-area: 1 / 11 / 3 / 13;
+	display: flex;
+	align-items: center;
+	justify-content: center; 
+}

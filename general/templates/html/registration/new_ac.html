@@ -280,6 +280,95 @@
             $("#offsides_commited").html(relevant_data["'offsides_commited'"][0][0]);
         }
 
+        const toolTips = () => {
+
+            $(".league-av-txt").tipso({
+                titleContent: 'Compared to League Average',
+                titleBackground: 'rgb(248,189,65)',
+                background: 'rgb(248,189,65)',
+                titleColor: '#000000',
+                size: 'tiny',
+                position: 'right'
+            });
+
+            $(".season-av-txt").tipso({
+                titleContent: 'Compared to Season Average',
+                titleBackground: 'rgb(248,189,65)',
+                background: 'rgb(248,189,65)',
+                titleColor: '#000000',
+                size: 'tiny',
+                position: 'left'
+            });
+
+            $(".broken-first-tackle").tipso({
+                titleContent: '% Time player broke the first tackle when running with the ball',
+                titleBackground: 'rgb(248,189,65)',
+                background: 'rgb(248,189,65)',
+                titleColor: '#000000',
+                size: 'tiny',
+                position: 'right'
+            });
+
+            $(".running-onto-ball").tipso({
+                titleContent: '% time player was running onto the ball when receiving a pass',
+                titleBackground: 'rgb(248,189,65)',
+                background: 'rgb(248,189,65)',
+                titleColor: '#000000',
+                size: 'tiny',
+                position: 'right'
+            });
+
+            $(".points-per-visit").tipso({
+                titleContent: 'Points scored per visit to Opponent\'s 22',
+                titleBackground: 'rgb(248,189,65)',
+                background: 'rgb(248,189,65)',
+                titleColor: '#000000',
+                size: 'tiny',
+                position: 'right'
+            });
+
+            $(".pct-times-meters-gained").tipso({
+                titleContent: 'Percentage of the time meters where gained after a certain type of attack play',
+                titleBackground: 'rgb(248,189,65)',
+                background: 'rgb(248,189,65)',
+                titleColor: '#000000',
+                size: 'tiny',
+                position: 'right'
+            });
+            $(".pct-posession-kicked").tipso({
+                titleContent: 'Percentage of the time a posession resulted in a Kick',
+                titleBackground: 'rgb(248,189,65)',
+                background: 'rgb(248,189,65)',
+                titleColor: '#000000',
+                size: 'tiny',
+                position: 'right'
+            });
+            $(".type-handling-errors-made").tipso({
+                titleContent: 'KO = Knock On',
+                titleBackground: 'rgb(248,189,65)',
+                background: 'rgb(248,189,65)',
+                titleColor: '#000000',
+                size: 'tiny',
+                position: 'right'
+            });
+            $(".ruck-recycle-speed").tipso({
+                titleContent: 'Time between when tackled individual hits ground to when the ball is passed from ruck',
+                titleBackground: 'rgb(248,189,65)',
+                background: 'rgb(248,189,65)',
+                titleColor: '#000000',
+                size: 'tiny',
+                position: 'right'
+            });
+            $(".points-allowed-from-pens").tipso({
+                titleContent: 'This includes Penalty Goal kicks/quick-tap tries, tries off of set piece resulting from penalty given away',
+                titleBackground: 'rgb(248,189,65)',
+                background: 'rgb(248,189,65)',
+                titleColor: '#000000',
+                size: 'tiny',
+                position: 'right'
+            });
+        }
+
         // Display all correct stats for current game
         const fillInfo = () => {
             let team_against = getTeamAgainst(game_id_int)
@@ -339,7 +428,13 @@
                     <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
                     <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
                     <h3 class="q-panel-g-1-sa-val xs-small-txt">N/A</h3>
-                    <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                    <h3 class="q-panel-g-1-la-val xs-small-txt sxd-g">+3%</h3>
+                    <div id="info-cnt-l">
+                        <img class="info-icon-im season-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
+                     <div id="info-cnt-r">
+                        <img class="info-icon-im league-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
                 </div>
                 <div class="gr-panel row-2 col-qrt-2" id="territory-panel-id" data-aos="fade-right">
                     <h2 class="q-panel-g-1-header med-std-txt">Territory</h2>
@@ -347,7 +442,13 @@
                     <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
                     <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
                     <h3 class="q-panel-g-1-sa-val xs-small-txt">N/A</h3>
-                    <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                    <h3 class="q-panel-g-1-la-val xs-small-txt sxd-g">+8%</h3>
+                    <div id="info-cnt-l">
+                        <img class="info-icon-im season-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
+                     <div id="info-cnt-r">
+                        <img class="info-icon-im league-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
                 </div>
                 <div class="gr-panel row-2 col-qrt-3" id="handling-errors-panel-id" data-aos="fade-right">
                     <h2 class="q-panel-g-1-header med-std-txt">Handling Errors</h2>
@@ -355,7 +456,13 @@
                     <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
                     <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
                     <h3 class="q-panel-g-1-sa-val xs-small-txt">N/A</h3>
-                    <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                    <h3 class="q-panel-g-1-la-val xs-small-txt sxd-r">+2</h3>
+                    <div id="info-cnt-l">
+                        <img class="info-icon-im season-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
+                     <div id="info-cnt-r">
+                        <img class="info-icon-im league-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
                 </div>
                 <div class="gr-panel row-2 col-qrt-4" id="tackling-success-panel-id" data-aos="fade-right">
                     <h2 class="q-panel-g-1-header med-std-txt">Tackle Success %</h2>
@@ -364,6 +471,12 @@
                     <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
                     <h3 class="q-panel-g-1-sa-val xs-small-txt">N/A</h3>
                     <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                    <div id="info-cnt-l">
+                        <img class="info-icon-im season-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
+                     <div id="info-cnt-r">
+                        <img class="info-icon-im league-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
                 </div>
                 <div class="gr-panel row-3 col-thrd-1" id="top-tkler-panel-id" data-aos="fade-right">
                     <h2 class="q-panel-g-1-header med-std-txt">Top Tackler</h2>
@@ -386,7 +499,9 @@
                     <h4 class="q-panel-g-1-la-txt xs-small-txt">% Broke the First Tackle</h4>
                     <h3 class="q-panel-g-1-sa-val med-2-std-txt"><text id="top-tck-broken">N/A</text></h3>
                     <h3 class="q-panel-g-1-la-val med-2-std-txt"><text id="top-tck-pct-broken-first">N/A</text><text class="sxd-y">%</text></h3>
-
+                    <div id="info-cnt-r">
+                        <img class="info-icon-im broken-first-tackle" src="{% static 'general/images/info.png' %}">
+                    </div>
                 </div>
                 <div class="gr-panel row-4 col-thrd-1" id="top-rs-panel-id" data-aos="fade-right">
                     <h2 class="q-panel-g-1-header med-std-txt">Most Ruck Steals</h2>
@@ -412,6 +527,7 @@
             $("#tc-header-txt").html("Overview<text class='sxd-y'>.</text>");
             $("#main-content-tm-centre").html(html_layout);
             fillInfo();
+            toolTips();
         };
 
         const displayAttack = () => {
@@ -440,46 +556,85 @@
                     <h2 class="q-panel-g-1-header">Linebreaks<text class="sxd-y">.</text></h2>
                     <h1 class="q-panel-g-1-value lg-header-txt"><text id="lb-stat">N/A</text></h1>
                     <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
-                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared To LA</h4>
                     <h3 class="q-panel-g-1-sa-val xs-small-txt">N/A</h3>
                     <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                    <div id="info-cnt-l">
+                        <img class="info-icon-im season-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
+                     <div id="info-cnt-r">
+                        <img class="info-icon-im league-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
                 </div>
                 <div class="gr-panel row-2 col-qrt-1" id="att-rob-panel-id" data-aos="fade-right">
-                    <h2 class="q-panel-g-1-header">Running Onto the Ball<text class="sxd-y"> %.</text></h2>
+                    <h2 class="q-panel-g-1-header" >Running Onto the Ball<text class="sxd-y"> %.</text></h2>
                     <h1 class="q-panel-g-1-value lg-header-txt"><text id="rob-stat">N/A</text><text class="sxd-y">%</text></h1>
                     <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
-                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared To LA</h4>
                     <h3 class="q-panel-g-1-sa-val xs-small-txt">N/A</h3>
                     <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                    <div id="info-cnt-l">
+                        <img class="info-icon-im season-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
+                    <div id="info-cnt-r">
+                        <img class="info-icon-im league-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
+                    <div id="info-cnt-c">
+                        <img class="info-icon-im-c running-onto-ball" src="{% static 'general/images/info.png' %}">
+                    </div>
                 </div>
                 <div class="gr-panel row-2 col-qrt-2" id="att-opp22-panel-id" data-aos="fade-right">
                     <h2 class="q-panel-g-1-header">Time in Opp '22<text class="sxd-y">.</text></h2>
                     <h1 class="q-panel-g-1-value lg-header-txt"><text id="opp-22-stat">N/A</text></h1>
                     <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
-                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared To LA</h4>
                     <h3 class="q-panel-g-1-sa-val xs-small-txt">N/A</h3>
                     <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                    <div id="info-cnt-l">
+                        <img class="info-icon-im season-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
+                     <div id="info-cnt-r">
+                        <img class="info-icon-im league-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
                 </div>
                 <div class="gr-panel row-2 col-qrt-3" id="att-tbtotal-panel-id" data-aos="fade-right">
                     <h2 class="q-panel-g-1-header">Tackles Broken<text class="sxd-y">.</text></h2>
                     <h1 class="q-panel-g-1-value lg-header-txt"><text id="tb-stat">N/A</text></h1>
                     <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
-                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared To LA</h4>
                     <h3 class="q-panel-g-1-sa-val xs-small-txt">N/A</h3>
                     <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                    <div id="info-cnt-l">
+                        <img class="info-icon-im season-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
+                     <div id="info-cnt-r">
+                        <img class="info-icon-im league-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
                 </div>
                 <div class="gr-panel row-2 col-qrt-4" id="att-pvisit22-panel-id" data-aos="fade-right">
                     <h2 class="q-panel-g-1-header">Points / Visit to '22<text class="sxd-y">.</text></h2>
                     <h1 class="q-panel-g-1-value lg-header-txt"><text id="pts-22-stat">N/A</text></h1>
                     <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
-                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared To LA</h4>
                     <h3 class="q-panel-g-1-sa-val xs-small-txt">N/A</h3>
                     <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                    <div id="info-cnt-l">
+                        <img class="info-icon-im season-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
+                     <div id="info-cnt-r">
+                        <img class="info-icon-im league-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
+                    <div id="info-cnt-c">
+                        <img class="info-icon-im-c points-per-visit" src="{% static 'general/images/info.png' %}">
+                    </div>
                 </div>
                 <div class="gr-panel row-3-4 col-full" id="att-meters-gained-grph-cnt" data-aos="fade-right">
                     <h2 id="graph-title"><text class="sxd-y">%</text> of the Time Meters Were Gained<text class="sxd-y">.</text></h2>
                     <div id="mg-graph-cnt">
                         <canvas id="mg-graph-canv"></canvas>
+                    </div>
+                    <div id="info-cnt-bc">
+                        <img class="info-icon-im-bc pct-times-meters-gained" src="{% static 'general/images/info.png' %}">
                     </div>
                 </div>
             `;
@@ -488,6 +643,7 @@
             $("#tc-header-txt").html("Attack<text class='sxd-y'>.</text>");
             $("#main-content-tm-centre").html(html_layout);
             fillInfo();
+            toolTips();
             mg_graph_data_arr = [
                 data["game_attack_data"]["'oor_meters_gain_pct'"][0][0], 
                 data["game_attack_data"]["'bm_meters_gain_pct'"][0][0], 
@@ -512,33 +668,57 @@
                     <h2 class="q-panel-g-1-header">Tackles Made Total</h2>
                     <h1 class="q-panel-g-1-value lg-header-txt"><text id="tackles-made-stat">N/A</text></h1>
                     <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
-                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared To LA</h4>
                     <h3 class="q-panel-g-1-sa-val xs-small-txt">N/A</h3>
                     <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                    <div id="info-cnt-l">
+                        <img class="info-icon-im season-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
+                    <div id="info-cnt-r">
+                        <img class="info-icon-im league-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
                 </div>
                 <div class="gr-panel row-1 col-qrt-2" id="def-tackles-missed-panel-id" data-aos="fade-right">
                     <h2 class="q-panel-g-1-header">Tackles Missed</h2>
                     <h1 class="q-panel-g-1-value lg-header-txt"><text id="tackles-missed-stat">N/A</text><text class="sxd-y"></text></h1>
                     <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
-                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared To LA</h4>
                     <h3 class="q-panel-g-1-sa-val xs-small-txt">N/A</h3>
                     <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                    <div id="info-cnt-l">
+                        <img class="info-icon-im season-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
+                    <div id="info-cnt-r">
+                        <img class="info-icon-im league-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
                 </div>
                 <div class="gr-panel row-1 col-qrt-3" id="def-tackles-success-panel-id" data-aos="fade-right">
                     <h2 class="q-panel-g-1-header">Tackles Success<text class="sxd-y"> %.</text></h2>
                     <h1 class="q-panel-g-1-value lg-header-txt"><text id="tackles-success-stat">N/A</text><text class="sxd-y">%</text></h1>
                     <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
-                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared To LA</h4>
                     <h3 class="q-panel-g-1-sa-val xs-small-txt">N/A</h3>
                     <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                    <div id="info-cnt-l">
+                        <img class="info-icon-im season-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
+                    <div id="info-cnt-r">
+                        <img class="info-icon-im league-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
                 </div>
                 <div class="gr-panel row-1 col-qrt-4" id="def-tackles-below-waist-panel-id" data-aos="fade-right">
                     <h2 class="q-panel-g-1-header">Tackles Below Waist<text class="sxd-y"> %.</text></h2>
                     <h1 class="q-panel-g-1-value lg-header-txt"><text id="tackles-below-waist-stat">N/A</text><text class="sxd-y">%</text></h1>
                     <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
-                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared To LA</h4>
                     <h3 class="q-panel-g-1-sa-val xs-small-txt">N/A</h3>
                     <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                    <div id="info-cnt-l">
+                        <img class="info-icon-im season-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
+                    <div id="info-cnt-r">
+                        <img class="info-icon-im league-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
                 </div>
                 <div class="gr-panel row-2-3 col-hlf-1" id="def-tklpos-panel-id" data-aos="fade-right">
                     <h2 id="graph-title-2">Tackle Success<text class="sxd-y"> %</text> by Position<text class="sxd-y">.</text></h2>
@@ -562,17 +742,29 @@
                     <h2 id="graph-title-2">Average Linespeed (time until first contact)<text class="sxd-y">.</text></h2>
                     <h1 class="q-panel-g-1-value lger-txt"><text id="av-linespeed-stat">N/A</text><text class="sxd-y"> s</text></h1>
                     <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
-                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared To LA</h4>
                     <h3 class="q-panel-g-1-sa-val xs-small-txt">N/A</h3>
                     <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                    <div id="info-cnt-l">
+                        <img class="info-icon-im season-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
+                    <div id="info-cnt-r">
+                        <img class="info-icon-im league-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
                 </div>
                 <div class="gr-panel row-6-7 col-hlf-1 hlf" id="def-avgls-panel-id" data-aos="fade-right">
                     <h2 id="graph-title-2">Clean Line Breaks Allowed<text class="sxd-y">.</text></h2>
                     <h1 class="q-panel-g-1-value lger-txt"><text id="linebreaks-total-stat">N/A</text></h1>
                     <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
-                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared To LA</h4>
                     <h3 class="q-panel-g-1-sa-val xs-small-txt">N/A</h3>
                     <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                    <div id="info-cnt-l">
+                        <img class="info-icon-im season-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
+                    <div id="info-cnt-r">
+                        <img class="info-icon-im league-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
                 </div>
                 <div class="gr-panel row-6-7 col-hlf-2 hlf" id="def-avgls-panel-id" data-aos="fade-right">
                     <h2 id="graph-title-2">Line Breaks Allowed by Position<text class="sxd-y">.</text></h2>
@@ -585,6 +777,7 @@
             $("#main-content-tm-centre").html(html_layout);
             
             fillInfo();
+            toolTips();
 
             let rel_data = data["game_defense_data"]
             let ts_graph_data_arr = [
@@ -632,23 +825,38 @@
                     <h2 id="graph-title-2">No. of Kicks Made</h2>
                     <h1 class="q-panel-g-1-value lg-header-txt"><text id="kicks_made_stat">N/A</text></h1>
                     <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
-                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared To LA</h4>
                     <h3 class="q-panel-g-1-sa-val xs-small-txt">N/A</h3>
                     <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                    <div id="info-cnt-l">
+                        <img class="info-icon-im season-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
+                    <div id="info-cnt-r">
+                        <img class="info-icon-im league-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
                 </div>
                 <div class="gr-panel row-1 col-thrd-2" id="pos-kicked-panel-id" data-aos="fade-right">
                     <h2 id="graph-title-2"><text class="sxd-y">%</text> of Posession Kicked<text class="sxd-y">.</text></h2>
                     <div id="pos-kicked-graph-cnt">
                         <canvas id="pos-kicked-graph"></canvas>
                     </div>
+                    <div id="info-cnt-r">
+                        <img class="info-icon-im pct-posession-kicked" src="{% static 'general/images/info.png' %}">
+                    </div>
                 </div>
                 <div class="gr-panel row-1 col-thrd-3" id="kicks-full-panel-id" data-aos="fade-right">
                     <h2 id="graph-title-2">No. of Kicks Out On Full</h2>
                     <h1 class="q-panel-g-1-value lg-header-txt"><text id="kicks_out_full_stat">N/A</text></h1>
                     <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
-                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared To LA</h4>
                     <h3 class="q-panel-g-1-sa-val xs-small-txt">N/A</h3>
                     <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                    <div id="info-cnt-l">
+                        <img class="info-icon-im season-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
+                    <div id="info-cnt-r">
+                        <img class="info-icon-im league-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
                 </div>
                 <div class="gr-panel row-2-3 col-hlf-1" id="type-kicks-panel-id" data-aos="fade-right">
                     <h2 id="graph-title-2">Types of Kicks Made<text class="sxd-y">.</text></h2>
@@ -672,14 +880,21 @@
                     <h2 id="graph-title-2">Goal Kicking <text class="sxd-y">%</text></h2>
                     <h1 class="q-panel-g-1-value lg-header-txt"><text id="gk_pct_stat">N/A</text><text class="sxd-y">%</text></h1>
                     <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
-                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared To LA</h4>
                     <h3 class="q-panel-g-1-sa-val xs-small-txt">N/A</h3>
                     <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                    <div id="info-cnt-l">
+                        <img class="info-icon-im season-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
+                    <div id="info-cnt-r">
+                        <img class="info-icon-im league-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
                 </div>
             `;
             $("#tc-header-txt").html("Kicking Game<text class='sxd-y'>.</text>");
             $("#main-content-tm-centre").html(html_layout);
             fillInfo();
+            toolTips();
             
             let rel_data = data["game_kg_data"];
             let tkm_graph_data_arr = [
@@ -733,25 +948,43 @@
                     <h2 class="q-panel-g-1-header">Overall Pass Success <text class="sxd-y">%</text></h2>
                     <h1 class="q-panel-g-1-value lg-header-txt"><text id="pass_success_pct_stat">N/A</text><text class="sxd-y">%</text></h1>
                     <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
-                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared To LA</h4>
                     <h3 class="q-panel-g-1-sa-val xs-small-txt">N/A</h3>
                     <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                    <div id="info-cnt-l">
+                        <img class="info-icon-im season-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
+                    <div id="info-cnt-r">
+                        <img class="info-icon-im league-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
                 </div>
                 <div class="gr-panel row-1 col-thrd-2" id="total-success-pass-panel-id" data-aos="fade-right">
                     <h2 class="q-panel-g-1-header">Total Passes Made<text class="sxd-y">.</text></h2>
                     <h1 class="q-panel-g-1-value lg-header-txt"><text id="pass_success_total_stat">N/A</text></h1>
                     <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
-                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared To LA</h4>
                     <h3 class="q-panel-g-1-sa-val xs-small-txt">N/A</h3>
                     <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                    <div id="info-cnt-l">
+                        <img class="info-icon-im season-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
+                    <div id="info-cnt-r">
+                        <img class="info-icon-im league-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
                 </div>
                 <div class="gr-panel row-1 col-thrd-3" id="total-unsuccessful-pass-panel-id" data-aos="fade-right">
                     <h2 class="q-panel-g-1-header">Total Unsuccessful Passes Made<text class="sxd-y">.</text></h2>
                     <h1 class="q-panel-g-1-value lg-header-txt"><text id="pass_failed_total_stat">N/A</text></h1>
                     <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
-                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared To LA</h4>
                     <h3 class="q-panel-g-1-sa-val xs-small-txt">N/A</h3>
                     <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                    <div id="info-cnt-l">
+                        <img class="info-icon-im season-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
+                    <div id="info-cnt-r">
+                        <img class="info-icon-im league-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
                 </div>
                 <div class="gr-panel row-2-3 col-full" id="ps-type-panel-id" data-aos="fade-right">
                     <h2 id="graph-title-2">Pass Success <text class="sxd-y">% </text>by Type of Pass</h2>
@@ -763,20 +996,30 @@
                     <h2 id="graph-title-2">Total Handling Errors Made<text class="sxd-y">.</text></h2>
                     <h1 class="q-panel-g-1-value lg-header-txt"><text id="total_handling_errors_stat">N/A</text></h1>
                     <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
-                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared To LA</h4>
                     <h3 class="q-panel-g-1-sa-val xs-small-txt">N/A</h3>
                     <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                    <div id="info-cnt-l">
+                        <img class="info-icon-im season-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
+                    <div id="info-cnt-r">
+                        <img class="info-icon-im league-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
                 </div>
                 <div class="gr-panel row-4-5 col-hlf-2" id="typ-he-panel-id" data-aos="fade-right">
                     <h2 id="graph-title-2">Type of Handling Errors Made</h2>
                     <div id="ts-pos-graph-cnt">
                         <canvas id="type_handling_errors_graph"></canvas>
                     </div>
+                    <div id="info-cnt-mc">
+                        <img class="info-icon-im type-handling-errors-made" src="{% static 'general/images/info.png' %}">
+                    </div>
                 </div>
             `;
             $("#tc-header-txt").html("Ball Handling<text class='sxd-y'>.</text>");
             $("#main-content-tm-centre").html(html_layout);
             fillInfo();
+            toolTips();
 
             let rel_data = data["game_bh_data"];
             let ps_type_graph_data_arr = [
@@ -817,53 +1060,87 @@
                     <h2 class="q-panel-g-1-header">Total Rucks Retained<text class="sxd-y">.</text></h2>
                     <h1 class="q-panel-g-1-value lg-header-txt"><text id="ruck_won_stat">N/A</text></h1>
                     <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
-                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared To LA</h4>
                     <h3 class="q-panel-g-1-sa-val xs-small-txt">N/A</h3>
                     <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                    <div id="info-cnt-l">
+                        <img class="info-icon-im season-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
+                    <div id="info-cnt-r">
+                        <img class="info-icon-im league-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
                 </div>
                 <div class="gr-panel row-1 col-thrd-2" id="total-rl-panel-id" data-aos="fade-right">
                     <h2 class="q-panel-g-1-header">Total Rucks Lost<text class="sxd-y">.</text></h2>
                     <h1 class="q-panel-g-1-value lg-header-txt"><text id="total_rucks_lost_stat">N/A</text></h1>
                     <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
-                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared To LA</h4>
                     <h3 class="q-panel-g-1-sa-val xs-small-txt">N/A</h3>
                     <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                    <div id="info-cnt-l">
+                        <img class="info-icon-im season-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
+                    <div id="info-cnt-r">
+                        <img class="info-icon-im league-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
                 </div>
                 <div class="gr-panel row-1 col-thrd-3" id="total-rs-panel-id" data-aos="fade-right">
                     <h2 class="q-panel-g-1-header">Total Ruck Steals<text class="sxd-y">.</text></h2>
                     <h1 class="q-panel-g-1-value lg-header-txt"><text id="total_ruck_steals_stat">N/A</text></h1>
                     <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
-                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared To LA</h4>
                     <h3 class="q-panel-g-1-sa-val xs-small-txt">N/A</h3>
                     <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                    <div id="info-cnt-l">
+                        <img class="info-icon-im season-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
+                    <div id="info-cnt-r">
+                        <img class="info-icon-im league-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
                 </div>
                 <div class="gr-panel row-2-3 col-full" id="rspeed-panel-id" data-aos="fade-right">
                     <h2 id="graph-title-2">Ruck Recycle Speed %</h2>
                     <div id="ts-pos-graph-cnt">
                         <canvas id="ruck_recycle_speed_graph"></canvas>
                     </div>
+                    <div id="info-cnt-bc">
+                        <img class="info-icon-im ruck-recycle-speed" src="{% static 'general/images/info.png' %}">
+                    </div>
                 </div>
                 <div class="gr-panel row-4-5 col-hlf-2 hlf" id="ruck-infrigements-allowed-panel-id" data-aos="fade-right">
                     <h2 id="graph-title-2">Ruck Infringements Made<text class="sxd-y">.</text></h2>
                     <h1 class="q-panel-g-1-value lg-header-txt"><text id="ruck_infringments_stat">N/A</text></h1>
                     <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
-                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared To LA</h4>
                     <h3 class="q-panel-g-1-sa-val xs-small-txt">N/A</h3>
                     <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                    <div id="info-cnt-l">
+                        <img class="info-icon-im season-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
+                    <div id="info-cnt-r">
+                        <img class="info-icon-im league-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
                 </div>
                 <div class="gr-panel row-4-5 col-hlf-1 hlf" id="ruck-steals-allowed-panel-id" data-aos="fade-right">
                     <h2 id="graph-title-2">Ruck Steals Allowed<text class="sxd-y">.</text></h2>
                     <h1 class="q-panel-g-1-value lg-header-txt"><text id="ruck_steals_allowed_stat">N/A</text></h1>
                     <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
-                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared To LA</h4>
                     <h3 class="q-panel-g-1-sa-val xs-small-txt">N/A</h3>
                     <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                    <div id="info-cnt-l">
+                        <img class="info-icon-im season-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
+                    <div id="info-cnt-r">
+                        <img class="info-icon-im league-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
                 </div>
                 
             `;
             $("#tc-header-txt").html("The Breakdown<text class='sxd-y'>.</text>");
             $("#main-content-tm-centre").html(html_layout);
             fillInfo();
+            toolTips();
             let rel_data = data["game_breakdown_data"];
             let rr_speed_graph_data_arr = [
                 rel_data["'ruck_recycle_speed_pct_03'"][0][0], 
@@ -887,36 +1164,60 @@
             setGridSize(0);
             let html_layout = `
                 <div class="gr-panel row-1 col-hlf-1" id="own-lineout-success-panel-id" data-aos="fade-right">
-                    <h2 class="q-panel-g-1-header">Own Lineout Throw Success<text class="sxd-y">%</text></h2>
+                    <h2 class="q-panel-g-1-header">Own Lineout Throw Success<text class="sxd-y"> %</text></h2>
                     <h1 class="q-panel-g-1-value lg-header-txt"><text id="own_lineout_success_stat">N/A</text></h1>
                     <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
-                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared To LA</h4>
                     <h3 class="q-panel-g-1-sa-val xs-small-txt">N/A</h3>
                     <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                    <div id="info-cnt-l">
+                        <img class="info-icon-im season-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
+                    <div id="info-cnt-r">
+                        <img class="info-icon-im league-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
                 </div>
                 <div class="gr-panel row-1 col-hlf-2" id="opp-lineout-success-panel-id" data-aos="fade-right">
-                    <h2 class="q-panel-g-1-header">Opposition Lineout Throw Success<text class="sxd-y">%.%</text></h2>
+                    <h2 class="q-panel-g-1-header">Opposition Lineout Throw Success<text class="sxd-y"> %</text></h2>
                     <h1 class="q-panel-g-1-value lg-header-txt"><text id="opp_throw_success_stat">N/A</text></h1>
                     <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
-                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared To LA</h4>
                     <h3 class="q-panel-g-1-sa-val xs-small-txt">N/A</h3>
                     <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                    <div id="info-cnt-l">
+                        <img class="info-icon-im season-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
+                    <div id="info-cnt-r">
+                        <img class="info-icon-im league-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
                 </div>
                 <div class="gr-panel row-2 col-hlf-1" id="own-scrum-success-panel-id" data-aos="fade-right">
-                    <h2 class="q-panel-g-1-header">Own Scrum Success<text class="sxd-y">%</text></h2>
+                    <h2 class="q-panel-g-1-header">Own Scrum Success<text class="sxd-y"> %</text></h2>
                     <h1 class="q-panel-g-1-value lg-header-txt"><text id="own_scrum_success_stat">N/A</text></h1>
                     <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
-                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared To LA</h4>
                     <h3 class="q-panel-g-1-sa-val xs-small-txt">N/A</h3>
                     <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                    <div id="info-cnt-l">
+                        <img class="info-icon-im season-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
+                    <div id="info-cnt-r">
+                        <img class="info-icon-im league-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
                 </div>
                 <div class="gr-panel row-2 col-hlf-2" id="opp-scrum-success-panel-id" data-aos="fade-right">
-                    <h2 class="q-panel-g-1-header">Opp Scrum Success<text class="sxd-y">%</text></h2>
+                    <h2 class="q-panel-g-1-header">Opp Scrum Success<text class="sxd-y"> %</text></h2>
                     <h1 class="q-panel-g-1-value lg-header-txt"><text id="opp_scrum_success_stat">N/A</text></h1>
                     <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
-                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared To LA</h4>
                     <h3 class="q-panel-g-1-sa-val xs-small-txt">N/A</h3>
                     <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                    <div id="info-cnt-l">
+                        <img class="info-icon-im season-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
+                    <div id="info-cnt-r">
+                        <img class="info-icon-im league-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
                 </div>
                 <div class="gr-panel row-3-4 col-full" id="set-piece-to-try-panel-id" data-aos="fade-right">
                     <h2 id="graph-title-2">Tries off of Set Piece<text class="sxd-y">.</text></h2>
@@ -928,17 +1229,29 @@
                     <h2 class="q-panel-g-1-header">Total Lineouts Stolen<text class="sxd-y">.</text></h2>
                     <h1 class="q-panel-g-1-value lg-header-txt"><text id="total_lineouts_stolen_stat">N/A</text></h1>
                     <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
-                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared To LA</h4>
                     <h3 class="q-panel-g-1-sa-val xs-small-txt">N/A</h3>
                     <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                    <div id="info-cnt-l">
+                        <img class="info-icon-im season-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
+                    <div id="info-cnt-r">
+                        <img class="info-icon-im league-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
                 </div>
                 <div class="gr-panel row-5 col-hlf-2" id="total-scrums-stolen-panel-id" data-aos="fade-right">
                     <h2 class="q-panel-g-1-header">Total Scrums Stolen<text class="sxd-y">.</text></h2>
                     <h1 class="q-panel-g-1-value lg-header-txt"><text id="total_scrums_stolen_stat">N/A</text></h1>
                     <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
-                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
+                    <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared To LA</h4>
                     <h3 class="q-panel-g-1-sa-val xs-small-txt">N/A</h3>
                     <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                    <div id="info-cnt-l">
+                        <img class="info-icon-im season-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
+                    <div id="info-cnt-r">
+                        <img class="info-icon-im league-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
                 </div>
 
                 
@@ -946,6 +1259,7 @@
             $("#tc-header-txt").html("Set Piece<text class='sxd-y'>.</text>");
             $("#main-content-tm-centre").html(html_layout);
             fillInfo();
+            toolTips();
             let rel_data = data["game_sp_data"];
             let sp_tries_graph_data_arr = [
                 rel_data["'tries_off_set_piece_scrum'"][0][0], 
@@ -973,7 +1287,13 @@
                     <h4 class="q-panel-g-1-sa-txt xs-small-txt">Compared to SA</h4>
                     <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
                     <h3 class="q-panel-g-1-sa-val xs-small-txt">N/A</h3>
-                    <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                    <h3 class="q-panel-g-1-la-val xs-small-txt sxd-red">-5%</h3>
+                    <div id="info-cnt-l">
+                        <img class="info-icon-im season-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
+                    <div id="info-cnt-r">
+                        <img class="info-icon-im league-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
                 </div>
                 <div class="gr-panel row-1 col-hlf-2" id="pts-frm-pens-panel-id" data-aos="fade-right">
                     <h2 class="q-panel-g-1-header">Points Allowed from Penalties<text class="sxd-y">.</text></h2>
@@ -982,6 +1302,15 @@
                     <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
                     <h3 class="q-panel-g-1-sa-val xs-small-txt">N/A</h3>
                     <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                    <div id="info-cnt-l">
+                        <img class="info-icon-im season-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
+                    <div id="info-cnt-r">
+                        <img class="info-icon-im league-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
+                    <div id="info-cnt-c">
+                        <img class="info-icon-im points-allowed-from-pens" src="{% static 'general/images/info.png' %}">
+                    </div>
                 </div>
                 <div class="gr-panel row-2-3 col-full" id="type-pen-panel-id" data-aos="fade-right">
                     <h2 id="graph-title-2">Types of Penalties Conceded<text class="sxd-y">.</text></h2>
@@ -996,6 +1325,12 @@
                     <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
                     <h3 class="q-panel-g-1-sa-val xs-small-txt">N/A</h3>
                     <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                    <div id="info-cnt-l">
+                        <img class="info-icon-im season-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
+                    <div id="info-cnt-r">
+                        <img class="info-icon-im league-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
                 </div>
                 <div class="gr-panel row-4 col-thrd-2" id="dang-re-panel-id" data-aos="fade-right">
                     <h2 class="q-panel-g-1-header">Dangerous Ruck Entries<text class="sxd-y">.</text></h2>
@@ -1004,6 +1339,12 @@
                     <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
                     <h3 class="q-panel-g-1-sa-val xs-small-txt">N/A</h3>
                     <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                    <div id="info-cnt-l">
+                        <img class="info-icon-im season-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
+                    <div id="info-cnt-r">
+                        <img class="info-icon-im league-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
                 </div>
                 <div class="gr-panel row-4 col-thrd-3" id="offsides-panel-id" data-aos="fade-right">
                     <h2 class="q-panel-g-1-header">Offsides Commited<text class="sxd-y">.</text></h2>
@@ -1012,11 +1353,18 @@
                     <h4 class="q-panel-g-1-la-txt xs-small-txt">Compared to LA</h4>
                     <h3 class="q-panel-g-1-sa-val xs-small-txt">N/A</h3>
                     <h3 class="q-panel-g-1-la-val xs-small-txt">+1%</h3>
+                    <div id="info-cnt-l">
+                        <img class="info-icon-im season-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
+                    <div id="info-cnt-r">
+                        <img class="info-icon-im league-av-txt" src="{% static 'general/images/info.png' %}">
+                    </div>
                 </div>
             `
             $("#tc-header-txt").html("Discipline<text class='sxd-y'>.</text>");
             $("#main-content-tm-centre").html(html_layout);
             fillInfo();
+            toolTips();
             
             let rel_data = data["game_discipline_data"];
             let pens_graph_data_arr = [
@@ -1028,7 +1376,7 @@
             ]
             TypesOfPenaltiesGraph(pens_graph_data_arr);
         };
-
+        toolTips();
          // Show overview as default
         displayOverview();
         //displayAttack();
@@ -1039,5 +1387,8 @@
         //displaySetPiece();
         //displayDiscipline();
 
+
+
+        
     </script>
 {% endblock %}
