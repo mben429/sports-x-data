@@ -76,4 +76,8 @@ body {
 	justify-content: center; 
 }
 
+#pos-kicked-graph {
+	z-index: 0;
+}
+
 
