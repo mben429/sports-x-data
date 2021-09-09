@@ -166,8 +166,12 @@
     cursor: pointer;
 }
 
-.side-txt:hover {
+/*.side-txt:hover {
     color: var(--sxd-yellow);
+}
+*/
+.side-txt:target {
+	color: var(--sxd-yellow);
 }
 
 .cntr {

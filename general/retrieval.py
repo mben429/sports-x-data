@@ -86,7 +86,6 @@ def get_game_event_data(game_id):
         exec_str = 'SELECT * FROM general_game_event WHERE general_game_event.game_name_id = ' + str(game_id) + ';'
         cursor.execute(exec_str)
         curr_game_event_data = cursor.fetchall()
-    print(curr_game_event_data)
     return curr_game_event_data   
 
 

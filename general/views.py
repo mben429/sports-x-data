@@ -8,7 +8,6 @@ def index(request):
     context = {
         "title": "Sports x Data | Digital Tools and Services for Rugby Teams"
     }
-    print("Current team is Logged in: ", request.user)
     return render(request, "index.html", context)
 
 def plans(request):

@@ -30,49 +30,49 @@
                     <li id="side-bar-menu-item" class="flex-centre">
                         <a class="btn-anim basic-btns hvr-icon-spin" onclick="displayOverview();">
                             <img class="mc-nav-icons hvr-icon" src="{% static 'general/images/schedule.png' %}">
-                            <text class="side-txt">Overview</text>
+                            <text class="side-txt" id="ov-btn">Overview</text>
                         </a>
                     </li>
                     <li id="side-bar-menu-item" class="flex-centre">
                         <a class="btn-anim basic-btns hvr-icon-spin" onclick="displayAttack();">
                             <img class="mc-nav-icons hvr-icon" src="{% static 'general/images/attack.png' %}">
-                            <text class="side-txt">Attack</text>
+                            <text class="side-txt" id="att-btn">Attack</text>
                         </a>
                     </li>
                     <li id="side-bar-menu-item" class="flex-centre">
                         <a class="btn-anim basic-btns hvr-icon-spin" onclick="displayDefense();">
                             <img class="mc-nav-icons hvr-icon" src="{% static 'general/images/defense.png' %}">
-                            <text class="side-txt">Defense</text>
+                            <text class="side-txt" id="def-btn">Defense</text>
                         </a>
                     </li>
                    <li id="side-bar-menu-item" class="flex-centre">
                         <a class="btn-anim basic-btns hvr-icon-spin" onclick="displayKickingGame();">
                             <img class="mc-nav-icons hvr-icon" src="{% static 'general/images/kicking.png' %}">
-                            <text class="side-txt">Kicking Game</text>
+                            <text class="side-txt" id="kg-btn">Kicking Game</text>
                         </a>
                     </li>
                     <li id="side-bar-menu-item" class="flex-centre">
                         <a class="btn-anim basic-btns hvr-icon-spin" onclick="displayBallHandling();">
                             <img class="mc-nav-icons hvr-icon" src="{% static 'general/images/bh.png' %}">
-                            <text class="side-txt">Ball Handling</text>
+                            <text class="side-txt" id="bh-btn">Ball Handling</text>
                         </a>
                     </li>
                     <li id="side-bar-menu-item" class="flex-centre">
                         <a class="btn-anim basic-btns hvr-icon-spin" onclick="displayRucks();">
                             <img class="mc-nav-icons hvr-icon" src="{% static 'general/images/breakdown.png' %}">
-                            <text class="side-txt">Breakdown</text>
+                            <text class="side-txt" id="rucks-btn">Breakdown</text>
                         </a>
                     </li>
                     <li id="side-bar-menu-item" class="flex-centre">
                         <a class="btn-anim basic-btns hvr-icon-spin" onclick="displaySetPiece();">
                             <img class="mc-nav-icons hvr-icon" src="{% static 'general/images/setpiece.png' %}">
-                            <text class="side-txt">Set Piece</text>
+                            <text class="side-txt" id="sp-btn">Set Piece</text>
                         </a>
                     </li>
                     <li id="side-bar-menu-item" class="flex-centre">
                         <a class="btn-anim basic-btns hvr-icon-spin" onclick="displayDiscipline();">
                             <img class="mc-nav-icons hvr-icon" src="{% static 'general/images/discipline.png' %}">
-                            <text class="side-txt">Discipline</text>
+                            <text class="side-txt" id="disc-btn">Discipline</text>
                         </a>
                     </li>
                 </ul>
@@ -107,10 +107,7 @@
         var data = JSON.parse("{{ data|escapejs }}");
         var game_id = "{{ game_id }}";
         var curr_team = "{{ user.get_username }}";
-        console.log("Current Team is: ", curr_team);
         var game_id_int = parseInt(game_id);
-        console.log("Current Game Data", data);
-        console.log("Current Game ID: ", game_id);
     
         // Get current team against
         const getTeamAgainst = () => {
@@ -388,9 +385,32 @@
             setDisciplineStats();
         }
 
+        
+
+        const setNavBtnColors = (btn_clicked_id) => {
+            let list_of_nav_btns = [
+                "#ov-btn",
+                "#att-btn",
+                "#def-btn",
+                "#kg-btn",
+                "#bh-btn",
+                "#rucks-btn",
+                "#sp-btn",
+                "#disc-btn"
+            ];
+            for(let i = 0; i < list_of_nav_btns.length; i++){
+                let curr_btn = list_of_nav_btns[i];
+                console.log("Button Color", curr_btn);
+                if (curr_btn !== btn_clicked_id){
+                    $(curr_btn).css('color', 'white');
+                }
+                else {
+                    $(curr_btn).css('color', '#f8bd41');
+                }
+            }
+        }
 
         const displayOverview = () => {
-            console.log("Displaying Overview Stats");
             $(".cnt-overall").attr("id", "cnt-overview-mc");
             $("#middle-col").css({
                 "grid-row-end": "51",
@@ -400,7 +420,13 @@
                 "grid-row-end": "51",
                 "grid-template-rows": "repeat(48, 1fr)"
             });
+
+            // Set Nav Button colors
+            let btn_id = '#ov-btn';
+            setNavBtnColors(btn_id);
             setGridSize(1);
+
+
             let html_layout = `
                 <div class="gr-panel row-1 col-hlf-1" id="basic-stats-panel-id" data-aos="fade-right">
                     <div id="result-letter-big"><text class="sxd-g xll-header-txt" id="result-letter">W</text></div>
@@ -541,7 +567,12 @@
                 "grid-row-end": "51",
                 "grid-template-rows": "repeat(48, 1fr)"
             });
+
+            // Set Nav Button colors
+            let btn_id = '#att-btn';
+            setNavBtnColors(btn_id);
             setGridSize(1);
+            
             let html_layout = `
                 <div class="gr-panel row-1 col-3q" id="att-tries-panel-id" data-aos="fade-right">
                     <div class="q-panel-g-1-header med-2-std-txt cntr">Tries<text class="sxd-y">.</text></div>
@@ -662,6 +693,11 @@
                 "grid-row-end": "71",
                 "grid-template-rows": "repeat(71, 1fr)"
             });
+
+            // Set Nav Button colors
+            let btn_id = '#def-btn';
+            setNavBtnColors(btn_id);
+
             setGridSize(1);
             let html_layout = `
                 <div class="gr-panel row-1 col-qrt-1" id="def-tackles-made-panel-id" data-aos="fade-right">
@@ -819,6 +855,11 @@
                 "grid-row-end": "51",
                 "grid-template-rows": "repeat(48, 1fr)"
             });
+
+            // Set Nav Button colors
+            let btn_id = '#kg-btn';
+            setNavBtnColors(btn_id);
+
             setGridSize(1);
             let html_layout = `
                 <div class="gr-panel row-1 col-thrd-1" id="kicks-made-panel-id" data-aos="fade-right">
@@ -942,6 +983,11 @@
                 "grid-row-end": "51",
                 "grid-template-rows": "repeat(48, 1fr)"
             });
+
+            // Set Nav Button colors
+            let btn_id = '#bh-btn';
+            setNavBtnColors(btn_id);
+
             setGridSize(1);
             let html_layout = `
                 <div class="gr-panel row-1 col-thrd-1" id="pass-success-panel-id" data-aos="fade-right">
@@ -1054,6 +1100,11 @@
                 "grid-row-end": "51",
                 "grid-template-rows": "repeat(48, 1fr)"
             });
+
+            // Set Nav Button colors
+            let btn_id = '#rucks-btn';
+            setNavBtnColors(btn_id);
+
             setGridSize(1);
             let html_layout = `
                 <div class="gr-panel row-1 col-thrd-1" id="total-rw-panel-id" data-aos="fade-right">
@@ -1161,6 +1212,11 @@
                 "grid-row-end": "71",
                 "grid-template-rows": "repeat(71, 1fr)"
             });
+
+            // Set Nav Button colors
+            let btn_id = '#sp-btn';
+            setNavBtnColors(btn_id);
+
             setGridSize(0);
             let html_layout = `
                 <div class="gr-panel row-1 col-hlf-1" id="own-lineout-success-panel-id" data-aos="fade-right">
@@ -1279,6 +1335,11 @@
                 "grid-row-end": "51",
                 "grid-template-rows": "repeat(48, 1fr)"
             });
+
+            // Set Nav Button colors
+            let btn_id = '#disc-btn';
+            setNavBtnColors(btn_id);
+
             setGridSize(1);
             let html_layout = `
                 <div class="gr-panel row-1 col-hlf-1" id="tot-pen-conc-panel-id" data-aos="fade-right">

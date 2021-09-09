@@ -82,7 +82,6 @@ def loginView(request):
             
             if user is not None:
                 login(request, user)
-                print("Current team username is: ", request.user.username)
                 
                 # Redirect TeamTestName Login
                 if team_user_name == "TeamTestName":
