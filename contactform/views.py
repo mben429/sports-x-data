@@ -17,12 +17,13 @@ def contactView(request):
             user_email = form.cleaned_data['user_email']
             user_message = form.cleaned_data['user_message']
             user_name = form.cleaned_data['user_name']
-            user_subject = form.cleaned_data["user_subject"]
 
+            combined_subject = user_name + " | " + user_org + " | " + "Getting in Touch"
+            combined_body = "Name: \n" + user_name + "\n\n" + "Org/Team: \n" + user_org + "\n\n" + "Message: \n" + user_message
             recipient = ["mtbennett9010@gmail.com"]
             #send_mail(user_subject, user_message, user_email, recipient, connection=con)
 
-            message = EmailMultiAlternatives(user_subject, user_message, user_email, recipient)
+            message = EmailMultiAlternatives(subject=combined_subject, body=combined_body, from_email=user_email, to=recipient)
             message.send()
             return redirect('success')
 
@@ -30,5 +31,5 @@ def contactView(request):
 
 
 def successView(request):
-    return render(request, "success.html")
+    return render(request, "success.html", {"title": "Success"})
 
