@@ -358,6 +358,7 @@
           text-align: left;
           font-size: 0.75em;
           padding-left: 10px;
+          padding-top: 2.5em;
       }
     
       /*Login page styles*/
@@ -469,8 +470,6 @@
     grid-template-columns: repeat(24, 1fr);
     grid-template-rows: repeat(71, 1em);
   }
-
-  
 
   .fixed-pos { 
     position: fixed;
